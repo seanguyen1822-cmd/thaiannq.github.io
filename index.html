@@ -20,6 +20,11 @@
     --navy:#101A22;
     --card:#FFFFFF;
     --radius:2px;
+    --coral:#D8503A; --coral-bg:#FBEAE5;
+    --violet:#6C5CE0; --violet-bg:#EDEBFB;
+    --blue:#2C6FBB; --blue-bg:#E7F0FA;
+    --gold:#C08A1E; --gold-bg:#FBF1DE;
+    --pink:#C24B78; --pink-bg:#FBEAF1;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -256,6 +261,18 @@
     color:var(--ink);
     margin:0 0 16px;
   }
+  .case-img{
+    width:100%;
+    display:block;
+    border:1px solid var(--line);
+    margin:18px 0 6px;
+  }
+  .case-img-caption{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin:0 0 18px;
+  }
   .findings{
     margin:18px 0 0;
     padding:0;
@@ -285,6 +302,70 @@
     padding:10px 14px;
     border-radius:2px;
   }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .about-story p{
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+  .trait-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+  }
+  .trait-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+  }
+  .trait-chip .dot{
+    width:8px;height:8px;border-radius:50%;
+  }
+  .trait-chip.coral{background:var(--coral-bg);color:var(--coral);}
+  .trait-chip.coral .dot{background:var(--coral);}
+  .trait-chip.violet{background:var(--violet-bg);color:var(--violet);}
+  .trait-chip.violet .dot{background:var(--violet);}
+  .trait-chip.blue{background:var(--blue-bg);color:var(--blue);}
+  .trait-chip.blue .dot{background:var(--blue);}
+
+  .hobby-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .hobby-chip{
+    padding:14px 16px;
+    border-radius:12px;
+    font-size:13px;
+  }
+  .hobby-chip .h-label{
+    font-weight:600;
+    display:block;
+    margin-bottom:3px;
+  }
+  .hobby-chip .h-detail{
+    color:inherit;
+    opacity:0.75;
+    font-size:12.5px;
+  }
+  .hobby-chip.coral{background:var(--coral-bg);color:var(--coral);}
+  .hobby-chip.violet{background:var(--violet-bg);color:var(--violet);}
+  .hobby-chip.blue{background:var(--blue-bg);color:var(--blue);}
+  .hobby-chip.gold{background:var(--gold-bg);color:var(--gold);}
+  .hobby-chip.pink{background:var(--pink-bg);color:var(--pink);}
+  .hobby-chip.teal{background:var(--teal-dim);color:var(--teal);}
 
   /* SKILLS */
   .skill-grid{
@@ -349,6 +430,8 @@
     .case-meta{border-right:none;border-bottom:1px solid var(--line);}
     .skill-grid{grid-template-columns:1fr 1fr;}
     .navlinks{display:none;}
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .hobby-grid{grid-template-columns:1fr 1fr;}
   }
   :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   @media (prefers-reduced-motion: reduce){
@@ -362,6 +445,7 @@
   <nav class="wrap">
     <div class="brand">Thái An <span>/ DA</span></div>
     <div class="navlinks">
+      <a href="#about">Về tôi</a>
       <a href="#projects">Dự án</a>
       <a href="#skills">Kỹ năng</a>
       <a href="#contact">Liên hệ</a>
@@ -388,12 +472,48 @@
         <div class="label">Power BI report — E-wallet Success Rate (Overview, Funnel, Root Cause, Revenue Pareto, Retention)</div>
       </div>
       <div class="kpi">
-        <div class="num">03<sup>nền tảng</sup></div>
-        <div class="label">Facebook · Instagram · Pinterest — Marketing Campaign Dashboard</div>
+        <div class="num">10.6<sup>× ROAS</sup></div>
+        <div class="label">Marketing Campaign Dashboard — Facebook · Instagram · Pinterest, £1.73M revenue trên £163.25K spend</div>
       </div>
       <div class="kpi">
         <div class="num">2<sup>ngôn ngữ</sup></div>
         <div class="label">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="field-label">Về tôi</span>
+        <h2>Từ Kinh doanh thương mại đến Phân tích dữ liệu</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-story">
+        <p>Mình bắt đầu ngành học với Kinh doanh thương mại, nhưng khi đi sâu vào chuyên ngành Phân tích Kinh doanh, niềm đam mê sáng tạo và tìm hiểu trong mình mới thực sự được xây dựng. Mình thích đào sâu để hiểu insight đằng sau những con số, rồi biến chúng thành giải pháp sáng tạo cho một vấn đề cụ thể.</p>
+        <p>Càng học sâu, mình càng nhận ra nghề này cho mình cơ hội liên tục trải nghiệm và tìm hiểu — không chỉ dừng ở những phát hiện cơ bản, mà luôn tìm kiếm những thông tin đột phá hơn.</p>
+        <div class="trait-row">
+          <span class="trait-chip coral"><span class="dot"></span>Tò mò</span>
+          <span class="trait-chip violet"><span class="dot"></span>Kiên trì</span>
+          <span class="trait-chip blue"><span class="dot"></span>Kết nối</span>
+        </div>
+      </div>
+      <div class="about-hobbies">
+        <div class="hobby-grid">
+          <div class="hobby-chip coral"><span class="h-label">Bơi lội</span><span class="h-detail">Vài tháng một lần</span></div>
+          <div class="hobby-chip violet"><span class="h-label">Nhạc pop UK-US</span><span class="h-detail">Nghe hằng ngày</span></div>
+          <div class="hobby-chip teal"><span class="h-label">Đọc sách</span><span class="h-detail">Tâm lý học, phân tích khách hàng, kinh doanh</span></div>
+          <div class="hobby-chip blue"><span class="h-label">PUBG</span><span class="h-detail">Game bắn súng sinh tồn</span></div>
+          <div class="hobby-chip gold"><span class="h-label">Phim &amp; series</span><span class="h-detail">Tâm lý con người, cách con người đối xử với nhau</span></div>
+          <div class="hobby-chip pink"><span class="h-label">Chụp ảnh</span><span class="h-detail">Sáng tạo ngoài công việc</span></div>
+          <div class="hobby-chip coral"><span class="h-label">Du lịch trải nghiệm</span><span class="h-detail">Biển và núi</span></div>
+          <div class="hobby-chip gold"><span class="h-label">Ẩm thực</span><span class="h-detail">Món tủ &amp; đặc sản vùng miền</span></div>
+          <div class="hobby-chip teal"><span class="h-label">Đạp xe</span><span class="h-detail">Vận động ngoài trời</span></div>
+          <div class="hobby-chip violet"><span class="h-label">Ma sói</span><span class="h-detail">Board game chiến thuật</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -433,12 +553,16 @@
       <div class="case-body">
         <h3>E-wallet Payment Success Rate Analysis</h3>
         <div class="role">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
-        <p>Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) để xác định điểm nghẽn trong luồng thanh toán ví điện tử, kết hợp funnel analysis với mô hình Bowtie để truy nguyên nhân gốc.</p>
+        <p>Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) trên bộ dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống của một ví điện tử trong 2 tháng, nhằm xác định điểm nghẽn trong luồng thanh toán và truy nguyên nhân gốc bằng mô hình Bowtie.</p>
+        <img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview">
+        <p class="case-img-caption">Trang Overview — Power BI report</p>
         <ul class="findings">
-          <li>Lỗi xác thực (3DS/OTP) là nguyên nhân chính khiến Success Rate sụt giảm.</li>
-          <li>Billing vừa là rủi ro doanh thu vừa là rủi ro Success Rate — cần theo dõi kép.</li>
-          <li>Phát hiện tín hiệu lỗi hệ thống tại bước phễu 1→2, không phải hành vi người dùng.</li>
+          <li>Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
+          <li>58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
+          <li>Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
         </ul>
+        <img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause">
+        <p class="case-img-caption">Trang Root Cause — phân loại lỗi 3 cấp</p>
       </div>
     </article>
 
@@ -461,12 +585,29 @@
             <span class="tag">Pinterest</span>
           </div>
         </div>
+        <div class="meta-row">
+          <div class="field-label">Mô hình</div>
+          <div class="tags">
+            <span class="tag">Weighted Scoring</span>
+            <span class="tag">Regression (Spend–Revenue)</span>
+          </div>
+        </div>
       </div>
       <div class="case-body">
         <h3>Marketing Campaign Dashboard</h3>
-        <div class="role">Dashboard hợp nhất hiệu suất quảng cáo đa nền tảng</div>
-        <p>Tổng hợp dữ liệu chiến dịch từ Facebook, Instagram và Pinterest vào một dashboard Power BI duy nhất, giúp so sánh hiệu suất giữa các nền tảng trên cùng một khung chỉ số.</p>
-        <div class="placeholder-note">Nội dung chi tiết đang được hoàn thiện — bổ sung chỉ số theo dõi (CTR, CPA, ROAS…), 2–3 phát hiện chính và ảnh chụp dashboard thực tế để hoàn chỉnh case study.</div>
+        <div class="role">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
+        <p>Dashboard Power BI hợp nhất hiệu suất quảng cáo từ Facebook, Instagram và Pinterest, trả lời câu hỏi: ngân sách có đang chi đúng chỗ, và nên phân bổ lại thế nào để tăng doanh thu tháng tới dựa trên số liệu thay vì cảm tính.</p>
+        <img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview">
+        <p class="case-img-caption">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
+        <ul class="findings">
+          <li>Facebook nhận impressions nhiều nhất (37,1%) nhưng ROAS thấp nhất (4,6×–9,8× theo mùa); Pinterest chỉ chiếm thị phần click nhỏ nhất nhưng dẫn đầu ROAS mọi mùa (21,8×–24,0×).</li>
+          <li>Xây mô hình Weighted Scoring (ROAS 50% · CPA 30% · CTR 20%) xếp hạng ba kênh — Pinterest đạt điểm 0,800 (#1), Instagram 0,434 (#2), Facebook 0,139 (#3).</li>
+          <li>Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
+          <li>Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
+        </ul>
+        <img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest">
+        <p class="case-img-caption">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
+        <p>Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
       </div>
     </article>
   </div>
