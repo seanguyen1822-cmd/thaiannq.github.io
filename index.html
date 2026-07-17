@@ -273,6 +273,14 @@
     color:var(--muted);
     margin:0 0 18px;
   }
+  .case-chart{
+    width:100%;
+    display:block;
+    border:1px solid var(--line);
+    background:var(--card);
+    margin:18px 0 6px;
+    padding:6px 0;
+  }
   .findings{
     margin:18px 0 0;
     padding:0;
@@ -367,6 +375,122 @@
   .hobby-chip.pink{background:var(--pink-bg);color:var(--pink);}
   .hobby-chip.teal{background:var(--teal-dim);color:var(--teal);}
 
+  /* RESEARCH VIZ */
+  .viz-block{
+    border:1px solid var(--line);
+    background:var(--paper-dim);
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .viz-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:16px;
+  }
+  /* funnel */
+  .funnel-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .funnel-step{
+    text-align:center;
+    padding:14px 10px;
+    background:var(--card);
+    border:1px solid var(--line);
+  }
+  .funnel-step .fn-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--ink);
+  }
+  .funnel-step .fn-label{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:4px;
+    line-height:1.3;
+  }
+  .funnel-arrow{
+    color:var(--line);
+    font-size:18px;
+    flex:0 0 auto;
+  }
+  .reliability-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .reliability-note b{ color:var(--teal); }
+  /* coefficient chart */
+  .coef-row{
+    display:grid;
+    grid-template-columns:190px 1fr auto;
+    align-items:center;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .coef-row:last-child{ margin-bottom:0; }
+  .coef-label{
+    font-size:13px;
+    color:var(--ink);
+  }
+  .coef-track{
+    height:10px;
+    background:var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    position:relative;
+  }
+  .coef-fill{
+    height:100%;
+    border-radius:6px;
+  }
+  .coef-fill.sig{ background:var(--teal); }
+  .coef-fill.nsig{ background:var(--line); }
+  .coef-value{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    white-space:nowrap;
+    min-width:118px;
+    text-align:right;
+  }
+  .coef-value.sig{ color:var(--teal); font-weight:600; }
+  .viz-legend{
+    display:flex;
+    gap:18px;
+    margin-top:16px;
+    font-size:11.5px;
+    color:var(--muted);
+  }
+  .viz-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .viz-legend i{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  /* r-squared badge */
+  .rsq-wrap{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .rsq-badge{
+    flex:0 0 auto;
+    position:relative;
+    width:96px; height:96px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rsq-badge svg{ position:absolute; inset:0; transform:rotate(-90deg); }
+  .rsq-badge span{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    color:var(--ink);
+    z-index:1;
+  }
+  .rsq-text{ font-size:13px; color:var(--muted); max-width:360px; }
+
   /* SKILLS */
   .skill-grid{
     display:grid;
@@ -432,6 +556,10 @@
     .navlinks{display:none;}
     .about-grid{grid-template-columns:1fr;gap:32px;}
     .hobby-grid{grid-template-columns:1fr 1fr;}
+    .coef-row{grid-template-columns:1fr;gap:6px;}
+    .coef-value{text-align:left;}
+    .funnel-row{flex-wrap:wrap;}
+    .rsq-wrap{flex-direction:column;align-items:flex-start;}
   }
   :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   @media (prefers-reduced-motion: reduce){
@@ -632,11 +760,71 @@
         <h3>Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
         <div class="role">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
         <p>Nghiên cứu định lượng khảo sát 381 người tiêu dùng tại TP.HCM (khảo sát thử n=20) để kiểm định 8 giả thuyết về các nhân tố ảnh hưởng đến ý định tiêu dùng xanh, dùng thang đo Likert 5 điểm với 27 biến quan sát. Phụ trách phần kiểm định thống kê, chạy dữ liệu trên SPSS và viết chương kết quả &amp; ý nghĩa nghiên cứu.</p>
-        <ul class="findings">
-          <li>Phân tích EFA rút gọn 8 nhân tố lý thuyết ban đầu thành 4 nhân tố mới với độ tin cậy Cronbach's Alpha từ 0,778–0,836, đạt giá trị hội tụ và phân biệt — đảm bảo thang đo đủ vững để đưa ra kết luận đáng tin cậy.</li>
-          <li>Mô hình hồi quy (R² hiệu chỉnh = 44,4%) cho thấy chỉ 2/4 nhân tố có ý nghĩa thống kê: Niềm tin tiêu dùng xanh (β=0,140) và Lợi ích tiêu dùng xanh (β=0,454) — tách được đúng đòn bẩy thực sự tác động đến hành vi mua khỏi những yếu tố nghe hợp lý nhưng không đủ sức nặng thống kê.</li>
-          <li>Giá trị mang lại: chỉ ra rằng nhận thức về môi trường hay sức khỏe đơn thuần không đủ để thúc đẩy hành vi mua — một doanh nghiệp muốn tăng doanh số sản phẩm xanh nên ưu tiên ngân sách vào lợi ích thiết thực (giá cả, khuyến mãi) và xây dựng niềm tin qua chứng nhận minh bạch, thay vì chỉ truyền thông "vì môi trường" như cách tiếp cận phổ biến hiện nay.</li>
-        </ul>
+
+        <div class="viz-block">
+          <div class="viz-title">Quy trình rút gọn thang đo</div>
+          <div class="funnel-row">
+            <div class="funnel-step" style="flex:1.6">
+              <div class="fn-num">27</div>
+              <div class="fn-label">biến quan sát<br>ban đầu</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step" style="flex:1">
+              <div class="fn-num">8</div>
+              <div class="fn-label">nhân tố<br>giả thuyết</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step" style="flex:0.7">
+              <div class="fn-num">4</div>
+              <div class="fn-label">nhân tố sau<br>EFA</div>
+            </div>
+          </div>
+          <p class="reliability-note">Độ tin cậy thang đo sau rút gọn: Cronbach's Alpha từ <b>0,778 đến 0,836</b> cho cả 4 nhân tố — trên ngưỡng 0,7 (mức "tốt" theo chuẩn nghiên cứu hành vi).</p>
+        </div>
+
+        <div class="viz-block">
+          <div class="viz-title">Yếu tố nào thực sự tác động đến ý định mua</div>
+          <div class="coef-row">
+            <div class="coef-label">Lợi ích tiêu dùng xanh</div>
+            <div class="coef-track"><div class="coef-fill sig" style="width:91%"></div></div>
+            <div class="coef-value sig">β = 0,454</div>
+          </div>
+          <div class="coef-row">
+            <div class="coef-label">Niềm tin tiêu dùng xanh</div>
+            <div class="coef-track"><div class="coef-fill sig" style="width:28%"></div></div>
+            <div class="coef-value sig">β = 0,140</div>
+          </div>
+          <div class="coef-row">
+            <div class="coef-label">Nhận thức nhãn sinh thái</div>
+            <div class="coef-track"><div class="coef-fill nsig" style="width:6%"></div></div>
+            <div class="coef-value">không có ý nghĩa</div>
+          </div>
+          <div class="coef-row">
+            <div class="coef-label">Nhận thức SK &amp; môi trường</div>
+            <div class="coef-track"><div class="coef-fill nsig" style="width:6%"></div></div>
+            <div class="coef-value">không có ý nghĩa</div>
+          </div>
+          <div class="viz-legend">
+            <span><i style="background:var(--teal)"></i>Có ý nghĩa thống kê (p&lt;0,05)</span>
+            <span><i style="background:var(--line)"></i>Không có ý nghĩa thống kê — loại khỏi mô hình</span>
+          </div>
+        </div>
+
+        <div class="viz-block">
+          <div class="rsq-wrap">
+            <div class="rsq-badge">
+              <svg viewBox="0 0 96 96" width="96" height="96">
+                <circle cx="48" cy="48" r="40" fill="none" stroke="#D9DDD6" stroke-width="8"/>
+                <circle cx="48" cy="48" r="40" fill="none" stroke="#1E6F68" stroke-width="8"
+                  stroke-dasharray="111.6 251.3" stroke-linecap="round"/>
+              </svg>
+              <span>44,4%</span>
+            </div>
+            <p class="rsq-text">Mô hình 2 nhân tố (Niềm tin + Lợi ích) giải thích được <b style="color:var(--ink)">44,4%</b> sự biến thiên trong ý định tiêu dùng xanh (R² hiệu chỉnh) — mức phổ biến và được chấp nhận trong nghiên cứu hành vi tiêu dùng, vốn luôn có nhiều yếu tố tâm lý khó đo lường hết bằng khảo sát.</p>
+          </div>
+        </div>
+
+        <p>Nhận thức về môi trường hay sức khỏe đơn thuần không đủ để thúc đẩy hành vi mua. Một doanh nghiệp muốn tăng doanh số sản phẩm xanh nên ưu tiên ngân sách vào lợi ích thiết thực (giá cả, khuyến mãi) và xây dựng niềm tin qua chứng nhận minh bạch, thay vì chỉ truyền thông "vì môi trường" như cách tiếp cận phổ biến hiện nay.</p>
       </div>
     </article>
   </div>
