@@ -56,12 +56,18 @@
   }
   .field-label::before{
     content:"";
-    width:14px;
-    height:1px;
-    background:var(--teal);
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--coral);
     display:inline-block;
+    flex:0 0 auto;
   }
   a{color:inherit;}
+  .id-strip{
+    height:4px;
+    background:linear-gradient(90deg, var(--coral) 0 25%, var(--teal) 25% 50%, var(--blue) 50% 75%, var(--violet) 75% 100%);
+  }
   .wrap{
     max-width:1080px;
     margin:0 auto;
@@ -89,6 +95,15 @@
     font-size:16px;
   }
   .brand span{color:var(--teal);}
+  .brand::after{
+    content:"";
+    display:inline-block;
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--coral);
+    margin-left:7px;
+    vertical-align:middle;
+  }
   .navlinks{
     display:flex;
     gap:28px;
@@ -114,12 +129,34 @@
   /* HERO */
   .hero{
     padding:96px 0 56px;
+    position:relative;
+    overflow:hidden;
     background-image:
       radial-gradient(circle, rgba(21,32,43,0.07) 1px, transparent 1px);
     background-size:22px 22px;
     background-position:-11px -11px;
   }
-  .hero-inner{max-width:680px;}
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-40px; right:-40px;
+    width:340px; height:340px;
+    border:1.5px solid var(--coral);
+    border-radius:50%;
+    opacity:0.16;
+    pointer-events:none;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:60px; right:120px;
+    width:120px; height:120px;
+    border:1.5px dashed var(--violet);
+    border-radius:50%;
+    opacity:0.18;
+    pointer-events:none;
+  }
+  .hero-inner{max-width:680px; position:relative;}
   .eyebrow{
     font-family:'JetBrains Mono',monospace;
     font-size:12px;
@@ -137,6 +174,20 @@
   h1.headline em{
     font-style:normal;
     color:var(--teal);
+  }
+  .hl{
+    position:relative;
+    white-space:nowrap;
+    padding:0 2px;
+  }
+  .hl::before{
+    content:"";
+    position:absolute;
+    left:-3px; right:-3px; bottom:2px; top:38%;
+    background:var(--coral-bg);
+    border-radius:3px 8px 4px 9px/6px 4px 9px 3px;
+    z-index:-1;
+    transform:rotate(-0.6deg);
   }
   .lede{
     margin-top:20px;
@@ -249,6 +300,8 @@
     color:var(--teal);
     border-radius:2px;
   }
+  .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
+  .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
   .case-body{padding:32px 34px;}
   .case-body h3{font-size:21px;margin-bottom:6px;}
   .case-body .role{
@@ -261,17 +314,40 @@
     color:var(--ink);
     margin:0 0 16px;
   }
+  .frame{
+    position:relative;
+    margin:18px 0 6px;
+    display:inline-block;
+    width:100%;
+  }
+  .frame::before,.frame::after{
+    content:"";
+    position:absolute;
+    width:16px; height:16px;
+    border-color:var(--coral);
+    pointer-events:none;
+  }
+  .frame::before{
+    top:-6px; left:-6px;
+    border-top:2px solid var(--coral);
+    border-left:2px solid var(--coral);
+  }
+  .frame::after{
+    bottom:-6px; right:-6px;
+    border-bottom:2px solid var(--coral);
+    border-right:2px solid var(--coral);
+  }
   .case-img{
     width:100%;
     display:block;
     border:1px solid var(--line);
-    margin:18px 0 6px;
+    margin:0;
   }
   .case-img-caption{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
     color:var(--muted);
-    margin:0 0 18px;
+    margin:8px 0 18px;
   }
   .case-chart{
     width:100%;
@@ -570,6 +646,7 @@
 </style>
 </head>
 <body>
+<div class="id-strip"></div>
 
 <header>
   <nav class="wrap">
@@ -588,8 +665,13 @@
   <div class="wrap">
     <div class="hero-inner">
       <span class="eyebrow">Data Analyst · Fresher</span>
-      <h1 class="headline">Chuyển hoá dữ liệu giao dịch &amp; chiến dịch thành <em>quyết định</em> có căn cứ.</h1>
+      <h1 class="headline">Chuyển hoá <span class="hl">dữ liệu</span> giao dịch &amp; chiến dịch thành <em>quyết định</em> có căn cứ.</h1>
       <p class="lede">Nguyễn Quốc Thái An — Data Analyst, chuyên về Power BI &amp; DAX, tập trung vào funnel analysis, xác định nguyên nhân gốc và trình bày kết quả cho stakeholder. Hai dự án dưới đây minh hoạ quy trình làm việc.</p>
+      <div class="trait-row" style="margin-top:18px">
+        <span class="trait-chip coral"><span class="dot"></span>Tò mò</span>
+        <span class="trait-chip violet"><span class="dot"></span>Kiên trì</span>
+        <span class="trait-chip blue"><span class="dot"></span>Kết nối</span>
+      </div>
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">Xem dự án</a>
         <a class="btn-ghost" href="#contact">Liên hệ</a>
@@ -680,14 +762,14 @@
         <h3>E-wallet Payment Success Rate Analysis</h3>
         <div class="role">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
         <p>Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) trên bộ dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống của một ví điện tử trong 2 tháng, nhằm xác định điểm nghẽn trong luồng thanh toán và truy nguyên nhân gốc bằng mô hình Bowtie.</p>
-        <img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview">
+        <div class="frame"><img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
         <p class="case-img-caption">Trang Overview — Power BI report</p>
         <ul class="findings">
           <li>Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
           <li>58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
           <li>Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
         </ul>
-        <img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause">
+        <div class="frame"><img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
         <p class="case-img-caption">Trang Root Cause — phân loại lỗi 3 cấp</p>
       </div>
     </article>
@@ -706,16 +788,16 @@
         <div class="meta-row">
           <div class="field-label">Nền tảng</div>
           <div class="tags">
-            <span class="tag">Facebook</span>
-            <span class="tag">Instagram</span>
-            <span class="tag">Pinterest</span>
+            <span class="tag tag-coral">Facebook</span>
+            <span class="tag tag-coral">Instagram</span>
+            <span class="tag tag-coral">Pinterest</span>
           </div>
         </div>
         <div class="meta-row">
           <div class="field-label">Mô hình</div>
           <div class="tags">
-            <span class="tag">Weighted Scoring</span>
-            <span class="tag">Regression (Spend–Revenue)</span>
+            <span class="tag tag-coral">Weighted Scoring</span>
+            <span class="tag tag-coral">Regression (Spend–Revenue)</span>
           </div>
         </div>
       </div>
@@ -723,7 +805,7 @@
         <h3>Marketing Campaign Dashboard</h3>
         <div class="role">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
         <p>Dashboard Power BI hợp nhất hiệu suất quảng cáo từ Facebook, Instagram và Pinterest, trả lời câu hỏi: ngân sách có đang chi đúng chỗ, và nên phân bổ lại thế nào để tăng doanh thu tháng tới dựa trên số liệu thay vì cảm tính.</p>
-        <img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview">
+        <div class="frame"><img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
         <p class="case-img-caption">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
         <ul class="findings">
           <li>Facebook nhận impressions nhiều nhất (37,1%) nhưng ROAS thấp nhất (4,6×–9,8× theo mùa); Pinterest chỉ chiếm thị phần click nhỏ nhất nhưng dẫn đầu ROAS mọi mùa (21,8×–24,0×).</li>
@@ -731,7 +813,7 @@
           <li>Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
           <li>Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
         </ul>
-        <img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest">
+        <div class="frame"><img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
         <p class="case-img-caption">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
         <p>Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
       </div>
@@ -751,10 +833,10 @@
         <div class="meta-row">
           <div class="field-label">Phương pháp</div>
           <div class="tags">
-            <span class="tag">Cronbach's Alpha</span>
-            <span class="tag">EFA</span>
-            <span class="tag">Multiple Regression</span>
-            <span class="tag">ANOVA</span>
+            <span class="tag tag-violet">Cronbach's Alpha</span>
+            <span class="tag tag-violet">EFA</span>
+            <span class="tag tag-violet">Multiple Regression</span>
+            <span class="tag tag-violet">ANOVA</span>
           </div>
         </div>
       </div>
