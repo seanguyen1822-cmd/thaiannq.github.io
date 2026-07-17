@@ -567,6 +567,28 @@
   }
   .rsq-text{ font-size:13px; color:var(--muted); max-width:360px; }
 
+  /* PBI EMBED */
+  .pbi-embed-wrap{
+    position:relative;
+    width:100%;
+    padding-top:62.25%; /* matches Power BI's 600x373.5 aspect ratio */
+    border:1px solid var(--line);
+    background:var(--paper-dim);
+    margin:20px 0;
+  }
+  .pbi-embed-wrap iframe{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border:0;
+  }
+  .pbi-caption{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin:8px 0 0;
+  }
+
   /* SKILLS */
   .skill-grid{
     display:flex;
@@ -771,6 +793,12 @@
         </ul>
         <div class="frame"><img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
         <p class="case-img-caption">Trang Root Cause — phân loại lỗi 3 cấp</p>
+
+        <div class="field-label" style="margin:20px 0 6px">Report Power BI trực tiếp</div>
+        <div class="pbi-embed-wrap">
+          <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
+        </div>
+        <p class="pbi-caption">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
       </div>
     </article>
 
@@ -815,6 +843,13 @@
         </ul>
         <div class="frame"><img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
         <p class="case-img-caption">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
+
+        <div class="field-label" style="margin:20px 0 6px">Report Power BI trực tiếp</div>
+        <div class="pbi-embed-wrap">
+          <iframe title="Nguyen Quoc Thai An - Capstone Project 1" src="https://app.powerbi.com/view?r=eyJrIjoiMmI0NzE4NmYtM2M3OC00MzZkLWI2OWItMTM0OTY2YjZhZjc2IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
+        </div>
+        <p class="pbi-caption">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
+
         <p>Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
       </div>
     </article>
