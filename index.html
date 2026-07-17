@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyễn Quốc Thái An — Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F6F2;
+    --paper-dim:#ECEEE9;
+    --ink:#15202B;
+    --muted:#5B6B72;
+    --line:#D9DDD6;
+    --teal:#1E6F68;
+    --teal-dim:#E4EEEC;
+    --amber:#8C7355;
+    --navy:#101A22;
+    --card:#FFFFFF;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+  }
+  .field-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .field-label::before{
+    content:"";
+    width:14px;
+    height:1px;
+    background:var(--teal);
+    display:inline-block;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* NAV */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(245,246,242,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:16px;
+  }
+  .brand span{color:var(--teal);}
+  .navlinks{
+    display:flex;
+    gap:28px;
+    font-size:14px;
+    font-weight:500;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--muted);
+    transition:color .15s;
+  }
+  .navlinks a:hover{color:var(--ink);}
+  .cv-btn{
+    font-size:13px;
+    font-weight:600;
+    padding:9px 16px;
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    border-radius:var(--radius);
+  }
+
+  /* HERO */
+  .hero{
+    padding:96px 0 56px;
+    background-image:
+      radial-gradient(circle, rgba(21,32,43,0.07) 1px, transparent 1px);
+    background-size:22px 22px;
+    background-position:-11px -11px;
+  }
+  .hero-inner{max-width:680px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:18px;
+    display:block;
+  }
+  h1.headline{
+    font-size:44px;
+    line-height:1.12;
+    font-weight:700;
+  }
+  h1.headline em{
+    font-style:normal;
+    color:var(--teal);
+  }
+  .lede{
+    margin-top:20px;
+    font-size:16px;
+    color:var(--muted);
+    max-width:560px;
+  }
+  .hero-cta{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+  }
+  .btn-primary{
+    background:var(--teal);
+    color:#fff;
+    padding:12px 22px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    border-radius:var(--radius);
+  }
+  .btn-ghost{
+    border:1px solid var(--line);
+    padding:12px 22px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink);
+    border-radius:var(--radius);
+  }
+
+  /* KPI STRIP */
+  .kpi-strip{
+    margin-top:64px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid var(--line);
+    background:var(--card);
+  }
+  .kpi{
+    padding:24px 26px;
+    border-right:1px solid var(--line);
+  }
+  .kpi:last-child{border-right:none;}
+  .kpi .num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:30px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .kpi .num sup{
+    font-size:13px;
+    font-weight:500;
+    color:var(--muted);
+    top:-0.6em;
+  }
+  .kpi .label{
+    margin-top:6px;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  /* SECTION HEADERS */
+  section{padding:88px 0;}
+  section.alt{background:var(--paper-dim);}
+  .section-head{
+    margin-bottom:48px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:28px;
+    margin-top:10px;
+  }
+  .section-head p{
+    color:var(--muted);
+    font-size:14px;
+    max-width:360px;
+    margin:0;
+  }
+
+  /* PROJECT CASE STUDY */
+  .case{
+    border:1px solid var(--line);
+    background:var(--card);
+    margin-bottom:28px;
+    display:grid;
+    grid-template-columns:280px 1fr;
+  }
+  .case:last-child{margin-bottom:0;}
+  .case-meta{
+    padding:32px 28px;
+    border-right:1px solid var(--line);
+    background:var(--paper-dim);
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .case-meta .meta-row .field-label{margin-bottom:6px;}
+  .case-meta .meta-row .value{font-size:14px;font-weight:500;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    padding:4px 8px;
+    background:var(--teal-dim);
+    color:var(--teal);
+    border-radius:2px;
+  }
+  .case-body{padding:32px 34px;}
+  .case-body h3{font-size:21px;margin-bottom:6px;}
+  .case-body .role{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .case-body p{
+    font-size:14.5px;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+  .findings{
+    margin:18px 0 0;
+    padding:0;
+    list-style:none;
+  }
+  .findings li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:10px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .findings li::before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--teal);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .placeholder-note{
+    margin-top:18px;
+    font-size:12.5px;
+    color:var(--muted);
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-left:2px solid var(--ink);
+    padding:10px 14px;
+    border-radius:2px;
+  }
+
+  /* SKILLS */
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-cell{
+    background:var(--card);
+    padding:22px;
+  }
+  .skill-cell .field-label{margin-bottom:10px;}
+  .skill-cell .items{
+    font-size:13.5px;
+    color:var(--ink);
+    line-height:1.8;
+  }
+
+  /* FOOTER */
+  footer{
+    background:var(--navy);
+    color:#C9D2D6;
+    padding:64px 0 40px;
+  }
+  footer h2{
+    color:#fff;
+    font-size:26px;
+    max-width:420px;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:24px;
+    margin-top:28px;
+  }
+  .footer-links{
+    display:flex;
+    gap:22px;
+    font-size:13.5px;
+  }
+  .footer-links a{text-decoration:none;color:#C9D2D6;}
+  .footer-links a:hover{color:#fff;}
+  .footer-bottom{
+    margin-top:56px;
+    padding-top:20px;
+    border-top:1px solid #253039;
+    font-size:12px;
+    color:#6A7880;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media(max-width:760px){
+    h1.headline{font-size:32px;}
+    .kpi-strip{grid-template-columns:1fr;}
+    .kpi{border-right:none;border-bottom:1px solid var(--line);}
+    .case{grid-template-columns:1fr;}
+    .case-meta{border-right:none;border-bottom:1px solid var(--line);}
+    .skill-grid{grid-template-columns:1fr 1fr;}
+    .navlinks{display:none;}
+  }
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Thái An <span>/ DA</span></div>
+    <div class="navlinks">
+      <a href="#projects">Dự án</a>
+      <a href="#skills">Kỹ năng</a>
+      <a href="#contact">Liên hệ</a>
+    </div>
+    <a class="cv-btn" href="#contact">Tải CV</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">Data Analyst · Fresher</span>
+      <h1 class="headline">Chuyển hoá dữ liệu giao dịch &amp; chiến dịch thành <em>quyết định</em> có căn cứ.</h1>
+      <p class="lede">Nguyễn Quốc Thái An — Data Analyst, chuyên về Power BI &amp; DAX, tập trung vào funnel analysis, xác định nguyên nhân gốc và trình bày kết quả cho stakeholder. Hai dự án dưới đây minh hoạ quy trình làm việc.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#projects">Xem dự án</a>
+        <a class="btn-ghost" href="#contact">Liên hệ</a>
+      </div>
+    </div>
+
+    <div class="kpi-strip">
+      <div class="kpi">
+        <div class="num">05<sup>trang</sup></div>
+        <div class="label">Power BI report — E-wallet Success Rate (Overview, Funnel, Root Cause, Revenue Pareto, Retention)</div>
+      </div>
+      <div class="kpi">
+        <div class="num">03<sup>nền tảng</sup></div>
+        <div class="label">Facebook · Instagram · Pinterest — Marketing Campaign Dashboard</div>
+      </div>
+      <div class="kpi">
+        <div class="num">2<sup>ngôn ngữ</sup></div>
+        <div class="label">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="field-label">Dự án</span>
+        <h2>Hai dự án đại diện</h2>
+      </div>
+      <p>Mỗi dự án được trình bày theo cùng một cấu trúc: bối cảnh, phương pháp xử lý dữ liệu, và phát hiện chính — nhằm thể hiện rõ quy trình phân tích.</p>
+    </div>
+
+    <!-- CASE 1: E-WALLET -->
+    <article class="case">
+      <div class="case-meta">
+        <div class="meta-row">
+          <div class="field-label">Vai trò</div>
+          <div class="value">Data Analyst (Capstone)</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label">Công cụ</div>
+          <div class="value">Power BI · DAX · Excel</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label">Kỹ thuật</div>
+          <div class="tags">
+            <span class="tag">Funnel Analysis</span>
+            <span class="tag">Bowtie Root Cause</span>
+            <span class="tag">Cohort Retention</span>
+            <span class="tag">Revenue Pareto</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>E-wallet Payment Success Rate Analysis</h3>
+        <div class="role">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
+        <p>Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) để xác định điểm nghẽn trong luồng thanh toán ví điện tử, kết hợp funnel analysis với mô hình Bowtie để truy nguyên nhân gốc.</p>
+        <ul class="findings">
+          <li>Lỗi xác thực (3DS/OTP) là nguyên nhân chính khiến Success Rate sụt giảm.</li>
+          <li>Billing vừa là rủi ro doanh thu vừa là rủi ro Success Rate — cần theo dõi kép.</li>
+          <li>Phát hiện tín hiệu lỗi hệ thống tại bước phễu 1→2, không phải hành vi người dùng.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- CASE 2: MARKETING DASHBOARD -->
+    <article class="case">
+      <div class="case-meta">
+        <div class="meta-row">
+          <div class="field-label">Vai trò</div>
+          <div class="value">Data Analyst</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label">Công cụ</div>
+          <div class="value">Power BI · DAX · Excel</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label">Nền tảng</div>
+          <div class="tags">
+            <span class="tag">Facebook</span>
+            <span class="tag">Instagram</span>
+            <span class="tag">Pinterest</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Marketing Campaign Dashboard</h3>
+        <div class="role">Dashboard hợp nhất hiệu suất quảng cáo đa nền tảng</div>
+        <p>Tổng hợp dữ liệu chiến dịch từ Facebook, Instagram và Pinterest vào một dashboard Power BI duy nhất, giúp so sánh hiệu suất giữa các nền tảng trên cùng một khung chỉ số.</p>
+        <div class="placeholder-note">Nội dung chi tiết đang được hoàn thiện — bổ sung chỉ số theo dõi (CTR, CPA, ROAS…), 2–3 phát hiện chính và ảnh chụp dashboard thực tế để hoàn chỉnh case study.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="alt" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="field-label">Kỹ năng</span>
+        <h2>Bộ công cụ đang dùng</h2>
+      </div>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-cell">
+        <div class="field-label">BI &amp; Modeling</div>
+        <div class="items">Power BI<br>DAX<br>Data Modeling</div>
+      </div>
+      <div class="skill-cell">
+        <div class="field-label">Phân tích</div>
+        <div class="items">Funnel Analysis<br>Root Cause (Bowtie)<br>Cohort / Retention</div>
+      </div>
+      <div class="skill-cell">
+        <div class="field-label">Dữ liệu</div>
+        <div class="items">Excel<br>Data Cleaning<br>Reporting song ngữ</div>
+      </div>
+      <div class="skill-cell">
+        <div class="field-label">Giao tiếp</div>
+        <div class="items">Stakeholder Deck<br>Case Study Writing<br>SQCA Framework</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="field-label" style="color:#7FB8B0;">Liên hệ</span>
+    <h2>Hiện đang tìm kiếm cơ hội Data Analyst (fresher) tại TP.HCM.</h2>
+    <div class="footer-row">
+      <div class="footer-links">
+        <a href="mailto:your-email@example.com">Email</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Tải CV (PDF)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nguyễn Quốc Thái An</span>
+      <span>Built &amp; hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
