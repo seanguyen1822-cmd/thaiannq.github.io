@@ -9,29 +9,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F5F6F2;
-    --paper-dim:#ECEEE9;
-    --ink:#15202B;
-    --muted:#5B6B72;
-    --line:#D9DDD6;
-    --teal:#1E6F68;
-    --teal-dim:#E4EEEC;
-    --amber:#8C7355;
-    --navy:#101A22;
-    --card:#FFFFFF;
-    --radius:2px;
-    --coral:#D8503A; --coral-bg:#FBEAE5; --coral-dark:#B33F2C;
-    --violet:#6C5CE0; --violet-bg:#EDEBFB;
-    --blue:#2C6FBB; --blue-bg:#E7F0FA; --blue-dark:#204F8A;
-    --green:#2E9E5B; --green-bg:#E4F5EA; --green-dark:#227A46;
-    --gold:#C08A1E; --gold-bg:#FBF1DE;
-    --pink:#C24B78; --pink-bg:#FBEAF1;
+    --paper:#0D1117;
+    --paper-dim:#11161D;
+    --ink:#E6EDF3;
+    --muted:#8B949E;
+    --line:#30363D;
+    --teal:#39C5CF;
+    --teal-dim:rgba(57,197,207,0.14);
+    --amber:#79C0FF;
+    --navy:#05070A;
+    --card:#161B22;
+    --radius:8px;
+    --coral:#FF7B72; --coral-bg:rgba(255,123,114,0.14); --coral-dark:#E5534B;
+    --violet:#A371F7; --violet-bg:rgba(163,113,247,0.15);
+    --blue:#58A6FF; --blue-bg:rgba(88,166,255,0.14); --blue-dark:#1F6FEB;
+    --green:#3FB950; --green-bg:rgba(63,185,80,0.14); --green-dark:#238636;
+    --gold:#D29922; --gold-bg:rgba(210,153,34,0.14);
+    --pink:#DB61A2; --pink-bg:rgba(219,97,162,0.14);
   }
   *{box-sizing:border-box;}
+  ::selection{ background:var(--blue); color:#0D1117; }
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background:var(--paper); }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--muted); }
   html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--paper);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:38px 38px;
     color:var(--ink);
     font-family:'Inter',sans-serif;
     line-height:1.55;
@@ -82,7 +91,7 @@
     position:sticky;
     top:0;
     z-index:50;
-    background:rgba(245,246,242,0.92);
+    background:rgba(13,17,23,0.85);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
@@ -301,7 +310,7 @@
     background:var(--card);
     border-radius:16px;
     overflow:hidden;
-    box-shadow:0 16px 40px rgba(0,0,0,0.18);
+    box-shadow:0 16px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
   }
   .kpi{
     padding:24px 26px;
@@ -396,7 +405,7 @@
     transition:box-shadow .2s, transform .2s;
   }
   .case:hover{
-    box-shadow:0 20px 44px rgba(21,32,43,0.10);
+    box-shadow:0 20px 44px rgba(88,166,255,0.12), 0 8px 24px rgba(0,0,0,0.45);
     transform:translateY(-3px);
   }
   .case:last-child{margin-bottom:0;}
@@ -1092,8 +1101,8 @@
           <div class="rsq-wrap">
             <div class="rsq-badge">
               <svg viewBox="0 0 96 96" width="96" height="96">
-                <circle cx="48" cy="48" r="40" fill="none" stroke="#D9DDD6" stroke-width="8"/>
-                <circle cx="48" cy="48" r="40" fill="none" stroke="#1E6F68" stroke-width="8"
+                <circle cx="48" cy="48" r="40" fill="none" stroke="#30363D" stroke-width="8"/>
+                <circle cx="48" cy="48" r="40" fill="none" stroke="#39C5CF" stroke-width="8"
                   stroke-dasharray="111.6 251.3" stroke-linecap="round"/>
               </svg>
               <span>44,4%</span>
