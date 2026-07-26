@@ -125,6 +125,27 @@
     text-decoration:none;
     border-radius:var(--radius);
   }
+  .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .lang-toggle{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:600;
+    padding:8px 12px;
+    background:none;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:border-color .15s, color .15s;
+  }
+  .lang-toggle:hover{
+    border-color:var(--teal);
+    color:var(--teal);
+  }
 
   /* HERO */
   .hero{
@@ -674,12 +695,15 @@
   <nav class="wrap">
     <div class="brand">Thái An <span>/ DA</span></div>
     <div class="navlinks">
-      <a href="#about">Về tôi</a>
-      <a href="#projects">Dự án</a>
-      <a href="#skills">Kỹ năng</a>
-      <a href="#contact">Liên hệ</a>
+      <a href="#about" data-en="About">Về tôi</a>
+      <a href="#projects" data-en="Projects">Dự án</a>
+      <a href="#skills" data-en="Skills">Kỹ năng</a>
+      <a href="#contact" data-en="Contact">Liên hệ</a>
     </div>
-    <a class="cv-btn" href="assets/An_Nguyen_CV.pdf" download>Tải CV</a>
+    <div class="nav-actions">
+      <a class="cv-btn" href="assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+      <button type="button" class="lang-toggle" id="langToggle">EN</button>
+    </div>
   </nav>
 </header>
 
@@ -687,31 +711,31 @@
   <div class="wrap">
     <div class="hero-inner">
       <span class="eyebrow">Data Analyst · Fresher</span>
-      <h1 class="headline">Chuyển hoá <span class="hl">dữ liệu</span> giao dịch &amp; chiến dịch thành <em>quyết định</em> có căn cứ.</h1>
-      <p class="lede">Nguyễn Quốc Thái An — Data Analyst, chuyên về Power BI &amp; DAX, tập trung vào funnel analysis, xác định nguyên nhân gốc và trình bày kết quả cho stakeholder. Hai dự án dưới đây minh hoạ quy trình làm việc.</p>
+      <h1 class="headline" data-en="Turning &lt;span class=&quot;hl&quot;&gt;data&lt;/span&gt; from transactions &amp;amp; campaigns into &lt;em&gt;informed decisions&lt;/em&gt;.">Chuyển hoá <span class="hl">dữ liệu</span> giao dịch &amp; chiến dịch thành <em>quyết định</em> có căn cứ.</h1>
+      <p class="lede" data-en="Nguyễn Quốc Thái An — Data Analyst focused on Power BI &amp;amp; DAX, specializing in funnel analysis, root-cause investigation, and presenting results to stakeholders. The two projects below illustrate how I work.">Nguyễn Quốc Thái An — Data Analyst, chuyên về Power BI &amp; DAX, tập trung vào funnel analysis, xác định nguyên nhân gốc và trình bày kết quả cho stakeholder. Hai dự án dưới đây minh hoạ quy trình làm việc.</p>
       <div class="trait-row" style="margin-top:18px">
-        <span class="trait-chip coral"><span class="dot"></span>Tò mò</span>
-        <span class="trait-chip violet"><span class="dot"></span>Kiên trì</span>
-        <span class="trait-chip blue"><span class="dot"></span>Kết nối</span>
+        <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Curious"><span class="dot"></span>Tò mò</span>
+        <span class="trait-chip violet" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Persistent"><span class="dot"></span>Kiên trì</span>
+        <span class="trait-chip blue" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Connector"><span class="dot"></span>Kết nối</span>
       </div>
       <div class="hero-cta">
-        <a class="btn-primary" href="#projects">Xem dự án</a>
-        <a class="btn-ghost" href="#contact">Liên hệ</a>
+        <a class="btn-primary" href="#projects" data-en="View projects">Xem dự án</a>
+        <a class="btn-ghost" href="#contact" data-en="Contact">Liên hệ</a>
       </div>
     </div>
 
     <div class="kpi-strip">
       <div class="kpi">
-        <div class="num">05<sup>trang</sup></div>
+        <div class="num">05<sup data-en="pages">trang</sup></div>
         <div class="label">Power BI report — E-wallet Success Rate (Overview, Funnel, Root Cause, Revenue Pareto, Retention)</div>
       </div>
       <div class="kpi">
         <div class="num">10.6<sup>× ROAS</sup></div>
-        <div class="label">Marketing Campaign Dashboard — Facebook · Instagram · Pinterest, £1.73M revenue trên £163.25K spend</div>
+        <div class="label" data-en="Marketing Campaign Dashboard — Facebook · Instagram · Pinterest, £1.73M revenue on £163.25K spend">Marketing Campaign Dashboard — Facebook · Instagram · Pinterest, £1.73M revenue trên £163.25K spend</div>
       </div>
       <div class="kpi">
-        <div class="num">2<sup>ngôn ngữ</sup></div>
-        <div class="label">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
+        <div class="num">2<sup data-en="languages">ngôn ngữ</sup></div>
+        <div class="label" data-en="Case studies &amp;amp; stakeholder reports in both Vietnamese and English">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
       </div>
     </div>
   </div>
@@ -721,28 +745,28 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="field-label">Về tôi</span>
-        <h2>Từ Kinh doanh thương mại đến Phân tích dữ liệu</h2>
+        <span class="field-label" data-en="About">Về tôi</span>
+        <h2 data-en="From Commercial Business to Data Analytics">Từ Kinh doanh thương mại đến Phân tích dữ liệu</h2>
       </div>
     </div>
     <div class="about-grid">
       <div class="about-story">
-        <p>Tôi bắt đầu con đường học thuật với Kinh doanh thương mại, nhưng khi đi sâu vào chuyên ngành Phân tích Kinh doanh, tôi nhận ra đây mới là nơi mình phát huy được tốt nhất: đào sâu vào dữ liệu để tìm ra insight, rồi biến insight đó thành giải pháp cụ thể cho một vấn đề kinh doanh thực tế.</p>
-        <p>Càng đi sâu vào ngành, tôi càng nhận ra giá trị của công việc này không nằm ở việc chỉ ra con số, mà ở việc liên tục đặt câu hỏi để tìm ra những phát hiện có thể hành động được — vượt ra ngoài những gì hiển nhiên trên bề mặt báo cáo.</p>
+        <p data-en="I started out studying Commercial Business, but once I went deeper into Business Analytics, I realized this was where I could contribute the most: digging into data to uncover insight, then turning that insight into a concrete solution for a real business problem.">Tôi bắt đầu con đường học thuật với Kinh doanh thương mại, nhưng khi đi sâu vào chuyên ngành Phân tích Kinh doanh, tôi nhận ra đây mới là nơi mình phát huy được tốt nhất: đào sâu vào dữ liệu để tìm ra insight, rồi biến insight đó thành giải pháp cụ thể cho một vấn đề kinh doanh thực tế.</p>
+        <p data-en="The deeper I go, the more I realize the value of this work isn&amp;rsquo;t just pointing to numbers — it&amp;rsquo;s continuously asking questions to uncover insights that can actually be acted on, beyond what is obvious on the surface of a report.">Càng đi sâu vào ngành, tôi càng nhận ra giá trị của công việc này không nằm ở việc chỉ ra con số, mà ở việc liên tục đặt câu hỏi để tìm ra những phát hiện có thể hành động được — vượt ra ngoài những gì hiển nhiên trên bề mặt báo cáo.</p>
         <div class="trait-row">
-          <span class="trait-chip coral"><span class="dot"></span>Tò mò</span>
-          <span class="trait-chip violet"><span class="dot"></span>Kiên trì</span>
-          <span class="trait-chip blue"><span class="dot"></span>Kết nối</span>
+          <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Curious"><span class="dot"></span>Tò mò</span>
+          <span class="trait-chip violet" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Persistent"><span class="dot"></span>Kiên trì</span>
+          <span class="trait-chip blue" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Connector"><span class="dot"></span>Kết nối</span>
         </div>
       </div>
       <div class="about-hobbies">
         <div class="hobby-grid">
-          <div class="hobby-chip teal"><span class="h-label">Đọc sách</span><span class="h-detail">Tâm lý học, phân tích khách hàng, kinh doanh</span></div>
-          <div class="hobby-chip pink"><span class="h-label">Chụp ảnh</span><span class="h-detail">Sáng tạo ngoài công việc</span></div>
-          <div class="hobby-chip coral"><span class="h-label">Du lịch trải nghiệm</span><span class="h-detail">Biển và núi</span></div>
-          <div class="hobby-chip gold"><span class="h-label">Ẩm thực</span><span class="h-detail">Món tủ &amp; đặc sản vùng miền</span></div>
-          <div class="hobby-chip blue"><span class="h-label">Đạp xe</span><span class="h-detail">Vận động ngoài trời</span></div>
-          <div class="hobby-chip violet"><span class="h-label">Bơi lội</span><span class="h-detail">Vài tháng một lần</span></div>
+          <div class="hobby-chip teal"><span class="h-label" data-en="Reading">Đọc sách</span><span class="h-detail" data-en="Psychology, customer analysis, business">Tâm lý học, phân tích khách hàng, kinh doanh</span></div>
+          <div class="hobby-chip pink"><span class="h-label" data-en="Photography">Chụp ảnh</span><span class="h-detail" data-en="A creative outlet outside work">Sáng tạo ngoài công việc</span></div>
+          <div class="hobby-chip coral"><span class="h-label" data-en="Experiential travel">Du lịch trải nghiệm</span><span class="h-detail" data-en="Beaches and mountains">Biển và núi</span></div>
+          <div class="hobby-chip gold"><span class="h-label" data-en="Food">Ẩm thực</span><span class="h-detail" data-en="Favorite dishes &amp;amp; regional specialties">Món tủ &amp; đặc sản vùng miền</span></div>
+          <div class="hobby-chip blue"><span class="h-label" data-en="Cycling">Đạp xe</span><span class="h-detail" data-en="Outdoor exercise">Vận động ngoài trời</span></div>
+          <div class="hobby-chip violet"><span class="h-label" data-en="Swimming">Bơi lội</span><span class="h-detail" data-en="Every couple of months">Vài tháng một lần</span></div>
         </div>
       </div>
     </div>
@@ -753,25 +777,25 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="field-label">Dự án</span>
-        <h2>Các dự án đại diện</h2>
+        <span class="field-label" data-en="Projects">Dự án</span>
+        <h2 data-en="Featured Projects">Các dự án đại diện</h2>
       </div>
-      <p>Mỗi dự án được trình bày theo cùng một cấu trúc: bối cảnh, phương pháp xử lý dữ liệu, và phát hiện chính — nhằm thể hiện rõ quy trình phân tích.</p>
+      <p data-en="Each project follows the same structure: context, data approach, and key findings — to make the analysis process clear.">Mỗi dự án được trình bày theo cùng một cấu trúc: bối cảnh, phương pháp xử lý dữ liệu, và phát hiện chính — nhằm thể hiện rõ quy trình phân tích.</p>
     </div>
 
     <!-- CASE 1: E-WALLET -->
     <article class="case">
       <div class="case-meta">
         <div class="meta-row">
-          <div class="field-label">Vai trò</div>
+          <div class="field-label" data-en="Role">Vai trò</div>
           <div class="value">Data Analyst (Capstone)</div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Công cụ</div>
+          <div class="field-label" data-en="Tools">Công cụ</div>
           <div class="value">Power BI · DAX · Excel</div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Kỹ thuật</div>
+          <div class="field-label" data-en="Techniques">Kỹ thuật</div>
           <div class="tags">
             <span class="tag">Funnel Analysis</span>
             <span class="tag">Bowtie Root Cause</span>
@@ -782,23 +806,23 @@
       </div>
       <div class="case-body">
         <h3>E-wallet Payment Success Rate Analysis</h3>
-        <div class="role">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
-        <p>Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) trên bộ dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống của một ví điện tử trong 2 tháng, nhằm xác định điểm nghẽn trong luồng thanh toán và truy nguyên nhân gốc bằng mô hình Bowtie.</p>
+        <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
+        <p data-en="Built a 5-page Power BI report (Overview, Funnel &amp;amp; Conversion, Root Cause, Revenue Pareto, Retention &amp;amp; Distribution) on two months of transaction, user-behavior, and system-error data from an e-wallet, to pinpoint bottlenecks in the payment flow and trace root causes using a Bowtie model.">Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) trên bộ dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống của một ví điện tử trong 2 tháng, nhằm xác định điểm nghẽn trong luồng thanh toán và truy nguyên nhân gốc bằng mô hình Bowtie.</p>
         <div class="frame"><img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
-        <p class="case-img-caption">Trang Overview — Power BI report</p>
+        <p class="case-img-caption" data-en="Overview page — Power BI report">Trang Overview — Power BI report</p>
         <ul class="findings">
-          <li>Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
-          <li>58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
-          <li>Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
+          <li data-en="Success Rate dropped from 91.70% (July) to 86.93% (August) — a 4.8-point decline — while transaction volume still grew +18.9%, ruling out system overload as the cause.">Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
+          <li data-en="58.15% of failures fall under USER_FACTORS, concentrated at the OTP/3DS authentication step — the most common errors are invalid_otp and 3ds_timeout.">58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
+          <li data-en="Billing is both the largest revenue category (41.91% of total revenue) and the category with the sharpest SR decline — a dual risk to revenue and user experience.">Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
         </ul>
         <div class="frame"><img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
-        <p class="case-img-caption">Trang Root Cause — phân loại lỗi 3 cấp</p>
+        <p class="case-img-caption" data-en="Root Cause page — 3-tier error classification">Trang Root Cause — phân loại lỗi 3 cấp</p>
 
-        <div class="field-label" style="margin:20px 0 6px">Report Power BI trực tiếp</div>
+        <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
         <div class="pbi-embed-wrap">
           <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
         </div>
-        <p class="pbi-caption">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
+        <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
       </div>
     </article>
 
@@ -806,15 +830,15 @@
     <article class="case">
       <div class="case-meta">
         <div class="meta-row">
-          <div class="field-label">Vai trò</div>
+          <div class="field-label" data-en="Role">Vai trò</div>
           <div class="value">Data Analyst</div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Công cụ</div>
+          <div class="field-label" data-en="Tools">Công cụ</div>
           <div class="value">Power BI · DAX · Excel</div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Nền tảng</div>
+          <div class="field-label" data-en="Platforms">Nền tảng</div>
           <div class="tags">
             <span class="tag tag-coral">Facebook</span>
             <span class="tag tag-coral">Instagram</span>
@@ -822,7 +846,7 @@
           </div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Mô hình</div>
+          <div class="field-label" data-en="Models">Mô hình</div>
           <div class="tags">
             <span class="tag tag-coral">Weighted Scoring</span>
             <span class="tag tag-coral">Regression (Spend–Revenue)</span>
@@ -831,26 +855,26 @@
       </div>
       <div class="case-body">
         <h3>Marketing Campaign Dashboard</h3>
-        <div class="role">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
-        <p>Dashboard Power BI hợp nhất hiệu suất quảng cáo từ Facebook, Instagram và Pinterest, trả lời câu hỏi: ngân sách có đang chi đúng chỗ, và nên phân bổ lại thế nào để tăng doanh thu tháng tới dựa trên số liệu thay vì cảm tính.</p>
+        <div class="role" data-en="UK Retail · 9,900 data rows, Mar–Nov 2023 · overall ROAS 10.6&amp;times; on £163.25K spend / £1.73M revenue">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
+        <p data-en="A Power BI dashboard unifying ad performance across Facebook, Instagram, and Pinterest, answering the question: is the budget going to the right places, and how should it be reallocated to grow next month&amp;rsquo;s revenue based on data rather than gut feel.">Dashboard Power BI hợp nhất hiệu suất quảng cáo từ Facebook, Instagram và Pinterest, trả lời câu hỏi: ngân sách có đang chi đúng chỗ, và nên phân bổ lại thế nào để tăng doanh thu tháng tới dựa trên số liệu thay vì cảm tính.</p>
         <div class="frame"><img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
-        <p class="case-img-caption">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
+        <p class="case-img-caption" data-en="Dashboard Overview — Revenue, Spend, Profit by channel &amp;amp; time">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
         <ul class="findings">
-          <li>Facebook nhận impressions nhiều nhất (37,1%) nhưng ROAS thấp nhất (4,6×–9,8× theo mùa); Pinterest chỉ chiếm thị phần click nhỏ nhất nhưng dẫn đầu ROAS mọi mùa (21,8×–24,0×).</li>
-          <li>Xây mô hình Weighted Scoring (ROAS 50% · CPA 30% · CTR 20%) xếp hạng ba kênh — Pinterest đạt điểm 0,800 (#1), Instagram 0,434 (#2), Facebook 0,139 (#3).</li>
-          <li>Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
-          <li>Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
+          <li data-en="Facebook gets the most impressions (37.1%) but the lowest ROAS (4.6&amp;times;&amp;ndash;9.8&amp;times; by season); Pinterest holds the smallest click share yet leads ROAS every season (21.8&amp;times;&amp;ndash;24.0&amp;times;).">Facebook nhận impressions nhiều nhất (37,1%) nhưng ROAS thấp nhất (4,6×–9,8× theo mùa); Pinterest chỉ chiếm thị phần click nhỏ nhất nhưng dẫn đầu ROAS mọi mùa (21,8×–24,0×).</li>
+          <li data-en="Built a Weighted Scoring model (ROAS 50% · CPA 30% · CTR 20%) to rank the three channels — Pinterest scored 0.800 (#1), Instagram 0.434 (#2), Facebook 0.139 (#3).">Xây mô hình Weighted Scoring (ROAS 50% · CPA 30% · CTR 20%) xếp hạng ba kênh — Pinterest đạt điểm 0,800 (#1), Instagram 0,434 (#2), Facebook 0,139 (#3).</li>
+          <li data-en="A quadratic regression model (Revenue ~ Spend) on 275 days of data (R&amp;sup2;=0.518) shows Pinterest is currently spending £103/day, while the optimal spend point is £267/day — there is still room to grow the budget without diminishing returns.">Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
+          <li data-en="Proposed monthly budget reallocation: Facebook £7,957&amp;rarr;£3,029 (&amp;minus;77%), Pinterest £3,081&amp;rarr;£8,009 (+237%), Instagram unchanged at £7,044 — projected to add £38,244 in monthly revenue.">Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
         </ul>
         <div class="frame"><img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
-        <p class="case-img-caption">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
+        <p class="case-img-caption" data-en="Quadratic regression model — finding Pinterest&amp;rsquo;s optimal spend point">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
 
-        <div class="field-label" style="margin:20px 0 6px">Report Power BI trực tiếp</div>
+        <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
         <div class="pbi-embed-wrap">
           <iframe title="Nguyen Quoc Thai An - Capstone Project 1" src="https://app.powerbi.com/view?r=eyJrIjoiMmI0NzE4NmYtM2M3OC00MzZkLWI2OWItMTM0OTY2YjZhZjc2IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
         </div>
-        <p class="pbi-caption">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
+        <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
 
-        <p>Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
+        <p data-en="Rollout plan across 3 gated waves (Pinterest &amp;rarr; Instagram &amp;rarr; Facebook), increasing budget 25% per week and re-measuring actual ROAS before unlocking the next wave — avoiding an all-in bet on a single channel.">Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
       </div>
     </article>
 
@@ -858,15 +882,15 @@
     <article class="case">
       <div class="case-meta">
         <div class="meta-row">
-          <div class="field-label">Vai trò</div>
-          <div class="value">Kiểm định thống kê &amp; phân tích dữ liệu, viết chương kết quả</div>
+          <div class="field-label" data-en="Role">Vai trò</div>
+          <div class="value" data-en="Statistical testing &amp;amp; data analysis, wrote the results chapter">Kiểm định thống kê &amp; phân tích dữ liệu, viết chương kết quả</div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Công cụ</div>
+          <div class="field-label" data-en="Tools">Công cụ</div>
           <div class="value">SPSS · Excel</div>
         </div>
         <div class="meta-row">
-          <div class="field-label">Phương pháp</div>
+          <div class="field-label" data-en="Methods">Phương pháp</div>
           <div class="tags">
             <span class="tag tag-violet">Cronbach's Alpha</span>
             <span class="tag tag-violet">EFA</span>
@@ -876,56 +900,56 @@
         </div>
       </div>
       <div class="case-body">
-        <h3>Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
-        <div class="role">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
-        <p>Nghiên cứu định lượng khảo sát 381 người tiêu dùng tại TP.HCM (khảo sát thử n=20) để kiểm định 8 giả thuyết về các nhân tố ảnh hưởng đến ý định tiêu dùng xanh, dùng thang đo Likert 5 điểm với 27 biến quan sát. Phụ trách phần kiểm định thống kê, chạy dữ liệu trên SPSS và viết chương kết quả &amp; ý nghĩa nghiên cứu.</p>
+        <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
+        <div class="role" data-en="Business Analytics specialization project · Văn Lang University">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
+        <p data-en="A quantitative study surveying 381 consumers in Ho Chi Minh City (pilot n=20) to test 8 hypotheses about factors affecting green consumption intention, using a 5-point Likert scale across 27 observed variables. Responsible for statistical testing, running the data in SPSS, and writing the results &amp;amp; implications chapter.">Nghiên cứu định lượng khảo sát 381 người tiêu dùng tại TP.HCM (khảo sát thử n=20) để kiểm định 8 giả thuyết về các nhân tố ảnh hưởng đến ý định tiêu dùng xanh, dùng thang đo Likert 5 điểm với 27 biến quan sát. Phụ trách phần kiểm định thống kê, chạy dữ liệu trên SPSS và viết chương kết quả &amp; ý nghĩa nghiên cứu.</p>
 
         <div class="viz-block">
-          <div class="viz-title">Quy trình rút gọn thang đo</div>
+          <div class="viz-title" data-en="Scale reduction process">Quy trình rút gọn thang đo</div>
           <div class="funnel-row">
             <div class="funnel-step" style="flex:1.6">
               <div class="fn-num">27</div>
-              <div class="fn-label">biến quan sát<br>ban đầu</div>
+              <div class="fn-label" data-en="observed&lt;br&gt;variables">biến quan sát<br>ban đầu</div>
             </div>
             <div class="funnel-arrow">→</div>
             <div class="funnel-step" style="flex:1">
               <div class="fn-num">8</div>
-              <div class="fn-label">nhân tố<br>giả thuyết</div>
+              <div class="fn-label" data-en="hypothesized&lt;br&gt;factors">nhân tố<br>giả thuyết</div>
             </div>
             <div class="funnel-arrow">→</div>
             <div class="funnel-step" style="flex:0.7">
               <div class="fn-num">4</div>
-              <div class="fn-label">nhân tố sau<br>EFA</div>
+              <div class="fn-label" data-en="factors after&lt;br&gt;EFA">nhân tố sau<br>EFA</div>
             </div>
           </div>
-          <p class="reliability-note">Độ tin cậy thang đo sau rút gọn: Cronbach's Alpha từ <b>0,778 đến 0,836</b> cho cả 4 nhân tố — trên ngưỡng 0,7 (mức "tốt" theo chuẩn nghiên cứu hành vi).</p>
+          <p class="reliability-note" data-en="Scale reliability after reduction: Cronbach&amp;rsquo;s Alpha from &lt;b&gt;0.778 to 0.836&lt;/b&gt; across all 4 factors — above the 0.7 threshold (a &amp;ldquo;good&amp;rdquo; level by behavioral-research standards).">Độ tin cậy thang đo sau rút gọn: Cronbach's Alpha từ <b>0,778 đến 0,836</b> cho cả 4 nhân tố — trên ngưỡng 0,7 (mức "tốt" theo chuẩn nghiên cứu hành vi).</p>
         </div>
 
         <div class="viz-block">
-          <div class="viz-title">Yếu tố nào thực sự tác động đến ý định mua</div>
+          <div class="viz-title" data-en="Which factors actually drive purchase intention">Yếu tố nào thực sự tác động đến ý định mua</div>
           <div class="coef-row">
-            <div class="coef-label">Lợi ích tiêu dùng xanh</div>
+            <div class="coef-label" data-en="Green consumption benefit">Lợi ích tiêu dùng xanh</div>
             <div class="coef-track"><div class="coef-fill sig" style="width:91%"></div></div>
             <div class="coef-value sig">β = 0,454</div>
           </div>
           <div class="coef-row">
-            <div class="coef-label">Niềm tin tiêu dùng xanh</div>
+            <div class="coef-label" data-en="Green trust">Niềm tin tiêu dùng xanh</div>
             <div class="coef-track"><div class="coef-fill sig" style="width:28%"></div></div>
             <div class="coef-value sig">β = 0,140</div>
           </div>
           <div class="coef-row">
-            <div class="coef-label">Nhận thức nhãn sinh thái</div>
+            <div class="coef-label" data-en="Eco-label perception">Nhận thức nhãn sinh thái</div>
             <div class="coef-track"><div class="coef-fill nsig" style="width:6%"></div></div>
-            <div class="coef-value">không có ý nghĩa</div>
+            <div class="coef-value" data-en="not significant">không có ý nghĩa</div>
           </div>
           <div class="coef-row">
-            <div class="coef-label">Nhận thức SK &amp; môi trường</div>
+            <div class="coef-label" data-en="Health &amp;amp; environment perception">Nhận thức SK &amp; môi trường</div>
             <div class="coef-track"><div class="coef-fill nsig" style="width:6%"></div></div>
-            <div class="coef-value">không có ý nghĩa</div>
+            <div class="coef-value" data-en="not significant">không có ý nghĩa</div>
           </div>
           <div class="viz-legend">
-            <span><i style="background:var(--teal)"></i>Có ý nghĩa thống kê (p&lt;0,05)</span>
-            <span><i style="background:var(--line)"></i>Không có ý nghĩa thống kê — loại khỏi mô hình</span>
+            <span data-en="&lt;i style=&quot;background:var(--teal)&quot;&gt;&lt;/i&gt;Statistically significant (p&amp;lt;0.05)"><i style="background:var(--teal)"></i>Có ý nghĩa thống kê (p&lt;0,05)</span>
+            <span data-en="&lt;i style=&quot;background:var(--line)&quot;&gt;&lt;/i&gt;Not statistically significant — dropped from the model"><i style="background:var(--line)"></i>Không có ý nghĩa thống kê — loại khỏi mô hình</span>
           </div>
         </div>
 
@@ -939,11 +963,11 @@
               </svg>
               <span>44,4%</span>
             </div>
-            <p class="rsq-text">Mô hình 2 nhân tố (Niềm tin + Lợi ích) giải thích được <b style="color:var(--ink)">44,4%</b> sự biến thiên trong ý định tiêu dùng xanh (R² hiệu chỉnh) — mức phổ biến và được chấp nhận trong nghiên cứu hành vi tiêu dùng, vốn luôn có nhiều yếu tố tâm lý khó đo lường hết bằng khảo sát.</p>
+            <p class="rsq-text" data-en="The 2-factor model (Trust + Benefit) explains &lt;b style=&quot;color:var(--ink)&quot;&gt;44.4%&lt;/b&gt; of the variance in green consumption intention (adjusted R&amp;sup2;) — a common and accepted level in consumer-behavior research, which always involves psychological factors that are hard to fully capture through a survey.">Mô hình 2 nhân tố (Niềm tin + Lợi ích) giải thích được <b style="color:var(--ink)">44,4%</b> sự biến thiên trong ý định tiêu dùng xanh (R² hiệu chỉnh) — mức phổ biến và được chấp nhận trong nghiên cứu hành vi tiêu dùng, vốn luôn có nhiều yếu tố tâm lý khó đo lường hết bằng khảo sát.</p>
           </div>
         </div>
 
-        <p>Nhận thức về môi trường hay sức khỏe đơn thuần không đủ để thúc đẩy hành vi mua. Một doanh nghiệp muốn tăng doanh số sản phẩm xanh nên ưu tiên ngân sách vào lợi ích thiết thực (giá cả, khuyến mãi) và xây dựng niềm tin qua chứng nhận minh bạch, thay vì chỉ truyền thông "vì môi trường" như cách tiếp cận phổ biến hiện nay.</p>
+        <p data-en="Awareness of environmental or health benefits alone is not enough to drive purchase behavior. A business looking to grow green-product sales should prioritize budget toward tangible benefits (pricing, promotions) and build trust through transparent certification, rather than relying solely on &amp;ldquo;for the environment&amp;rdquo; messaging — the common approach today.">Nhận thức về môi trường hay sức khỏe đơn thuần không đủ để thúc đẩy hành vi mua. Một doanh nghiệp muốn tăng doanh số sản phẩm xanh nên ưu tiên ngân sách vào lợi ích thiết thực (giá cả, khuyến mãi) và xây dựng niềm tin qua chứng nhận minh bạch, thay vì chỉ truyền thông "vì môi trường" như cách tiếp cận phổ biến hiện nay.</p>
       </div>
     </article>
   </div>
@@ -953,8 +977,8 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="field-label">Kỹ năng</span>
-        <h2>Bộ công cụ đang dùng</h2>
+        <span class="field-label" data-en="Skills">Kỹ năng</span>
+        <h2 data-en="Toolkit">Bộ công cụ đang dùng</h2>
       </div>
     </div>
     <div class="skill-grid">
@@ -963,24 +987,24 @@
         <div class="items">Power BI<br>DAX<br>Data Modeling</div>
       </div>
       <div class="skill-cell">
-        <div class="field-label">Phân tích</div>
+        <div class="field-label" data-en="Analysis">Phân tích</div>
         <div class="items">Funnel Analysis<br>Root Cause (Bowtie)<br>Cohort / Retention</div>
       </div>
       <div class="skill-cell">
-        <div class="field-label">Nghiên cứu định lượng</div>
+        <div class="field-label" data-en="Quantitative Research">Nghiên cứu định lượng</div>
         <div class="items">SPSS<br>Cronbach's Alpha · EFA<br>Multiple Regression · ANOVA</div>
       </div>
       <div class="skill-cell">
-        <div class="field-label">Dữ liệu</div>
-        <div class="items">Excel<br>Data Cleaning<br>Reporting song ngữ</div>
+        <div class="field-label" data-en="Data">Dữ liệu</div>
+        <div class="items" data-en="Excel&lt;br&gt;Data Cleaning&lt;br&gt;Bilingual reporting">Excel<br>Data Cleaning<br>Reporting song ngữ</div>
       </div>
       <div class="skill-cell">
-        <div class="field-label">Giao tiếp</div>
-        <div class="items">Trình bày insight cho người không rành số liệu<br>Viết case study song ngữ Việt–Anh<br>Cấu trúc báo cáo theo SQCA</div>
+        <div class="field-label" data-en="Communication">Giao tiếp</div>
+        <div class="items" data-en="Presenting insight to non-technical audiences&lt;br&gt;Writing bilingual VI–EN case studies&lt;br&gt;Structuring reports using SQCA">Trình bày insight cho người không rành số liệu<br>Viết case study song ngữ Việt–Anh<br>Cấu trúc báo cáo theo SQCA</div>
       </div>
       <div class="skill-cell">
-        <div class="field-label">Kiến thức kinh doanh</div>
-        <div class="items">Nghiên cứu thị trường &amp; phân tích khách hàng<br>Phân tích dự án đầu tư &amp; quản trị rủi ro<br>Tài chính doanh nghiệp &amp; hành vi</div>
+        <div class="field-label" data-en="Business Knowledge">Kiến thức kinh doanh</div>
+        <div class="items" data-en="Market research &amp;amp; customer analysis&lt;br&gt;Investment project analysis &amp;amp; risk management&lt;br&gt;Corporate &amp;amp; behavioral finance">Nghiên cứu thị trường &amp; phân tích khách hàng<br>Phân tích dự án đầu tư &amp; quản trị rủi ro<br>Tài chính doanh nghiệp &amp; hành vi</div>
       </div>
     </div>
   </div>
@@ -988,13 +1012,13 @@
 
 <footer id="contact">
   <div class="wrap">
-    <span class="field-label" style="color:#7FB8B0;">Liên hệ</span>
-    <h2>Hiện đang tìm kiếm cơ hội Data Analyst (fresher) tại TP.HCM.</h2>
+    <span class="field-label" style="color:#7FB8B0;" data-en="Contact">Liên hệ</span>
+    <h2 data-en="Currently looking for Data Analyst (fresher) opportunities in Ho Chi Minh City.">Hiện đang tìm kiếm cơ hội Data Analyst (fresher) tại TP.HCM.</h2>
     <div class="footer-row">
       <div class="footer-links">
         <a href="mailto:thaiannq@outlook.com">thaiannq@outlook.com</a>
         <a href="tel:0364875372">0364 875 372</a>
-        <a href="assets/An_Nguyen_CV.pdf" download>Tải CV (PDF)</a>
+        <a href="assets/An_Nguyen_CV.pdf" download data-en="Download CV (PDF)">Tải CV (PDF)</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1004,5 +1028,23 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var toggle = document.getElementById('langToggle');
+  var current = 'vi';
+  function applyLang(lang){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if(el.dataset.vi === undefined){ el.dataset.vi = el.innerHTML; }
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.vi;
+    });
+    document.documentElement.lang = lang;
+    toggle.textContent = lang === 'en' ? 'VI' : 'EN';
+    current = lang;
+  }
+  toggle.addEventListener('click', function(){
+    applyLang(current === 'vi' ? 'en' : 'vi');
+  });
+})();
+</script>
 </body>
 </html>
