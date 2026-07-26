@@ -516,6 +516,50 @@
     color:var(--ink);
   }
   .case-hook .stat{ color:var(--blue); }
+  .impact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 20px;
+  }
+  .impact-stat{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    padding:10px 16px;
+    border-radius:10px;
+    flex:1 1 200px;
+  }
+  .impact-stat .impact-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    opacity:0.8;
+  }
+  .impact-stat .impact-value{
+    font-size:14.5px;
+    font-weight:700;
+    line-height:1.35;
+  }
+  .impact-stat.revenue{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.cost{ background:var(--blue-bg); color:var(--blue); }
+  .card-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:14px;
+  }
+  .card-badge{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    font-weight:600;
+    padding:4px 9px;
+    border-radius:8px;
+  }
+  .card-badge.revenue{ background:var(--green-bg); color:var(--green); }
+  .card-badge.cost{ background:var(--blue-bg); color:var(--blue); }
+
   .case-body p{
     font-size:14.5px;
     color:var(--ink);
@@ -1024,6 +1068,10 @@
     <div class="project-grid">
       <a class="project-card reveal" href="projects/ewallet.html">
         <div class="tool-line">Power BI · DAX · Excel</div>
+        <div class="card-badges">
+          <span class="card-badge revenue" data-en="Revenue protected">Bảo vệ doanh thu</span>
+          <span class="card-badge cost" data-en="Cost-efficient fix">Khắc phục tiết kiệm chi phí</span>
+        </div>
         <h3>E-wallet Payment Success Rate Analysis</h3>
         <p class="project-card-hook" data-en="4.8-point drop &amp;mdash; traced to exactly one step out of seven in the funnel.">Giảm 4,8 điểm phần trăm — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
         <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
@@ -1031,6 +1079,10 @@
 
       <a class="project-card reveal accent-coral" href="projects/marketing.html">
         <div class="tool-line">Power BI · DAX · Excel</div>
+        <div class="card-badges">
+          <span class="card-badge revenue" data-en="+£38,244/month">+£38.244/tháng</span>
+          <span class="card-badge cost" data-en="Budget reallocated">Tối ưu ngân sách</span>
+        </div>
         <h3>Marketing Campaign Dashboard</h3>
         <p class="project-card-hook" data-en="£38,244/month &amp;mdash; the revenue left on the table by funding the wrong channel.">£38.244/tháng — cái giá của việc rót ngân sách sai kênh.</p>
         <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
@@ -1038,6 +1090,10 @@
 
       <a class="project-card reveal accent-violet" href="projects/research.html">
         <div class="tool-line">SPSS · Excel</div>
+        <div class="card-badges">
+          <span class="card-badge revenue" data-en="Growth lever identified">Xác định đòn bẩy tăng trưởng</span>
+          <span class="card-badge cost" data-en="Ad spend saved">Tiết kiệm chi phí quảng cáo</span>
+        </div>
         <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu Ý định tiêu dùng xanh</h3>
         <p class="project-card-hook" data-en="44.4% of buying behavior explained by just 2 of the 8 original factors.">44,4% hành vi mua được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
         <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
