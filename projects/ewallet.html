@@ -454,6 +454,35 @@
     color:var(--ink);
   }
   .case-hook .stat{ color:var(--blue); }
+  .impact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 20px;
+  }
+  .impact-stat{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    padding:10px 16px;
+    border-radius:10px;
+    flex:1 1 200px;
+  }
+  .impact-stat .impact-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    opacity:0.8;
+  }
+  .impact-stat .impact-value{
+    font-size:14.5px;
+    font-weight:700;
+    line-height:1.35;
+  }
+  .impact-stat.revenue{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.cost{ background:var(--blue-bg); color:var(--blue); }
+
   .case-body p{
     font-size:14.5px;
     color:var(--ink);
@@ -919,6 +948,16 @@
         <h3>E-wallet Payment Success Rate Analysis</h3>
         <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;4.8-point drop&lt;/span&gt; &amp;mdash; traced to exactly one step out of seven in the funnel."><span class="stat">Giảm 4,8 điểm phần trăm</span> — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
+        <div class="impact-row">
+          <div class="impact-stat revenue">
+            <span class="impact-label" data-en="Revenue protected">Doanh thu được bảo vệ</span>
+            <span class="impact-value" data-en="41.9% of total revenue sits in the highest-risk category (Billing)">41,9% tổng doanh thu nằm ở category rủi ro cao nhất (Billing)</span>
+          </div>
+          <div class="impact-stat cost">
+            <span class="impact-label" data-en="Engineering cost avoided">Chi phí kỹ thuật tránh được</span>
+            <span class="impact-value" data-en="Engineering effort focused on 1 confirmed step instead of debugging all 7">Tập trung nguồn lực vào đúng 1 bước đã xác minh, thay vì rà soát cả 7 bước</span>
+          </div>
+        </div>
         <p data-en="Success Rate kept falling even as transactions kept growing — a warning sign many teams miss because &amp;ldquo;growth still looks fine.&amp;rdquo; This 5-page Power BI report challenges that assumption: pinpointing exactly which funnel step is leaking revenue, then using a Bowtie model to trace it to the root across two months of transaction, user-behavior, and system-error data.">Success Rate giảm dù giao dịch vẫn tăng — dấu hiệu cảnh báo mà nhiều đội ngũ dễ bỏ qua vì tưởng "tăng trưởng vẫn ổn". Báo cáo Power BI 5 trang này lật lại giả định đó: xác định đúng bước phễu đang rò rỉ doanh thu, và dùng mô hình Bowtie để truy tận gốc trên 2 tháng dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống.</p>
         <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
         <p class="case-img-caption" data-en="Overview page — Power BI report">Trang Overview — Power BI report</p>
