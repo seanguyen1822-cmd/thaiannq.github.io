@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-wallet Payment Success Rate Analysis — Nguyễn Quốc Thái An</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0D1117;
+    --paper-dim:#11161D;
+    --ink:#E6EDF3;
+    --muted:#8B949E;
+    --line:#30363D;
+    --teal:#39C5CF;
+    --teal-dim:rgba(57,197,207,0.14);
+    --amber:#79C0FF;
+    --navy:#05070A;
+    --card:#161B22;
+    --radius:8px; --radius-pill:999px;
+    --coral:#FF7B72; --coral-bg:rgba(255,123,114,0.14); --coral-dark:#E5534B;
+    --violet:#A371F7; --violet-bg:rgba(163,113,247,0.15);
+    --blue:#58A6FF; --blue-bg:rgba(88,166,255,0.14); --blue-dark:#1F6FEB;
+    --green:#3FB950; --green-bg:rgba(63,185,80,0.14); --green-dark:#238636;
+    --gold:#D29922; --gold-bg:rgba(210,153,34,0.14);
+    --pink:#DB61A2; --pink-bg:rgba(219,97,162,0.14);
+  }
+  *{box-sizing:border-box;}
+  ::selection{ background:var(--blue); color:#0D1117; }
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background:var(--paper); }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--muted); }
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:38px 38px;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+  }
+  .field-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .field-label::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--blue);
+    display:inline-block;
+    flex:0 0 auto;
+  }
+  .field-label.on-brand{ color:rgba(255,255,255,0.85); }
+  .field-label.on-brand::before{ background:#fff; }
+  a{color:inherit;}
+  .id-strip{
+    height:4px;
+    background:linear-gradient(90deg, var(--blue) 0 33%, var(--teal) 33% 66%, var(--green) 66% 100%);
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* NAV */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(13,17,23,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:16px;
+  }
+  .brand span{color:var(--blue);}
+  .brand::after{
+    content:"";
+    display:inline-block;
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--coral);
+    margin-left:7px;
+    vertical-align:middle;
+  }
+  .navlinks{
+    display:flex;
+    gap:28px;
+    font-size:14px;
+    font-weight:500;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--muted);
+    transition:color .15s;
+  }
+  .navlinks a:hover{color:var(--blue);}
+  .cv-btn{
+    font-size:13px;
+    font-weight:600;
+    padding:9px 18px;
+    background:var(--blue);
+    color:#fff;
+    text-decoration:none;
+    border-radius:var(--radius-pill);
+    transition:background .15s;
+  }
+  .cv-btn:hover{ background:var(--blue-dark); }
+  .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .lang-toggle{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:600;
+    padding:8px 14px;
+    background:none;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:var(--radius-pill);
+    cursor:pointer;
+    transition:border-color .15s, color .15s;
+  }
+  .lang-toggle:hover{
+    border-color:var(--blue);
+    color:var(--blue);
+  }
+
+  /* HERO */
+  .hero{
+    padding:110px 0 64px;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--blue) 0%, #245D9E 55%, var(--green-dark) 100%);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-60px; right:-60px;
+    width:380px; height:380px;
+    border:1.5px solid rgba(255,255,255,0.35);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:80px; right:160px;
+    width:130px; height:130px;
+    border:1.5px dashed rgba(255,255,255,0.3);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero-inner{max-width:680px; position:relative;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#BFE9CE;
+    margin-bottom:14px;
+    display:block;
+  }
+  .hook{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:19px;
+    font-style:italic;
+    font-weight:500;
+    color:rgba(255,255,255,0.92);
+    line-height:1.4;
+    max-width:540px;
+    margin:0 0 18px;
+    padding-left:16px;
+    border-left:3px solid #BFE9CE;
+  }
+  h1.headline{
+    font-size:48px;
+    line-height:1.12;
+    font-weight:700;
+    color:#fff;
+  }
+  h1.headline em{
+    font-style:normal;
+    color:#BFE9CE;
+  }
+  .hl{
+    position:relative;
+    white-space:nowrap;
+    padding:0 2px;
+  }
+  .hl::before{
+    content:"";
+    position:absolute;
+    left:-3px; right:-3px; bottom:2px; top:38%;
+    background:var(--coral-bg);
+    border-radius:3px 8px 4px 9px/6px 4px 9px 3px;
+    z-index:-1;
+    transform:rotate(-0.6deg);
+  }
+  .lede{
+    margin-top:20px;
+    font-size:16px;
+    color:var(--muted);
+    max-width:560px;
+  }
+  .hero .lede{ color:rgba(255,255,255,0.88); }
+  .hero .hl::before{ background:rgba(0,0,0,0.18); }
+  .hero-cta{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+  }
+  .btn-primary{
+    background:var(--blue);
+    color:#fff;
+    padding:13px 26px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    border-radius:var(--radius-pill);
+    transition:background .15s;
+  }
+  .btn-primary:hover{ background:var(--blue-dark); }
+  .btn-ghost{
+    border:1px solid var(--line);
+    padding:13px 26px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink);
+    border-radius:var(--radius-pill);
+    transition:border-color .15s, color .15s;
+  }
+  .btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
+  .hero .btn-primary{ background:#fff; color:var(--blue); }
+  .hero .btn-primary:hover{ background:#FFE8E0; }
+  .hero .btn-ghost{ border-color:rgba(255,255,255,0.55); color:#fff; }
+  .hero .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); color:#fff; }
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(120deg, var(--blue) 0%, var(--green-dark) 100%);
+    padding:64px 0;
+  }
+  .cta-band-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .cta-band-inner h2{
+    color:#fff;
+    font-size:26px;
+    margin-top:8px;
+    max-width:480px;
+  }
+  .cta-band-actions{
+    display:flex;
+    gap:14px;
+    flex-shrink:0;
+  }
+  .cta-band .btn-primary{ background:#fff; color:var(--blue); }
+  .cta-band .btn-primary:hover{ background:#FFE8E0; }
+  .cta-band .btn-ghost{ border-color:rgba(255,255,255,0.55); color:#fff; }
+  .cta-band .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); color:#fff; }
+
+
+  /* KPI STRIP */
+  .kpi-strip{
+    margin-top:64px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:none;
+    background:var(--card);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 16px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .kpi{
+    padding:24px 26px;
+    border-right:1px solid var(--line);
+  }
+  .kpi:last-child{border-right:none;}
+  .kpi .num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:30px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .kpi .num sup{
+    font-size:13px;
+    font-weight:500;
+    color:var(--muted);
+    top:-0.6em;
+  }
+  .kpi .label{
+    margin-top:6px;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  .scroll-cue{
+    display:flex;
+    justify-content:center;
+    margin-top:48px;
+    position:relative;
+    z-index:1;
+  }
+  .scroll-cue-dot{
+    width:26px;
+    height:42px;
+    border:2px solid rgba(255,255,255,0.55);
+    border-radius:14px;
+    position:relative;
+    display:block;
+  }
+  .scroll-cue-dot::before{
+    content:"";
+    position:absolute;
+    top:8px;
+    left:50%;
+    width:4px;
+    height:8px;
+    background:#fff;
+    border-radius:2px;
+    transform:translateX(-50%);
+    animation:scrollCue 1.6s ease infinite;
+  }
+  @keyframes scrollCue{
+    0%{ opacity:1; top:8px; }
+    70%{ opacity:0; top:20px; }
+    100%{ opacity:0; top:8px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue-dot::before{ animation:none; }
+  }
+
+  /* SECTION HEADERS */
+  section{padding:88px 0;}
+  section.alt{background:var(--paper-dim);}
+  .section-head{
+    margin-bottom:48px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:28px;
+    margin-top:10px;
+  }
+  .section-head p{
+    color:var(--muted);
+    font-size:14px;
+    max-width:360px;
+    margin:0;
+  }
+
+  /* PROJECT CASE STUDY */
+  .case{
+    border:1px solid var(--line);
+    background:var(--card);
+    margin-bottom:28px;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    border-radius:16px;
+    overflow:hidden;
+    transition:box-shadow .2s, transform .2s;
+  }
+  .case:hover{
+    box-shadow:0 20px 44px rgba(88,166,255,0.12), 0 8px 24px rgba(0,0,0,0.45);
+    transform:translateY(-3px);
+  }
+  .case:last-child{margin-bottom:0;}
+  .case-meta{
+    padding:32px 28px;
+    border-right:1px solid var(--line);
+    background:var(--paper-dim);
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .case-meta .meta-row .field-label{margin-bottom:6px;}
+  .case-meta .meta-row .value{font-size:14px;font-weight:500;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    padding:4px 8px;
+    background:var(--teal-dim);
+    color:var(--teal);
+    border-radius:2px;
+  }
+  .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
+  .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
+  .case-body{padding:32px 34px;}
+  .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
+  .case-body h3::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:40px; height:3px;
+    background:var(--blue);
+    border-radius:2px;
+  }
+  .case-body .role{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .case-hook{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:19px;
+    font-weight:700;
+    line-height:1.35;
+    margin:0 0 16px;
+    color:var(--ink);
+  }
+  .case-hook .stat{ color:var(--blue); }
+  .case-body p{
+    font-size:14.5px;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+  .frame{
+    position:relative;
+    margin:18px 0 6px;
+    display:inline-block;
+    width:100%;
+  }
+  .frame::before,.frame::after{
+    content:"";
+    position:absolute;
+    width:16px; height:16px;
+    border-color:var(--coral);
+    pointer-events:none;
+  }
+  .frame::before{
+    top:-6px; left:-6px;
+    border-top:2px solid var(--coral);
+    border-left:2px solid var(--coral);
+  }
+  .frame::after{
+    bottom:-6px; right:-6px;
+    border-bottom:2px solid var(--coral);
+    border-right:2px solid var(--coral);
+  }
+  .case-img{
+    width:100%;
+    display:block;
+    border:1px solid var(--line);
+    margin:0;
+    border-radius:8px;
+  }
+  .browser-frame{
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--card);
+  }
+  .browser-frame .case-img{
+    border:none;
+    border-radius:0;
+  }
+  .browser-bar{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 12px;
+    background:var(--paper-dim);
+    border-bottom:1px solid var(--line);
+  }
+  .browser-bar span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+  }
+  .browser-bar span:nth-child(1){background:#FF5F57;}
+  .browser-bar span:nth-child(2){background:#FEBC2E;}
+  .browser-bar span:nth-child(3){background:#28C840;}
+  .case-img-caption{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin:8px 0 18px;
+  }
+  .case-chart{
+    width:100%;
+    display:block;
+    border:1px solid var(--line);
+    background:var(--card);
+    margin:18px 0 6px;
+    padding:6px 0;
+  }
+  .findings{
+    margin:18px 0 0;
+    padding:0;
+    list-style:none;
+  }
+  .findings li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:10px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .findings li::before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--green);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .placeholder-note{
+    margin-top:18px;
+    font-size:12.5px;
+    color:var(--muted);
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-left:2px solid var(--ink);
+    padding:10px 14px;
+    border-radius:2px;
+  }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .about-story p{
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+  .trait-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+  }
+  .trait-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+  }
+  .trait-chip .dot{
+    width:8px;height:8px;border-radius:50%;
+  }
+  .trait-chip.coral{background:var(--coral-bg);color:var(--coral);}
+  .trait-chip.coral .dot{background:var(--coral);}
+  .trait-chip.violet{background:var(--violet-bg);color:var(--violet);}
+  .trait-chip.violet .dot{background:var(--violet);}
+  .trait-chip.blue{background:var(--blue-bg);color:var(--blue);}
+  .trait-chip.blue .dot{background:var(--blue);}
+
+  .hobby-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .hobby-chip{
+    padding:14px 16px;
+    border-radius:12px;
+    font-size:13px;
+    transition:transform .15s;
+  }
+  .hobby-chip:hover{ transform:translateY(-2px); }
+  .hobby-chip .h-label{
+    font-weight:600;
+    display:block;
+    margin-bottom:3px;
+  }
+  .hobby-chip .h-detail{
+    color:inherit;
+    opacity:0.75;
+    font-size:12.5px;
+  }
+  .hobby-chip.coral{background:var(--coral-bg);color:var(--coral);}
+  .hobby-chip.violet{background:var(--violet-bg);color:var(--violet);}
+  .hobby-chip.blue{background:var(--blue-bg);color:var(--blue);}
+  .hobby-chip.gold{background:var(--gold-bg);color:var(--gold);}
+  .hobby-chip.pink{background:var(--pink-bg);color:var(--pink);}
+  .hobby-chip.teal{background:var(--teal-dim);color:var(--teal);}
+
+  /* RESEARCH VIZ */
+  .viz-block{
+    border:1px solid var(--line);
+    background:var(--paper-dim);
+    padding:22px 24px;
+    margin-bottom:16px;
+    border-radius:14px;
+  }
+  .viz-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:16px;
+  }
+  /* funnel */
+  .funnel-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .funnel-step{
+    text-align:center;
+    padding:14px 10px;
+    background:var(--card);
+    border:1px solid var(--line);
+  }
+  .funnel-step .fn-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--ink);
+  }
+  .funnel-step .fn-label{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:4px;
+    line-height:1.3;
+  }
+  .funnel-arrow{
+    color:var(--line);
+    font-size:18px;
+    flex:0 0 auto;
+  }
+  .reliability-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .reliability-note b{ color:var(--teal); }
+  /* coefficient chart */
+  .coef-row{
+    display:grid;
+    grid-template-columns:190px 1fr auto;
+    align-items:center;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .coef-row:last-child{ margin-bottom:0; }
+  .coef-label{
+    font-size:13px;
+    color:var(--ink);
+  }
+  .coef-track{
+    height:10px;
+    background:var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    position:relative;
+  }
+  .coef-fill{
+    height:100%;
+    border-radius:6px;
+  }
+  .coef-fill.sig{ background:var(--teal); }
+  .coef-fill.nsig{ background:var(--line); }
+  .coef-value{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    white-space:nowrap;
+    min-width:118px;
+    text-align:right;
+  }
+  .coef-value.sig{ color:var(--teal); font-weight:600; }
+  .viz-legend{
+    display:flex;
+    gap:18px;
+    margin-top:16px;
+    font-size:11.5px;
+    color:var(--muted);
+  }
+  .viz-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .viz-legend i{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  /* r-squared badge */
+  .rsq-wrap{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .rsq-badge{
+    flex:0 0 auto;
+    position:relative;
+    width:96px; height:96px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rsq-badge svg{ position:absolute; inset:0; transform:rotate(-90deg); }
+  .rsq-badge span{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    color:var(--ink);
+    z-index:1;
+  }
+  .rsq-text{ font-size:13px; color:var(--muted); max-width:360px; }
+
+  /* PBI EMBED */
+  .pbi-embed-wrap{
+    position:relative;
+    width:100%;
+    padding-top:62.25%; /* matches Power BI's 600x373.5 aspect ratio */
+    border:1px solid var(--line);
+    background:var(--paper-dim);
+    margin:20px 0;
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .pbi-embed-wrap iframe{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border:0;
+  }
+  .pbi-caption{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin:8px 0 0;
+  }
+
+  /* SKILLS */
+  .skill-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .skill-cell{
+    background:var(--card);
+    padding:22px;
+    flex:1 1 210px;
+    transition:background .15s;
+  }
+  .skill-cell:hover{ background:var(--paper-dim); }
+  .skill-cell .field-label{margin-bottom:10px;}
+  .skill-cell .items{
+    font-size:13.5px;
+    color:var(--ink);
+    line-height:1.8;
+  }
+
+  /* FOOTER */
+  footer{
+    background:var(--navy);
+    color:#C9D2D6;
+    padding:64px 0 40px;
+  }
+  footer h2{
+    color:#fff;
+    font-size:26px;
+    max-width:420px;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:24px;
+    margin-top:28px;
+  }
+  .footer-links{
+    display:flex;
+    gap:22px;
+    font-size:13.5px;
+  }
+  .footer-links a{text-decoration:none;color:#C9D2D6;}
+  .footer-links a:hover{color:#fff;}
+  .footer-bottom{
+    margin-top:56px;
+    padding-top:20px;
+    border-top:1px solid #253039;
+    font-size:12px;
+    color:#6A7880;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media(max-width:760px){
+    h1.headline{font-size:32px;}
+    .kpi-strip{grid-template-columns:1fr;}
+    .kpi{border-right:none;border-bottom:1px solid var(--line);}
+    .case{grid-template-columns:1fr;}
+    .case-meta{border-right:none;border-bottom:1px solid var(--line);}
+    .skill-grid{ }
+    .skill-cell{ flex-basis:100%; }
+    .navlinks{display:none;}
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .hobby-grid{grid-template-columns:1fr 1fr;}
+    .coef-row{grid-template-columns:1fr;gap:6px;}
+    .coef-value{text-align:left;}
+    .funnel-row{flex-wrap:wrap;}
+    .rsq-wrap{flex-direction:column;align-items:flex-start;}
+    .cta-band-inner{flex-direction:column;align-items:flex-start;}
+  }
+  :focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--muted);
+    text-decoration:none;
+    margin-bottom:24px;
+    transition:color .15s;
+  }
+  .back-link:hover{ color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="id-strip"></div>
+
+<header>
+  <nav class="wrap">
+    <a href="../index.html" class="brand" style="text-decoration:none">Thái An <span>/ DA</span></a>
+    <div class="navlinks">
+      <a href="../index.html#about" data-en="About">Về tôi</a>
+      <a href="../index.html#projects" data-en="Projects">Dự án</a>
+      <a href="../index.html#skills" data-en="Skills">Kỹ năng</a>
+      <a href="../index.html#contact" data-en="Contact">Liên hệ</a>
+    </div>
+    <div class="nav-actions">
+      <a class="cv-btn" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+      <button type="button" class="lang-toggle" id="langToggle">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section>
+  <div class="wrap" style="padding-bottom:0;">
+    <a href="../index.html#projects" class="back-link" data-en="&larr; Back to all projects">&larr; Về tất cả dự án</a>
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="meta-row">
+          <div class="field-label" data-en="Role">Vai trò</div>
+          <div class="value">Data Analyst (Capstone)</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Tools">Công cụ</div>
+          <div class="value">Power BI · DAX · Excel</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Techniques">Kỹ thuật</div>
+          <div class="tags">
+            <span class="tag">Funnel Analysis</span>
+            <span class="tag">Bowtie Root Cause</span>
+            <span class="tag">Cohort Retention</span>
+            <span class="tag">Revenue Pareto</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>E-wallet Payment Success Rate Analysis</h3>
+        <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
+        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;4.8-point drop&lt;/span&gt; &amp;mdash; traced to exactly one step out of seven in the funnel."><span class="stat">Giảm 4,8 điểm phần trăm</span> — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
+        <p data-en="Success Rate kept falling even as transactions kept growing — a warning sign many teams miss because &amp;ldquo;growth still looks fine.&amp;rdquo; This 5-page Power BI report challenges that assumption: pinpointing exactly which funnel step is leaking revenue, then using a Bowtie model to trace it to the root across two months of transaction, user-behavior, and system-error data.">Success Rate giảm dù giao dịch vẫn tăng — dấu hiệu cảnh báo mà nhiều đội ngũ dễ bỏ qua vì tưởng "tăng trưởng vẫn ổn". Báo cáo Power BI 5 trang này lật lại giả định đó: xác định đúng bước phễu đang rò rỉ doanh thu, và dùng mô hình Bowtie để truy tận gốc trên 2 tháng dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống.</p>
+        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
+        <p class="case-img-caption" data-en="Overview page — Power BI report">Trang Overview — Power BI report</p>
+        <ul class="findings">
+          <li data-en="Success Rate dropped from 91.70% (July) to 86.93% (August) — a 4.8-point decline — while transaction volume still grew +18.9%, ruling out system overload as the cause.">Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
+          <li data-en="58.15% of failures fall under USER_FACTORS, concentrated at the OTP/3DS authentication step — the most common errors are invalid_otp and 3ds_timeout.">58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
+          <li data-en="Billing is both the largest revenue category (41.91% of total revenue) and the category with the sharpest SR decline — a dual risk to revenue and user experience.">Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
+        </ul>
+        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
+        <p class="case-img-caption" data-en="Root Cause page — 3-tier error classification">Trang Root Cause — phân loại lỗi 3 cấp</p>
+
+        <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
+        <div class="pbi-embed-wrap">
+          <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
+        </div>
+        <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div>
+      <span class="field-label on-brand" data-en="Let&#39;s work together">Cùng hợp tác nhé</span>
+      <h2 data-en="Have a role or project in mind? Let&amp;rsquo;s talk.">Có vị trí hoặc dự án phù hợp? Nhắn mình nhé.</h2>
+    </div>
+    <div class="cta-band-actions">
+      <a class="btn-primary" href="mailto:thaiannq@outlook.com" data-en="Email me">Gửi email</a>
+      <a class="btn-ghost" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="field-label" style="color:#7FB8B0;" data-en="Contact">Liên hệ</span>
+    <h2 data-en="Currently looking for Data Analyst (fresher) opportunities in Ho Chi Minh City.">Hiện đang tìm kiếm cơ hội Data Analyst (fresher) tại TP.HCM.</h2>
+    <div class="footer-row">
+      <div class="footer-links">
+        <a href="mailto:thaiannq@outlook.com">thaiannq@outlook.com</a>
+        <a href="tel:0364875372">0364 875 372</a>
+        <a href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV (PDF)">Tải CV (PDF)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nguyễn Quốc Thái An</span>
+      <span>Built &amp; hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('langToggle');
+  var current = 'vi';
+  function applyLang(lang){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if(el.dataset.vi === undefined){ el.dataset.vi = el.innerHTML; }
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.vi;
+    });
+    document.documentElement.lang = lang;
+    toggle.textContent = lang === 'en' ? 'VI' : 'EN';
+    current = lang;
+  }
+  toggle.addEventListener('click', function(){
+    applyLang(current === 'vi' ? 'en' : 'vi');
+  });
+})();
+
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window) || !els.length){
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
