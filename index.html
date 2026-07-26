@@ -19,7 +19,7 @@
     --amber:#79C0FF;
     --navy:#05070A;
     --card:#161B22;
-    --radius:8px;
+    --radius:8px; --radius-pill:999px;
     --coral:#FF7B72; --coral-bg:rgba(255,123,114,0.14); --coral-dark:#E5534B;
     --violet:#A371F7; --violet-bg:rgba(163,113,247,0.15);
     --blue:#58A6FF; --blue-bg:rgba(88,166,255,0.14); --blue-dark:#1F6FEB;
@@ -131,11 +131,11 @@
   .cv-btn{
     font-size:13px;
     font-weight:600;
-    padding:9px 16px;
+    padding:9px 18px;
     background:var(--blue);
     color:#fff;
     text-decoration:none;
-    border-radius:var(--radius);
+    border-radius:var(--radius-pill);
     transition:background .15s;
   }
   .cv-btn:hover{ background:var(--blue-dark); }
@@ -148,11 +148,11 @@
     font-family:'JetBrains Mono',monospace;
     font-size:12px;
     font-weight:600;
-    padding:8px 12px;
+    padding:8px 14px;
     background:none;
     color:var(--ink);
     border:1px solid var(--line);
-    border-radius:var(--radius);
+    border-radius:var(--radius-pill);
     cursor:pointer;
     transition:border-color .15s, color .15s;
   }
@@ -248,22 +248,22 @@
   .btn-primary{
     background:var(--blue);
     color:#fff;
-    padding:12px 22px;
+    padding:13px 26px;
     text-decoration:none;
     font-weight:600;
     font-size:14px;
-    border-radius:var(--radius);
+    border-radius:var(--radius-pill);
     transition:background .15s;
   }
   .btn-primary:hover{ background:var(--blue-dark); }
   .btn-ghost{
     border:1px solid var(--line);
-    padding:12px 22px;
+    padding:13px 26px;
     text-decoration:none;
     font-weight:600;
     font-size:14px;
     color:var(--ink);
-    border-radius:var(--radius);
+    border-radius:var(--radius-pill);
     transition:border-color .15s, color .15s;
   }
   .btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
@@ -431,7 +431,15 @@
   .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
   .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
   .case-body{padding:32px 34px;}
-  .case-body h3{font-size:21px;margin-bottom:6px;}
+  .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
+  .case-body h3::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:40px; height:3px;
+    background:var(--blue);
+    border-radius:2px;
+  }
   .case-body .role{
     font-size:13px;
     color:var(--muted);
@@ -481,6 +489,33 @@
     margin:0;
     border-radius:8px;
   }
+  .browser-frame{
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--card);
+  }
+  .browser-frame .case-img{
+    border:none;
+    border-radius:0;
+  }
+  .browser-bar{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 12px;
+    background:var(--paper-dim);
+    border-bottom:1px solid var(--line);
+  }
+  .browser-bar span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+  }
+  .browser-bar span:nth-child(1){background:#FF5F57;}
+  .browser-bar span:nth-child(2){background:#FEBC2E;}
+  .browser-bar span:nth-child(3){background:#28C840;}
   .case-img-caption{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
@@ -950,14 +985,14 @@
         <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;4.8-point drop&lt;/span&gt; &amp;mdash; traced to exactly one step out of seven in the funnel."><span class="stat">Giảm 4,8 điểm phần trăm</span> — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
         <p data-en="Success Rate kept falling even as transactions kept growing — a warning sign many teams miss because &amp;ldquo;growth still looks fine.&amp;rdquo; This 5-page Power BI report challenges that assumption: pinpointing exactly which funnel step is leaking revenue, then using a Bowtie model to trace it to the root across two months of transaction, user-behavior, and system-error data.">Success Rate giảm dù giao dịch vẫn tăng — dấu hiệu cảnh báo mà nhiều đội ngũ dễ bỏ qua vì tưởng "tăng trưởng vẫn ổn". Báo cáo Power BI 5 trang này lật lại giả định đó: xác định đúng bước phễu đang rò rỉ doanh thu, và dùng mô hình Bowtie để truy tận gốc trên 2 tháng dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống.</p>
-        <div class="frame"><img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
+        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
         <p class="case-img-caption" data-en="Overview page — Power BI report">Trang Overview — Power BI report</p>
         <ul class="findings">
           <li data-en="Success Rate dropped from 91.70% (July) to 86.93% (August) — a 4.8-point decline — while transaction volume still grew +18.9%, ruling out system overload as the cause.">Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
           <li data-en="58.15% of failures fall under USER_FACTORS, concentrated at the OTP/3DS authentication step — the most common errors are invalid_otp and 3ds_timeout.">58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
           <li data-en="Billing is both the largest revenue category (41.91% of total revenue) and the category with the sharpest SR decline — a dual risk to revenue and user experience.">Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
         </ul>
-        <div class="frame"><img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
+        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
         <p class="case-img-caption" data-en="Root Cause page — 3-tier error classification">Trang Root Cause — phân loại lỗi 3 cấp</p>
 
         <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
@@ -1000,7 +1035,7 @@
         <div class="role" data-en="UK Retail · 9,900 data rows, Mar–Nov 2023 · overall ROAS 10.6&amp;times; on £163.25K spend / £1.73M revenue">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;£38,244/month&lt;/span&gt; &amp;mdash; the revenue left on the table by funding the wrong channel."><span class="stat">£38.244/tháng</span> — cái giá của việc rót ngân sách sai kênh.</p>
         <p data-en="Facebook gets the biggest budget &amp;mdash; yet performs the worst. That is the kind of silent budget misallocation that quietly eats into profit until someone looks at the right numbers. This dashboard brings Facebook, Instagram, and Pinterest performance into one place, turning a vague &amp;ldquo;should we spend more&amp;rdquo; question into one concrete number to act on.">Facebook nhận ngân sách nhiều nhất — nhưng lại là kênh kém hiệu quả nhất. Đó là kiểu lệch ngân sách âm thầm bào mòn lợi nhuận mà không ai để ý cho đến khi nhìn đúng con số. Dashboard này hợp nhất hiệu suất Facebook, Instagram và Pinterest vào một nơi, biến câu hỏi mơ hồ "có nên chi thêm không" thành một con số cụ thể để hành động.</p>
-        <div class="frame"><img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
+        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
         <p class="case-img-caption" data-en="Dashboard Overview — Revenue, Spend, Profit by channel &amp;amp; time">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
         <ul class="findings">
           <li data-en="Facebook gets the most impressions (37.1%) but the lowest ROAS (4.6&amp;times;&amp;ndash;9.8&amp;times; by season); Pinterest holds the smallest click share yet leads ROAS every season (21.8&amp;times;&amp;ndash;24.0&amp;times;).">Facebook nhận impressions nhiều nhất (37,1%) nhưng ROAS thấp nhất (4,6×–9,8× theo mùa); Pinterest chỉ chiếm thị phần click nhỏ nhất nhưng dẫn đầu ROAS mọi mùa (21,8×–24,0×).</li>
@@ -1008,7 +1043,7 @@
           <li data-en="A quadratic regression model (Revenue ~ Spend) on 275 days of data (R&amp;sup2;=0.518) shows Pinterest is currently spending £103/day, while the optimal spend point is £267/day — there is still room to grow the budget without diminishing returns.">Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
           <li data-en="Proposed monthly budget reallocation: Facebook £7,957&amp;rarr;£3,029 (&amp;minus;77%), Pinterest £3,081&amp;rarr;£8,009 (+237%), Instagram unchanged at £7,044 — projected to add £38,244 in monthly revenue.">Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
         </ul>
-        <div class="frame"><img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
+        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
         <p class="case-img-caption" data-en="Quadratic regression model — finding Pinterest&amp;rsquo;s optimal spend point">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
 
         <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
