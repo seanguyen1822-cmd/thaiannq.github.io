@@ -454,6 +454,35 @@
     color:var(--ink);
   }
   .case-hook .stat{ color:var(--blue); }
+  .impact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 20px;
+  }
+  .impact-stat{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    padding:10px 16px;
+    border-radius:10px;
+    flex:1 1 200px;
+  }
+  .impact-stat .impact-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    opacity:0.8;
+  }
+  .impact-stat .impact-value{
+    font-size:14.5px;
+    font-weight:700;
+    line-height:1.35;
+  }
+  .impact-stat.revenue{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.cost{ background:var(--blue-bg); color:var(--blue); }
+
   .case-body p{
     font-size:14.5px;
     color:var(--ink);
@@ -925,6 +954,16 @@
         <h3>Marketing Campaign Dashboard</h3>
         <div class="role" data-en="UK Retail · 9,900 data rows, Mar–Nov 2023 · overall ROAS 10.6&amp;times; on £163.25K spend / £1.73M revenue">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;£38,244/month&lt;/span&gt; &amp;mdash; the revenue left on the table by funding the wrong channel."><span class="stat">£38.244/tháng</span> — cái giá của việc rót ngân sách sai kênh.</p>
+        <div class="impact-row">
+          <div class="impact-stat revenue">
+            <span class="impact-label" data-en="Projected revenue growth">Doanh thu dự kiến tăng thêm</span>
+            <span class="impact-value" data-en="+£38,244/month from reallocating budget alone — no extra spend required">+£38.244/tháng chỉ nhờ tái phân bổ ngân sách — không cần chi thêm</span>
+          </div>
+          <div class="impact-stat cost">
+            <span class="impact-label" data-en="Budget optimized">Ngân sách được tối ưu</span>
+            <span class="impact-value" data-en="77% of Facebook&amp;rsquo;s budget (the lowest-ROAS channel) redirected to a proven performer">Cắt 77% ngân sách khỏi Facebook (kênh ROAS thấp nhất) chuyển sang kênh đã chứng minh hiệu quả</span>
+          </div>
+        </div>
         <p data-en="Facebook gets the biggest budget &amp;mdash; yet performs the worst. That is the kind of silent budget misallocation that quietly eats into profit until someone looks at the right numbers. This dashboard brings Facebook, Instagram, and Pinterest performance into one place, turning a vague &amp;ldquo;should we spend more&amp;rdquo; question into one concrete number to act on.">Facebook nhận ngân sách nhiều nhất — nhưng lại là kênh kém hiệu quả nhất. Đó là kiểu lệch ngân sách âm thầm bào mòn lợi nhuận mà không ai để ý cho đến khi nhìn đúng con số. Dashboard này hợp nhất hiệu suất Facebook, Instagram và Pinterest vào một nơi, biến câu hỏi mơ hồ "có nên chi thêm không" thành một con số cụ thể để hành động.</p>
         <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
         <p class="case-img-caption" data-en="Dashboard Overview — Revenue, Spend, Profit by channel &amp;amp; time">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
