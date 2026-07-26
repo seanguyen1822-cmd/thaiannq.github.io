@@ -184,8 +184,20 @@
     letter-spacing:0.14em;
     text-transform:uppercase;
     color:#BFE9CE;
-    margin-bottom:18px;
+    margin-bottom:14px;
     display:block;
+  }
+  .hook{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:19px;
+    font-style:italic;
+    font-weight:500;
+    color:rgba(255,255,255,0.92);
+    line-height:1.4;
+    max-width:540px;
+    margin:0 0 18px;
+    padding-left:16px;
+    border-left:3px solid #BFE9CE;
   }
   h1.headline{
     font-size:48px;
@@ -312,6 +324,42 @@
     margin-top:6px;
     font-size:12.5px;
     color:var(--muted);
+  }
+
+  .scroll-cue{
+    display:flex;
+    justify-content:center;
+    margin-top:48px;
+    position:relative;
+    z-index:1;
+  }
+  .scroll-cue-dot{
+    width:26px;
+    height:42px;
+    border:2px solid rgba(255,255,255,0.55);
+    border-radius:14px;
+    position:relative;
+    display:block;
+  }
+  .scroll-cue-dot::before{
+    content:"";
+    position:absolute;
+    top:8px;
+    left:50%;
+    width:4px;
+    height:8px;
+    background:#fff;
+    border-radius:2px;
+    transform:translateX(-50%);
+    animation:scrollCue 1.6s ease infinite;
+  }
+  @keyframes scrollCue{
+    0%{ opacity:1; top:8px; }
+    70%{ opacity:0; top:20px; }
+    100%{ opacity:0; top:8px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue-dot::before{ animation:none; }
   }
 
   /* SECTION HEADERS */
@@ -782,8 +830,9 @@
   <div class="wrap">
     <div class="hero-inner">
       <span class="eyebrow">Data Analyst · Fresher</span>
+      <p class="hook" data-en="&amp;ldquo;Transaction volume grew +18.9% &amp;mdash; yet Success Rate still dropped 4.8 points. Why?&amp;rdquo;">"Volume giao dịch tăng +18,9% — nhưng Success Rate vẫn giảm 4,8 điểm phần trăm. Vì sao?"</p>
       <h1 class="headline" data-en="Turning &lt;span class=&quot;hl&quot;&gt;data&lt;/span&gt; into the &lt;em&gt;optimal decision&lt;/em&gt; for every situation.">Chuyển đổi <span class="hl">dữ liệu</span> để hỗ trợ đưa ra <em>quyết định tối ưu</em> phù hợp với tình huống.</h1>
-      <p class="lede" data-en="Nguyễn Quốc Thái An — Data Analyst focused on Power BI &amp;amp; DAX, specializing in funnel analysis, root-cause investigation, and presenting results to stakeholders. The two projects below illustrate how I work.">Nguyễn Quốc Thái An — Data Analyst, chuyên về Power BI &amp; DAX, tập trung vào funnel analysis, xác định nguyên nhân gốc và trình bày kết quả cho stakeholder. Hai dự án dưới đây minh hoạ quy trình làm việc.</p>
+      <p class="lede" data-en="I&amp;rsquo;m An &amp;mdash; I found the answer through root-cause analysis in Power BI, then turned it into a clear action plan for each team. Scroll down to see how I work.">Tôi là An — tìm ra câu trả lời bằng phân tích nguyên nhân gốc trên Power BI, rồi biến nó thành kế hoạch hành động rõ ràng cho từng đội ngũ. Cuộn xuống để xem cách tôi làm.</p>
       <div class="trait-row" style="margin-top:18px">
         <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Curious"><span class="dot"></span>Tò mò</span>
         <span class="trait-chip violet" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Persistent"><span class="dot"></span>Kiên trì</span>
@@ -809,6 +858,9 @@
         <div class="label" data-en="Case studies &amp;amp; stakeholder reports in both Vietnamese and English">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
       </div>
     </div>
+    <a href="#projects" class="scroll-cue" aria-label="Cuộn xuống xem dự án">
+      <span class="scroll-cue-dot"></span>
+    </a>
   </div>
 </section>
 
