@@ -22,7 +22,8 @@
     --radius:2px;
     --coral:#D8503A; --coral-bg:#FBEAE5; --coral-dark:#B33F2C;
     --violet:#6C5CE0; --violet-bg:#EDEBFB;
-    --blue:#2C6FBB; --blue-bg:#E7F0FA;
+    --blue:#2C6FBB; --blue-bg:#E7F0FA; --blue-dark:#204F8A;
+    --green:#2E9E5B; --green-bg:#E4F5EA; --green-dark:#227A46;
     --gold:#C08A1E; --gold-bg:#FBF1DE;
     --pink:#C24B78; --pink-bg:#FBEAF1;
   }
@@ -49,7 +50,7 @@
     font-size:11px;
     letter-spacing:0.12em;
     text-transform:uppercase;
-    color:var(--coral);
+    color:var(--blue);
     display:flex;
     align-items:center;
     gap:8px;
@@ -59,7 +60,7 @@
     width:6px;
     height:6px;
     border-radius:50%;
-    background:var(--coral);
+    background:var(--blue);
     display:inline-block;
     flex:0 0 auto;
   }
@@ -68,7 +69,7 @@
   a{color:inherit;}
   .id-strip{
     height:4px;
-    background:linear-gradient(90deg, var(--coral) 0 25%, var(--teal) 25% 50%, var(--blue) 50% 75%, var(--violet) 75% 100%);
+    background:linear-gradient(90deg, var(--blue) 0 33%, var(--teal) 33% 66%, var(--green) 66% 100%);
   }
   .wrap{
     max-width:1080px;
@@ -96,7 +97,7 @@
     font-weight:600;
     font-size:16px;
   }
-  .brand span{color:var(--coral);}
+  .brand span{color:var(--blue);}
   .brand::after{
     content:"";
     display:inline-block;
@@ -117,18 +118,18 @@
     color:var(--muted);
     transition:color .15s;
   }
-  .navlinks a:hover{color:var(--coral);}
+  .navlinks a:hover{color:var(--blue);}
   .cv-btn{
     font-size:13px;
     font-weight:600;
     padding:9px 16px;
-    background:var(--coral);
+    background:var(--blue);
     color:#fff;
     text-decoration:none;
     border-radius:var(--radius);
     transition:background .15s;
   }
-  .cv-btn:hover{ background:var(--coral-dark); }
+  .cv-btn:hover{ background:var(--blue-dark); }
   .nav-actions{
     display:flex;
     align-items:center;
@@ -147,8 +148,8 @@
     transition:border-color .15s, color .15s;
   }
   .lang-toggle:hover{
-    border-color:var(--coral);
-    color:var(--coral);
+    border-color:var(--blue);
+    color:var(--blue);
   }
 
   /* HERO */
@@ -156,7 +157,7 @@
     padding:110px 0 64px;
     position:relative;
     overflow:hidden;
-    background:linear-gradient(135deg, var(--coral) 0%, #C2432E 55%, #A83A26 100%);
+    background:linear-gradient(135deg, var(--blue) 0%, #245D9E 55%, var(--green-dark) 100%);
   }
   .hero::after{
     content:"";
@@ -182,7 +183,7 @@
     font-size:12px;
     letter-spacing:0.14em;
     text-transform:uppercase;
-    color:rgba(255,255,255,0.85);
+    color:#BFE9CE;
     margin-bottom:18px;
     display:block;
   }
@@ -194,7 +195,7 @@
   }
   h1.headline em{
     font-style:normal;
-    color:#FFE1D6;
+    color:#BFE9CE;
   }
   .hl{
     position:relative;
@@ -224,7 +225,7 @@
     gap:14px;
   }
   .btn-primary{
-    background:var(--coral);
+    background:var(--blue);
     color:#fff;
     padding:12px 22px;
     text-decoration:none;
@@ -233,7 +234,7 @@
     border-radius:var(--radius);
     transition:background .15s;
   }
-  .btn-primary:hover{ background:var(--coral-dark); }
+  .btn-primary:hover{ background:var(--blue-dark); }
   .btn-ghost{
     border:1px solid var(--line);
     padding:12px 22px;
@@ -244,15 +245,15 @@
     border-radius:var(--radius);
     transition:border-color .15s, color .15s;
   }
-  .btn-ghost:hover{ border-color:var(--coral); color:var(--coral); }
-  .hero .btn-primary{ background:#fff; color:var(--coral); }
+  .btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
+  .hero .btn-primary{ background:#fff; color:var(--blue); }
   .hero .btn-primary:hover{ background:#FFE8E0; }
   .hero .btn-ghost{ border-color:rgba(255,255,255,0.55); color:#fff; }
   .hero .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); color:#fff; }
 
   /* CTA BAND */
   .cta-band{
-    background:linear-gradient(120deg, var(--coral) 0%, #C2432E 100%);
+    background:linear-gradient(120deg, var(--blue) 0%, var(--green-dark) 100%);
     padding:64px 0;
   }
   .cta-band-inner{
@@ -273,7 +274,7 @@
     gap:14px;
     flex-shrink:0;
   }
-  .cta-band .btn-primary{ background:#fff; color:var(--coral); }
+  .cta-band .btn-primary{ background:#fff; color:var(--blue); }
   .cta-band .btn-primary:hover{ background:#FFE8E0; }
   .cta-band .btn-ghost{ border-color:rgba(255,255,255,0.55); color:#fff; }
   .cta-band .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); color:#fff; }
@@ -444,7 +445,7 @@
     content:"→";
     position:absolute;
     left:0;
-    color:var(--coral);
+    color:var(--green);
     font-family:'JetBrains Mono',monospace;
   }
   .placeholder-note{
@@ -742,7 +743,7 @@
     .rsq-wrap{flex-direction:column;align-items:flex-start;}
     .cta-band-inner{flex-direction:column;align-items:flex-start;}
   }
-  :focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+  :focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
   .reveal{
     opacity:0;
     transform:translateY(22px);
@@ -781,7 +782,7 @@
   <div class="wrap">
     <div class="hero-inner">
       <span class="eyebrow">Data Analyst · Fresher</span>
-      <h1 class="headline" data-en="Turning &lt;span class=&quot;hl&quot;&gt;data&lt;/span&gt; from transactions &amp;amp; campaigns into &lt;em&gt;informed decisions&lt;/em&gt;.">Chuyển hoá <span class="hl">dữ liệu</span> giao dịch &amp; chiến dịch thành <em>quyết định</em> có căn cứ.</h1>
+      <h1 class="headline" data-en="Turning &lt;span class=&quot;hl&quot;&gt;data&lt;/span&gt; into the &lt;em&gt;optimal decision&lt;/em&gt; for every situation.">Chuyển đổi <span class="hl">dữ liệu</span> để hỗ trợ đưa ra <em>quyết định tối ưu</em> phù hợp với tình huống.</h1>
       <p class="lede" data-en="Nguyễn Quốc Thái An — Data Analyst focused on Power BI &amp;amp; DAX, specializing in funnel analysis, root-cause investigation, and presenting results to stakeholders. The two projects below illustrate how I work.">Nguyễn Quốc Thái An — Data Analyst, chuyên về Power BI &amp; DAX, tập trung vào funnel analysis, xác định nguyên nhân gốc và trình bày kết quả cho stakeholder. Hai dự án dưới đây minh hoạ quy trình làm việc.</p>
       <div class="trait-row" style="margin-top:18px">
         <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Curious"><span class="dot"></span>Tò mò</span>
