@@ -428,6 +428,15 @@
     color:var(--muted);
     margin-bottom:18px;
   }
+  .case-hook{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:19px;
+    font-weight:700;
+    line-height:1.35;
+    margin:0 0 16px;
+    color:var(--ink);
+  }
+  .case-hook .stat{ color:var(--blue); }
   .case-body p{
     font-size:14.5px;
     color:var(--ink);
@@ -930,7 +939,8 @@
       <div class="case-body">
         <h3>E-wallet Payment Success Rate Analysis</h3>
         <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
-        <p data-en="Built a 5-page Power BI report (Overview, Funnel &amp;amp; Conversion, Root Cause, Revenue Pareto, Retention &amp;amp; Distribution) on two months of transaction, user-behavior, and system-error data from an e-wallet, to pinpoint bottlenecks in the payment flow and trace root causes using a Bowtie model.">Xây dựng báo cáo Power BI 5 trang (Overview, Funnel &amp; Conversion, Root Cause, Revenue Pareto, Retention &amp; Distribution) trên bộ dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống của một ví điện tử trong 2 tháng, nhằm xác định điểm nghẽn trong luồng thanh toán và truy nguyên nhân gốc bằng mô hình Bowtie.</p>
+        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;4.8-point drop&lt;/span&gt; &amp;mdash; traced to exactly one step out of seven in the funnel."><span class="stat">Giảm 4,8 điểm phần trăm</span> — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
+        <p data-en="Success Rate kept falling even as transactions kept growing — a warning sign many teams miss because &amp;ldquo;growth still looks fine.&amp;rdquo; This 5-page Power BI report challenges that assumption: pinpointing exactly which funnel step is leaking revenue, then using a Bowtie model to trace it to the root across two months of transaction, user-behavior, and system-error data.">Success Rate giảm dù giao dịch vẫn tăng — dấu hiệu cảnh báo mà nhiều đội ngũ dễ bỏ qua vì tưởng "tăng trưởng vẫn ổn". Báo cáo Power BI 5 trang này lật lại giả định đó: xác định đúng bước phễu đang rò rỉ doanh thu, và dùng mô hình Bowtie để truy tận gốc trên 2 tháng dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống.</p>
         <div class="frame"><img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
         <p class="case-img-caption" data-en="Overview page — Power BI report">Trang Overview — Power BI report</p>
         <ul class="findings">
@@ -979,7 +989,8 @@
       <div class="case-body">
         <h3>Marketing Campaign Dashboard</h3>
         <div class="role" data-en="UK Retail · 9,900 data rows, Mar–Nov 2023 · overall ROAS 10.6&amp;times; on £163.25K spend / £1.73M revenue">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
-        <p data-en="A Power BI dashboard unifying ad performance across Facebook, Instagram, and Pinterest, answering the question: is the budget going to the right places, and how should it be reallocated to grow next month&amp;rsquo;s revenue based on data rather than gut feel.">Dashboard Power BI hợp nhất hiệu suất quảng cáo từ Facebook, Instagram và Pinterest, trả lời câu hỏi: ngân sách có đang chi đúng chỗ, và nên phân bổ lại thế nào để tăng doanh thu tháng tới dựa trên số liệu thay vì cảm tính.</p>
+        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;£38,244/month&lt;/span&gt; &amp;mdash; the revenue left on the table by funding the wrong channel."><span class="stat">£38.244/tháng</span> — cái giá của việc rót ngân sách sai kênh.</p>
+        <p data-en="Facebook gets the biggest budget &amp;mdash; yet performs the worst. That is the kind of silent budget misallocation that quietly eats into profit until someone looks at the right numbers. This dashboard brings Facebook, Instagram, and Pinterest performance into one place, turning a vague &amp;ldquo;should we spend more&amp;rdquo; question into one concrete number to act on.">Facebook nhận ngân sách nhiều nhất — nhưng lại là kênh kém hiệu quả nhất. Đó là kiểu lệch ngân sách âm thầm bào mòn lợi nhuận mà không ai để ý cho đến khi nhìn đúng con số. Dashboard này hợp nhất hiệu suất Facebook, Instagram và Pinterest vào một nơi, biến câu hỏi mơ hồ "có nên chi thêm không" thành một con số cụ thể để hành động.</p>
         <div class="frame"><img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
         <p class="case-img-caption" data-en="Dashboard Overview — Revenue, Spend, Profit by channel &amp;amp; time">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
         <ul class="findings">
@@ -1025,7 +1036,8 @@
       <div class="case-body">
         <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
         <div class="role" data-en="Business Analytics specialization project · Văn Lang University">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
-        <p data-en="A quantitative study surveying 381 consumers in Ho Chi Minh City (pilot n=20) to test 8 hypotheses about factors affecting green consumption intention, using a 5-point Likert scale across 27 observed variables. Responsible for statistical testing, running the data in SPSS, and writing the results &amp;amp; implications chapter.">Nghiên cứu định lượng khảo sát 381 người tiêu dùng tại TP.HCM (khảo sát thử n=20) để kiểm định 8 giả thuyết về các nhân tố ảnh hưởng đến ý định tiêu dùng xanh, dùng thang đo Likert 5 điểm với 27 biến quan sát. Phụ trách phần kiểm định thống kê, chạy dữ liệu trên SPSS và viết chương kết quả &amp; ý nghĩa nghiên cứu.</p>
+        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;44.4% of buying behavior&lt;/span&gt; explained by just 2 of the 8 original factors."><span class="stat">44,4% hành vi mua</span> được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
+        <p data-en="Most green campaigns bet on one assumption: simply talking about the environment is enough to make people act. A quantitative survey of 381 consumers in Ho Chi Minh City (testing 8 hypotheses, 5-point Likert scale, 27 observed variables, analyzed in SPSS) shows that assumption is wrong.">Hầu hết chiến dịch xanh đặt cược vào một giả định: chỉ cần nói về môi trường là đủ để người tiêu dùng hành động. Khảo sát định lượng trên 381 người tiêu dùng tại TP.HCM (kiểm định 8 giả thuyết, thang đo Likert 5 điểm, 27 biến quan sát, phân tích bằng SPSS) cho thấy giả định đó sai.</p>
 
         <div class="viz-block reveal">
           <div class="viz-title" data-en="Scale reduction process">Quy trình rút gọn thang đo</div>
