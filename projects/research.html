@@ -454,6 +454,35 @@
     color:var(--ink);
   }
   .case-hook .stat{ color:var(--blue); }
+  .impact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 20px;
+  }
+  .impact-stat{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    padding:10px 16px;
+    border-radius:10px;
+    flex:1 1 200px;
+  }
+  .impact-stat .impact-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    opacity:0.8;
+  }
+  .impact-stat .impact-value{
+    font-size:14.5px;
+    font-weight:700;
+    line-height:1.35;
+  }
+  .impact-stat.revenue{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.cost{ background:var(--blue-bg); color:var(--blue); }
+
   .case-body p{
     font-size:14.5px;
     color:var(--ink);
@@ -919,6 +948,16 @@
         <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
         <div class="role" data-en="Business Analytics specialization project · Văn Lang University">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;44.4% of buying behavior&lt;/span&gt; explained by just 2 of the 8 original factors."><span class="stat">44,4% hành vi mua</span> được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
+        <div class="impact-row">
+          <div class="impact-stat revenue">
+            <span class="impact-label" data-en="Revenue-driving lever">Đòn bẩy tăng doanh thu</span>
+            <span class="impact-value" data-en="Points budget toward the one factor (benefit) proven to drive purchase, not the one campaigns usually lead with">Chỉ đúng yếu tố (lợi ích) thực sự thúc đẩy mua hàng, thay vì yếu tố các chiến dịch thường ưu tiên</span>
+          </div>
+          <div class="impact-stat cost">
+            <span class="impact-label" data-en="Messaging spend saved">Tiết kiệm ngân sách truyền thông</span>
+            <span class="impact-value" data-en="Avoids sinking budget into &amp;ldquo;environmental awareness&amp;rdquo; messaging that carries no statistical weight">Tránh đổ ngân sách vào thông điệp "ý thức môi trường" — yếu tố không có ý nghĩa thống kê</span>
+          </div>
+        </div>
         <p data-en="Most green campaigns bet on one assumption: simply talking about the environment is enough to make people act. A quantitative survey of 381 consumers in Ho Chi Minh City (testing 8 hypotheses, 5-point Likert scale, 27 observed variables, analyzed in SPSS) shows that assumption is wrong.">Hầu hết chiến dịch xanh đặt cược vào một giả định: chỉ cần nói về môi trường là đủ để người tiêu dùng hành động. Khảo sát định lượng trên 381 người tiêu dùng tại TP.HCM (kiểm định 8 giả thuyết, thang đo Likert 5 điểm, 27 biến quan sát, phân tích bằng SPSS) cho thấy giả định đó sai.</p>
 
         <div class="viz-block reveal">
