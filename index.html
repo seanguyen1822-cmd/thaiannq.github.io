@@ -409,6 +409,68 @@
     transform:translateY(-3px);
   }
   .case:last-child{margin-bottom:0;}
+
+  /* PROJECT PREVIEW GRID (homepage) */
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .project-card{
+    display:flex;
+    flex-direction:column;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 24px;
+    text-decoration:none;
+    color:inherit;
+    position:relative;
+    overflow:hidden;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .project-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:3px;
+    background:var(--teal);
+  }
+  .project-card.accent-coral::before{ background:var(--coral); }
+  .project-card.accent-violet::before{ background:var(--violet); }
+  .project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 44px rgba(88,166,255,0.12), 0 8px 24px rgba(0,0,0,0.45);
+  }
+  .project-card .tool-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .project-card h3{
+    font-size:18px;
+    margin:0 0 12px;
+    line-height:1.3;
+  }
+  .project-card-hook{
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.55;
+    margin:0 0 22px;
+    flex-grow:1;
+  }
+  .project-card-link{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--blue);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:gap .15s;
+  }
+  .project-card:hover .project-card-link{ gap:11px; }
   .case-meta{
     padding:32px 28px;
     border-right:1px solid var(--line);
@@ -843,6 +905,7 @@
     .funnel-row{flex-wrap:wrap;}
     .rsq-wrap{flex-direction:column;align-items:flex-start;}
     .cta-band-inner{flex-direction:column;align-items:flex-start;}
+    .project-grid{grid-template-columns:1fr;}
   }
   :focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
   .reveal{
@@ -956,199 +1019,30 @@
         <span class="field-label" data-en="Projects">Dự án</span>
         <h2 data-en="Featured Projects">Các dự án đại diện</h2>
       </div>
-      <p data-en="Each project follows the same structure: context, data approach, and key findings — to make the analysis process clear.">Mỗi dự án được trình bày theo cùng một cấu trúc: bối cảnh, phương pháp xử lý dữ liệu, và phát hiện chính — nhằm thể hiện rõ quy trình phân tích.</p>
     </div>
 
-    <!-- CASE 1: E-WALLET -->
-    <article class="case reveal">
-      <div class="case-meta">
-        <div class="meta-row">
-          <div class="field-label" data-en="Role">Vai trò</div>
-          <div class="value">Data Analyst (Capstone)</div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Tools">Công cụ</div>
-          <div class="value">Power BI · DAX · Excel</div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Techniques">Kỹ thuật</div>
-          <div class="tags">
-            <span class="tag">Funnel Analysis</span>
-            <span class="tag">Bowtie Root Cause</span>
-            <span class="tag">Cohort Retention</span>
-            <span class="tag">Revenue Pareto</span>
-          </div>
-        </div>
-      </div>
-      <div class="case-body">
+    <div class="project-grid">
+      <a class="project-card reveal" href="projects/ewallet.html">
+        <div class="tool-line">Power BI · DAX · Excel</div>
         <h3>E-wallet Payment Success Rate Analysis</h3>
-        <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
-        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;4.8-point drop&lt;/span&gt; &amp;mdash; traced to exactly one step out of seven in the funnel."><span class="stat">Giảm 4,8 điểm phần trăm</span> — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
-        <p data-en="Success Rate kept falling even as transactions kept growing — a warning sign many teams miss because &amp;ldquo;growth still looks fine.&amp;rdquo; This 5-page Power BI report challenges that assumption: pinpointing exactly which funnel step is leaking revenue, then using a Bowtie model to trace it to the root across two months of transaction, user-behavior, and system-error data.">Success Rate giảm dù giao dịch vẫn tăng — dấu hiệu cảnh báo mà nhiều đội ngũ dễ bỏ qua vì tưởng "tăng trưởng vẫn ổn". Báo cáo Power BI 5 trang này lật lại giả định đó: xác định đúng bước phễu đang rò rỉ doanh thu, và dùng mô hình Bowtie để truy tận gốc trên 2 tháng dữ liệu giao dịch, hành vi người dùng và lỗi hệ thống.</p>
-        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/ewallet-overview.png" alt="E-wallet Power BI dashboard — trang Overview"></div>
-        <p class="case-img-caption" data-en="Overview page — Power BI report">Trang Overview — Power BI report</p>
-        <ul class="findings">
-          <li data-en="Success Rate dropped from 91.70% (July) to 86.93% (August) — a 4.8-point decline — while transaction volume still grew +18.9%, ruling out system overload as the cause.">Success Rate giảm từ 91,70% (tháng 7) xuống 86,93% (tháng 8) — giảm 4,8 điểm phần trăm, trong khi volume giao dịch vẫn tăng +18,9%, loại trừ khả năng do quá tải hệ thống.</li>
-          <li data-en="58.15% of failures fall under USER_FACTORS, concentrated at the OTP/3DS authentication step — the most common errors are invalid_otp and 3ds_timeout.">58,15% lỗi thuộc nhóm USER_FACTORS, tập trung ở bước xác thực OTP/3DS — lỗi phổ biến nhất là invalid_otp và 3ds_timeout.</li>
-          <li data-en="Billing is both the largest revenue category (41.91% of total revenue) and the category with the sharpest SR decline — a dual risk to revenue and user experience.">Billing vừa là category doanh thu lớn nhất (41,91% tổng doanh thu) vừa là category có SR giảm mạnh nhất — rủi ro kép về tài chính và trải nghiệm.</li>
-        </ul>
-        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
-        <p class="case-img-caption" data-en="Root Cause page — 3-tier error classification">Trang Root Cause — phân loại lỗi 3 cấp</p>
+        <p class="project-card-hook" data-en="4.8-point drop &amp;mdash; traced to exactly one step out of seven in the funnel.">Giảm 4,8 điểm phần trăm — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
+        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
+      </a>
 
-        <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
-        <div class="pbi-embed-wrap">
-          <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
-        </div>
-        <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
-      </div>
-    </article>
-
-    <!-- CASE 2: MARKETING DASHBOARD -->
-    <article class="case reveal">
-      <div class="case-meta">
-        <div class="meta-row">
-          <div class="field-label" data-en="Role">Vai trò</div>
-          <div class="value">Data Analyst</div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Tools">Công cụ</div>
-          <div class="value">Power BI · DAX · Excel</div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Platforms">Nền tảng</div>
-          <div class="tags">
-            <span class="tag tag-coral">Facebook</span>
-            <span class="tag tag-coral">Instagram</span>
-            <span class="tag tag-coral">Pinterest</span>
-          </div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Models">Mô hình</div>
-          <div class="tags">
-            <span class="tag tag-coral">Weighted Scoring</span>
-            <span class="tag tag-coral">Regression (Spend–Revenue)</span>
-          </div>
-        </div>
-      </div>
-      <div class="case-body">
+      <a class="project-card reveal accent-coral" href="projects/marketing.html">
+        <div class="tool-line">Power BI · DAX · Excel</div>
         <h3>Marketing Campaign Dashboard</h3>
-        <div class="role" data-en="UK Retail · 9,900 data rows, Mar–Nov 2023 · overall ROAS 10.6&amp;times; on £163.25K spend / £1.73M revenue">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
-        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;£38,244/month&lt;/span&gt; &amp;mdash; the revenue left on the table by funding the wrong channel."><span class="stat">£38.244/tháng</span> — cái giá của việc rót ngân sách sai kênh.</p>
-        <p data-en="Facebook gets the biggest budget &amp;mdash; yet performs the worst. That is the kind of silent budget misallocation that quietly eats into profit until someone looks at the right numbers. This dashboard brings Facebook, Instagram, and Pinterest performance into one place, turning a vague &amp;ldquo;should we spend more&amp;rdquo; question into one concrete number to act on.">Facebook nhận ngân sách nhiều nhất — nhưng lại là kênh kém hiệu quả nhất. Đó là kiểu lệch ngân sách âm thầm bào mòn lợi nhuận mà không ai để ý cho đến khi nhìn đúng con số. Dashboard này hợp nhất hiệu suất Facebook, Instagram và Pinterest vào một nơi, biến câu hỏi mơ hồ "có nên chi thêm không" thành một con số cụ thể để hành động.</p>
-        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/marketing-overview.jpg" alt="Marketing Campaign Performance Dashboard — Overview"></div>
-        <p class="case-img-caption" data-en="Dashboard Overview — Revenue, Spend, Profit by channel &amp;amp; time">Dashboard Overview — Revenue, Spend, Profit theo kênh &amp; thời gian</p>
-        <ul class="findings">
-          <li data-en="Facebook gets the most impressions (37.1%) but the lowest ROAS (4.6&amp;times;&amp;ndash;9.8&amp;times; by season); Pinterest holds the smallest click share yet leads ROAS every season (21.8&amp;times;&amp;ndash;24.0&amp;times;).">Facebook nhận impressions nhiều nhất (37,1%) nhưng ROAS thấp nhất (4,6×–9,8× theo mùa); Pinterest chỉ chiếm thị phần click nhỏ nhất nhưng dẫn đầu ROAS mọi mùa (21,8×–24,0×).</li>
-          <li data-en="Built a Weighted Scoring model (ROAS 50% · CPA 30% · CTR 20%) to rank the three channels — Pinterest scored 0.800 (#1), Instagram 0.434 (#2), Facebook 0.139 (#3).">Xây mô hình Weighted Scoring (ROAS 50% · CPA 30% · CTR 20%) xếp hạng ba kênh — Pinterest đạt điểm 0,800 (#1), Instagram 0,434 (#2), Facebook 0,139 (#3).</li>
-          <li data-en="A quadratic regression model (Revenue ~ Spend) on 275 days of data (R&amp;sup2;=0.518) shows Pinterest is currently spending £103/day, while the optimal spend point is £267/day — there is still room to grow the budget without diminishing returns.">Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
-          <li data-en="Proposed monthly budget reallocation: Facebook £7,957&amp;rarr;£3,029 (&amp;minus;77%), Pinterest £3,081&amp;rarr;£8,009 (+237%), Instagram unchanged at £7,044 — projected to add £38,244 in monthly revenue.">Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
-        </ul>
-        <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
-        <p class="case-img-caption" data-en="Quadratic regression model — finding Pinterest&amp;rsquo;s optimal spend point">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
+        <p class="project-card-hook" data-en="£38,244/month &amp;mdash; the revenue left on the table by funding the wrong channel.">£38.244/tháng — cái giá của việc rót ngân sách sai kênh.</p>
+        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
+      </a>
 
-        <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
-        <div class="pbi-embed-wrap">
-          <iframe title="Nguyen Quoc Thai An - Capstone Project 1" src="https://app.powerbi.com/view?r=eyJrIjoiMmI0NzE4NmYtM2M3OC00MzZkLWI2OWItMTM0OTY2YjZhZjc2IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
-        </div>
-        <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
-
-        <p data-en="Rollout plan across 3 gated waves (Pinterest &amp;rarr; Instagram &amp;rarr; Facebook), increasing budget 25% per week and re-measuring actual ROAS before unlocking the next wave — avoiding an all-in bet on a single channel.">Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
-      </div>
-    </article>
-
-    <!-- CASE 3: GREEN CONSUMPTION RESEARCH -->
-    <article class="case reveal">
-      <div class="case-meta">
-        <div class="meta-row">
-          <div class="field-label" data-en="Role">Vai trò</div>
-          <div class="value" data-en="Statistical testing &amp;amp; data analysis, wrote the results chapter">Kiểm định thống kê &amp; phân tích dữ liệu, viết chương kết quả</div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Tools">Công cụ</div>
-          <div class="value">SPSS · Excel</div>
-        </div>
-        <div class="meta-row">
-          <div class="field-label" data-en="Methods">Phương pháp</div>
-          <div class="tags">
-            <span class="tag tag-violet">Cronbach's Alpha</span>
-            <span class="tag tag-violet">EFA</span>
-            <span class="tag tag-violet">Multiple Regression</span>
-            <span class="tag tag-violet">ANOVA</span>
-          </div>
-        </div>
-      </div>
-      <div class="case-body">
-        <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
-        <div class="role" data-en="Business Analytics specialization project · Văn Lang University">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
-        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;44.4% of buying behavior&lt;/span&gt; explained by just 2 of the 8 original factors."><span class="stat">44,4% hành vi mua</span> được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
-        <p data-en="Most green campaigns bet on one assumption: simply talking about the environment is enough to make people act. A quantitative survey of 381 consumers in Ho Chi Minh City (testing 8 hypotheses, 5-point Likert scale, 27 observed variables, analyzed in SPSS) shows that assumption is wrong.">Hầu hết chiến dịch xanh đặt cược vào một giả định: chỉ cần nói về môi trường là đủ để người tiêu dùng hành động. Khảo sát định lượng trên 381 người tiêu dùng tại TP.HCM (kiểm định 8 giả thuyết, thang đo Likert 5 điểm, 27 biến quan sát, phân tích bằng SPSS) cho thấy giả định đó sai.</p>
-
-        <div class="viz-block reveal">
-          <div class="viz-title" data-en="Scale reduction process">Quy trình rút gọn thang đo</div>
-          <div class="funnel-row">
-            <div class="funnel-step" style="flex:1.6">
-              <div class="fn-num">27</div>
-              <div class="fn-label" data-en="observed&lt;br&gt;variables">biến quan sát<br>ban đầu</div>
-            </div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step" style="flex:1">
-              <div class="fn-num">8</div>
-              <div class="fn-label" data-en="hypothesized&lt;br&gt;factors">nhân tố<br>giả thuyết</div>
-            </div>
-            <div class="funnel-arrow">→</div>
-            <div class="funnel-step" style="flex:0.7">
-              <div class="fn-num">4</div>
-              <div class="fn-label" data-en="factors after&lt;br&gt;EFA">nhân tố sau<br>EFA</div>
-            </div>
-          </div>
-          <p class="reliability-note" data-en="Scale reliability after reduction: Cronbach&amp;rsquo;s Alpha from &lt;b&gt;0.778 to 0.836&lt;/b&gt; across all 4 factors — above the 0.7 threshold (a &amp;ldquo;good&amp;rdquo; level by behavioral-research standards).">Độ tin cậy thang đo sau rút gọn: Cronbach's Alpha từ <b>0,778 đến 0,836</b> cho cả 4 nhân tố — trên ngưỡng 0,7 (mức "tốt" theo chuẩn nghiên cứu hành vi).</p>
-        </div>
-
-        <div class="viz-block reveal">
-          <div class="viz-title" data-en="Which factors actually drive purchase intention">Yếu tố nào thực sự tác động đến ý định mua</div>
-          <div class="coef-row">
-            <div class="coef-label" data-en="Green consumption benefit">Lợi ích tiêu dùng xanh</div>
-            <div class="coef-track"><div class="coef-fill sig" style="width:91%"></div></div>
-            <div class="coef-value sig">β = 0,454</div>
-          </div>
-          <div class="coef-row">
-            <div class="coef-label" data-en="Green trust">Niềm tin tiêu dùng xanh</div>
-            <div class="coef-track"><div class="coef-fill sig" style="width:28%"></div></div>
-            <div class="coef-value sig">β = 0,140</div>
-          </div>
-          <div class="coef-row">
-            <div class="coef-label" data-en="Eco-label perception">Nhận thức nhãn sinh thái</div>
-            <div class="coef-track"><div class="coef-fill nsig" style="width:6%"></div></div>
-            <div class="coef-value" data-en="not significant">không có ý nghĩa</div>
-          </div>
-          <div class="coef-row">
-            <div class="coef-label" data-en="Health &amp;amp; environment perception">Nhận thức SK &amp; môi trường</div>
-            <div class="coef-track"><div class="coef-fill nsig" style="width:6%"></div></div>
-            <div class="coef-value" data-en="not significant">không có ý nghĩa</div>
-          </div>
-          <div class="viz-legend">
-            <span data-en="&lt;i style=&quot;background:var(--teal)&quot;&gt;&lt;/i&gt;Statistically significant (p&amp;lt;0.05)"><i style="background:var(--teal)"></i>Có ý nghĩa thống kê (p&lt;0,05)</span>
-            <span data-en="&lt;i style=&quot;background:var(--line)&quot;&gt;&lt;/i&gt;Not statistically significant — dropped from the model"><i style="background:var(--line)"></i>Không có ý nghĩa thống kê — loại khỏi mô hình</span>
-          </div>
-        </div>
-
-        <div class="viz-block reveal">
-          <div class="rsq-wrap">
-            <div class="rsq-badge">
-              <svg viewBox="0 0 96 96" width="96" height="96">
-                <circle cx="48" cy="48" r="40" fill="none" stroke="#30363D" stroke-width="8"/>
-                <circle cx="48" cy="48" r="40" fill="none" stroke="#39C5CF" stroke-width="8"
-                  stroke-dasharray="111.6 251.3" stroke-linecap="round"/>
-              </svg>
-              <span>44,4%</span>
-            </div>
-            <p class="rsq-text" data-en="The 2-factor model (Trust + Benefit) explains &lt;b style=&quot;color:var(--ink)&quot;&gt;44.4%&lt;/b&gt; of the variance in green consumption intention (adjusted R&amp;sup2;) — a common and accepted level in consumer-behavior research, which always involves psychological factors that are hard to fully capture through a survey.">Mô hình 2 nhân tố (Niềm tin + Lợi ích) giải thích được <b style="color:var(--ink)">44,4%</b> sự biến thiên trong ý định tiêu dùng xanh (R² hiệu chỉnh) — mức phổ biến và được chấp nhận trong nghiên cứu hành vi tiêu dùng, vốn luôn có nhiều yếu tố tâm lý khó đo lường hết bằng khảo sát.</p>
-          </div>
-        </div>
-
-        <p data-en="Awareness of environmental or health benefits alone is not enough to drive purchase behavior. A business looking to grow green-product sales should prioritize budget toward tangible benefits (pricing, promotions) and build trust through transparent certification, rather than relying solely on &amp;ldquo;for the environment&amp;rdquo; messaging — the common approach today.">Nhận thức về môi trường hay sức khỏe đơn thuần không đủ để thúc đẩy hành vi mua. Một doanh nghiệp muốn tăng doanh số sản phẩm xanh nên ưu tiên ngân sách vào lợi ích thiết thực (giá cả, khuyến mãi) và xây dựng niềm tin qua chứng nhận minh bạch, thay vì chỉ truyền thông "vì môi trường" như cách tiếp cận phổ biến hiện nay.</p>
-      </div>
-    </article>
+      <a class="project-card reveal accent-violet" href="projects/research.html">
+        <div class="tool-line">SPSS · Excel</div>
+        <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu Ý định tiêu dùng xanh</h3>
+        <p class="project-card-hook" data-en="44.4% of buying behavior explained by just 2 of the 8 original factors.">44,4% hành vi mua được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
+        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
+      </a>
+    </div>
   </div>
 </section>
 
