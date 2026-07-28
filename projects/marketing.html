@@ -496,6 +496,17 @@
   .solution-steps li b{ color:var(--coral); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
+  .bowtie-col{ background:var(--paper-dim); padding:14px 12px; }
+  .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
+  .bowtie-col.causes .bt-label, .bowtie-col.consequences .bt-label{ color:var(--coral); }
+  .bowtie-col.barrier .bt-label{ color:var(--teal); }
+  .bowtie-col ul{ margin:0; padding-left:14px; }
+  .bowtie-col li{ font-size:11.5px; color:var(--ink); margin-bottom:7px; line-height:1.4; }
+  .bowtie-col.knot{ background:var(--coral); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:14px 10px; }
+  .bowtie-col.knot .bt-label{ color:rgba(13,17,23,.6); text-align:center; }
+  .bowtie-col.knot .bt-event{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; color:#0D1117; line-height:1.3; }
+  @media(max-width:760px){ .bowtie{ grid-template-columns:1fr; } }
   .frame{
     position:relative;
     margin:18px 0 6px;
@@ -955,6 +966,7 @@
           <div class="tags">
             <span class="tag tag-coral">Weighted Scoring</span>
             <span class="tag tag-coral">Regression (Spend–Revenue)</span>
+            <span class="tag tag-coral">Bowtie Risk Model</span>
           </div>
         </div>
       </div>
@@ -990,16 +1002,43 @@
         </div>
         <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
 
-        <p data-en="Rollout plan across 3 gated waves (Pinterest &amp;rarr; Instagram &amp;rarr; Facebook), increasing budget 25% per week and re-measuring actual ROAS before unlocking the next wave — avoiding an all-in bet on a single channel.">Kế hoạch triển khai theo 3 làn sóng có cửa xét duyệt (Pinterest → Instagram → Facebook), tăng ngân sách từng bước 25%/tuần và đo lại ROAS thực tế trước khi mở khoá làn sóng tiếp theo — tránh đặt cược toàn bộ ngân sách vào một kênh.</p>
-
         <div class="solution-block">
-          <span class="solution-label" data-en="RECOMMENDED SOLUTION">GIẢI PHÁP ĐỀ XUẤT</span>
+          <span class="solution-label" data-en="RECOMMENDED SOLUTION · BOWTIE RISK MODEL">GIẢI PHÁP ĐỀ XUẤT · MÔ HÌNH RỦI RO BOWTIE</span>
           <h4 data-en="Reallocate the budget that already exists, not spend more">Tái phân bổ ngân sách sẵn có, không cần chi thêm</h4>
-          <ol class="solution-steps">
-            <li data-en="&lt;b&gt;Shift budget toward proven performance&lt;/b&gt; &amp;mdash; Facebook £7,957&amp;rarr;£3,029 (&amp;minus;77%), Pinterest £3,081&amp;rarr;£8,009 (+237%), Instagram unchanged at £7,044."><b>Chuyển ngân sách sang kênh đã chứng minh hiệu quả</b> — Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044.</li>
-            <li data-en="&lt;b&gt;Roll out in 3 gated waves&lt;/b&gt; (Pinterest &amp;rarr; Instagram &amp;rarr; Facebook), +25% budget per week, re-measuring actual ROAS before unlocking the next wave &amp;mdash; avoiding an all-in bet on one channel."><b>Triển khai theo 3 làn sóng có cửa xét duyệt</b> (Pinterest → Instagram → Facebook), tăng 25% ngân sách mỗi tuần, đo lại ROAS thực tế trước khi mở khoá làn sóng kế tiếp — tránh đặt cược toàn bộ vào một kênh.</li>
-            <li data-en="&lt;b&gt;Watch Pinterest&amp;rsquo;s optimal spend ceiling&lt;/b&gt; (£267/day vs. current £103/day) &amp;mdash; re-run the regression monthly to catch diminishing returns before scaling past that point."><b>Theo dõi trần chi tiêu tối ưu của Pinterest</b> (£267/ngày so với £103/ngày hiện tại) — chạy lại mô hình hồi quy hàng tháng để phát hiện điểm giảm hiệu quả trước khi tăng vượt ngưỡng đó.</li>
-          </ol>
+          <div class="bowtie">
+            <div class="bowtie-col causes">
+              <span class="bt-label" data-en="CAUSES">NGUYÊN NHÂN</span>
+              <ul>
+                <li data-en="Budget allocated by impressions/reach, not ROAS">Ngân sách phân bổ theo impression/reach, không theo ROAS</li>
+                <li data-en="No optimal spend ceiling defined to know when to stop scaling">Chưa xác định điểm chi tối ưu để biết khi nào nên dừng tăng</li>
+              </ul>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="PREVENTIVE BARRIERS">RÀO CHẮN PHÒNG NGỪA</span>
+              <ul>
+                <li data-en="Weighted Scoring (ROAS 50% · CPA 30% · CTR 20%) ranks channels before funding">Weighted Scoring (ROAS 50%·CPA 30%·CTR 20%) xếp hạng kênh trước khi rót tiền</li>
+                <li data-en="Regression model finds Pinterest's optimal spend point before scaling">Hồi quy xác định điểm chi tối ưu của Pinterest trước khi mở rộng</li>
+              </ul>
+            </div>
+            <div class="bowtie-col knot">
+              <span class="bt-label" data-en="TOP EVENT">SỰ KIỆN RỦI RO</span>
+              <span class="bt-event" data-en="Facebook gets the most budget yet the lowest ROAS">Facebook nhận ngân sách nhiều nhất nhưng ROAS thấp nhất</span>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="MITIGATIVE BARRIERS">RÀO CHẮN GIẢM THIỂU</span>
+              <ul>
+                <li data-en="Roll out in 3 gated waves, +25% budget per week">Triển khai 3 làn sóng có cửa xét duyệt, tăng 25%/tuần</li>
+                <li data-en="Re-run the regression monthly to catch diminishing returns">Chạy lại hồi quy hàng tháng để phát hiện điểm giảm hiệu quả</li>
+              </ul>
+            </div>
+            <div class="bowtie-col consequences">
+              <span class="bt-label" data-en="CONSEQUENCES">HẬU QUẢ</span>
+              <ul>
+                <li data-en="£38,244/month in revenue left on the table">£38.244/tháng doanh thu bị bỏ lỡ</li>
+                <li data-en="Budget trapped in a saturated channel (Facebook)">Ngân sách bị mắc kẹt ở kênh đã bão hoà (Facebook)</li>
+              </ul>
+            </div>
+          </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="+£38,244/month in additional revenue at zero extra spend">+£38.244/tháng doanh thu tăng thêm mà không cần chi thêm một đồng nào</b> <span data-en="&amp;mdash; purely from redirecting budget to where it already performs best, validated wave by wave instead of one all-in bet.">— chỉ nhờ chuyển ngân sách đến nơi đã chứng minh hiệu quả, được xác nhận từng bước thay vì đặt cược toàn bộ ngay từ đầu.</span></p>
         </div>
       </div>
