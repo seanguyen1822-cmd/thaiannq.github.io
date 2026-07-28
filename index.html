@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nguyễn Quốc Thái An — Data Analyst Portfolio</title>
+<title>IoT AgriTech Adoption — Feasibility &amp; Change Analysis — Nguyễn Quốc Thái An</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -51,9 +51,7 @@
     margin:0;
     letter-spacing:-0.01em;
   }
-  .mono{
-    font-family:'JetBrains Mono',monospace;
-  }
+  .mono{ font-family:'JetBrains Mono',monospace; }
   .field-label{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
@@ -66,8 +64,7 @@
   }
   .field-label::before{
     content:"";
-    width:6px;
-    height:6px;
+    width:6px; height:6px;
     border-radius:50%;
     background:var(--blue);
     display:inline-block;
@@ -78,953 +75,157 @@
   a{color:inherit;}
   .id-strip{
     height:4px;
-    background:linear-gradient(90deg, var(--blue) 0 33%, var(--teal) 33% 66%, var(--green) 66% 100%);
+    background:linear-gradient(90deg, var(--gold) 0 33%, var(--teal) 33% 66%, var(--green) 66% 100%);
   }
-  .wrap{
-    max-width:1080px;
-    margin:0 auto;
-    padding:0 32px;
-  }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
 
   /* NAV */
   header{
-    position:sticky;
-    top:0;
-    z-index:50;
+    position:sticky; top:0; z-index:50;
     background:rgba(13,17,23,0.85);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
-  nav.wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:64px;
-  }
-  .brand{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:600;
-    font-size:16px;
-  }
-  .brand span{color:var(--blue);}
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; }
+  .brand span{ color:var(--blue); }
   .brand::after{
-    content:"";
-    display:inline-block;
-    width:5px; height:5px;
-    border-radius:50%;
-    background:var(--coral);
-    margin-left:7px;
-    vertical-align:middle;
+    content:""; display:inline-block; width:5px; height:5px; border-radius:50%;
+    background:var(--coral); margin-left:7px; vertical-align:middle;
   }
-  .navlinks{
-    display:flex;
-    gap:28px;
-    font-size:14px;
-    font-weight:500;
-  }
-  .navlinks a{
-    text-decoration:none;
-    color:var(--muted);
-    transition:color .15s;
-  }
-  .navlinks a:hover{color:var(--blue);}
+  .navlinks{ display:flex; gap:28px; font-size:14px; font-weight:500; }
+  .navlinks a{ text-decoration:none; color:var(--muted); transition:color .15s; }
+  .navlinks a:hover{ color:var(--blue); }
   .cv-btn{
-    font-size:13px;
-    font-weight:600;
-    padding:9px 18px;
-    background:var(--blue);
-    color:#fff;
-    text-decoration:none;
-    border-radius:var(--radius-pill);
-    transition:background .15s;
+    font-size:13px; font-weight:600; padding:9px 18px;
+    background:var(--blue); color:#fff; text-decoration:none;
+    border-radius:var(--radius-pill); transition:background .15s;
   }
   .cv-btn:hover{ background:var(--blue-dark); }
-  .nav-actions{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
   .lang-toggle{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;
-    font-weight:600;
-    padding:8px 14px;
-    background:none;
-    color:var(--ink);
-    border:1px solid var(--line);
-    border-radius:var(--radius-pill);
-    cursor:pointer;
-    transition:border-color .15s, color .15s;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+    padding:8px 14px; background:none; color:var(--ink);
+    border:1px solid var(--line); border-radius:var(--radius-pill);
+    cursor:pointer; transition:border-color .15s, color .15s;
   }
-  .lang-toggle:hover{
-    border-color:var(--blue);
-    color:var(--blue);
-  }
+  .lang-toggle:hover{ border-color:var(--blue); color:var(--blue); }
 
-  /* HERO */
-  .hero{
-    padding:110px 0 64px;
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(135deg, var(--blue) 0%, #245D9E 55%, var(--green-dark) 100%);
-  }
-  .hero::after{
-    content:"";
-    position:absolute;
-    top:-60px; right:-60px;
-    width:380px; height:380px;
-    border:1.5px solid rgba(255,255,255,0.35);
-    border-radius:50%;
-    pointer-events:none;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;
-    top:80px; right:160px;
-    width:130px; height:130px;
-    border:1.5px dashed rgba(255,255,255,0.3);
-    border-radius:50%;
-    pointer-events:none;
-  }
-  .hero-inner{max-width:680px; position:relative;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:#BFE9CE;
-    margin-bottom:14px;
-    display:block;
-  }
-  .hook{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:19px;
-    font-style:italic;
-    font-weight:500;
-    color:rgba(255,255,255,0.92);
-    line-height:1.4;
-    max-width:540px;
-    margin:0 0 18px;
-    padding-left:16px;
-    border-left:3px solid #BFE9CE;
-  }
-  h1.headline{
-    font-size:48px;
-    line-height:1.12;
-    font-weight:700;
-    color:#fff;
-  }
-  h1.headline em{
-    font-style:normal;
-    color:#BFE9CE;
-  }
-  .hl{
-    position:relative;
-    white-space:nowrap;
-    padding:0 2px;
-  }
-  .hl::before{
-    content:"";
-    position:absolute;
-    left:-3px; right:-3px; bottom:2px; top:38%;
-    background:var(--coral-bg);
-    border-radius:3px 8px 4px 9px/6px 4px 9px 3px;
-    z-index:-1;
-    transform:rotate(-0.6deg);
-  }
-  .lede{
-    margin-top:20px;
-    font-size:16px;
-    color:var(--muted);
-    max-width:560px;
-  }
-  .hero .lede{ color:rgba(255,255,255,0.88); }
-  .hero .hl::before{ background:rgba(0,0,0,0.18); }
-  .hero-cta{
-    margin-top:32px;
-    display:flex;
-    gap:14px;
-  }
-  .btn-primary{
-    background:var(--blue);
-    color:#fff;
-    padding:13px 26px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:14px;
-    border-radius:var(--radius-pill);
-    transition:background .15s;
-  }
-  .btn-primary:hover{ background:var(--blue-dark); }
-  .btn-ghost{
-    border:1px solid var(--line);
-    padding:13px 26px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:14px;
-    color:var(--ink);
-    border-radius:var(--radius-pill);
-    transition:border-color .15s, color .15s;
-  }
-  .btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
-  .hero .btn-primary{ background:#fff; color:var(--blue); }
-  .hero .btn-primary:hover{ background:#FFE8E0; }
-  .hero .btn-ghost{ border-color:rgba(255,255,255,0.55); color:#fff; }
-  .hero .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); color:#fff; }
+  section{ padding:88px 0; }
 
-  /* CTA BAND */
-  .cta-band{
-    background:linear-gradient(120deg, var(--blue) 0%, var(--green-dark) 100%);
-    padding:64px 0;
+  /* PROJECT CASE STUDY (matches ewallet/marketing/research template) */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:600; color:var(--muted);
+    text-decoration:none; margin-bottom:24px; transition:color .15s;
   }
-  .cta-band-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-    flex-wrap:wrap;
-  }
-  .cta-band-inner h2{
-    color:#fff;
-    font-size:26px;
-    margin-top:8px;
-    max-width:480px;
-  }
-  .cta-band-actions{
-    display:flex;
-    gap:14px;
-    flex-shrink:0;
-  }
-  .cta-band .btn-primary{ background:#fff; color:var(--blue); }
-  .cta-band .btn-primary:hover{ background:#FFE8E0; }
-  .cta-band .btn-ghost{ border-color:rgba(255,255,255,0.55); color:#fff; }
-  .cta-band .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); color:#fff; }
-
-
-  /* KPI STRIP */
-  .kpi-strip{
-    margin-top:64px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border:none;
-    background:var(--card);
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 16px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
-  }
-  .kpi{
-    padding:24px 26px;
-    border-right:1px solid var(--line);
-  }
-  .kpi:last-child{border-right:none;}
-  .kpi .num{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:30px;
-    font-weight:700;
-    color:var(--ink);
-  }
-  .kpi .num sup{
-    font-size:13px;
-    font-weight:500;
-    color:var(--muted);
-    top:-0.6em;
-  }
-  .kpi .label{
-    margin-top:6px;
-    font-size:12.5px;
-    color:var(--muted);
-  }
-
-  .scroll-cue{
-    display:flex;
-    justify-content:center;
-    margin-top:48px;
-    position:relative;
-    z-index:1;
-  }
-  .scroll-cue-dot{
-    width:26px;
-    height:42px;
-    border:2px solid rgba(255,255,255,0.55);
-    border-radius:14px;
-    position:relative;
-    display:block;
-  }
-  .scroll-cue-dot::before{
-    content:"";
-    position:absolute;
-    top:8px;
-    left:50%;
-    width:4px;
-    height:8px;
-    background:#fff;
-    border-radius:2px;
-    transform:translateX(-50%);
-    animation:scrollCue 1.6s ease infinite;
-  }
-  @keyframes scrollCue{
-    0%{ opacity:1; top:8px; }
-    70%{ opacity:0; top:20px; }
-    100%{ opacity:0; top:8px; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .scroll-cue-dot::before{ animation:none; }
-  }
-
-  /* SECTION HEADERS */
-  section{padding:88px 0;}
-  section.alt{background:var(--paper-dim);}
-  .section-head{
-    margin-bottom:48px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:24px;
-    flex-wrap:wrap;
-  }
-  .section-head h2{
-    font-size:28px;
-    margin-top:10px;
-  }
-  .section-head p{
-    color:var(--muted);
-    font-size:14px;
-    max-width:360px;
-    margin:0;
-  }
-
-  /* PROJECT CASE STUDY */
+  .back-link:hover{ color:var(--blue); }
   .case{
-    border:1px solid var(--line);
-    background:var(--card);
-    margin-bottom:28px;
-    display:grid;
-    grid-template-columns:280px 1fr;
-    border-radius:16px;
-    overflow:hidden;
-    transition:box-shadow .2s, transform .2s;
+    border:1px solid var(--line); background:var(--card);
+    display:grid; grid-template-columns:280px 1fr;
+    border-radius:16px; overflow:hidden;
   }
-  .case:hover{
-    box-shadow:0 20px 44px rgba(88,166,255,0.12), 0 8px 24px rgba(0,0,0,0.45);
-    transform:translateY(-3px);
-  }
-  .case:last-child{margin-bottom:0;}
-
-  /* PROJECT PREVIEW GRID (homepage) */
-  .project-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-  }
-  .project-card{
-    display:flex;
-    flex-direction:column;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:26px 24px;
-    text-decoration:none;
-    color:inherit;
-    position:relative;
-    overflow:hidden;
-    transition:transform .2s, box-shadow .2s;
-  }
-  .project-card::before{
-    content:"";
-    position:absolute;
-    top:0; left:0; right:0;
-    height:3px;
-    background:var(--teal);
-  }
-  .project-card.accent-coral::before{ background:var(--coral); }
-  .project-card.accent-violet::before{ background:var(--violet); }
-  .project-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 20px 44px rgba(88,166,255,0.12), 0 8px 24px rgba(0,0,0,0.45);
-  }
-  .project-card .tool-line{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    color:var(--muted);
-    margin-bottom:14px;
-  }
-  .project-card h3{
-    font-size:18px;
-    margin:0 0 12px;
-    line-height:1.3;
-  }
-  .project-card-hook{
-    font-size:13.5px;
-    color:var(--muted);
-    line-height:1.55;
-    margin:0 0 22px;
-    flex-grow:1;
-  }
-  .project-card-link{
-    font-family:'JetBrains Mono',monospace;
-    font-size:13px;
-    font-weight:600;
-    color:var(--blue);
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    transition:gap .15s;
-  }
-  .project-card:hover .project-card-link{ gap:11px; }
   .case-meta{
-    padding:32px 28px;
-    border-right:1px solid var(--line);
-    background:var(--paper-dim);
-    display:flex;
-    flex-direction:column;
-    gap:22px;
+    padding:32px 28px; border-right:1px solid var(--line);
+    background:var(--paper-dim); display:flex; flex-direction:column; gap:22px;
   }
-  .case-meta .meta-row .field-label{margin-bottom:6px;}
-  .case-meta .meta-row .value{font-size:14px;font-weight:500;}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .case-meta .meta-row .field-label{ margin-bottom:6px; }
+  .case-meta .meta-row .value{ font-size:14px; font-weight:500; }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; }
   .tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    padding:4px 8px;
-    background:var(--teal-dim);
-    color:var(--teal);
-    border-radius:2px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 8px;
+    background:var(--teal-dim); color:var(--teal); border-radius:2px;
   }
-  .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
-  .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
-  .case-body{padding:32px 34px;}
-  .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
+  .tag.tag-gold{ background:var(--gold-bg); color:var(--gold); }
+  .case-body{ padding:32px 34px; }
+  .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
   .case-body h3::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:40px; height:3px;
-    background:var(--blue);
-    border-radius:2px;
+    content:""; position:absolute; left:0; bottom:0; width:40px; height:3px;
+    background:var(--gold); border-radius:2px;
   }
-  .case-body .role{
-    font-size:13px;
-    color:var(--muted);
-    margin-bottom:18px;
-  }
+  .case-body .role{ font-size:13px; color:var(--muted); margin-bottom:18px; }
   .case-hook{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:19px;
-    font-weight:700;
-    line-height:1.35;
-    margin:0 0 16px;
-    color:var(--ink);
+    font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700;
+    line-height:1.35; margin:0 0 16px; color:var(--ink);
   }
-  .case-hook .stat{ color:var(--blue); }
-  .impact-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:0 0 20px;
-  }
+  .case-hook .stat{ color:var(--gold); }
+  .impact-row{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
   .impact-stat{
-    display:flex;
-    flex-direction:column;
-    gap:3px;
-    padding:10px 16px;
-    border-radius:10px;
-    flex:1 1 200px;
+    display:flex; flex-direction:column; gap:3px;
+    padding:10px 16px; border-radius:10px; flex:1 1 200px;
   }
   .impact-stat .impact-label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    opacity:0.8;
+    font-family:'JetBrains Mono',monospace; font-size:10px;
+    letter-spacing:0.06em; text-transform:uppercase; opacity:0.8;
   }
-  .impact-stat .impact-value{
-    font-size:14.5px;
-    font-weight:700;
-    line-height:1.35;
-  }
-  .impact-stat.revenue{ background:var(--green-bg); color:var(--green); }
-  .impact-stat.cost{ background:var(--blue-bg); color:var(--blue); }
-  .card-badges{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:14px;
-  }
-  .card-badge{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10.5px;
-    font-weight:600;
-    padding:4px 9px;
-    border-radius:8px;
-  }
-  .card-badge.revenue{ background:var(--green-bg); color:var(--green); }
-  .card-badge.cost{ background:var(--blue-bg); color:var(--blue); }
+  .impact-stat .impact-value{ font-size:14.5px; font-weight:700; line-height:1.35; }
+  .impact-stat.pass{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.fail{ background:var(--coral-bg); color:var(--coral); }
+  .case-body p{ font-size:14.5px; color:var(--ink); margin:0 0 16px; }
 
-  .case-body p{
-    font-size:14.5px;
-    color:var(--ink);
-    margin:0 0 16px;
-  }
-  .frame{
-    position:relative;
-    margin:18px 0 6px;
-    display:inline-block;
-    width:100%;
-  }
-  .frame::before,.frame::after{
-    content:"";
-    position:absolute;
-    width:16px; height:16px;
-    border-color:var(--coral);
-    pointer-events:none;
-  }
-  .frame::before{
-    top:-6px; left:-6px;
-    border-top:2px solid var(--coral);
-    border-left:2px solid var(--coral);
-  }
-  .frame::after{
-    bottom:-6px; right:-6px;
-    border-bottom:2px solid var(--coral);
-    border-right:2px solid var(--coral);
-  }
-  .case-img{
-    width:100%;
-    display:block;
-    border:1px solid var(--line);
-    margin:0;
-    border-radius:8px;
-  }
-  .browser-frame{
-    border:1px solid var(--line);
-    border-radius:10px;
-    overflow:hidden;
-    background:var(--card);
-  }
-  .browser-frame .case-img{
-    border:none;
-    border-radius:0;
-  }
-  .browser-bar{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:10px 12px;
-    background:var(--paper-dim);
-    border-bottom:1px solid var(--line);
-  }
-  .browser-bar span{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    display:inline-block;
-  }
-  .browser-bar span:nth-child(1){background:#FF5F57;}
-  .browser-bar span:nth-child(2){background:#FEBC2E;}
-  .browser-bar span:nth-child(3){background:#28C840;}
-  .case-img-caption{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    color:var(--muted);
-    margin:8px 0 18px;
-  }
-  .case-chart{
-    width:100%;
-    display:block;
-    border:1px solid var(--line);
-    background:var(--card);
-    margin:18px 0 6px;
-    padding:6px 0;
-  }
-  .findings{
-    margin:18px 0 0;
-    padding:0;
-    list-style:none;
-  }
-  .findings li{
-    position:relative;
-    padding-left:20px;
-    margin-bottom:10px;
-    font-size:14px;
-    color:var(--muted);
-  }
-  .findings li::before{
-    content:"→";
-    position:absolute;
-    left:0;
-    color:var(--green);
-    font-family:'JetBrains Mono',monospace;
-  }
-  .placeholder-note{
-    margin-top:18px;
-    font-size:12.5px;
-    color:var(--muted);
-    background:var(--paper-dim);
-    border:1px solid var(--line);
-    border-left:2px solid var(--ink);
-    padding:10px 14px;
-    border-radius:2px;
-  }
-
-  /* ABOUT */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:start;
-  }
-  .about-story p{
-    font-size:15px;
-    color:var(--ink);
-    margin:0 0 16px;
-  }
-  .trait-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:20px;
-  }
-  .trait-proof{
-    list-style:none;
-    margin:18px 0 0;
-    padding:0;
-  }
-  .trait-proof li{
-    font-size:13.5px;
-    color:var(--muted);
-    line-height:1.6;
-    margin-bottom:8px;
-    padding-left:18px;
-    position:relative;
-  }
-  .trait-proof li::before{
-    content:"→";
-    position:absolute;
-    left:0;
-    color:var(--green);
-  }
-  .trait-proof b{ color:var(--ink); }
-  .trait-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 14px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:600;
-  }
-  .trait-chip .dot{
-    width:8px;height:8px;border-radius:50%;
-  }
-  .trait-chip.coral{background:var(--coral-bg);color:var(--coral);}
-  .trait-chip.coral .dot{background:var(--coral);}
-  .trait-chip.violet{background:var(--violet-bg);color:var(--violet);}
-  .trait-chip.violet .dot{background:var(--violet);}
-  .trait-chip.blue{background:var(--blue-bg);color:var(--blue);}
-  .trait-chip.blue .dot{background:var(--blue);}
-  .trait-chip.gold{background:var(--gold-bg);color:var(--gold);}
-  .trait-chip.gold .dot{background:var(--gold);}
-
-  .hero .trait-chip{
-    background:rgba(255,255,255,0.14);
-    color:#fff;
-    -webkit-backdrop-filter:blur(6px);
-    backdrop-filter:blur(6px);
-  }
-  .hero .trait-chip.coral .dot{background:#FF9E8F;}
-  .hero .trait-chip.violet .dot{background:#D6BBFF;}
-  .hero .trait-chip.blue .dot{background:#FFD666;}
-
-  .hobby-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-  .hobby-chip{
-    padding:14px 16px;
-    border-radius:12px;
-    font-size:13px;
-    transition:transform .15s;
-  }
-  .hobby-chip:hover{ transform:translateY(-2px); }
-  .hobby-chip .h-label{
-    font-weight:600;
-    display:block;
-    margin-bottom:3px;
-  }
-  .hobby-chip .h-detail{
-    color:inherit;
-    opacity:0.75;
-    font-size:12.5px;
-  }
-  .hobby-chip.coral{background:var(--coral-bg);color:var(--coral);}
-  .hobby-chip.violet{background:var(--violet-bg);color:var(--violet);}
-  .hobby-chip.blue{background:var(--blue-bg);color:var(--blue);}
-  .hobby-chip.gold{background:var(--gold-bg);color:var(--gold);}
-  .hobby-chip.pink{background:var(--pink-bg);color:var(--pink);}
-  .hobby-chip.teal{background:var(--teal-dim);color:var(--teal);}
-
-  /* RESEARCH VIZ */
+  /* VIZ BLOCK (reused pattern) */
   .viz-block{
-    border:1px solid var(--line);
-    background:var(--paper-dim);
-    padding:22px 24px;
-    margin-bottom:16px;
-    border-radius:14px;
+    border:1px solid var(--line); background:var(--paper-dim);
+    padding:22px 24px; margin-bottom:16px; border-radius:14px;
   }
   .viz-title{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:16px;
-  }
-  /* funnel */
-  .funnel-row{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .funnel-step{
-    text-align:center;
-    padding:14px 10px;
-    background:var(--card);
-    border:1px solid var(--line);
-  }
-  .funnel-step .fn-num{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:26px;
-    color:var(--ink);
-  }
-  .funnel-step .fn-label{
-    font-size:11.5px;
-    color:var(--muted);
-    margin-top:4px;
-    line-height:1.3;
-  }
-  .funnel-arrow{
-    color:var(--line);
-    font-size:18px;
-    flex:0 0 auto;
-  }
-  .reliability-note{
-    margin-top:14px;
-    font-size:12px;
-    color:var(--muted);
-  }
-  .reliability-note b{ color:var(--teal); }
-  /* coefficient chart */
-  .coef-row{
-    display:grid;
-    grid-template-columns:190px 1fr auto;
-    align-items:center;
-    gap:14px;
-    margin-bottom:14px;
-  }
-  .coef-row:last-child{ margin-bottom:0; }
-  .coef-label{
-    font-size:13px;
-    color:var(--ink);
-  }
-  .coef-track{
-    height:10px;
-    background:var(--line);
-    border-radius:6px;
-    overflow:hidden;
-    position:relative;
-  }
-  .coef-fill{
-    height:100%;
-    border-radius:6px;
-  }
-  .coef-fill.sig{ background:var(--teal); }
-  .coef-fill.nsig{ background:var(--line); }
-  .coef-value{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12.5px;
-    color:var(--muted);
-    white-space:nowrap;
-    min-width:118px;
-    text-align:right;
-  }
-  .coef-value.sig{ color:var(--teal); font-weight:600; }
-  .viz-legend{
-    display:flex;
-    gap:18px;
-    margin-top:16px;
-    font-size:11.5px;
-    color:var(--muted);
-  }
-  .viz-legend span{ display:inline-flex; align-items:center; gap:6px; }
-  .viz-legend i{ width:10px; height:10px; border-radius:50%; display:inline-block; }
-  /* r-squared badge */
-  .rsq-wrap{
-    display:flex;
-    align-items:center;
-    gap:20px;
-  }
-  .rsq-badge{
-    flex:0 0 auto;
-    position:relative;
-    width:96px; height:96px;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .rsq-badge svg{ position:absolute; inset:0; transform:rotate(-90deg); }
-  .rsq-badge span{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:19px;
-    color:var(--ink);
-    z-index:1;
-  }
-  .rsq-text{ font-size:13px; color:var(--muted); max-width:360px; }
-
-  /* PBI EMBED */
-  .pbi-embed-wrap{
-    position:relative;
-    width:100%;
-    padding-top:62.25%; /* matches Power BI's 600x373.5 aspect ratio */
-    border:1px solid var(--line);
-    background:var(--paper-dim);
-    margin:20px 0;
-    border-radius:12px;
-    overflow:hidden;
-  }
-  .pbi-embed-wrap iframe{
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    border:0;
-  }
-  .pbi-caption{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    color:var(--muted);
-    margin:8px 0 0;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:16px;
   }
 
-  /* SKILLS */
-  .skill-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:14px;
-    overflow:hidden;
-  }
-  .skill-cell{
-    background:var(--card);
-    padding:22px;
-    flex:1 1 210px;
-    transition:background .15s;
-  }
-  .skill-cell:hover{ background:var(--paper-dim); }
-  .skill-icon{
-    width:38px;
-    height:38px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:14px;
-  }
-  .skill-icon svg{ width:20px; height:20px; }
-  .skill-cell.c-teal .skill-icon{ background:var(--teal-dim); color:var(--teal); }
-  .skill-cell.c-teal .field-label{ color:var(--teal); }
-  .skill-cell.c-teal .field-label::before{ background:var(--teal); }
-  .skill-cell.c-blue .skill-icon{ background:var(--blue-bg); color:var(--blue); }
-  .skill-cell.c-blue .field-label{ color:var(--blue); }
-  .skill-cell.c-blue .field-label::before{ background:var(--blue); }
-  .skill-cell.c-violet .skill-icon{ background:var(--violet-bg); color:var(--violet); }
-  .skill-cell.c-violet .field-label{ color:var(--violet); }
-  .skill-cell.c-violet .field-label::before{ background:var(--violet); }
-  .skill-cell.c-gold .skill-icon{ background:var(--gold-bg); color:var(--gold); }
-  .skill-cell.c-gold .field-label{ color:var(--gold); }
-  .skill-cell.c-gold .field-label::before{ background:var(--gold); }
-  .skill-cell.c-pink .skill-icon{ background:var(--pink-bg); color:var(--pink); }
-  .skill-cell.c-pink .field-label{ color:var(--pink); }
-  .skill-cell.c-pink .field-label::before{ background:var(--pink); }
-  .skill-cell.c-green .skill-icon{ background:var(--green-bg); color:var(--green); }
-  .skill-cell.c-green .field-label{ color:var(--green); }
-  .skill-cell.c-green .field-label::before{ background:var(--green); }
-  .skill-cell .field-label{margin-bottom:10px;}
-  .skill-cell .items{
-    font-size:13.5px;
-    color:var(--ink);
-    line-height:1.8;
-  }
+  /* change-model stages (reuses funnel-row pattern) */
+  .funnel-row{ display:flex; align-items:center; gap:10px; }
+  .funnel-step{ text-align:center; padding:14px 10px; background:var(--card); border:1px solid var(--line); flex:1; }
+  .funnel-step .fn-num{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:11px; color:var(--gold); margin-bottom:6px; }
+  .funnel-step .fn-title{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:4px; }
+  .funnel-step .fn-label{ font-size:11.5px; color:var(--muted); line-height:1.4; }
+  .funnel-arrow{ color:var(--line); font-size:18px; flex:0 0 auto; }
 
-  /* FOOTER */
-  footer{
-    background:var(--navy);
-    color:#C9D2D6;
-    padding:64px 0 40px;
-  }
-  footer h2{
-    color:#fff;
-    font-size:26px;
-    max-width:420px;
-  }
-  .footer-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    flex-wrap:wrap;
-    gap:24px;
-    margin-top:28px;
-  }
-  .footer-links{
-    display:flex;
-    gap:22px;
-    font-size:13.5px;
-  }
-  .footer-links a{text-decoration:none;color:#C9D2D6;}
-  .footer-links a:hover{color:#fff;}
-  .footer-bottom{
-    margin-top:56px;
-    padding-top:20px;
-    border-top:1px solid #253039;
-    font-size:12px;
-    color:#6A7880;
-    display:flex;
-    justify-content:space-between;
-  }
+  /* financial metrics grid */
+  .fin-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .fin-cell{ background:var(--card); padding:16px 16px; }
+  .fin-cell .fin-label{ font-size:11px; color:var(--muted); margin-bottom:8px; }
+  .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:19px; font-weight:600; }
+  .fin-cell .fin-value.pass{ color:var(--teal); }
+  .fin-cell .fin-value.fail{ color:var(--coral); }
+  .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
+
+  .findings{ margin:18px 0 0; padding:0; list-style:none; }
+  .findings li{ position:relative; padding-left:20px; margin-bottom:10px; font-size:14px; color:var(--muted); }
+  .findings li::before{ content:"→"; position:absolute; left:0; color:var(--green); font-family:'JetBrains Mono',monospace; }
+  .findings.neg li::before{ color:var(--coral); }
+  .findings-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .findings-cols h4{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 4px; }
+
+  /* CTA + FOOTER */
+  .cta-band{ background:linear-gradient(135deg, var(--gold) 0%, #A96F1B 55%, var(--green-dark) 100%); padding:64px 0; }
+  .cta-band-inner{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+  .cta-band h2{ color:#fff; font-size:26px; margin-top:8px; max-width:460px; }
+  .cta-band-actions{ display:flex; gap:12px; }
+  .btn-primary{ background:#fff; color:#111; font-size:14px; font-weight:600; padding:12px 22px; border-radius:var(--radius-pill); text-decoration:none; }
+  .btn-ghost{ border:1.5px solid rgba(255,255,255,0.55); color:#fff; font-size:14px; font-weight:600; padding:11px 22px; border-radius:var(--radius-pill); text-decoration:none; }
+  .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); }
+
+  footer{ background:var(--navy); color:#C9D2D6; padding:64px 0 40px; }
+  footer h2{ color:#fff; font-size:26px; max-width:420px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-top:28px; }
+  .footer-links{ display:flex; gap:22px; font-size:13.5px; }
+  .footer-links a{ text-decoration:none; color:#C9D2D6; }
+  .footer-links a:hover{ color:#fff; }
+  .footer-bottom{ margin-top:56px; padding-top:20px; border-top:1px solid #253039; font-size:12px; color:#6A7880; display:flex; justify-content:space-between; }
 
   @media(max-width:760px){
-    h1.headline{font-size:32px;}
-    .kpi-strip{grid-template-columns:1fr;}
-    .kpi{border-right:none;border-bottom:1px solid var(--line);}
-    .case{grid-template-columns:1fr;}
-    .case-meta{border-right:none;border-bottom:1px solid var(--line);}
-    .skill-grid{ }
-    .skill-cell{ flex-basis:100%; }
-    .navlinks{display:none;}
-    .about-grid{grid-template-columns:1fr;gap:32px;}
-    .hobby-grid{grid-template-columns:1fr 1fr;}
-    .coef-row{grid-template-columns:1fr;gap:6px;}
-    .coef-value{text-align:left;}
-    .funnel-row{flex-wrap:wrap;}
-    .rsq-wrap{flex-direction:column;align-items:flex-start;}
-    .cta-band-inner{flex-direction:column;align-items:flex-start;}
-    .project-grid{grid-template-columns:1fr;}
+    .case{ grid-template-columns:1fr; }
+    .case-meta{ border-right:none; border-bottom:1px solid var(--line); }
+    .navlinks{ display:none; }
+    .funnel-row{ flex-wrap:wrap; }
+    .findings-cols{ grid-template-columns:1fr; }
+    .cta-band-inner{ flex-direction:column; align-items:flex-start; }
   }
-  :focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
-  .reveal{
-    opacity:0;
-    transform:translateY(22px);
-    transition:opacity .7s ease, transform .7s ease;
-  }
-  .reveal.is-visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .reveal{ opacity:1; transform:none; transition:none; }
-  }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} .reveal{ opacity:1; transform:none; transition:none; } }
 </style>
 </head>
 <body>
@@ -1032,195 +233,157 @@
 
 <header>
   <nav class="wrap">
-    <div class="brand">Thái An <span>/ DA</span></div>
+    <a href="../index.html" class="brand" style="text-decoration:none">Thái An <span>/ DA</span></a>
     <div class="navlinks">
-      <a href="#about" data-en="About">Về tôi</a>
-      <a href="#projects" data-en="Projects">Dự án</a>
-      <a href="#skills" data-en="Skills">Kỹ năng</a>
-      <a href="#contact" data-en="Contact">Liên hệ</a>
+      <a href="../index.html#about" data-en="About">Về tôi</a>
+      <a href="../index.html#projects" data-en="Projects">Dự án</a>
+      <a href="../index.html#skills" data-en="Skills">Kỹ năng</a>
+      <a href="../index.html#contact" data-en="Contact">Liên hệ</a>
     </div>
     <div class="nav-actions">
-      <a class="cv-btn" href="assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+      <a class="cv-btn" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
       <button type="button" class="lang-toggle" id="langToggle">EN</button>
     </div>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-inner">
-      <span class="eyebrow">Data Analyst · Fresher</span>
-      <p class="hook" data-en="&amp;ldquo;Transaction volume grew +18.9% &amp;mdash; yet Success Rate still dropped 4.8 points. Why?&amp;rdquo;">"Volume giao dịch tăng +18,9% — nhưng Success Rate vẫn giảm 4,8 điểm phần trăm. Vì sao?"</p>
-      <h1 class="headline" data-en="Turning &lt;span class=&quot;hl&quot;&gt;data&lt;/span&gt; into the &lt;em&gt;optimal decision&lt;/em&gt; for every situation.">Chuyển đổi <span class="hl">dữ liệu</span> để hỗ trợ đưa ra <em>quyết định tối ưu</em> phù hợp với tình huống.</h1>
-      <p class="lede" data-en="I&amp;rsquo;m An &amp;mdash; I found the answer through root-cause analysis in Power BI, then turned it into a clear action plan for each team. Scroll down to see how I work.">Tôi là An — tìm ra câu trả lời bằng phân tích nguyên nhân gốc trên Power BI, rồi biến nó thành kế hoạch hành động rõ ràng cho từng đội ngũ. Cuộn xuống để xem cách tôi làm.</p>
-      <div class="trait-row" style="margin-top:18px">
-        <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Perceptive"><span class="dot"></span>Tinh tế quan sát</span>
-        <span class="trait-chip violet" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Learns by doing"><span class="dot"></span>Học qua trải nghiệm</span>
-        <span class="trait-chip blue" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Deep thinker"><span class="dot"></span>Suy nghĩ sâu</span>
-      </div>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#projects" data-en="View projects">Xem dự án</a>
-        <a class="btn-ghost" href="#contact" data-en="Contact">Liên hệ</a>
-      </div>
-    </div>
-
-    <div class="kpi-strip reveal">
-      <div class="kpi">
-        <div class="num">05<sup data-en="pages">trang</sup></div>
-        <div class="label">Power BI report — E-wallet Success Rate (Overview, Funnel, Root Cause, Revenue Pareto, Retention)</div>
-      </div>
-      <div class="kpi">
-        <div class="num">10.6<sup>× ROAS</sup></div>
-        <div class="label" data-en="Marketing Campaign Dashboard — Facebook · Instagram · Pinterest, £1.73M revenue on £163.25K spend">Marketing Campaign Dashboard — Facebook · Instagram · Pinterest, £1.73M revenue trên £163.25K spend</div>
-      </div>
-      <div class="kpi">
-        <div class="num">2<sup data-en="languages">ngôn ngữ</sup></div>
-        <div class="label" data-en="Case studies &amp;amp; stakeholder reports in both Vietnamese and English">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
-      </div>
-    </div>
-    <a href="#projects" class="scroll-cue" aria-label="Cuộn xuống xem dự án">
-      <span class="scroll-cue-dot"></span>
-    </a>
-  </div>
-</section>
-
-<section id="about" class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="field-label" data-en="About">Về tôi</span>
-        <h2 data-en="From Commercial Business to +£38,244 in overlooked revenue">Từ Kinh doanh thương mại đến người tìm ra +£38.244 doanh thu bị bỏ lỡ mỗi tháng</h2>
-      </div>
-    </div>
-    <div class="about-grid">
-      <div class="about-story">
-        <p data-en="I once stood at a fork in the road: stay on the Commercial Business track, or turn toward a field no one in my family had ever worked in — Data Analytics. I took that turn, and it led me to spotting £38,244 in monthly revenue a company was leaving on the table simply because its ad budget was going to the wrong channel.">Tôi từng đứng giữa một ngã rẽ: tiếp tục con đường Kinh doanh thương mại, hay rẽ sang một lĩnh vực chưa ai trong gia đình từng làm — Phân tích dữ liệu. Tôi chọn ngã rẽ đó, và nó dẫn tôi đến việc tìm ra £38.244 doanh thu mỗi tháng mà một doanh nghiệp đang bỏ lỡ chỉ vì ngân sách quảng cáo rót sai kênh.</p>
-        <p data-en="I notice the small details that get lost in a summary slide, and I&amp;rsquo;d rather sit with one problem long enough to actually understand it than skim ten. When I get something wrong, I don&amp;rsquo;t rush past it — I go back, work out exactly why, and make sure it doesn&amp;rsquo;t happen the same way twice. That combination is exactly why I chose Business Analytics: to keep digging, keep questioning, and turn insight into a decision someone can act on the same day.">Tôi để ý những chi tiết nhỏ dễ bị bỏ sót trong một slide tóm tắt, và thà dành thời gian hiểu thật kỹ một vấn đề còn hơn lướt qua mười thứ. Khi làm sai điều gì, tôi không vội bỏ qua — tôi quay lại, tìm cho ra đúng nguyên nhân, và đảm bảo mình không lặp lại y hệt lần sau. Sự kết hợp đó là lý do tôi chọn Phân tích Kinh doanh: để được liên tục đào sâu, đặt câu hỏi, và biến insight thành một quyết định có thể hành động ngay trong ngày.</p>
-        <div class="trait-row">
-          <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Perceptive"><span class="dot"></span>Tinh tế quan sát</span>
-          <span class="trait-chip violet" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Learns by doing"><span class="dot"></span>Học qua trải nghiệm</span>
-          <span class="trait-chip blue" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Deep thinker"><span class="dot"></span>Suy nghĩ sâu</span>
-          <span class="trait-chip gold" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Careful preparer"><span class="dot"></span>Chu đáo, cẩn trọng</span>
+<section>
+  <div class="wrap" style="padding-bottom:0;">
+    <a href="../index.html#projects" class="back-link" data-en="&larr; Back to all projects">&larr; Về tất cả dự án</a>
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="meta-row">
+          <div class="field-label" data-en="Role">Vai trò</div>
+          <div class="value">Tổng hợp ý tưởng &amp; biên tập nội dung (nhóm)</div>
         </div>
-        <ul class="trait-proof">
-          <li data-en="&lt;b&gt;Perceptive&lt;/b&gt; &amp;mdash; spotted that Billing was both the largest revenue category and the highest SR risk, a detail easy to miss at a glance"><b>Tinh tế quan sát</b> — nhận ra Billing vừa là category doanh thu lớn nhất vừa là rủi ro SR cao nhất, chi tiết dễ bị bỏ sót nếu chỉ nhìn tổng quan</li>
-          <li data-en="&lt;b&gt;Learns by doing&lt;/b&gt; &amp;mdash; tested all 8 hypotheses in SPSS until only the ones that actually held up remained"><b>Học qua trải nghiệm</b> — kiểm định đủ cả 8 giả thuyết bằng SPSS cho đến khi chỉ còn lại đúng những yếu tố thật sự đứng vững</li>
-          <li data-en="&lt;b&gt;Deep thinker&lt;/b&gt; &amp;mdash; didn&amp;rsquo;t stop at &amp;ldquo;ROAS is low,&amp;rdquo; but dug into a regression model to find the actual optimal spend point"><b>Suy nghĩ sâu</b> — không dừng ở việc thấy ROAS thấp, mà đào tới tận mô hình hồi quy để tìm ra điểm chi tiêu tối ưu</li>
-          <li data-en="&lt;b&gt;Careful preparer&lt;/b&gt; &amp;mdash; always cross-checks the numbers before putting a recommendation in front of a stakeholder"><b>Chu đáo, cẩn trọng</b> — luôn kiểm tra chéo số liệu trước khi đưa khuyến nghị ra trước stakeholder</li>
-        </ul>
-      </div>
-      <div class="about-hobbies">
-        <div class="hobby-grid">
-          <div class="hobby-chip teal"><span class="h-label" data-en="Reading">Đọc sách</span><span class="h-detail" data-en="Psychology, customer analysis, business">Tâm lý học, phân tích khách hàng, kinh doanh</span></div>
-          <div class="hobby-chip pink"><span class="h-label" data-en="Photography">Chụp ảnh</span><span class="h-detail" data-en="A creative outlet outside work">Sáng tạo ngoài công việc</span></div>
-          <div class="hobby-chip coral"><span class="h-label" data-en="Experiential travel">Du lịch trải nghiệm</span><span class="h-detail" data-en="Beaches and mountains">Biển và núi</span></div>
-          <div class="hobby-chip gold"><span class="h-label" data-en="Food">Ẩm thực</span><span class="h-detail" data-en="Favorite dishes &amp;amp; regional specialties">Món tủ &amp; đặc sản vùng miền</span></div>
-          <div class="hobby-chip blue"><span class="h-label" data-en="Cycling">Đạp xe</span><span class="h-detail" data-en="Outdoor exercise">Vận động ngoài trời</span></div>
-          <div class="hobby-chip violet"><span class="h-label" data-en="Swimming">Bơi lội</span><span class="h-detail" data-en="Every couple of months">Vài tháng một lần</span></div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Tools">Công cụ</div>
+          <div class="value">Excel · Lewin's Change Model</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Techniques">Kỹ thuật</div>
+          <div class="tags">
+            <span class="tag tag-gold">Force Field Analysis</span>
+            <span class="tag tag-gold">IRR / NPV / PW</span>
+            <span class="tag tag-gold">Payback Period</span>
+            <span class="tag tag-gold">Root-cause Analysis</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="case-body">
+        <h3 data-en="IoT AgriTech Adoption &amp;mdash; Feasibility &amp; Change Analysis">IoT AgriTech Adoption — Feasibility &amp; Change Analysis</h3>
+        <div class="role" data-en="Group project · Change Management · IoT precision-agriculture adoption (Mimosatek)">Group project · Quản trị sự thay đổi · Ứng dụng IoT nông nghiệp (Mimosatek)</div>
+        <p class="case-hook" data-en="NPV of &lt;span class=&quot;stat&quot;&gt;+$1,435&lt;/span&gt; &amp;mdash; but the discounted payback period misses the 3-year target. The real question isn&amp;rsquo;t whether the tech works."><span class="stat">NPV dương +1.435 USD</span> — nhưng thời gian hoàn vốn có chiết khấu lại vượt mục tiêu 3 năm. Câu hỏi thật sự không nằm ở việc công nghệ có hiệu quả hay không.</p>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="field-label" data-en="Projects">Dự án</span>
-        <h2 data-en="Featured Projects">Các dự án đại diện</h2>
-      </div>
-    </div>
-
-    <div class="project-grid">
-      <a class="project-card reveal" href="projects/ewallet.html">
-        <div class="tool-line">Power BI · DAX · Excel</div>
-        <div class="card-badges">
-          <span class="card-badge revenue" data-en="Revenue protected">Bảo vệ doanh thu</span>
-          <span class="card-badge cost" data-en="Cost-efficient fix">Khắc phục tiết kiệm chi phí</span>
+        <div class="impact-row">
+          <div class="impact-stat pass">
+            <span class="impact-label" data-en="IRR">Tỷ suất sinh lời (IRR)</span>
+            <span class="impact-value" data-en="Over 20% — clears the cost of capital">Trên 20% — vượt chi phí vốn</span>
+          </div>
+          <div class="impact-stat fail">
+            <span class="impact-label" data-en="Discounted payback">Payback có chiết khấu</span>
+            <span class="impact-value" data-en="3.24 years — misses the ≤3-year target">3,24 năm — vượt mục tiêu ≤3 năm</span>
+          </div>
         </div>
-        <h3>E-wallet Payment Success Rate Analysis</h3>
-        <p class="project-card-hook" data-en="4.8-point drop &amp;mdash; traced to exactly one step out of seven in the funnel.">Giảm 4,8 điểm phần trăm — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
-        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
-      </a>
 
-      <a class="project-card reveal accent-coral" href="projects/marketing.html">
-        <div class="tool-line">Power BI · DAX · Excel</div>
-        <div class="card-badges">
-          <span class="card-badge revenue" data-en="+£38,244/month">+£38.244/tháng</span>
-          <span class="card-badge cost" data-en="Budget reallocated">Tối ưu ngân sách</span>
+        <p data-en="Young Vietnamese people largely see farming as low-income, physically punishing work with no clear future — so almost none choose to start a career or business in it. This project treats that mindset itself as the thing to be changed, using Lewin's model to design a zero-upfront-risk adoption path for Mimosatek's IoT irrigation &amp; fertigation system, then stress-tests the idea with formal project-finance metrics rather than assuming a good story is enough.">Người trẻ Việt Nam phần lớn xem nông nghiệp là công việc thu nhập thấp, vất vả, không có tương lai rõ ràng — nên gần như không ai chọn khởi nghiệp trong ngành. Dự án này xem chính tâm lý đó là thứ cần thay đổi, dùng mô hình Lewin để thiết kế lộ trình áp dụng công nghệ tưới-bón IoT của Mimosatek với rủi ro ban đầu bằng 0, rồi kiểm định lại ý tưởng đó bằng các chỉ số thẩm định dự án chính thức thay vì chỉ dừng ở một câu chuyện nghe hay.</p>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="CHANGE MODEL · LEWIN'S UNFREEZE–CHANGE–REFREEZE">MÔ HÌNH THAY ĐỔI · LEWIN</div>
+          <div class="funnel-row">
+            <div class="funnel-step">
+              <div class="fn-num">01 · UNFREEZE</div>
+              <div class="fn-title" data-en="Pay after harvest">Trả sau thu hoạch</div>
+              <div class="fn-label" data-en="Farmers trial the system before paying — removes the &amp;ldquo;afraid to lose capital first&amp;rdquo; barrier.">Dùng thử trước, trả tiền sau khi thấy lợi ích — loại bỏ rào cản "sợ mất vốn trước".</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">
+              <div class="fn-num">02 · CHANGE</div>
+              <div class="fn-title" data-en="15-day co-pilot">Đồng hành 15 ngày</div>
+              <div class="fn-label" data-en="Agronomists walk farmers through real-time soil, moisture and weather data.">Kỹ sư nông học cùng đọc dữ liệu độ ẩm, dinh dưỡng, thời tiết theo thời gian thực.</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">
+              <div class="fn-num">03 · REFREEZE</div>
+              <div class="fn-title" data-en="Season data record">Hồ sơ dữ liệu mùa vụ</div>
+              <div class="fn-label" data-en="Accumulated data becomes the new habit and a bargaining record with buyers.">Dữ liệu tích lũy trở thành thói quen mới và hồ sơ đàm phán với thương lái.</div>
+            </div>
+          </div>
         </div>
-        <h3>Marketing Campaign Dashboard</h3>
-        <p class="project-card-hook" data-en="£38,244/month &amp;mdash; the revenue left on the table by funding the wrong channel.">£38.244/tháng — cái giá của việc rót ngân sách sai kênh.</p>
-        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
-      </a>
 
-      <a class="project-card reveal accent-violet" href="projects/research.html">
-        <div class="tool-line">SPSS · Excel</div>
-        <div class="card-badges">
-          <span class="card-badge revenue" data-en="Growth lever identified">Xác định đòn bẩy tăng trưởng</span>
-          <span class="card-badge cost" data-en="Ad spend saved">Tiết kiệm chi phí quảng cáo</span>
+        <div class="viz-block">
+          <div class="viz-title" data-en="PROJECT FINANCE · 1 HA SCALE">THẨM ĐỊNH TÀI CHÍNH · QUY MÔ 1 HA</div>
+          <div class="fin-grid">
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Investment">Vốn đầu tư</div>
+              <div class="fin-value">150tr₫</div>
+              <div class="fin-note">~6,183 USD</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">IRR</div>
+              <div class="fin-value pass">&gt;20%</div>
+              <div class="fin-note" data-en="clears cost of capital">vượt chi phí vốn</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">NPV</div>
+              <div class="fin-value pass">+$1,435</div>
+              <div class="fin-note" data-en="positive → feasible">dương → khả thi</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">B/C ratio</div>
+              <div class="fin-value pass">1.23</div>
+              <div class="fin-note" data-en="benefit &gt; cost">lợi ích &gt; chi phí</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Payback (undiscounted)">Payback (không CK)</div>
+              <div class="fin-value pass">2.33 năm</div>
+              <div class="fin-note" data-en="meets ≤3yr target">đạt mục tiêu</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Payback (discounted)">Payback (có CK)</div>
+              <div class="fin-value fail">3.24 năm</div>
+              <div class="fin-note" data-en="misses target">vượt mục tiêu</div>
+            </div>
+          </div>
         </div>
-        <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu Ý định tiêu dùng xanh</h3>
-        <p class="project-card-hook" data-en="44.4% of buying behavior explained by just 2 of the 8 original factors.">44,4% hành vi mua được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
-        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
-      </a>
-    </div>
-  </div>
-</section>
 
-<section class="alt" id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="field-label" data-en="Skills">Kỹ năng</span>
-        <h2 data-en="Toolkit">Bộ công cụ đang dùng</h2>
+        <div class="viz-block">
+          <div class="viz-title" data-en="FORCE FIELD ANALYSIS">FORCE FIELD ANALYSIS</div>
+          <div class="findings-cols">
+            <div>
+              <h4 style="color:var(--green);" data-en="Driving forces">Lực đẩy</h4>
+              <ul class="findings">
+                <li data-en="+15% crop yield">Tăng 15% năng suất cây trồng</li>
+                <li data-en="&amp;minus;30% input cost (labor, power, water, fertilizer)">Giảm 30% chi phí đầu vào (công, điện, nước, phân bón)</li>
+                <li data-en="Breaks the price-squeeze cycle with brokers via stable yield">Giải quyết tình trạng thương lái ép giá nhờ sản lượng ổn định</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:var(--coral);" data-en="Restraining forces">Lực cản</h4>
+              <ul class="findings neg">
+                <li data-en="Equipment dependency — sensor failure halts operations">Phụ thuộc thiết bị — rủi ro gián đoạn khi cảm biến hỏng</li>
+                <li data-en="Requires a higher operating skill level from farmers">Đòi hỏi trình độ vận hành cao hơn từ nông hộ</li>
+                <li data-en="Oversupply risk if adoption scales too fast across a region">Rủi ro cung vượt cầu nếu nhiều hộ cùng áp dụng đồng loạt</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p data-en="Net: 4 of 5 finance metrics support rollout. The one weak point &amp;mdash; discounted payback &amp;mdash; is closed by Lâm Đồng province&amp;rsquo;s existing 40&amp;ndash;50% tech-adoption subsidy for smallholders, which is what turns this from &amp;ldquo;a good story&amp;rdquo; into a fundable plan.">4 trên 5 chỉ số tài chính ủng hộ triển khai. Điểm yếu duy nhất — payback có chiết khấu — được bù đắp bằng chính sách hỗ trợ công nghệ 40–50% sẵn có của tỉnh Lâm Đồng cho nông hộ nhỏ — đây là điều biến ý tưởng từ "một câu chuyện hay" thành một kế hoạch có thể gọi vốn thật sự.</p>
       </div>
-    </div>
-    <div class="skill-grid reveal">
-      <div class="skill-cell c-teal">
-        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V13"/><path d="M12 20V8"/><path d="M19 20V4"/></svg></div>
-        <div class="field-label">BI &amp; Modeling</div>
-        <div class="items">Power BI<br>DAX<br>Data Modeling</div>
-      </div>
-      <div class="skill-cell c-blue">
-        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-6 8v6l-4 2v-8z"/></svg></div>
-        <div class="field-label" data-en="Analysis">Phân tích</div>
-        <div class="items">Funnel Analysis<br>Root Cause (Bowtie)<br>Cohort / Retention</div>
-      </div>
-      <div class="skill-cell c-violet">
-        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg></div>
-        <div class="field-label" data-en="Quantitative Research">Nghiên cứu định lượng</div>
-        <div class="items">SPSS<br>Cronbach's Alpha · EFA<br>Multiple Regression · ANOVA</div>
-      </div>
-      <div class="skill-cell c-gold">
-        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 11v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/></svg></div>
-        <div class="field-label" data-en="Data">Dữ liệu</div>
-        <div class="items" data-en="Excel&lt;br&gt;Data Cleaning&lt;br&gt;Bilingual reporting">Excel<br>Data Cleaning<br>Reporting song ngữ</div>
-      </div>
-      <div class="skill-cell c-pink">
-        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg></div>
-        <div class="field-label" data-en="Communication">Giao tiếp</div>
-        <div class="items" data-en="Presenting insight to non-technical audiences&lt;br&gt;Writing bilingual VI–EN case studies&lt;br&gt;Structuring reports using SQCA">Trình bày insight cho người không rành số liệu<br>Viết case study song ngữ Việt–Anh<br>Cấu trúc báo cáo theo SQCA</div>
-      </div>
-      <div class="skill-cell c-green">
-        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
-        <div class="field-label" data-en="Business Knowledge">Kiến thức kinh doanh</div>
-        <div class="items" data-en="Data mining &amp;amp; business forecasting&lt;br&gt;Supply chain &amp;amp; logistics management&lt;br&gt;Organizational change management">Khai thác dữ liệu &amp; dự báo kinh doanh<br>Quản trị chuỗi cung ứng &amp; Logistics<br>Quản trị sự thay đổi trong tổ chức</div>
-      </div>
-    </div>
+    </article>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="wrap cta-band-inner">
     <div>
-      <span class="field-label on-brand" data-en="Let&#39;s work together">Cùng hợp tác nhé</span>
+      <span class="field-label on-brand" data-en="Let's work together">Cùng hợp tác nhé</span>
       <h2 data-en="Have a role or project in mind? Let&amp;rsquo;s talk.">Có vị trí hoặc dự án phù hợp? Nhắn mình nhé.</h2>
     </div>
     <div class="cta-band-actions">
       <a class="btn-primary" href="mailto:thaiannq@outlook.com" data-en="Email me">Gửi email</a>
-      <a class="btn-ghost" href="assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+      <a class="btn-ghost" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
     </div>
   </div>
 </section>
@@ -1233,7 +396,7 @@
       <div class="footer-links">
         <a href="mailto:thaiannq@outlook.com">thaiannq@outlook.com</a>
         <a href="tel:0364875372">0364 875 372</a>
-        <a href="assets/An_Nguyen_CV.pdf" download data-en="Download CV (PDF)">Tải CV (PDF)</a>
+        <a href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV (PDF)">Tải CV (PDF)</a>
       </div>
     </div>
     <div class="footer-bottom">
