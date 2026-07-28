@@ -496,6 +496,14 @@
   .solution-steps li b{ color:var(--violet); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+  .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .dept-row{ display:flex; gap:14px; padding:11px 16px; background:var(--card); }
+  .dept-row+.dept-row{ border-top:1px solid var(--line); }
+  .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--violet); }
+  .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--paper-dim); padding:14px 12px; }
   .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
@@ -1081,6 +1089,23 @@
             </div>
           </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="reallocate messaging budget toward the 2 statistically significant factors (explaining 44.4% of purchase intention)">tái phân bổ ngân sách truyền thông đúng theo 2 yếu tố có ý nghĩa thống kê (giải thích 44,4% ý định mua)</b> <span data-en="&amp;mdash; instead of spreading thin across all 8 original hypotheses, avoiding spend on messaging that doesn&amp;rsquo;t convert.">— thay vì dàn trải vào cả 8 giả thuyết ban đầu, tránh lãng phí ngân sách vào thông điệp không tạo ra chuyển đổi.</span></p>
+          <div class="dept-block">
+            <span class="dept-title" data-en="TASK ASSIGNMENT BY DEPARTMENT">PHÂN CÔNG THỰC HIỆN</span>
+            <div class="dept-table">
+              <div class="dept-row">
+                <span class="dept-name" data-en="Marketing / Brand">Phòng Marketing / Truyền thông thương hiệu</span>
+                <span class="dept-task" data-en="Rebuild messaging around tangible benefit (pricing, promotions) instead of generic environmental appeals.">Xây dựng lại thông điệp xoay quanh lợi ích thiết thực (giá cả, khuyến mãi) thay vì kêu gọi cảm tính về môi trường.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="R&amp;amp;D / Product Quality">Phòng R&amp;D / Chất lượng sản phẩm</span>
+                <span class="dept-task" data-en="Secure and clearly communicate transparent certification to build the trust factor.">Đảm bảo và truyền thông rõ ràng chứng nhận minh bạch để củng cố yếu tố niềm tin.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Market Research">Phòng Nghiên cứu thị trường</span>
+                <span class="dept-task" data-en="Re-test the 2-factor model on future campaigns to confirm the effect holds before scaling budget.">Kiểm định lại mô hình 2 nhân tố với các chiến dịch tương lai trước khi mở rộng ngân sách.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>
