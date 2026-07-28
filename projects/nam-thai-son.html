@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phân tích hành vi khách hàng — Nam Thái Sơn Group — Nguyễn Quốc Thái An</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0D1117;
+    --paper-dim:#11161D;
+    --ink:#E6EDF3;
+    --muted:#8B949E;
+    --line:#30363D;
+    --teal:#39C5CF;
+    --teal-dim:rgba(57,197,207,0.14);
+    --amber:#79C0FF;
+    --navy:#05070A;
+    --card:#161B22;
+    --radius:8px; --radius-pill:999px;
+    --coral:#FF7B72; --coral-bg:rgba(255,123,114,0.14); --coral-dark:#E5534B;
+    --violet:#A371F7; --violet-bg:rgba(163,113,247,0.15);
+    --blue:#58A6FF; --blue-bg:rgba(88,166,255,0.14); --blue-dark:#1F6FEB;
+    --green:#3FB950; --green-bg:rgba(63,185,80,0.14); --green-dark:#238636;
+    --gold:#D29922; --gold-bg:rgba(210,153,34,0.14);
+    --pink:#DB61A2; --pink-bg:rgba(219,97,162,0.14); --pink-dark:#B84E87;
+  }
+  *{box-sizing:border-box;}
+  ::selection{ background:var(--blue); color:#0D1117; }
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background:var(--paper); }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--muted); }
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:38px 38px;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Space Grotesk',sans-serif; margin:0; letter-spacing:-0.01em; }
+  .mono{ font-family:'JetBrains Mono',monospace; }
+  .field-label{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:8px;
+  }
+  .field-label::before{
+    content:""; width:6px; height:6px; border-radius:50%; background:var(--blue);
+    display:inline-block; flex:0 0 auto;
+  }
+  .field-label.on-brand{ color:rgba(255,255,255,0.85); }
+  .field-label.on-brand::before{ background:#fff; }
+  a{ color:inherit; }
+  .id-strip{ height:4px; background:linear-gradient(90deg, var(--pink) 0 33%, var(--teal) 33% 66%, var(--green) 66% 100%); }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+
+  /* NAV */
+  header{ position:sticky; top:0; z-index:50; background:rgba(13,17,23,0.85); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; }
+  .brand span{ color:var(--blue); }
+  .brand::after{ content:""; display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--coral); margin-left:7px; vertical-align:middle; }
+  .navlinks{ display:flex; gap:28px; font-size:14px; font-weight:500; }
+  .navlinks a{ text-decoration:none; color:var(--muted); transition:color .15s; }
+  .navlinks a:hover{ color:var(--blue); }
+  .cv-btn{ font-size:13px; font-weight:600; padding:9px 18px; background:var(--blue); color:#fff; text-decoration:none; border-radius:var(--radius-pill); transition:background .15s; }
+  .cv-btn:hover{ background:var(--blue-dark); }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .lang-toggle{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; padding:8px 14px; background:none; color:var(--ink); border:1px solid var(--line); border-radius:var(--radius-pill); cursor:pointer; transition:border-color .15s, color .15s; }
+  .lang-toggle:hover{ border-color:var(--blue); color:var(--blue); }
+
+  section{ padding:88px 0; }
+
+  /* PROJECT CASE STUDY (matches ewallet/marketing/research/iot-agritech template) */
+  .back-link{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; margin-bottom:24px; transition:color .15s; }
+  .back-link:hover{ color:var(--blue); }
+  .case{ border:1px solid var(--line); background:var(--card); display:grid; grid-template-columns:280px 1fr; border-radius:16px; overflow:hidden; }
+  .case-meta{ padding:32px 28px; border-right:1px solid var(--line); background:var(--paper-dim); display:flex; flex-direction:column; gap:22px; }
+  .case-meta .meta-row .field-label{ margin-bottom:6px; }
+  .case-meta .meta-row .value{ font-size:14px; font-weight:500; }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tag{ font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 8px; background:var(--teal-dim); color:var(--teal); border-radius:2px; }
+  .tag.tag-pink{ background:var(--pink-bg); color:var(--pink); }
+  .case-body{ padding:32px 34px; }
+  .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
+  .case-body h3::after{ content:""; position:absolute; left:0; bottom:0; width:40px; height:3px; background:var(--pink); border-radius:2px; }
+  .case-body .role{ font-size:13px; color:var(--muted); margin-bottom:18px; }
+  .case-hook{ font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; line-height:1.35; margin:0 0 16px; color:var(--ink); }
+  .case-hook .stat{ color:var(--pink); }
+  .impact-row{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
+  .impact-stat{ display:flex; flex-direction:column; gap:3px; padding:10px 16px; border-radius:10px; flex:1 1 200px; }
+  .impact-stat .impact-label{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; opacity:0.8; }
+  .impact-stat .impact-value{ font-size:14.5px; font-weight:700; line-height:1.35; }
+  .impact-stat.pass{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.flag{ background:var(--pink-bg); color:var(--pink); }
+  .case-body p{ font-size:14.5px; color:var(--ink); margin:0 0 16px; }
+
+  /* VIZ BLOCK (reused pattern) */
+  .viz-block{ border:1px solid var(--line); background:var(--paper-dim); padding:22px 24px; margin-bottom:16px; border-radius:14px; }
+  .viz-title{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
+
+  /* survey metrics grid (reuses fin-grid pattern) */
+  .fin-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .fin-cell{ background:var(--card); padding:16px 16px; }
+  .fin-cell .fin-label{ font-size:11px; color:var(--muted); margin-bottom:8px; }
+  .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:19px; font-weight:600; color:var(--teal); }
+  .fin-cell .fin-value.flag{ color:var(--pink); }
+  .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
+
+  /* persona cards */
+  .persona-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .persona-card{ background:var(--card); padding:20px 20px; }
+  .persona-card .persona-tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; padding:4px 9px; border-radius:8px; display:inline-block; margin-bottom:10px; }
+  .persona-card.p1 .persona-tag{ background:var(--blue-bg); color:var(--blue); }
+  .persona-card.p2 .persona-tag{ background:var(--pink-bg); color:var(--pink); }
+  .persona-card h4{ font-family:'Space Grotesk',sans-serif; font-size:15px; margin:0 0 8px; }
+  .persona-card p{ font-size:13px; color:var(--muted); margin:0; }
+
+  .findings{ margin:18px 0 0; padding:0; list-style:none; }
+  .findings li{ position:relative; padding-left:20px; margin-bottom:10px; font-size:14px; color:var(--muted); }
+  .findings li::before{ content:"→"; position:absolute; left:0; color:var(--green); font-family:'JetBrains Mono',monospace; }
+
+  /* CTA + FOOTER */
+  .cta-band{ background:linear-gradient(135deg, var(--pink) 0%, #9C3E76 55%, var(--green-dark) 100%); padding:64px 0; }
+  .cta-band-inner{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+  .cta-band h2{ color:#fff; font-size:26px; margin-top:8px; max-width:460px; }
+  .cta-band-actions{ display:flex; gap:12px; }
+  .btn-primary{ background:#fff; color:#111; font-size:14px; font-weight:600; padding:12px 22px; border-radius:var(--radius-pill); text-decoration:none; }
+  .btn-ghost{ border:1.5px solid rgba(255,255,255,0.55); color:#fff; font-size:14px; font-weight:600; padding:11px 22px; border-radius:var(--radius-pill); text-decoration:none; }
+  .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); }
+
+  footer{ background:var(--navy); color:#C9D2D6; padding:64px 0 40px; }
+  footer h2{ color:#fff; font-size:26px; max-width:420px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-top:28px; }
+  .footer-links{ display:flex; gap:22px; font-size:13.5px; }
+  .footer-links a{ text-decoration:none; color:#C9D2D6; }
+  .footer-links a:hover{ color:#fff; }
+  .footer-bottom{ margin-top:56px; padding-top:20px; border-top:1px solid #253039; font-size:12px; color:#6A7880; display:flex; justify-content:space-between; }
+
+  @media(max-width:760px){
+    .case{ grid-template-columns:1fr; }
+    .case-meta{ border-right:none; border-bottom:1px solid var(--line); }
+    .navlinks{ display:none; }
+    .persona-grid{ grid-template-columns:1fr; }
+    .cta-band-inner{ flex-direction:column; align-items:flex-start; }
+  }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} .reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+<div class="id-strip"></div>
+
+<header>
+  <nav class="wrap">
+    <a href="../index.html" class="brand" style="text-decoration:none">Thái An <span>/ DA</span></a>
+    <div class="navlinks">
+      <a href="../index.html#about" data-en="About">Về tôi</a>
+      <a href="../index.html#projects" data-en="Projects">Dự án</a>
+      <a href="../index.html#skills" data-en="Skills">Kỹ năng</a>
+      <a href="../index.html#contact" data-en="Contact">Liên hệ</a>
+    </div>
+    <div class="nav-actions">
+      <a class="cv-btn" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+      <button type="button" class="lang-toggle" id="langToggle">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section>
+  <div class="wrap" style="padding-bottom:0;">
+    <a href="../index.html#projects" class="back-link" data-en="&larr; Back to all projects">&larr; Về tất cả dự án</a>
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="meta-row">
+          <div class="field-label" data-en="Role">Vai trò</div>
+          <div class="value">Tổng hợp ý tưởng &amp; phát triển mạch bài (nhóm)</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Tools">Công cụ</div>
+          <div class="value">Google Forms · Excel · Pivot Table</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Techniques">Kỹ thuật</div>
+          <div class="tags">
+            <span class="tag tag-pink">Customer Journey Mapping</span>
+            <span class="tag tag-pink">Survey Design (n=128)</span>
+            <span class="tag tag-pink">NPS Analysis</span>
+            <span class="tag tag-pink">Persona Development</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3 data-en="Customer Behavior Analysis &amp;mdash; Nam Thái Sơn Biodegradable Trash Bags">Phân tích hành vi khách hàng — Túi rác tự hủy sinh học Nam Thái Sơn</h3>
+        <div class="role" data-en="Group project · Customer Analytics · Nam Thái Sơn Group">Group project · Phân tích khách hàng · Nam Thái Sơn Group</div>
+        <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;87% of respondents care about the environment&lt;/span&gt; &amp;mdash; yet the product&amp;rsquo;s NPS sits at just 7%. Where&amp;rsquo;s the gap?"><span class="stat">87% người khảo sát quan tâm đến bảo vệ môi trường</span> — nhưng NPS sản phẩm chỉ đạt 7%. Khoảng cách đó nằm ở đâu?</p>
+
+        <div class="impact-row">
+          <div class="impact-stat pass">
+            <span class="impact-label" data-en="Environmental concern">Mối quan tâm môi trường</span>
+            <span class="impact-value" data-en="87% would consider or actively choose eco-friendly bags">87% sẵn sàng cân nhắc hoặc chủ động chọn sản phẩm bảo vệ môi trường</span>
+          </div>
+          <div class="impact-stat flag">
+            <span class="impact-label" data-en="Current experience">Trải nghiệm hiện tại</span>
+            <span class="impact-value" data-en="NPS of 7% — an &amp;ldquo;acceptable but unremarkable&amp;rdquo; experience">NPS 7% — trải nghiệm ở mức "tạm ổn", chưa đủ để tạo lòng trung thành</span>
+          </div>
+        </div>
+
+        <p data-en="Nam Thái Sơn's biodegradable trash bags sit in a market where consumers say they care about the environment — but that stated concern doesn't automatically translate into loyalty. Using a mixed-methods survey (128 responses, students, parents, and supermarket shoppers across Ho Chi Minh City) combined with in-store interviews, this project maps the actual buying journey to find out where the gap between intention and experience opens up.">Túi rác tự hủy sinh học của Nam Thái Sơn nằm trong một thị trường mà người tiêu dùng nói rằng họ quan tâm đến môi trường — nhưng mối quan tâm đó không tự động chuyển thành lòng trung thành. Dùng khảo sát định tính kết hợp định lượng (128 phản hồi từ sinh viên, phụ huynh và người đi siêu thị tại TP.HCM) cùng phỏng vấn tại điểm bán, dự án lập bản đồ hành trình mua hàng thực tế để tìm ra khoảng cách giữa ý định và trải nghiệm nằm ở đâu.</p>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="SURVEY SNAPSHOT · N = 128">TỔNG QUAN KHẢO SÁT · N = 128</div>
+          <div class="fin-grid">
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Female respondents">Người khảo sát nữ</div>
+              <div class="fin-value">70%</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Core age range">Độ tuổi chính</div>
+              <div class="fin-value">18–40</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Willingness to pay">Sẵn sàng chi trả</div>
+              <div class="fin-value">12–58k₫</div>
+              <div class="fin-note" data-en="per bag">/ túi</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Usage frequency">Tần suất sử dụng</div>
+              <div class="fin-value">~3</div>
+              <div class="fin-note" data-en="bags / week">túi/tuần</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Satisfaction lift">Độ nâng hài lòng</div>
+              <div class="fin-value">+15%</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">NPS</div>
+              <div class="fin-value flag">7%</div>
+              <div class="fin-note" data-en="&amp;ldquo;acceptable&amp;rdquo; tier">mức "tạm ổn"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="TWO CUSTOMER PERSONAS">HAI CHÂN DUNG KHÁCH HÀNG</div>
+          <div class="persona-grid">
+            <div class="persona-card p1">
+              <span class="persona-tag" data-en="Potential customer">Khách hàng tiềm năng</span>
+              <h4 data-en="~20yo male student">Nam sinh viên, ~20 tuổi</h4>
+              <p data-en="Price-sensitive, buys bags mainly while doing other household shopping — not yet an active eco-conscious buyer.">Nhạy cảm về giá, mua túi rác chủ yếu khi tiện mua đồ sinh hoạt khác — chưa chủ động vì lý do môi trường.</p>
+            </div>
+            <div class="persona-card p2">
+              <span class="persona-tag" data-en="Target customer">Khách hàng mục tiêu</span>
+              <h4 data-en="~32yo woman, married, QC staff">Nữ, ~32 tuổi, đã kết hôn, nhân viên QC</h4>
+              <p data-en="Actively chooses eco-friendly products for her household, higher willingness to pay, more brand-loyal once trust is earned.">Chủ động chọn sản phẩm bảo vệ môi trường cho gia đình, sẵn sàng chi trả cao hơn, trung thành hơn khi đã có niềm tin.</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="findings">
+          <li data-en="Most respondents buy trash bags as a side item while doing general grocery shopping — not as a deliberate, planned eco-purchase.">Phần lớn mua túi rác như một sản phẩm tiện mua kèm khi đi chợ/siêu thị — không phải một quyết định mua sắm "xanh" có chủ đích.</li>
+          <li data-en="Encountered mainly at Bách Hóa Xanh, Vinmart and Go/Big C — convenience of location outweighs price as the first purchase driver.">Gặp sản phẩm chủ yếu tại Bách Hóa Xanh, Vinmart, Go/Big C — sự tiện lợi về địa điểm quan trọng hơn giá ở bước mua đầu tiên.</li>
+          <li data-en="Recommended fix: a Gen-Z-targeted awareness campaign plus clear in-store signage (product info, decomposition process, bag-type sorting) to close the intention-to-loyalty gap.">Đề xuất: chiến dịch nâng nhận thức nhắm Gen Z kết hợp bảng thông tin rõ ràng tại điểm bán (thông tin sản phẩm, cách phân hủy, phân loại túi) để thu hẹp khoảng cách giữa ý định và lòng trung thành.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div>
+      <span class="field-label on-brand" data-en="Let's work together">Cùng hợp tác nhé</span>
+      <h2 data-en="Have a role or project in mind? Let&amp;rsquo;s talk.">Có vị trí hoặc dự án phù hợp? Nhắn mình nhé.</h2>
+    </div>
+    <div class="cta-band-actions">
+      <a class="btn-primary" href="mailto:thaiannq@outlook.com" data-en="Email me">Gửi email</a>
+      <a class="btn-ghost" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="field-label" style="color:#7FB8B0;" data-en="Contact">Liên hệ</span>
+    <h2 data-en="Currently looking for Data Analyst (fresher) opportunities in Ho Chi Minh City.">Hiện đang tìm kiếm cơ hội Data Analyst (fresher) tại TP.HCM.</h2>
+    <div class="footer-row">
+      <div class="footer-links">
+        <a href="mailto:thaiannq@outlook.com">thaiannq@outlook.com</a>
+        <a href="tel:0364875372">0364 875 372</a>
+        <a href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV (PDF)">Tải CV (PDF)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nguyễn Quốc Thái An</span>
+      <span>Built &amp; hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('langToggle');
+  var current = 'vi';
+  function applyLang(lang){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if(el.dataset.vi === undefined){ el.dataset.vi = el.innerHTML; }
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.vi;
+    });
+    document.documentElement.lang = lang;
+    toggle.textContent = lang === 'en' ? 'VI' : 'EN';
+    current = lang;
+  }
+  toggle.addEventListener('click', function(){
+    applyLang(current === 'vi' ? 'en' : 'vi');
+  });
+})();
+
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window) || !els.length){
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
