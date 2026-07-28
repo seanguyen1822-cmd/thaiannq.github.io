@@ -496,6 +496,14 @@
   .solution-steps li b{ color:var(--coral); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+  .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .dept-row{ display:flex; gap:14px; padding:11px 16px; background:var(--card); }
+  .dept-row+.dept-row{ border-top:1px solid var(--line); }
+  .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--coral); }
+  .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--paper-dim); padding:14px 12px; }
   .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
@@ -1040,6 +1048,23 @@
             </div>
           </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="+£38,244/month in additional revenue at zero extra spend">+£38.244/tháng doanh thu tăng thêm mà không cần chi thêm một đồng nào</b> <span data-en="&amp;mdash; purely from redirecting budget to where it already performs best, validated wave by wave instead of one all-in bet.">— chỉ nhờ chuyển ngân sách đến nơi đã chứng minh hiệu quả, được xác nhận từng bước thay vì đặt cược toàn bộ ngay từ đầu.</span></p>
+          <div class="dept-block">
+            <span class="dept-title" data-en="TASK ASSIGNMENT BY DEPARTMENT">PHÂN CÔNG THỰC HIỆN</span>
+            <div class="dept-table">
+              <div class="dept-row">
+                <span class="dept-name" data-en="Marketing / Media Buying">Phòng Marketing / Media Buying</span>
+                <span class="dept-task" data-en="Execute the 3-wave budget reallocation and pause a wave immediately if ROAS underperforms.">Thực thi tái phân bổ ngân sách theo 3 làn sóng, tạm dừng ngay nếu ROAS không đạt kỳ vọng.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Finance">Phòng Tài chính</span>
+                <span class="dept-task" data-en="Approve and track the budget shift wave by wave against the projected £38,244/month gain.">Phê duyệt và theo dõi ngân sách theo từng làn sóng so với mức tăng dự kiến £38.244/tháng.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Data &amp;amp; Analytics">Phòng Phân tích dữ liệu</span>
+                <span class="dept-task" data-en="Re-run the Spend–Revenue regression monthly to catch diminishing returns before scaling further.">Chạy lại mô hình hồi quy Spend–Revenue hàng tháng để phát hiện điểm giảm hiệu quả trước khi mở rộng thêm.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>
