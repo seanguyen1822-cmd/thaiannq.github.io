@@ -413,7 +413,7 @@
   /* PROJECT PREVIEW GRID (homepage) */
   .project-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
   }
   .project-card{
@@ -438,6 +438,8 @@
   }
   .project-card.accent-coral::before{ background:var(--coral); }
   .project-card.accent-violet::before{ background:var(--violet); }
+  .project-card.accent-gold::before{ background:var(--gold); }
+  .project-card.accent-pink::before{ background:var(--pink); }
   .project-card:hover{
     transform:translateY(-4px);
     box-shadow:0 20px 44px rgba(88,166,255,0.12), 0 8px 24px rgba(0,0,0,0.45);
@@ -1163,6 +1165,28 @@
         </div>
         <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu Ý định tiêu dùng xanh</h3>
         <p class="project-card-hook" data-en="44.4% of buying behavior explained by just 2 of the 8 original factors.">44,4% hành vi mua được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
+        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
+      </a>
+
+      <a class="project-card reveal accent-gold" href="projects/iot-agritech.html">
+        <div class="tool-line">Excel · Lewin's Change Model</div>
+        <div class="card-badges">
+          <span class="card-badge revenue" data-en="NPV +$1,435">NPV +1.435 USD</span>
+          <span class="card-badge cost" data-en="IRR &gt;20%">IRR &gt;20%</span>
+        </div>
+        <h3 data-en="IoT AgriTech Adoption &amp;mdash; Feasibility &amp; Change Analysis">IoT AgriTech Adoption — Feasibility &amp; Change Analysis</h3>
+        <p class="project-card-hook" data-en="Positive NPV &amp;mdash; but the discounted payback misses target. The real question isn&amp;rsquo;t whether the tech works.">NPV dương — nhưng payback có chiết khấu vượt mục tiêu. Câu hỏi không nằm ở việc công nghệ có hiệu quả.</p>
+        <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
+      </a>
+
+      <a class="project-card reveal accent-pink" href="projects/nam-thai-son.html">
+        <div class="tool-line">Google Forms · Excel</div>
+        <div class="card-badges">
+          <span class="card-badge revenue" data-en="87% eco-conscious">87% quan tâm môi trường</span>
+          <span class="card-badge cost" data-en="NPS only 7%">NPS chỉ 7%</span>
+        </div>
+        <h3 data-en="Customer Behavior Analysis &amp;mdash; Nam Thái Sơn Trash Bags">Phân tích hành vi khách hàng — Nam Thái Sơn</h3>
+        <p class="project-card-hook" data-en="87% care about the environment &amp;mdash; but NPS is only 7%. Where&amp;rsquo;s the gap?">87% quan tâm môi trường — nhưng NPS chỉ đạt 7%. Khoảng cách nằm ở đâu?</p>
         <span class="project-card-link" data-en="View case study &amp;rarr;">Xem chi tiết →</span>
       </a>
     </div>
