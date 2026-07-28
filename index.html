@@ -750,10 +750,21 @@
     transition:transform .15s;
   }
   .hobby-chip:hover{ transform:translateY(-2px); }
+  .hobby-chip .h-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:5px;
+  }
+  .hobby-chip .h-icon{
+    width:20px;
+    height:20px;
+    flex:0 0 auto;
+    display:flex;
+  }
+  .hobby-chip .h-icon svg{ width:100%; height:100%; }
   .hobby-chip .h-label{
     font-weight:600;
-    display:block;
-    margin-bottom:3px;
   }
   .hobby-chip .h-detail{
     color:inherit;
@@ -1107,7 +1118,7 @@
     </div>
     <div class="about-grid">
       <div class="about-story">
-        <p data-en="My Commercial Business major splits into two specializations from year 2: Trade Behavior, or Business Analytics. I stood at that fork and chose Business Analytics — a track where I could turn numbers into decisions instead of just running transactions. That choice led me to spotting £38,244 in monthly revenue a company was leaving on the table simply because its ad budget was going to the wrong channel.">Ngành Kinh doanh Thương mại của tôi chia thành hai chuyên ngành từ năm 2: Hành vi Thương mại, hoặc Phân tích Kinh doanh. Tôi đứng giữa ngã rẽ đó và chọn Phân tích Kinh doanh — hướng đi mà tôi được biến những con số thành quyết định thay vì chỉ vận hành giao dịch. Lựa chọn đó dẫn tôi đến việc tìm ra £38.244 doanh thu mỗi tháng mà một doanh nghiệp đang bỏ lỡ chỉ vì ngân sách quảng cáo rót sai kênh.</p>
+        <p data-en="Ngành Kinh doanh Thương mại of mine splits into two specializations from year 2: Trade Behavior, or Business Analytics. I stood at that fork and chose Business Analytics — a track where I could turn numbers into decisions instead of just running transactions. That choice led me to spotting £38,244 in monthly revenue a company was leaving on the table simply because its ad budget was going to the wrong channel.">Ngành Kinh doanh Thương mại của tôi chia thành hai chuyên ngành từ năm 2: Hành vi Thương mại, hoặc Phân tích Kinh doanh. Tôi đứng giữa ngã rẽ đó và chọn Phân tích Kinh doanh — hướng đi mà tôi được biến những con số thành quyết định thay vì chỉ vận hành giao dịch. Lựa chọn đó dẫn tôi đến việc tìm ra £38.244 doanh thu mỗi tháng mà một doanh nghiệp đang bỏ lỡ chỉ vì ngân sách quảng cáo rót sai kênh.</p>
         <p data-en="I notice the small details that get lost in a summary slide, and I&amp;rsquo;d rather sit with one problem long enough to actually understand it than skim ten. When I get something wrong, I don&amp;rsquo;t rush past it — I go back, work out exactly why, and make sure it doesn&amp;rsquo;t happen the same way twice. That combination is exactly why I chose Business Analytics: to keep digging, keep questioning, and turn insight into a decision someone can act on the same day — whether that shows up as a Power BI dashboard, a financial risk model, or a customer behavior study.">Tôi để ý những chi tiết nhỏ dễ bị bỏ sót trong một slide tóm tắt, và thà dành thời gian hiểu thật kỹ một vấn đề còn hơn lướt qua mười thứ. Khi làm sai điều gì, tôi không vội bỏ qua — tôi quay lại, tìm cho ra đúng nguyên nhân, và đảm bảo mình không lặp lại y hệt lần sau. Sự kết hợp đó là lý do tôi chọn Phân tích Kinh doanh: để được liên tục đào sâu, đặt câu hỏi, và biến insight thành một quyết định có thể hành động ngay trong ngày — dù đó là một dashboard Power BI, một mô hình rủi ro tài chính, hay một nghiên cứu hành vi khách hàng.</p>
         <div class="trait-row">
           <span class="trait-chip coral" data-en="&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;Perceptive"><span class="dot"></span>Tinh tế quan sát</span>
@@ -1124,12 +1135,12 @@
       </div>
       <div class="about-hobbies">
         <div class="hobby-grid">
-          <div class="hobby-chip teal"><span class="h-label" data-en="Reading">Đọc sách</span><span class="h-detail" data-en="Psychology, customer analysis, business">Tâm lý học, phân tích khách hàng, kinh doanh</span></div>
-          <div class="hobby-chip pink"><span class="h-label" data-en="Photography">Chụp ảnh</span><span class="h-detail" data-en="A creative outlet outside work">Sáng tạo ngoài công việc</span></div>
-          <div class="hobby-chip coral"><span class="h-label" data-en="Experiential travel">Du lịch trải nghiệm</span><span class="h-detail" data-en="Beaches and mountains">Biển và núi</span></div>
-          <div class="hobby-chip gold"><span class="h-label" data-en="Food">Ẩm thực</span><span class="h-detail" data-en="Favorite dishes &amp;amp; regional specialties">Món tủ &amp; đặc sản vùng miền</span></div>
-          <div class="hobby-chip blue"><span class="h-label" data-en="Cycling">Đạp xe</span><span class="h-detail" data-en="Outdoor exercise">Vận động ngoài trời</span></div>
-          <div class="hobby-chip violet"><span class="h-label" data-en="Swimming">Bơi lội</span><span class="h-detail" data-en="Every couple of months">Vài tháng một lần</span></div>
+          <div class="hobby-chip teal"><div class="h-top"><span class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v18H6a2 2 0 0 1-2-2z"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg></span><span class="h-label" data-en="Reading">Đọc sách</span></div><span class="h-detail" data-en="Psychology, customer analysis, business">Tâm lý học, phân tích khách hàng, kinh doanh</span></div>
+          <div class="hobby-chip pink"><div class="h-top"><span class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.3"/></svg></span><span class="h-label" data-en="Photography">Chụp ảnh</span></div><span class="h-detail" data-en="A creative outlet outside work">Sáng tạo ngoài công việc</span></div>
+          <div class="hobby-chip coral"><div class="h-top"><span class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5.5-10L12 16l2.5-4L21 20z"/><circle cx="17" cy="6" r="2"/></svg></span><span class="h-label" data-en="Experiential travel">Du lịch trải nghiệm</span></div><span class="h-detail" data-en="Beaches and mountains">Biển và núi</span></div>
+          <div class="hobby-chip gold"><div class="h-top"><span class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v7a2 2 0 0 0 4 0V2M8 9v13M17 2c-2.2 2-2.2 6-1 8s2 1 2 1v11"/></svg></span><span class="h-label" data-en="Food">Ẩm thực</span></div><span class="h-detail" data-en="Favorite dishes &amp;amp; regional specialties">Món tủ &amp; đặc sản vùng miền</span></div>
+          <div class="hobby-chip blue"><div class="h-top"><span class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.2"/><circle cx="18" cy="17" r="3.2"/><path d="M6 17l4-9h3l2.5 4.5M10 8h4"/></svg></span><span class="h-label" data-en="Cycling">Đạp xe</span></div><span class="h-detail" data-en="Outdoor exercise">Vận động ngoài trời</span></div>
+          <div class="hobby-chip violet"><div class="h-top"><span class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 14.5c1.4-1.8 3.4-1.8 4.8 0s3.4 1.8 4.8 0 3.4-1.8 4.8 0 3.4 1.8 4.8 0"/><path d="M2.5 19c1.4-1.8 3.4-1.8 4.8 0s3.4 1.8 4.8 0 3.4-1.8 4.8 0 3.4 1.8 4.8 0"/><circle cx="16" cy="6" r="2"/></svg></span><span class="h-label" data-en="Swimming">Bơi lội</span></div><span class="h-detail" data-en="Every couple of months">Vài tháng một lần</span></div>
         </div>
       </div>
     </div>
