@@ -172,6 +172,17 @@
   .solution-steps li b{ color:var(--gold); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
+  .bowtie-col{ background:var(--card); padding:14px 12px; }
+  .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
+  .bowtie-col.causes .bt-label, .bowtie-col.consequences .bt-label{ color:var(--coral); }
+  .bowtie-col.barrier .bt-label{ color:var(--gold); }
+  .bowtie-col ul{ margin:0; padding-left:14px; }
+  .bowtie-col li{ font-size:11.5px; color:var(--ink); margin-bottom:7px; line-height:1.4; }
+  .bowtie-col.knot{ background:var(--gold); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:14px 10px; }
+  .bowtie-col.knot .bt-label{ color:rgba(13,17,23,.6); text-align:center; }
+  .bowtie-col.knot .bt-event{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; color:#0D1117; line-height:1.3; }
+  @media(max-width:760px){ .bowtie{ grid-template-columns:1fr; } }
 
   /* VIZ BLOCK (reused pattern) */
   .viz-block{
@@ -277,6 +288,7 @@
             <span class="tag tag-gold">IRR / NPV / PW</span>
             <span class="tag tag-gold">Payback Period</span>
             <span class="tag tag-gold">Root-cause Analysis</span>
+            <span class="tag tag-gold">Bowtie Risk Model</span>
           </div>
         </div>
       </div>
@@ -380,13 +392,42 @@
         </div>
 
         <div class="solution-block">
-          <span class="solution-label" data-en="RECOMMENDED SOLUTION">GIẢI PHÁP ĐỀ XUẤT</span>
+          <span class="solution-label" data-en="RECOMMENDED SOLUTION · BOWTIE RISK MODEL">GIẢI PHÁP ĐỀ XUẤT · MÔ HÌNH RỦI RO BOWTIE</span>
           <h4 data-en="Turning a good story into a fundable plan">Biến "một câu chuyện hay" thành một kế hoạch có thể gọi vốn thật sự</h4>
-          <ol class="solution-steps">
-            <li data-en="&lt;b&gt;Pair the pilot with the existing subsidy from day one&lt;/b&gt; &amp;mdash; Lâm Đồng province&amp;rsquo;s 40&amp;ndash;50% tech-adoption support closes exactly the gap the numbers exposed (discounted payback), instead of relying on IRR/NPV alone to make the case."><b>Gắn gói hỗ trợ 40–50% của tỉnh Lâm Đồng ngay từ đầu</b> — bù đúng phần thiếu hụt mà các con số đã chỉ ra (payback có chiết khấu), thay vì chỉ dựa vào IRR/NPV để thuyết phục.</li>
-            <li data-en="&lt;b&gt;Pilot with farmers who complete the pay-after-harvest cycle&lt;/b&gt; &amp;mdash; use their first season&amp;rsquo;s real data as proof before scaling to a wider cohort."><b>Thí điểm với nhóm nông hộ đã hoàn thành chu kỳ "trả sau thu hoạch"</b> — dùng dữ liệu mùa vụ đầu tiên của chính họ làm bằng chứng trước khi nhân rộng.</li>
-            <li data-en="&lt;b&gt;Track the two risk flags every season, not just IRR/NPV once&lt;/b&gt; &amp;mdash; discounted payback and equipment dependency are the metrics that decide whether to expand or pause."><b>Theo dõi lại đúng 2 điểm rủi ro mỗi mùa vụ, không chỉ báo cáo IRR/NPV một lần</b> — payback có chiết khấu và mức phụ thuộc thiết bị là 2 chỉ số quyết định có nên mở rộng hay tạm dừng.</li>
-          </ol>
+          <div class="bowtie">
+            <div class="bowtie-col causes">
+              <span class="bt-label" data-en="CAUSES">NGUYÊN NHÂN</span>
+              <ul>
+                <li data-en="Farmers fear losing the 150M VND capital if the investment fails">Nông hộ sợ mất 150 triệu vốn nếu đầu tư thất bại</li>
+                <li data-en="Lack of tech-operation know-how to decide alone">Thiếu kiến thức vận hành công nghệ để tự quyết định</li>
+              </ul>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="PREVENTIVE BARRIERS">RÀO CHẮN PHÒNG NGỪA</span>
+              <ul>
+                <li data-en="Pay-after-harvest model — trial at zero upfront risk">Mô hình "trả sau thu hoạch" — dùng thử rủi ro ban đầu bằng 0</li>
+                <li data-en="15-day hands-on co-pilot with an agronomist">Đồng hành 15 ngày cùng kỹ sư nông học</li>
+              </ul>
+            </div>
+            <div class="bowtie-col knot">
+              <span class="bt-label" data-en="TOP EVENT">SỰ KIỆN RỦI RO</span>
+              <span class="bt-event" data-en="Discounted payback (3.24 yrs) misses the 3-year target">Payback có chiết khấu (3,24 năm) vượt mục tiêu 3 năm</span>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="MITIGATIVE BARRIERS">RÀO CHẮN GIẢM THIỂU</span>
+              <ul>
+                <li data-en="Lâm Đồng province's 40–50% tech-adoption subsidy closes the gap">Gói hỗ trợ 40–50% của tỉnh Lâm Đồng bù đắp phần thiếu hụt</li>
+                <li data-en="Re-track IRR/NPV/payback every season before scaling">Theo dõi lại IRR/NPV/payback mỗi mùa vụ trước khi nhân rộng</li>
+              </ul>
+            </div>
+            <div class="bowtie-col consequences">
+              <span class="bt-label" data-en="CONSEQUENCES">HẬU QUẢ</span>
+              <ul>
+                <li data-en="Farmers decline to invest, the project fails to scale">Nông hộ từ chối đầu tư, dự án không được nhân rộng</li>
+                <li data-en="Equipment dependency if rolled out without monitoring">Phụ thuộc thiết bị nếu triển khai thiếu giám sát</li>
+              </ul>
+            </div>
+          </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="from &amp;ldquo;feasible on paper&amp;rdquo; to &amp;ldquo;feasible to actually fund&amp;rdquo;">từ "khả thi trên giấy" sang "khả thi để gọi vốn thật sự"</b> <span data-en="&amp;mdash; by closing the exact financial weak point the analysis found, instead of glossing over it.">— bằng cách xử lý đúng điểm yếu tài chính mà phân tích đã tìm ra, thay vì bỏ qua nó.</span></p>
         </div>
       </div>
