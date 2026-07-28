@@ -305,7 +305,7 @@
   .kpi-strip{
     margin-top:64px;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
     border:none;
     background:var(--card);
     border-radius:16px;
@@ -952,6 +952,9 @@
   .skill-cell.c-green .skill-icon{ background:var(--green-bg); color:var(--green); }
   .skill-cell.c-green .field-label{ color:var(--green); }
   .skill-cell.c-green .field-label::before{ background:var(--green); }
+  .skill-cell.c-coral .skill-icon{ background:var(--coral-bg); color:var(--coral); }
+  .skill-cell.c-coral .field-label{ color:var(--coral); }
+  .skill-cell.c-coral .field-label::before{ background:var(--coral); }
   .skill-cell .field-label{margin-bottom:10px;}
   .skill-cell .items{
     font-size:13.5px;
@@ -1078,6 +1081,10 @@
       <div class="kpi">
         <div class="num">2<sup data-en="languages">ngôn ngữ</sup></div>
         <div class="label" data-en="Case studies &amp;amp; stakeholder reports in both Vietnamese and English">Case study &amp; báo cáo stakeholder song ngữ Việt / Anh</div>
+      </div>
+      <div class="kpi">
+        <div class="num">05<sup data-en="projects">dự án</sup></div>
+        <div class="label" data-en="Spanning Power BI dashboards, quantitative research, change management &amp;amp; customer analytics">Trải dài từ Power BI, nghiên cứu định lượng, quản trị thay đổi đến phân tích khách hàng</div>
       </div>
     </div>
     <a href="#projects" class="scroll-cue" aria-label="Cuộn xuống xem dự án">
@@ -1230,7 +1237,12 @@
       <div class="skill-cell c-green">
         <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
         <div class="field-label" data-en="Business Knowledge">Kiến thức kinh doanh</div>
-        <div class="items" data-en="Data mining &amp;amp; business forecasting&lt;br&gt;HR analytics&lt;br&gt;Organizational change management">Khai thác dữ liệu &amp; dự báo kinh doanh<br>Phân tích nguồn nhân lực<br>Quản trị sự thay đổi trong tổ chức</div>
+        <div class="items" data-en="Data mining &amp;amp; business forecasting&lt;br&gt;Project appraisal (IRR · NPV · Payback)&lt;br&gt;Change management (Lewin's Model)">Khai thác dữ liệu &amp; dự báo kinh doanh<br>Thẩm định dự án (IRR · NPV · Payback)<br>Quản trị sự thay đổi (mô hình Lewin)</div>
+      </div>
+      <div class="skill-cell c-coral">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></div>
+        <div class="field-label" data-en="Customer Analytics">Customer Analytics</div>
+        <div class="items" data-en="Customer Journey Mapping&lt;br&gt;Survey Design (n=128)&lt;br&gt;NPS &amp; Persona Development">Customer Journey Mapping<br>Thiết kế khảo sát (n=128)<br>NPS &amp; xây dựng chân dung khách hàng</div>
       </div>
     </div>
   </div>
