@@ -496,6 +496,14 @@
   .solution-steps li b{ color:var(--teal); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+  .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .dept-row{ display:flex; gap:14px; padding:11px 16px; background:var(--card); }
+  .dept-row+.dept-row{ border-top:1px solid var(--line); }
+  .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--teal); }
+  .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--paper-dim); padding:14px 12px; }
   .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
@@ -1032,6 +1040,23 @@
             </div>
           </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="recover most of the 4.8-point SR drop by closing the gap between the two barrier layers">khôi phục phần lớn trong 4,8 điểm phần trăm SR đã mất bằng cách khép kín cả 2 lớp rào chắn</b> <span data-en="&amp;mdash; instead of an expensive audit across all 7 funnel steps.">— thay vì rà soát tốn kém cả 7 bước phễu.</span></p>
+          <div class="dept-block">
+            <span class="dept-title" data-en="TASK ASSIGNMENT BY DEPARTMENT">PHÂN CÔNG THỰC HIỆN</span>
+            <div class="dept-table">
+              <div class="dept-row">
+                <span class="dept-name" data-en="Engineering / Product">Phòng Kỹ thuật / Product</span>
+                <span class="dept-task" data-en="Rebuild the OTP/3DS flow — longer timeout, automatic resend, clearer error messaging.">Cải tiến luồng OTP/3DS — tăng timeout, tự động gửi lại OTP, thông báo lỗi rõ ràng hơn.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Payments Ops / Risk">Phòng Vận hành thanh toán / Rủi ro</span>
+                <span class="dept-task" data-en="Set up a dedicated real-time alert for the Billing category.">Thiết lập cảnh báo real-time riêng cho category Billing.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Data &amp;amp; Analytics">Phòng Phân tích dữ liệu</span>
+                <span class="dept-task" data-en="Re-measure SR weekly against the 91.70% baseline and report to stakeholders.">Đo lại SR theo tuần so với baseline 91,70% và báo cáo cho các bên liên quan.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>
