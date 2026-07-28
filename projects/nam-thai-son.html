@@ -112,6 +112,14 @@
   .solution-steps li b{ color:var(--pink); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+  .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .dept-row{ display:flex; gap:14px; padding:11px 16px; background:var(--card); }
+  .dept-row+.dept-row{ border-top:1px solid var(--line); }
+  .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--pink); }
+  .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--card); padding:14px 12px; }
   .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
@@ -332,6 +340,23 @@
             </div>
           </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="move NPS from &amp;ldquo;acceptable&amp;rdquo; (7%) toward the &amp;ldquo;satisfied&amp;rdquo; tier (50&amp;ndash;69%)">đưa NPS từ mức "tạm ổn" (7%) lên vùng "hài lòng" (50–69%)</b> <span data-en="&amp;mdash; not by changing the product, but by closing the awareness and touchpoint gap the data pointed to.">— không phải bằng cách đổi sản phẩm, mà bằng cách xử lý đúng khoảng cách về nhận thức và điểm chạm mà dữ liệu đã chỉ ra.</span></p>
+          <div class="dept-block">
+            <span class="dept-title" data-en="TASK ASSIGNMENT BY DEPARTMENT">PHÂN CÔNG THỰC HIỆN</span>
+            <div class="dept-table">
+              <div class="dept-row">
+                <span class="dept-name" data-en="Marketing">Bộ phận Marketing</span>
+                <span class="dept-task" data-en="Launch the Gen-Z-targeted awareness campaign via search and social content.">Triển khai chiến dịch nâng nhận thức nhắm Gen Z qua tìm kiếm và nội dung mạng xã hội.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Sales / Trade Marketing">Bộ phận bán hàng / Trade Marketing</span>
+                <span class="dept-task" data-en="Install in-store signage at Bách Hóa Xanh, Vinmart, Go/Big C shelves.">Lắp đặt bảng thông tin tại kệ hàng ở Bách Hóa Xanh, Vinmart, Go/Big C.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Customer Research">Bộ phận nghiên cứu khách hàng</span>
+                <span class="dept-task" data-en="Re-measure NPS separately per persona after rollout to confirm the gap actually closes.">Đo lại NPS riêng theo từng persona sau triển khai để xác nhận khoảng cách thực sự được thu hẹp.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>
