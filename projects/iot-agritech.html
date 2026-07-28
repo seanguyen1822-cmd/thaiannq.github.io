@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IoT AgriTech Adoption — Feasibility &amp; Change Analysis — Nguyễn Quốc Thái An</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0D1117;
+    --paper-dim:#11161D;
+    --ink:#E6EDF3;
+    --muted:#8B949E;
+    --line:#30363D;
+    --teal:#39C5CF;
+    --teal-dim:rgba(57,197,207,0.14);
+    --amber:#79C0FF;
+    --navy:#05070A;
+    --card:#161B22;
+    --radius:8px; --radius-pill:999px;
+    --coral:#FF7B72; --coral-bg:rgba(255,123,114,0.14); --coral-dark:#E5534B;
+    --violet:#A371F7; --violet-bg:rgba(163,113,247,0.15);
+    --blue:#58A6FF; --blue-bg:rgba(88,166,255,0.14); --blue-dark:#1F6FEB;
+    --green:#3FB950; --green-bg:rgba(63,185,80,0.14); --green-dark:#238636;
+    --gold:#D29922; --gold-bg:rgba(210,153,34,0.14);
+    --pink:#DB61A2; --pink-bg:rgba(219,97,162,0.14);
+  }
+  *{box-sizing:border-box;}
+  ::selection{ background:var(--blue); color:#0D1117; }
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background:var(--paper); }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--muted); }
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:38px 38px;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'JetBrains Mono',monospace; }
+  .field-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .field-label::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--blue);
+    display:inline-block;
+    flex:0 0 auto;
+  }
+  .field-label.on-brand{ color:rgba(255,255,255,0.85); }
+  .field-label.on-brand::before{ background:#fff; }
+  a{color:inherit;}
+  .id-strip{
+    height:4px;
+    background:linear-gradient(90deg, var(--gold) 0 33%, var(--teal) 33% 66%, var(--green) 66% 100%);
+  }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,17,23,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; }
+  .brand span{ color:var(--blue); }
+  .brand::after{
+    content:""; display:inline-block; width:5px; height:5px; border-radius:50%;
+    background:var(--coral); margin-left:7px; vertical-align:middle;
+  }
+  .navlinks{ display:flex; gap:28px; font-size:14px; font-weight:500; }
+  .navlinks a{ text-decoration:none; color:var(--muted); transition:color .15s; }
+  .navlinks a:hover{ color:var(--blue); }
+  .cv-btn{
+    font-size:13px; font-weight:600; padding:9px 18px;
+    background:var(--blue); color:#fff; text-decoration:none;
+    border-radius:var(--radius-pill); transition:background .15s;
+  }
+  .cv-btn:hover{ background:var(--blue-dark); }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .lang-toggle{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+    padding:8px 14px; background:none; color:var(--ink);
+    border:1px solid var(--line); border-radius:var(--radius-pill);
+    cursor:pointer; transition:border-color .15s, color .15s;
+  }
+  .lang-toggle:hover{ border-color:var(--blue); color:var(--blue); }
+
+  section{ padding:88px 0; }
+
+  /* PROJECT CASE STUDY (matches ewallet/marketing/research template) */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:600; color:var(--muted);
+    text-decoration:none; margin-bottom:24px; transition:color .15s;
+  }
+  .back-link:hover{ color:var(--blue); }
+  .case{
+    border:1px solid var(--line); background:var(--card);
+    display:grid; grid-template-columns:280px 1fr;
+    border-radius:16px; overflow:hidden;
+  }
+  .case-meta{
+    padding:32px 28px; border-right:1px solid var(--line);
+    background:var(--paper-dim); display:flex; flex-direction:column; gap:22px;
+  }
+  .case-meta .meta-row .field-label{ margin-bottom:6px; }
+  .case-meta .meta-row .value{ font-size:14px; font-weight:500; }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 8px;
+    background:var(--teal-dim); color:var(--teal); border-radius:2px;
+  }
+  .tag.tag-gold{ background:var(--gold-bg); color:var(--gold); }
+  .case-body{ padding:32px 34px; }
+  .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
+  .case-body h3::after{
+    content:""; position:absolute; left:0; bottom:0; width:40px; height:3px;
+    background:var(--gold); border-radius:2px;
+  }
+  .case-body .role{ font-size:13px; color:var(--muted); margin-bottom:18px; }
+  .case-hook{
+    font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700;
+    line-height:1.35; margin:0 0 16px; color:var(--ink);
+  }
+  .case-hook .stat{ color:var(--gold); }
+  .impact-row{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
+  .impact-stat{
+    display:flex; flex-direction:column; gap:3px;
+    padding:10px 16px; border-radius:10px; flex:1 1 200px;
+  }
+  .impact-stat .impact-label{
+    font-family:'JetBrains Mono',monospace; font-size:10px;
+    letter-spacing:0.06em; text-transform:uppercase; opacity:0.8;
+  }
+  .impact-stat .impact-value{ font-size:14.5px; font-weight:700; line-height:1.35; }
+  .impact-stat.pass{ background:var(--green-bg); color:var(--green); }
+  .impact-stat.fail{ background:var(--coral-bg); color:var(--coral); }
+  .case-body p{ font-size:14.5px; color:var(--ink); margin:0 0 16px; }
+
+  /* VIZ BLOCK (reused pattern) */
+  .viz-block{
+    border:1px solid var(--line); background:var(--paper-dim);
+    padding:22px 24px; margin-bottom:16px; border-radius:14px;
+  }
+  .viz-title{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:16px;
+  }
+
+  /* change-model stages (reuses funnel-row pattern) */
+  .funnel-row{ display:flex; align-items:center; gap:10px; }
+  .funnel-step{ text-align:center; padding:14px 10px; background:var(--card); border:1px solid var(--line); flex:1; }
+  .funnel-step .fn-num{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:11px; color:var(--gold); margin-bottom:6px; }
+  .funnel-step .fn-title{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:4px; }
+  .funnel-step .fn-label{ font-size:11.5px; color:var(--muted); line-height:1.4; }
+  .funnel-arrow{ color:var(--line); font-size:18px; flex:0 0 auto; }
+
+  /* financial metrics grid */
+  .fin-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .fin-cell{ background:var(--card); padding:16px 16px; }
+  .fin-cell .fin-label{ font-size:11px; color:var(--muted); margin-bottom:8px; }
+  .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:19px; font-weight:600; }
+  .fin-cell .fin-value.pass{ color:var(--teal); }
+  .fin-cell .fin-value.fail{ color:var(--coral); }
+  .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
+
+  .findings{ margin:18px 0 0; padding:0; list-style:none; }
+  .findings li{ position:relative; padding-left:20px; margin-bottom:10px; font-size:14px; color:var(--muted); }
+  .findings li::before{ content:"→"; position:absolute; left:0; color:var(--green); font-family:'JetBrains Mono',monospace; }
+  .findings.neg li::before{ color:var(--coral); }
+  .findings-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .findings-cols h4{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 4px; }
+
+  /* CTA + FOOTER */
+  .cta-band{ background:linear-gradient(135deg, var(--gold) 0%, #A96F1B 55%, var(--green-dark) 100%); padding:64px 0; }
+  .cta-band-inner{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+  .cta-band h2{ color:#fff; font-size:26px; margin-top:8px; max-width:460px; }
+  .cta-band-actions{ display:flex; gap:12px; }
+  .btn-primary{ background:#fff; color:#111; font-size:14px; font-weight:600; padding:12px 22px; border-radius:var(--radius-pill); text-decoration:none; }
+  .btn-ghost{ border:1.5px solid rgba(255,255,255,0.55); color:#fff; font-size:14px; font-weight:600; padding:11px 22px; border-radius:var(--radius-pill); text-decoration:none; }
+  .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.12); }
+
+  footer{ background:var(--navy); color:#C9D2D6; padding:64px 0 40px; }
+  footer h2{ color:#fff; font-size:26px; max-width:420px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-top:28px; }
+  .footer-links{ display:flex; gap:22px; font-size:13.5px; }
+  .footer-links a{ text-decoration:none; color:#C9D2D6; }
+  .footer-links a:hover{ color:#fff; }
+  .footer-bottom{ margin-top:56px; padding-top:20px; border-top:1px solid #253039; font-size:12px; color:#6A7880; display:flex; justify-content:space-between; }
+
+  @media(max-width:760px){
+    .case{ grid-template-columns:1fr; }
+    .case-meta{ border-right:none; border-bottom:1px solid var(--line); }
+    .navlinks{ display:none; }
+    .funnel-row{ flex-wrap:wrap; }
+    .findings-cols{ grid-template-columns:1fr; }
+    .cta-band-inner{ flex-direction:column; align-items:flex-start; }
+  }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} .reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+<div class="id-strip"></div>
+
+<header>
+  <nav class="wrap">
+    <a href="../index.html" class="brand" style="text-decoration:none">Thái An <span>/ DA</span></a>
+    <div class="navlinks">
+      <a href="../index.html#about" data-en="About">Về tôi</a>
+      <a href="../index.html#projects" data-en="Projects">Dự án</a>
+      <a href="../index.html#skills" data-en="Skills">Kỹ năng</a>
+      <a href="../index.html#contact" data-en="Contact">Liên hệ</a>
+    </div>
+    <div class="nav-actions">
+      <a class="cv-btn" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+      <button type="button" class="lang-toggle" id="langToggle">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section>
+  <div class="wrap" style="padding-bottom:0;">
+    <a href="../index.html#projects" class="back-link" data-en="&larr; Back to all projects">&larr; Về tất cả dự án</a>
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="meta-row">
+          <div class="field-label" data-en="Role">Vai trò</div>
+          <div class="value">Tổng hợp ý tưởng &amp; biên tập nội dung (nhóm)</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Tools">Công cụ</div>
+          <div class="value">Excel · Lewin's Change Model</div>
+        </div>
+        <div class="meta-row">
+          <div class="field-label" data-en="Techniques">Kỹ thuật</div>
+          <div class="tags">
+            <span class="tag tag-gold">Force Field Analysis</span>
+            <span class="tag tag-gold">IRR / NPV / PW</span>
+            <span class="tag tag-gold">Payback Period</span>
+            <span class="tag tag-gold">Root-cause Analysis</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3 data-en="IoT AgriTech Adoption &amp;mdash; Feasibility &amp; Change Analysis">IoT AgriTech Adoption — Feasibility &amp; Change Analysis</h3>
+        <div class="role" data-en="Group project · Change Management · IoT precision-agriculture adoption (Mimosatek)">Group project · Quản trị sự thay đổi · Ứng dụng IoT nông nghiệp (Mimosatek)</div>
+        <p class="case-hook" data-en="NPV of &lt;span class=&quot;stat&quot;&gt;+$1,435&lt;/span&gt; &amp;mdash; but the discounted payback period misses the 3-year target. The real question isn&amp;rsquo;t whether the tech works."><span class="stat">NPV dương +1.435 USD</span> — nhưng thời gian hoàn vốn có chiết khấu lại vượt mục tiêu 3 năm. Câu hỏi thật sự không nằm ở việc công nghệ có hiệu quả hay không.</p>
+
+        <div class="impact-row">
+          <div class="impact-stat pass">
+            <span class="impact-label" data-en="IRR">Tỷ suất sinh lời (IRR)</span>
+            <span class="impact-value" data-en="Over 20% — clears the cost of capital">Trên 20% — vượt chi phí vốn</span>
+          </div>
+          <div class="impact-stat fail">
+            <span class="impact-label" data-en="Discounted payback">Payback có chiết khấu</span>
+            <span class="impact-value" data-en="3.24 years — misses the ≤3-year target">3,24 năm — vượt mục tiêu ≤3 năm</span>
+          </div>
+        </div>
+
+        <p data-en="Young Vietnamese people largely see farming as low-income, physically punishing work with no clear future — so almost none choose to start a career or business in it. This project treats that mindset itself as the thing to be changed, using Lewin's model to design a zero-upfront-risk adoption path for Mimosatek's IoT irrigation &amp; fertigation system, then stress-tests the idea with formal project-finance metrics rather than assuming a good story is enough.">Người trẻ Việt Nam phần lớn xem nông nghiệp là công việc thu nhập thấp, vất vả, không có tương lai rõ ràng — nên gần như không ai chọn khởi nghiệp trong ngành. Dự án này xem chính tâm lý đó là thứ cần thay đổi, dùng mô hình Lewin để thiết kế lộ trình áp dụng công nghệ tưới-bón IoT của Mimosatek với rủi ro ban đầu bằng 0, rồi kiểm định lại ý tưởng đó bằng các chỉ số thẩm định dự án chính thức thay vì chỉ dừng ở một câu chuyện nghe hay.</p>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="CHANGE MODEL · LEWIN'S UNFREEZE–CHANGE–REFREEZE">MÔ HÌNH THAY ĐỔI · LEWIN</div>
+          <div class="funnel-row">
+            <div class="funnel-step">
+              <div class="fn-num">01 · UNFREEZE</div>
+              <div class="fn-title" data-en="Pay after harvest">Trả sau thu hoạch</div>
+              <div class="fn-label" data-en="Farmers trial the system before paying — removes the &amp;ldquo;afraid to lose capital first&amp;rdquo; barrier.">Dùng thử trước, trả tiền sau khi thấy lợi ích — loại bỏ rào cản "sợ mất vốn trước".</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">
+              <div class="fn-num">02 · CHANGE</div>
+              <div class="fn-title" data-en="15-day co-pilot">Đồng hành 15 ngày</div>
+              <div class="fn-label" data-en="Agronomists walk farmers through real-time soil, moisture and weather data.">Kỹ sư nông học cùng đọc dữ liệu độ ẩm, dinh dưỡng, thời tiết theo thời gian thực.</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">
+              <div class="fn-num">03 · REFREEZE</div>
+              <div class="fn-title" data-en="Season data record">Hồ sơ dữ liệu mùa vụ</div>
+              <div class="fn-label" data-en="Accumulated data becomes the new habit and a bargaining record with buyers.">Dữ liệu tích lũy trở thành thói quen mới và hồ sơ đàm phán với thương lái.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="PROJECT FINANCE · 1 HA SCALE">THẨM ĐỊNH TÀI CHÍNH · QUY MÔ 1 HA</div>
+          <div class="fin-grid">
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Investment">Vốn đầu tư</div>
+              <div class="fin-value">150tr₫</div>
+              <div class="fin-note">~6,183 USD</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">IRR</div>
+              <div class="fin-value pass">&gt;20%</div>
+              <div class="fin-note" data-en="clears cost of capital">vượt chi phí vốn</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">NPV</div>
+              <div class="fin-value pass">+$1,435</div>
+              <div class="fin-note" data-en="positive → feasible">dương → khả thi</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label">B/C ratio</div>
+              <div class="fin-value pass">1.23</div>
+              <div class="fin-note" data-en="benefit &gt; cost">lợi ích &gt; chi phí</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Payback (undiscounted)">Payback (không CK)</div>
+              <div class="fin-value pass">2.33 năm</div>
+              <div class="fin-note" data-en="meets ≤3yr target">đạt mục tiêu</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Payback (discounted)">Payback (có CK)</div>
+              <div class="fin-value fail">3.24 năm</div>
+              <div class="fin-note" data-en="misses target">vượt mục tiêu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="FORCE FIELD ANALYSIS">FORCE FIELD ANALYSIS</div>
+          <div class="findings-cols">
+            <div>
+              <h4 style="color:var(--green);" data-en="Driving forces">Lực đẩy</h4>
+              <ul class="findings">
+                <li data-en="+15% crop yield">Tăng 15% năng suất cây trồng</li>
+                <li data-en="&amp;minus;30% input cost (labor, power, water, fertilizer)">Giảm 30% chi phí đầu vào (công, điện, nước, phân bón)</li>
+                <li data-en="Breaks the price-squeeze cycle with brokers via stable yield">Giải quyết tình trạng thương lái ép giá nhờ sản lượng ổn định</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:var(--coral);" data-en="Restraining forces">Lực cản</h4>
+              <ul class="findings neg">
+                <li data-en="Equipment dependency — sensor failure halts operations">Phụ thuộc thiết bị — rủi ro gián đoạn khi cảm biến hỏng</li>
+                <li data-en="Requires a higher operating skill level from farmers">Đòi hỏi trình độ vận hành cao hơn từ nông hộ</li>
+                <li data-en="Oversupply risk if adoption scales too fast across a region">Rủi ro cung vượt cầu nếu nhiều hộ cùng áp dụng đồng loạt</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p data-en="Net: 4 of 5 finance metrics support rollout. The one weak point &amp;mdash; discounted payback &amp;mdash; is closed by Lâm Đồng province&amp;rsquo;s existing 40&amp;ndash;50% tech-adoption subsidy for smallholders, which is what turns this from &amp;ldquo;a good story&amp;rdquo; into a fundable plan.">4 trên 5 chỉ số tài chính ủng hộ triển khai. Điểm yếu duy nhất — payback có chiết khấu — được bù đắp bằng chính sách hỗ trợ công nghệ 40–50% sẵn có của tỉnh Lâm Đồng cho nông hộ nhỏ — đây là điều biến ý tưởng từ "một câu chuyện hay" thành một kế hoạch có thể gọi vốn thật sự.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div>
+      <span class="field-label on-brand" data-en="Let's work together">Cùng hợp tác nhé</span>
+      <h2 data-en="Have a role or project in mind? Let&amp;rsquo;s talk.">Có vị trí hoặc dự án phù hợp? Nhắn mình nhé.</h2>
+    </div>
+    <div class="cta-band-actions">
+      <a class="btn-primary" href="mailto:thaiannq@outlook.com" data-en="Email me">Gửi email</a>
+      <a class="btn-ghost" href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV">Tải CV</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="field-label" style="color:#7FB8B0;" data-en="Contact">Liên hệ</span>
+    <h2 data-en="Currently looking for Data Analyst (fresher) opportunities in Ho Chi Minh City.">Hiện đang tìm kiếm cơ hội Data Analyst (fresher) tại TP.HCM.</h2>
+    <div class="footer-row">
+      <div class="footer-links">
+        <a href="mailto:thaiannq@outlook.com">thaiannq@outlook.com</a>
+        <a href="tel:0364875372">0364 875 372</a>
+        <a href="../assets/An_Nguyen_CV.pdf" download data-en="Download CV (PDF)">Tải CV (PDF)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Nguyễn Quốc Thái An</span>
+      <span>Built &amp; hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('langToggle');
+  var current = 'vi';
+  function applyLang(lang){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if(el.dataset.vi === undefined){ el.dataset.vi = el.innerHTML; }
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.vi;
+    });
+    document.documentElement.lang = lang;
+    toggle.textContent = lang === 'en' ? 'VI' : 'EN';
+    current = lang;
+  }
+  toggle.addEventListener('click', function(){
+    applyLang(current === 'vi' ? 'en' : 'vi');
+  });
+})();
+
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window) || !els.length){
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
