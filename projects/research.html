@@ -496,6 +496,17 @@
   .solution-steps li b{ color:var(--violet); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
+  .bowtie-col{ background:var(--paper-dim); padding:14px 12px; }
+  .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
+  .bowtie-col.causes .bt-label, .bowtie-col.consequences .bt-label{ color:var(--coral); }
+  .bowtie-col.barrier .bt-label{ color:var(--violet); }
+  .bowtie-col ul{ margin:0; padding-left:14px; }
+  .bowtie-col li{ font-size:11.5px; color:var(--ink); margin-bottom:7px; line-height:1.4; }
+  .bowtie-col.knot{ background:var(--violet); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:14px 10px; }
+  .bowtie-col.knot .bt-label{ color:rgba(13,17,23,.6); text-align:center; }
+  .bowtie-col.knot .bt-event{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; color:#0D1117; line-height:1.3; }
+  @media(max-width:760px){ .bowtie{ grid-template-columns:1fr; } }
   .frame{
     position:relative;
     margin:18px 0 6px;
@@ -949,6 +960,7 @@
             <span class="tag tag-violet">EFA</span>
             <span class="tag tag-violet">Multiple Regression</span>
             <span class="tag tag-violet">ANOVA</span>
+            <span class="tag tag-violet">Bowtie Risk Model</span>
           </div>
         </div>
       </div>
@@ -1031,16 +1043,43 @@
           </div>
         </div>
 
-        <p data-en="Awareness of environmental or health benefits alone is not enough to drive purchase behavior. A business looking to grow green-product sales should prioritize budget toward tangible benefits (pricing, promotions) and build trust through transparent certification, rather than relying solely on &amp;ldquo;for the environment&amp;rdquo; messaging — the common approach today.">Nhận thức về môi trường hay sức khỏe đơn thuần không đủ để thúc đẩy hành vi mua. Một doanh nghiệp muốn tăng doanh số sản phẩm xanh nên ưu tiên ngân sách vào lợi ích thiết thực (giá cả, khuyến mãi) và xây dựng niềm tin qua chứng nhận minh bạch, thay vì chỉ truyền thông "vì môi trường" như cách tiếp cận phổ biến hiện nay.</p>
-
         <div class="solution-block">
-          <span class="solution-label" data-en="RECOMMENDED SOLUTION">GIẢI PHÁP ĐỀ XUẤT</span>
+          <span class="solution-label" data-en="RECOMMENDED SOLUTION · BOWTIE RISK MODEL">GIẢI PHÁP ĐỀ XUẤT · MÔ HÌNH RỦI RO BOWTIE</span>
           <h4 data-en="Stop messaging &amp;ldquo;for the environment,&amp;rdquo; fund what actually moves purchase intention">Ngừng truyền thông "vì môi trường", dồn ngân sách vào điều thực sự tác động</h4>
-          <ol class="solution-steps">
-            <li data-en="&lt;b&gt;Prioritize budget toward tangible benefit&lt;/b&gt; (pricing, promotions) &amp;mdash; the strongest factor in the model (β=0.454), more than 3&amp;times; the weight of trust."><b>Ưu tiên ngân sách vào lợi ích thiết thực</b> (giá cả, khuyến mãi) — yếu tố có hệ số tác động mạnh nhất trong mô hình (β=0,454), gấp hơn 3 lần trọng số của niềm tin.</li>
-            <li data-en="&lt;b&gt;Build trust through transparent certification&lt;/b&gt; (β=0.140) &amp;mdash; the second significant factor, instead of generic feel-good messaging."><b>Xây dựng niềm tin qua chứng nhận minh bạch</b> (β=0,140) — yếu tố có ý nghĩa thứ hai, thay vì thông điệp cảm tính chung chung.</li>
-            <li data-en="&lt;b&gt;Stop funding &amp;ldquo;environmental/health awareness&amp;rdquo; messaging alone&lt;/b&gt; &amp;mdash; both factors were not statistically significant (p&amp;gt;0.05) in the model, despite being where most current campaigns still lead."><b>Ngừng chỉ đầu tư vào thông điệp "nhận thức môi trường/sức khỏe"</b> — cả 2 yếu tố này không có ý nghĩa thống kê (p&gt;0,05) trong mô hình, dù đây vẫn là hướng nhiều chiến dịch hiện tại đang ưu tiên.</li>
-          </ol>
+          <div class="bowtie">
+            <div class="bowtie-col causes">
+              <span class="bt-label" data-en="CAUSES">NGUYÊN NHÂN</span>
+              <ul>
+                <li data-en="The &amp;ldquo;awareness leads to purchase&amp;rdquo; assumption was never validated before campaigns launch">Giả định "biết → mua" chưa được kiểm định trước khi lên chiến dịch</li>
+                <li data-en="8 original hypotheses, unclear which factors actually matter">8 giả thuyết ban đầu, chưa rõ yếu tố nào thực sự có ý nghĩa</li>
+              </ul>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="PREVENTIVE BARRIERS">RÀO CHẮN PHÒNG NGỪA</span>
+              <ul>
+                <li data-en="Cronbach's Alpha + EFA reduce the scale to 4 reliable factors">Cronbach's Alpha + EFA rút gọn còn 4 nhân tố đáng tin cậy</li>
+                <li data-en="Multiple regression identifies exactly 2 statistically significant factors">Hồi quy đa biến xác định đúng 2 yếu tố có ý nghĩa thống kê</li>
+              </ul>
+            </div>
+            <div class="bowtie-col knot">
+              <span class="bt-label" data-en="TOP EVENT">SỰ KIỆN RỦI RO</span>
+              <span class="bt-event" data-en="&amp;ldquo;For the environment&amp;rdquo; messaging fails to convert into purchase">Thông điệp "vì môi trường" không chuyển hoá thành hành vi mua</span>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="MITIGATIVE BARRIERS">RÀO CHẮN GIẢM THIỂU</span>
+              <ul>
+                <li data-en="Redirect budget to tangible benefit (β=0.454) + certification trust (β=0.140)">Dồn ngân sách vào lợi ích thiết thực (β=0,454) + niềm tin chứng nhận (β=0,140)</li>
+                <li data-en="Stop funding awareness-only messaging (not statistically significant)">Ngừng tài trợ thông điệp nhận thức đơn thuần (không có ý nghĩa thống kê)</li>
+              </ul>
+            </div>
+            <div class="bowtie-col consequences">
+              <span class="bt-label" data-en="CONSEQUENCES">HẬU QUẢ</span>
+              <ul>
+                <li data-en="Messaging budget wasted on content that doesn't convert">Ngân sách truyền thông lãng phí vào thông điệp không tạo chuyển đổi</li>
+                <li data-en="Green product revenue grows slower than expected">Doanh số sản phẩm xanh tăng trưởng chậm hơn kỳ vọng</li>
+              </ul>
+            </div>
+          </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="reallocate messaging budget toward the 2 statistically significant factors (explaining 44.4% of purchase intention)">tái phân bổ ngân sách truyền thông đúng theo 2 yếu tố có ý nghĩa thống kê (giải thích 44,4% ý định mua)</b> <span data-en="&amp;mdash; instead of spreading thin across all 8 original hypotheses, avoiding spend on messaging that doesn&amp;rsquo;t convert.">— thay vì dàn trải vào cả 8 giả thuyết ban đầu, tránh lãng phí ngân sách vào thông điệp không tạo ra chuyển đổi.</span></p>
         </div>
       </div>
