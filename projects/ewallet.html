@@ -488,6 +488,14 @@
     color:var(--ink);
     margin:0 0 16px;
   }
+  .solution-block{ border-left:4px solid var(--teal); background:var(--card); padding:22px 26px; border-radius:0 14px 14px 0; margin:8px 0 20px; }
+  .solution-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); }
+  .solution-block h4{ font-family:'Space Grotesk',sans-serif; font-size:16.5px; margin:10px 0 14px; color:var(--ink); }
+  .solution-steps{ margin:0 0 16px; padding-left:20px; }
+  .solution-steps li{ font-size:14px; color:var(--ink); margin-bottom:9px; line-height:1.5; }
+  .solution-steps li b{ color:var(--teal); }
+  .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
+  .solution-impact b{ color:var(--ink); }
   .frame{
     position:relative;
     margin:18px 0 6px;
@@ -974,6 +982,17 @@
           <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
         </div>
         <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
+
+        <div class="solution-block">
+          <span class="solution-label" data-en="RECOMMENDED SOLUTION">GIẢI PHÁP ĐỀ XUẤT</span>
+          <h4 data-en="From diagnosis to fix: repair the one step, not the whole funnel">Từ chẩn đoán đến khắc phục: sửa đúng 1 bước, không rà soát cả phễu</h4>
+          <ol class="solution-steps">
+            <li data-en="&lt;b&gt;Fix the OTP/3DS authentication step first&lt;/b&gt; &amp;mdash; longer OTP timeout, automatic resend, clearer error messaging &amp;mdash; since 58.15% of USER_FACTORS failures concentrate exactly here."><b>Ưu tiên sửa bước xác thực OTP/3DS trước tiên</b> — tăng thời gian timeout, tự động gửi lại OTP, thông báo lỗi rõ ràng hơn — vì 58,15% lỗi USER_FACTORS tập trung đúng ở đây.</li>
+            <li data-en="&lt;b&gt;Set up a dedicated alert for the Billing category&lt;/b&gt; &amp;mdash; it is both the largest revenue category (41.9%) and the sharpest SR decline, so a small fix here protects a disproportionate share of revenue."><b>Thiết lập cảnh báo riêng cho category Billing</b> — vừa là category doanh thu lớn nhất (41,9%) vừa có SR giảm mạnh nhất, nên một cải thiện nhỏ ở đây bảo vệ được phần doanh thu lớn hơn nhiều lần công sức bỏ ra.</li>
+            <li data-en="&lt;b&gt;Re-measure weekly SR after the fix ships&lt;/b&gt;, against the 91.70% (July) baseline &amp;mdash; confirm the one-step fix actually recovers SR before investing in auditing the remaining 6 steps."><b>Đo lại SR theo tuần sau khi triển khai fix</b>, so với baseline 91,70% (tháng 7) — xác nhận việc sửa đúng 1 bước có thực sự kéo SR trở lại trước khi đầu tư thêm vào 6 bước còn lại.</li>
+          </ol>
+          <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="recover most of the 4.8-point SR drop by fixing exactly 1 verified step">khôi phục phần lớn trong 4,8 điểm phần trăm SR đã mất bằng cách sửa đúng 1 bước đã xác minh</b> <span data-en="&amp;mdash; instead of an expensive audit across all 7 funnel steps.">— thay vì rà soát tốn kém cả 7 bước phễu.</span></p>
+        </div>
       </div>
     </article>
   </div>
