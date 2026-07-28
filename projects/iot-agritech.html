@@ -172,6 +172,14 @@
   .solution-steps li b{ color:var(--gold); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
+  .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .dept-row{ display:flex; gap:14px; padding:11px 16px; background:var(--card); }
+  .dept-row+.dept-row{ border-top:1px solid var(--line); }
+  .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--gold); }
+  .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--card); padding:14px 12px; }
   .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
@@ -429,6 +437,23 @@
             </div>
           </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="from &amp;ldquo;feasible on paper&amp;rdquo; to &amp;ldquo;feasible to actually fund&amp;rdquo;">từ "khả thi trên giấy" sang "khả thi để gọi vốn thật sự"</b> <span data-en="&amp;mdash; by closing the exact financial weak point the analysis found, instead of glossing over it.">— bằng cách xử lý đúng điểm yếu tài chính mà phân tích đã tìm ra, thay vì bỏ qua nó.</span></p>
+          <div class="dept-block">
+            <span class="dept-title" data-en="TASK ASSIGNMENT BY DEPARTMENT">PHÂN CÔNG THỰC HIỆN</span>
+            <div class="dept-table">
+              <div class="dept-row">
+                <span class="dept-name" data-en="Business Development / Partnerships">Phòng Kinh doanh / Phát triển đối tác</span>
+                <span class="dept-task" data-en="Connect the pilot to Lâm Đồng province's 40–50% tech-adoption subsidy program.">Kết nối chương trình thí điểm với gói hỗ trợ 40–50% của tỉnh Lâm Đồng.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Agronomy / Field Ops">Đội ngũ Kỹ sư nông học / Vận hành thực địa</span>
+                <span class="dept-task" data-en="Run the 15-day hands-on co-pilot with each participating farmer.">Đồng hành 15 ngày trực tiếp cùng từng nông hộ tham gia thí điểm.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Finance / Investment">Phòng Tài chính / Đầu tư</span>
+                <span class="dept-task" data-en="Re-track IRR/NPV/payback every season before deciding to expand the rollout.">Theo dõi lại IRR/NPV/payback mỗi mùa vụ trước khi quyết định mở rộng.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </article>
