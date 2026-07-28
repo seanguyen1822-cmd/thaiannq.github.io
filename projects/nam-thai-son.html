@@ -103,6 +103,16 @@
   .impact-stat.flag{ background:var(--pink-bg); color:var(--pink); }
   .case-body p{ font-size:14.5px; color:var(--ink); margin:0 0 16px; }
 
+  /* SOLUTION / RECOMMENDATION */
+  .solution-block{ border-left:4px solid var(--pink); background:var(--card); padding:22px 26px; border-radius:0 14px 14px 0; margin:8px 0 20px; }
+  .solution-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--pink); }
+  .solution-block h4{ font-family:'Space Grotesk',sans-serif; font-size:16.5px; margin:10px 0 14px; color:var(--ink); }
+  .solution-steps{ margin:0 0 16px; padding-left:20px; }
+  .solution-steps li{ font-size:14px; color:var(--ink); margin-bottom:9px; line-height:1.5; }
+  .solution-steps li b{ color:var(--pink); }
+  .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
+  .solution-impact b{ color:var(--ink); }
+
   /* VIZ BLOCK (reused pattern) */
   .viz-block{ border:1px solid var(--line); background:var(--paper-dim); padding:22px 24px; margin-bottom:16px; border-radius:14px; }
   .viz-title{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
@@ -270,8 +280,18 @@
         <ul class="findings">
           <li data-en="Most respondents buy trash bags as a side item while doing general grocery shopping — not as a deliberate, planned eco-purchase.">Phần lớn mua túi rác như một sản phẩm tiện mua kèm khi đi chợ/siêu thị — không phải một quyết định mua sắm "xanh" có chủ đích.</li>
           <li data-en="Encountered mainly at Bách Hóa Xanh, Vinmart and Go/Big C — convenience of location outweighs price as the first purchase driver.">Gặp sản phẩm chủ yếu tại Bách Hóa Xanh, Vinmart, Go/Big C — sự tiện lợi về địa điểm quan trọng hơn giá ở bước mua đầu tiên.</li>
-          <li data-en="Recommended fix: a Gen-Z-targeted awareness campaign plus clear in-store signage (product info, decomposition process, bag-type sorting) to close the intention-to-loyalty gap.">Đề xuất: chiến dịch nâng nhận thức nhắm Gen Z kết hợp bảng thông tin rõ ràng tại điểm bán (thông tin sản phẩm, cách phân hủy, phân loại túi) để thu hẹp khoảng cách giữa ý định và lòng trung thành.</li>
         </ul>
+
+        <div class="solution-block">
+          <span class="solution-label" data-en="RECOMMENDED SOLUTION">GIẢI PHÁP ĐỀ XUẤT</span>
+          <h4 data-en="Closing the gap between stated intention and in-store experience">Thu hẹp khoảng cách giữa ý định và trải nghiệm thực tế tại điểm bán</h4>
+          <ol class="solution-steps">
+            <li data-en="&lt;b&gt;Gen-Z-targeted awareness campaign&lt;/b&gt; via search and social content &amp;mdash; this is the segment most concerned with sustainability, yet today they buy out of convenience, not intent."><b>Chiến dịch nâng nhận thức nhắm Gen Z</b> qua tìm kiếm và nội dung mạng xã hội — đây là nhóm quan tâm bền vững nhất, nhưng hiện tại vẫn mua vì tiện chứ chưa vì có chủ đích.</li>
+            <li data-en="&lt;b&gt;Clear in-store signage&lt;/b&gt; (product info, decomposition process, bag-type sorting) placed exactly where customers first meet the product &amp;mdash; Bách Hóa Xanh, Vinmart, Go/Big C."><b>Bảng thông tin rõ ràng tại điểm bán</b> (thông tin sản phẩm, cách phân hủy, phân loại túi) đặt đúng nơi khách hàng gặp sản phẩm lần đầu — Bách Hóa Xanh, Vinmart, Go/Big C.</li>
+            <li data-en="&lt;b&gt;Re-measure NPS separately per persona&lt;/b&gt; after rollout to confirm the campaign actually converts the price-sensitive persona toward the loyal, eco-active one — not just raises awareness."><b>Đo lại NPS riêng theo từng persona</b> sau triển khai để xác nhận chiến dịch có thật sự chuyển hoá nhóm nhạy cảm về giá sang nhóm trung thành, chủ động vì môi trường — chứ không chỉ dừng ở nâng nhận thức.</li>
+          </ol>
+          <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="move NPS from &amp;ldquo;acceptable&amp;rdquo; (7%) toward the &amp;ldquo;satisfied&amp;rdquo; tier (50&amp;ndash;69%)">đưa NPS từ mức "tạm ổn" (7%) lên vùng "hài lòng" (50–69%)</b> <span data-en="&amp;mdash; not by changing the product, but by closing the awareness and touchpoint gap the data pointed to.">— không phải bằng cách đổi sản phẩm, mà bằng cách xử lý đúng khoảng cách về nhận thức và điểm chạm mà dữ liệu đã chỉ ra.</span></p>
+        </div>
       </div>
     </article>
   </div>
