@@ -112,6 +112,17 @@
   .solution-steps li b{ color:var(--pink); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
+  .bowtie-col{ background:var(--card); padding:14px 12px; }
+  .bowtie-col .bt-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; display:block; }
+  .bowtie-col.causes .bt-label, .bowtie-col.consequences .bt-label{ color:var(--coral); }
+  .bowtie-col.barrier .bt-label{ color:var(--pink); }
+  .bowtie-col ul{ margin:0; padding-left:14px; }
+  .bowtie-col li{ font-size:11.5px; color:var(--ink); margin-bottom:7px; line-height:1.4; }
+  .bowtie-col.knot{ background:var(--pink); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:14px 10px; }
+  .bowtie-col.knot .bt-label{ color:rgba(13,17,23,.6); text-align:center; }
+  .bowtie-col.knot .bt-event{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; color:#0D1117; line-height:1.3; }
+  @media(max-width:760px){ .bowtie{ grid-template-columns:1fr; } }
 
   /* VIZ BLOCK (reused pattern) */
   .viz-block{ border:1px solid var(--line); background:var(--paper-dim); padding:22px 24px; margin-bottom:16px; border-radius:14px; }
@@ -207,6 +218,7 @@
             <span class="tag tag-pink">Survey Design (n=128)</span>
             <span class="tag tag-pink">NPS Analysis</span>
             <span class="tag tag-pink">Persona Development</span>
+            <span class="tag tag-pink">Bowtie Risk Model</span>
           </div>
         </div>
       </div>
@@ -283,13 +295,42 @@
         </ul>
 
         <div class="solution-block">
-          <span class="solution-label" data-en="RECOMMENDED SOLUTION">GIẢI PHÁP ĐỀ XUẤT</span>
+          <span class="solution-label" data-en="RECOMMENDED SOLUTION · BOWTIE RISK MODEL">GIẢI PHÁP ĐỀ XUẤT · MÔ HÌNH RỦI RO BOWTIE</span>
           <h4 data-en="Closing the gap between stated intention and in-store experience">Thu hẹp khoảng cách giữa ý định và trải nghiệm thực tế tại điểm bán</h4>
-          <ol class="solution-steps">
-            <li data-en="&lt;b&gt;Gen-Z-targeted awareness campaign&lt;/b&gt; via search and social content &amp;mdash; this is the segment most concerned with sustainability, yet today they buy out of convenience, not intent."><b>Chiến dịch nâng nhận thức nhắm Gen Z</b> qua tìm kiếm và nội dung mạng xã hội — đây là nhóm quan tâm bền vững nhất, nhưng hiện tại vẫn mua vì tiện chứ chưa vì có chủ đích.</li>
-            <li data-en="&lt;b&gt;Clear in-store signage&lt;/b&gt; (product info, decomposition process, bag-type sorting) placed exactly where customers first meet the product &amp;mdash; Bách Hóa Xanh, Vinmart, Go/Big C."><b>Bảng thông tin rõ ràng tại điểm bán</b> (thông tin sản phẩm, cách phân hủy, phân loại túi) đặt đúng nơi khách hàng gặp sản phẩm lần đầu — Bách Hóa Xanh, Vinmart, Go/Big C.</li>
-            <li data-en="&lt;b&gt;Re-measure NPS separately per persona&lt;/b&gt; after rollout to confirm the campaign actually converts the price-sensitive persona toward the loyal, eco-active one — not just raises awareness."><b>Đo lại NPS riêng theo từng persona</b> sau triển khai để xác nhận chiến dịch có thật sự chuyển hoá nhóm nhạy cảm về giá sang nhóm trung thành, chủ động vì môi trường — chứ không chỉ dừng ở nâng nhận thức.</li>
-          </ol>
+          <div class="bowtie">
+            <div class="bowtie-col causes">
+              <span class="bt-label" data-en="CAUSES">NGUYÊN NHÂN</span>
+              <ul>
+                <li data-en="Bags bought as a convenience add-on, not a deliberate eco-purchase">Mua túi rác như sản phẩm tiện mua kèm, không có chủ đích</li>
+                <li data-en="Lack of clear product information at point of sale">Thiếu thông tin sản phẩm rõ ràng tại điểm bán</li>
+              </ul>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="PREVENTIVE BARRIERS">RÀO CHẮN PHÒNG NGỪA</span>
+              <ul>
+                <li data-en="Gen-Z-targeted awareness campaign via digital content">Chiến dịch nâng nhận thức nhắm đúng Gen Z qua nội dung số</li>
+                <li data-en="In-store signage (decomposition process, bag-type sorting)">Bảng thông tin (cách phân hủy, phân loại túi) tại điểm bán</li>
+              </ul>
+            </div>
+            <div class="bowtie-col knot">
+              <span class="bt-label" data-en="TOP EVENT">SỰ KIỆN RỦI RO</span>
+              <span class="bt-event" data-en="87% care about the environment, yet NPS is only 7%">87% quan tâm môi trường nhưng NPS chỉ đạt 7%</span>
+            </div>
+            <div class="bowtie-col barrier">
+              <span class="bt-label" data-en="MITIGATIVE BARRIERS">RÀO CHẮN GIẢM THIỂU</span>
+              <ul>
+                <li data-en="Re-measure NPS separately per persona after rollout">Đo lại NPS riêng theo từng persona sau triển khai</li>
+                <li data-en="Fine-tune messaging to each segment's real purchase driver">Tinh chỉnh thông điệp theo đúng động lực mua của từng nhóm</li>
+              </ul>
+            </div>
+            <div class="bowtie-col consequences">
+              <span class="bt-label" data-en="CONSEQUENCES">HẬU QUẢ</span>
+              <ul>
+                <li data-en="Customers don't return, no brand loyalty forms">Khách hàng không quay lại mua, thiếu lòng trung thành</li>
+                <li data-en="Missed opportunity for premium, sustainability-led positioning">Mất cơ hội định vị thương hiệu bền vững, giá trị cao hơn</li>
+              </ul>
+            </div>
+          </div>
           <p class="solution-impact"><span data-en="Expected outcome:">Kỳ vọng:</span> <b data-en="move NPS from &amp;ldquo;acceptable&amp;rdquo; (7%) toward the &amp;ldquo;satisfied&amp;rdquo; tier (50&amp;ndash;69%)">đưa NPS từ mức "tạm ổn" (7%) lên vùng "hài lòng" (50–69%)</b> <span data-en="&amp;mdash; not by changing the product, but by closing the awareness and touchpoint gap the data pointed to.">— không phải bằng cách đổi sản phẩm, mà bằng cách xử lý đúng khoảng cách về nhận thức và điểm chạm mà dữ liệu đã chỉ ra.</span></p>
         </div>
       </div>
