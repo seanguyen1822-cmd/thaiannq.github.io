@@ -496,6 +496,12 @@
   .solution-steps li b{ color:var(--teal); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .fin-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .fin-cell{ background:var(--card); padding:14px 14px; }
+  .fin-cell .fin-label{ font-size:11px; color:var(--muted); margin-bottom:8px; }
+  .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:600; color:var(--teal); }
+  .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
+  .assump-tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; padding:3px 8px; border:1px dashed var(--muted); border-radius:20px; color:var(--muted); display:inline-block; margin-bottom:10px; }
   .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
   .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
   .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
@@ -1003,6 +1009,29 @@
         <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
 
         <p data-en="Engineering resources are always scarce — the same principle behind economic scarcity. Prioritizing the single highest-leverage fix (OTP/3DS) is a deliberate trade-off: it means not auditing the other 6 steps right away, in exchange for recovering most of the SR drop with the least effort.">Nguồn lực kỹ thuật luôn khan hiếm — cùng nguyên lý với sự khan hiếm trong kinh tế học. Ưu tiên đúng 1 điểm sửa có đòn bẩy cao nhất (OTP/3DS) là một sự đánh đổi có chủ đích: chấp nhận chưa rà soát 6 bước còn lại, để đổi lấy việc khôi phục phần lớn SR với nỗ lực ít nhất.</p>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="COST OF THE FIX VS. VALUE AT RISK">CHI PHÍ KHẮC PHỤC VS. GIÁ TRỊ ĐANG BẢO VỆ</div>
+          <span class="assump-tag" data-en="⚠ cost side = illustrative assumption, not measured data">⚠ phần chi phí = giả định minh hoạ, không phải số đo thực tế</span>
+          <div class="fin-grid">
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Estimated effort">Nỗ lực ước tính</div>
+              <div class="fin-value">4</div>
+              <div class="fin-note" data-en="person-weeks (2 engineers × 2 weeks)">person-tuần (2 kỹ sư × 2 tuần)</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Estimated fix cost">Chi phí khắc phục ước tính</div>
+              <div class="fin-value">~35tr₫</div>
+              <div class="fin-note" data-en="illustrative, one-time cost">giả định, chi phí một lần</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Revenue share at risk">Tỷ trọng doanh thu đang gặp rủi ro</div>
+              <div class="fin-value">41.9%</div>
+              <div class="fin-note" data-en="Billing's actual share of transaction revenue">tỷ trọng doanh thu thật của category Billing</div>
+            </div>
+          </div>
+          <p data-en="Even without an absolute revenue figure, the logic holds either way: a small, one-time engineering cost against the largest revenue category in the whole system is an easy prioritization call — the cost side is a rough estimate, but the revenue share it protects is real, measured data.">Kể cả khi không có con số doanh thu tuyệt đối, logic vẫn đúng: một chi phí kỹ thuật nhỏ, một lần, đổi lấy việc bảo vệ category doanh thu lớn nhất toàn hệ thống là một quyết định ưu tiên dễ dàng — phần chi phí chỉ là ước tính thô, nhưng tỷ trọng doanh thu được bảo vệ là số liệu thật, đã đo được.</p>
+        </div>
 
         <div class="solution-block">
           <span class="solution-label" data-en="RECOMMENDED SOLUTION · BOWTIE RISK MODEL">GIẢI PHÁP ĐỀ XUẤT · MÔ HÌNH RỦI RO BOWTIE</span>
