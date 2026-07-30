@@ -496,6 +496,12 @@
   .solution-steps li b{ color:var(--coral); }
   .solution-impact{ font-size:13.5px; color:var(--muted); margin:0; padding-top:14px; border-top:1px solid var(--line); }
   .solution-impact b{ color:var(--ink); }
+  .fin-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .fin-cell{ background:var(--card); padding:14px 14px; }
+  .fin-cell .fin-label{ font-size:11px; color:var(--muted); margin-bottom:8px; }
+  .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:600; color:var(--coral); }
+  .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
+  .assump-tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; padding:3px 8px; border:1px dashed var(--muted); border-radius:20px; color:var(--muted); display:inline-block; margin-bottom:10px; }
   .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
   .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
   .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
@@ -1011,6 +1017,29 @@
         <p class="pbi-caption" data-en="Full report — click to interact directly (filter, drill down, switch pages) just like in Power BI.">Report đầy đủ — bấm để tương tác trực tiếp (lọc, drill-down, chuyển trang) như trong Power BI.</p>
 
         <p data-en="At its core, this is a question of opportunity cost: every pound left in a low-ROAS channel is a pound forfeiting a higher return elsewhere. The reallocation plan isn&amp;rsquo;t about spending more — it&amp;rsquo;s about no longer paying that hidden cost.">Về bản chất, đây là bài toán chi phí cơ hội: mỗi bảng Anh giữ ở kênh ROAS thấp là một bảng đánh mất cơ hội sinh lời cao hơn ở nơi khác. Kế hoạch tái phân bổ không phải là chi thêm — mà là ngừng trả cái giá vô hình đó.</p>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="COST OF THE ANALYSIS VS. THE GAIN">CHI PHÍ PHÂN TÍCH VS. LỢI ÍCH THU ĐƯỢC</div>
+          <span class="assump-tag" data-en="⚠ cost side = illustrative assumption, not measured data">⚠ phần chi phí = giả định minh hoạ, không phải số đo thực tế</span>
+          <div class="fin-grid">
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Estimated analysis cost">Chi phí phân tích ước tính</div>
+              <div class="fin-value">~£400</div>
+              <div class="fin-note" data-en="≈ 1 analyst-week, one-time">≈ 1 tuần công analyst, một lần</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Monthly gain (measured)">Lợi ích hằng tháng (đã đo được)</div>
+              <div class="fin-value">£38,244</div>
+              <div class="fin-note" data-en="from reallocation alone, no extra spend">chỉ từ tái phân bổ, không chi thêm</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Payback">Payback</div>
+              <div class="fin-value">&lt;1 day</div>
+              <div class="fin-note" data-en="of the first month's reallocated spend">của tháng triển khai đầu tiên</div>
+            </div>
+          </div>
+          <p data-en="The cost estimate here is illustrative — but even a generous estimate of analysis effort is dwarfed by a measured, recurring monthly gain. This is the kind of comparison that makes a data analyst's time easy to justify to a budget owner.">Ước tính chi phí ở đây mang tính minh hoạ — nhưng kể cả một ước tính hào phóng về công sức phân tích cũng nhỏ hơn rất nhiều so với lợi ích hằng tháng đã đo được, lặp lại theo thời gian. Đây là kiểu so sánh giúp việc đầu tư thời gian cho phân tích dữ liệu dễ được người quản lý ngân sách chấp thuận.</p>
+        </div>
 
         <div class="solution-block">
           <span class="solution-label" data-en="RECOMMENDED SOLUTION · BOWTIE RISK MODEL">GIẢI PHÁP ĐỀ XUẤT · MÔ HÌNH RỦI RO BOWTIE</span>
