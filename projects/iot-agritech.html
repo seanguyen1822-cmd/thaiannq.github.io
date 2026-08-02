@@ -138,9 +138,8 @@
   }
   .tag.tag-gold{ background:var(--gold-bg); color:var(--gold); }
   .case-body{ padding:32px 34px; }
-  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
-  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); flex:0 0 auto; }
-  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
+  .tldr-line{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:12px; line-height:1.55; letter-spacing:.01em; }
+  .tldr-line b{ color:var(--muted); font-weight:700; letter-spacing:.06em; margin-right:6px; }
   .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
   .case-body h3::after{
     content:""; position:absolute; left:0; bottom:0; width:40px; height:3px;
@@ -229,6 +228,11 @@
   .fin-cell .fin-value.pass{ color:var(--teal); }
   .fin-cell .fin-value.fail{ color:var(--coral); }
   .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
+  .proof-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .proof-cell{ background:var(--card); padding:16px; text-align:center; }
+  .proof-cell .proof-crop{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; color:var(--gold); margin-bottom:8px; }
+  .proof-cell .proof-yield{ font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:600; color:var(--ink); }
+  .proof-cell .proof-time{ font-size:11px; color:var(--muted); margin-top:4px; }
 
   .findings{ margin:18px 0 0; padding:0; list-style:none; }
   .findings li{ position:relative; padding-left:20px; margin-bottom:10px; font-size:14px; color:var(--muted); }
@@ -312,10 +316,7 @@
         </div>
       </div>
       <div class="case-body">
-        <div class="tldr-bar">
-          <span class="tldr-label">TL;DR</span>
-          <span class="tldr-text" data-en="Rising equipment prices shrank self-funded NPV to just $257 → rebuilt the plan around the province subsidy → NPV jumps to $3,303 with payback under 2 years.">Giá thiết bị tăng khiến NPV tự đầu tư co lại chỉ còn 257 USD → xây lại kế hoạch tài chính có gói hỗ trợ tỉnh → NPV nhảy lên 3.303 USD, payback dưới 2 năm.</span>
-        </div>
+        <p class="tldr-line"><b>TL;DR —</b><span data-en="Rising equipment prices shrank self-funded NPV to just $257 → rebuilt the plan around the province subsidy → NPV jumps to $3,303 with payback under 2 years.">Giá thiết bị tăng khiến NPV tự đầu tư co lại chỉ còn 257 USD → xây lại kế hoạch tài chính có gói hỗ trợ tỉnh → NPV nhảy lên 3.303 USD, payback dưới 2 năm.</span></p>
         <h3 data-en="IoT AgriTech Adoption &amp;mdash; Feasibility &amp; Change Analysis">IoT AgriTech Adoption — Feasibility &amp; Change Analysis</h3>
         <div class="role" data-en="Group project · Change Management · IoT precision-agriculture adoption (Mimosatek)">Group project · Quản trị sự thay đổi · Ứng dụng IoT nông nghiệp (Mimosatek)</div>
         <p class="case-hook" data-en="Self-funded, NPV shrinks to just $257 under today's equipment pricing. But once the farmer only pays their share after the province subsidy, NPV jumps to &lt;span class=&quot;stat&quot;&gt;+$3,303&lt;/span&gt; and payback drops under 2 years. The financial plan actually pitched to farmers isn&amp;rsquo;t the same as the raw, self-funded numbers.">Tự bỏ 100% vốn, NPV chỉ còn 257 USD theo giá thiết bị hiện tại. Nhưng khi nông hộ chỉ trả phần của mình sau khi trừ gói hỗ trợ tỉnh, NPV nhảy lên <span class="stat">+3.303 USD</span> và payback rút ngắn còn dưới 2 năm. Kế hoạch tài chính thực sự đưa ra cho nông hộ không giống với con số thô tự đầu tư 100%.</p>
@@ -356,6 +357,33 @@
               <div class="fn-label" data-en="Accumulated data becomes the new habit and a bargaining record with buyers.">Dữ liệu tích lũy trở thành thói quen mới và hồ sơ đàm phán với thương lái.</div>
             </div>
           </div>
+        </div>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="PROVEN TRACK RECORD · MIMOSATEK-DEPLOYED FARMS">BẰNG CHỨNG THỰC TẾ · CÁC NÔNG TRẠI ĐÃ ÁP DỤNG MIMOSATEK</div>
+          <div class="proof-grid">
+            <div class="proof-cell">
+              <div class="proof-crop" data-en="Bell pepper">Ớt chuông</div>
+              <div class="proof-yield">3.8kg<span style="font-size:11px;color:var(--muted);">/cây</span></div>
+              <div class="proof-time" data-en="greenhouse, 8 months">nhà kính, 8 tháng</div>
+            </div>
+            <div class="proof-cell">
+              <div class="proof-crop" data-en="Tomato">Cà chua</div>
+              <div class="proof-yield">6kg<span style="font-size:11px;color:var(--muted);">/cây</span></div>
+              <div class="proof-time" data-en="greenhouse, 6 months">nhà kính, 6 tháng</div>
+            </div>
+            <div class="proof-cell">
+              <div class="proof-crop" data-en="Cucumber">Dưa leo</div>
+              <div class="proof-yield">6kg<span style="font-size:11px;color:var(--muted);">/cây</span></div>
+              <div class="proof-time" data-en="greenhouse, 3 months">nhà kính, 3 tháng</div>
+            </div>
+            <div class="proof-cell">
+              <div class="proof-crop" data-en="Potato">Khoai tây</div>
+              <div class="proof-yield">30<span style="font-size:11px;color:var(--muted);"> tấn/ha</span></div>
+              <div class="proof-time" data-en="open field, 3.5 months">ngoài trời, 3,5 tháng</div>
+            </div>
+          </div>
+          <p data-en="This isn't a hypothetical technology — it's already running on real farms with documented yields. The financial model below asks a narrower, harder question: does it pay off for a specific 1ha smallholder, at today's prices?">Đây không phải công nghệ giả định — nó đã vận hành thật trên các nông trại với năng suất được ghi nhận. Mô hình tài chính bên dưới đặt ra câu hỏi hẹp hơn và khó hơn: liệu nó có sinh lời cho một nông hộ nhỏ cụ thể, quy mô 1ha, theo giá hiện tại hay không?</p>
         </div>
 
         <div class="viz-block">
