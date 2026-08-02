@@ -90,9 +90,8 @@
   .tag{ font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 8px; background:var(--teal-dim); color:var(--teal); border-radius:2px; }
   .tag.tag-pink{ background:var(--pink-bg); color:var(--pink); }
   .case-body{ padding:32px 34px; }
-  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--pink); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
-  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--pink); flex:0 0 auto; }
-  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
+  .tldr-line{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:12px; line-height:1.55; letter-spacing:.01em; }
+  .tldr-line b{ color:var(--muted); font-weight:700; letter-spacing:.06em; margin-right:6px; }
   .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
   .case-body h3::after{ content:""; position:absolute; left:0; bottom:0; width:40px; height:3px; background:var(--pink); border-radius:2px; }
   .case-body .role{ font-size:13px; color:var(--muted); margin-bottom:18px; }
@@ -163,6 +162,13 @@
   .persona-card.p2 .persona-tag{ background:var(--pink-bg); color:var(--pink); }
   .persona-card h4{ font-family:'Space Grotesk',sans-serif; font-size:15px; margin:0 0 8px; }
   .persona-card p{ font-size:13px; color:var(--muted); margin:0; }
+  .journey-track{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .journey-step{ background:var(--card); padding:14px 12px; display:flex; flex-direction:column; gap:8px; }
+  .journey-step .js-num{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--pink); letter-spacing:.06em; text-transform:uppercase; }
+  .journey-step .js-quote{ font-size:12px; color:var(--ink); font-style:italic; line-height:1.4; }
+  .journey-step .js-pain{ font-size:11px; color:var(--coral); line-height:1.4; padding-top:6px; border-top:1px dashed var(--line); }
+  .journey-step .js-pain b{ font-family:'JetBrains Mono',monospace; font-weight:600; text-transform:uppercase; font-size:9.5px; display:block; margin-bottom:3px; }
+  @media(max-width:760px){ .journey-track{ grid-template-columns:1fr; } }
 
   .findings{ margin:18px 0 0; padding:0; list-style:none; }
   .findings li{ position:relative; padding-left:20px; margin-bottom:10px; font-size:14px; color:var(--muted); }
@@ -242,10 +248,7 @@
         </div>
       </div>
       <div class="case-body">
-        <div class="tldr-bar">
-          <span class="tldr-label">TL;DR</span>
-          <span class="tldr-text" data-en="87% of customers say they care about the environment, but NPS is only 7% → mapped the customer journey to find the gap → recommended in-store signage + a Gen-Z awareness campaign.">87% khách hàng nói quan tâm môi trường nhưng NPS chỉ 7% → lập bản đồ hành trình khách hàng để tìm khoảng cách → đề xuất bảng thông tin tại điểm bán + chiến dịch Gen Z.</span>
-        </div>
+        <p class="tldr-line"><b>TL;DR —</b><span data-en="87% of customers say they care about the environment, but NPS is only 7% → mapped the customer journey to find the gap → recommended in-store signage + a Gen-Z awareness campaign.">87% khách hàng nói quan tâm môi trường nhưng NPS chỉ 7% → lập bản đồ hành trình khách hàng để tìm khoảng cách → đề xuất bảng thông tin tại điểm bán + chiến dịch Gen Z.</span></p>
         <h3 data-en="Customer Behavior Analysis &amp;mdash; Nam Thái Sơn Biodegradable Trash Bags">Phân tích hành vi khách hàng — Túi rác tự hủy sinh học Nam Thái Sơn</h3>
         <div class="role" data-en="Group project · Customer Analytics · Nam Thái Sơn Group">Group project · Phân tích khách hàng · Nam Thái Sơn Group</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;87% of respondents care about the environment&lt;/span&gt; &amp;mdash; yet the product&amp;rsquo;s NPS sits at just 7%. Where&amp;rsquo;s the gap?"><span class="stat">87% người khảo sát quan tâm đến bảo vệ môi trường</span> — nhưng NPS sản phẩm chỉ đạt 7%. Khoảng cách đó nằm ở đâu?</p>
@@ -312,7 +315,39 @@
           </div>
         </div>
 
-        <ul class="findings">
+        <div class="viz-block">
+          <div class="viz-title" data-en="CUSTOMER JOURNEY · TARGET CUSTOMER PERSONA">HÀNH TRÌNH KHÁCH HÀNG · CHÂN DUNG KHÁCH HÀNG MỤC TIÊU</div>
+          <div class="journey-track">
+            <div class="journey-step">
+              <span class="js-num">01 · Nhận thức</span>
+              <span class="js-quote" data-en="&amp;ldquo;I cook a lot, so I need trash bags for household waste.&amp;rdquo;">"Do nấu ăn nhiều nên cần túi rác để chứa rác thải sinh hoạt."</span>
+              <span class="js-pain"><b data-en="Touchpoint">Điểm chạm</b><span data-en="Household-goods shelf in the supermarket">Trên kệ để vật dụng gia đình trong siêu thị</span></span>
+            </div>
+            <div class="journey-step">
+              <span class="js-num">02 · Cân nhắc</span>
+              <span class="js-quote" data-en="&amp;ldquo;Which trash bag is eco-friendly and still reasonably priced?&amp;rdquo;">"Túi rác nào bảo vệ môi trường mà giá cả hợp lý?"</span>
+              <span class="js-pain"><b data-en="Pain point">Điểm đau</b><span data-en="Hard to find where the product is displayed; little brand info available">Khó tìm thấy chỗ để sản phẩm; ít thông tin về thương hiệu</span></span>
+            </div>
+            <div class="journey-step">
+              <span class="js-num">03 · Ưa thích</span>
+              <span class="js-quote" data-en="&amp;ldquo;Which brand actually makes eco-friendly trash bags?&amp;rdquo;">"Thương hiệu nào mới là thương hiệu sản xuất túi rác bảo vệ môi trường?"</span>
+              <span class="js-pain"><b data-en="Pain point">Điểm đau</b><span data-en="Price feels high relative to ordinary bags">Giá cảm thấy cao hơn so với túi rác thông thường</span></span>
+            </div>
+            <div class="journey-step">
+              <span class="js-num">04 · Hành động</span>
+              <span class="js-quote" data-en="&amp;ldquo;I need trash bags for the days I cook.&amp;rdquo;">"Cần túi rác dùng những ngày nào cũng nấu ăn."</span>
+              <span class="js-pain"><b data-en="Touchpoint">Điểm chạm</b><span data-en="Checkout">Thanh toán</span></span>
+            </div>
+            <div class="journey-step">
+              <span class="js-num">05 · Trung thành</span>
+              <span class="js-quote" data-en="&amp;ldquo;I'll wait for a supermarket sale to stock up on household goods.&amp;rdquo;">"Chờ các dịp siêu thị giảm giá để đi mua đồ sinh hoạt."</span>
+              <span class="js-pain"><b data-en="Pain point">Điểm đau</b><span data-en="Doesn't fit the household bin — may need a new bin, or bags have no lid to seal odor">Không vừa thùng rác gia dụng — phải đổi thùng, hoặc túi không có nắp giữ mùi</span></span>
+            </div>
+          </div>
+          <p data-en="This is exactly where the recommended solution lands: the biggest pain points sit at Consideration and Loyalty — precisely the two stages the in-store signage and Gen-Z campaign are designed to fix.">Đây chính xác là nơi giải pháp đề xuất nhắm tới: điểm đau lớn nhất nằm ở giai đoạn Cân nhắc và Trung thành — đúng 2 giai đoạn mà bảng thông tin tại điểm bán và chiến dịch Gen Z được thiết kế để xử lý.</p>
+        </div>
+
+
           <li data-en="Most respondents buy trash bags as a side item while doing general grocery shopping — not as a deliberate, planned eco-purchase.">Phần lớn mua túi rác như một sản phẩm tiện mua kèm khi đi chợ/siêu thị — không phải một quyết định mua sắm "xanh" có chủ đích.</li>
           <li data-en="Encountered mainly at Bách Hóa Xanh, Vinmart and Go/Big C — convenience of location outweighs price as the first purchase driver.">Gặp sản phẩm chủ yếu tại Bách Hóa Xanh, Vinmart, Go/Big C — sự tiện lợi về địa điểm quan trọng hơn giá ở bước mua đầu tiên.</li>
         </ul>
