@@ -138,6 +138,9 @@
   }
   .tag.tag-gold{ background:var(--gold-bg); color:var(--gold); }
   .case-body{ padding:32px 34px; }
+  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
+  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); flex:0 0 auto; }
+  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
   .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
   .case-body h3::after{
     content:""; position:absolute; left:0; bottom:0; width:40px; height:3px;
@@ -309,6 +312,10 @@
         </div>
       </div>
       <div class="case-body">
+        <div class="tldr-bar">
+          <span class="tldr-label">TL;DR</span>
+          <span class="tldr-text" data-en="Rising equipment prices shrank self-funded NPV to just $257 → rebuilt the plan around the province subsidy → NPV jumps to $3,303 with payback under 2 years.">Giá thiết bị tăng khiến NPV tự đầu tư co lại chỉ còn 257 USD → xây lại kế hoạch tài chính có gói hỗ trợ tỉnh → NPV nhảy lên 3.303 USD, payback dưới 2 năm.</span>
+        </div>
         <h3 data-en="IoT AgriTech Adoption &amp;mdash; Feasibility &amp; Change Analysis">IoT AgriTech Adoption — Feasibility &amp; Change Analysis</h3>
         <div class="role" data-en="Group project · Change Management · IoT precision-agriculture adoption (Mimosatek)">Group project · Quản trị sự thay đổi · Ứng dụng IoT nông nghiệp (Mimosatek)</div>
         <p class="case-hook" data-en="Self-funded, NPV shrinks to just $257 under today's equipment pricing. But once the farmer only pays their share after the province subsidy, NPV jumps to &lt;span class=&quot;stat&quot;&gt;+$3,303&lt;/span&gt; and payback drops under 2 years. The financial plan actually pitched to farmers isn&amp;rsquo;t the same as the raw, self-funded numbers.">Tự bỏ 100% vốn, NPV chỉ còn 257 USD theo giá thiết bị hiện tại. Nhưng khi nông hộ chỉ trả phần của mình sau khi trừ gói hỗ trợ tỉnh, NPV nhảy lên <span class="stat">+3.303 USD</span> và payback rút ngắn còn dưới 2 năm. Kế hoạch tài chính thực sự đưa ra cho nông hộ không giống với con số thô tự đầu tư 100%.</p>
