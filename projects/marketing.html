@@ -431,6 +431,9 @@
   .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
   .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
   .case-body{padding:32px 34px;}
+  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--coral); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
+  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--coral); flex:0 0 auto; }
+  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
   .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
   .case-body h3::after{
     content:"";
@@ -1003,6 +1006,10 @@
         </div>
       </div>
       <div class="case-body">
+        <div class="tldr-bar">
+          <span class="tldr-label">TL;DR</span>
+          <span class="tldr-text" data-en="Facebook took 44% of budget but had the lowest ROAS → reallocated using Weighted Scoring + regression (cross-checked with BCG) → +£38,244/month, no extra spend.">Facebook chiếm 44% ngân sách nhưng ROAS thấp nhất → tái phân bổ bằng Weighted Scoring + hồi quy (kiểm chứng chéo với BCG) → +£38.244/tháng, không tốn thêm chi phí.</span>
+        </div>
         <h3>Marketing Campaign Dashboard</h3>
         <div class="role" data-en="UK Retail · 9,900 data rows, Mar–Nov 2023 · overall ROAS 10.6&amp;times; on £163.25K spend / £1.73M revenue">UK Retail · 9.900 dòng dữ liệu, T3–T11 2023 · ROAS tổng 10,6× trên £163,25K spend / £1,73M revenue</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;£38,244/month&lt;/span&gt; &amp;mdash; the revenue left on the table by funding the wrong channel."><span class="stat">£38.244/tháng</span> — cái giá của việc rót ngân sách sai kênh.</p>
