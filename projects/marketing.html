@@ -502,6 +502,24 @@
   .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:600; color:var(--coral); }
   .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
   .assump-tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; padding:3px 8px; border:1px dashed var(--muted); border-radius:20px; color:var(--muted); display:inline-block; margin-bottom:10px; }
+  .bcg-wrap{ display:grid; grid-template-columns:24px 1fr; grid-template-rows:1fr 24px; gap:8px; margin:14px 0; }
+  .bcg-axis-y{ writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.04em; }
+  .bcg-axis-x{ grid-column:2; text-align:center; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.04em; }
+  .bcg-grid{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; min-height:280px; }
+  .bcg-cell{ background:var(--card); padding:16px; display:flex; flex-direction:column; }
+  .bcg-cell .bcg-name{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--coral); margin-bottom:8px; }
+  .bcg-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .bcg-chip{ padding:4px 11px; border-radius:20px; font-size:12px; font-weight:600; background:var(--coral-bg); color:var(--coral); }
+  .bcg-chip.empty{ background:none; border:1px dashed var(--line); color:var(--muted); font-weight:400; }
+  .bcg-cell .bcg-note{ font-size:11.5px; color:var(--muted); margin-top:auto; line-height:1.4; }
+  .eis-wrap{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .eis-cell{ background:var(--card); padding:16px; }
+  .eis-cell .eis-name{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+  .eis-cell.do .eis-name{ color:var(--coral); }
+  .eis-cell.schedule .eis-name{ color:var(--teal); }
+  .eis-cell.delegate .eis-name{ color:var(--gold); }
+  .eis-cell.eliminate .eis-name{ color:var(--muted); }
+  .eis-cell p{ font-size:12.5px; color:var(--ink); margin:0; line-height:1.5; }
   .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
   .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
   .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
@@ -1007,6 +1025,40 @@
           <li data-en="A quadratic regression model (Revenue ~ Spend) on 275 days of data (R&amp;sup2;=0.518) shows Pinterest is currently spending £103/day, while the optimal spend point is £267/day — there is still room to grow the budget without diminishing returns.">Mô hình hồi quy bậc hai (Revenue ~ Spend) trên 275 ngày dữ liệu (R²=0,518) cho thấy Pinterest đang chi £103/ngày, trong khi điểm chi tối ưu là £267/ngày — vẫn còn dư địa tăng ngân sách mà không giảm hiệu quả.</li>
           <li data-en="Proposed monthly budget reallocation: Facebook £7,957&amp;rarr;£3,029 (&amp;minus;77%), Pinterest £3,081&amp;rarr;£8,009 (+237%), Instagram unchanged at £7,044 — projected to add £38,244 in monthly revenue.">Đề xuất tái phân bổ ngân sách hàng tháng: Facebook £7.957→£3.029 (−77%), Pinterest £3.081→£8.009 (+237%), Instagram giữ nguyên £7.044 — dự kiến tăng thêm £38.244 doanh thu/tháng.</li>
         </ul>
+
+        <div class="viz-block">
+          <div class="viz-title" data-en="BCG GROWTH-SHARE MATRIX · CHANNEL PORTFOLIO">MA TRẬN BCG (GROWTH-SHARE) · DANH MỤC KÊNH QUẢNG CÁO</div>
+          <span class="assump-tag" data-en="Y-axis = Weighted Score (performance proxy for growth) · X-axis = share of current spend — both from measured data">Trục Y = Weighted Score (đại diện cho tăng trưởng/hiệu suất) · Trục X = tỷ trọng ngân sách hiện tại — cả 2 đều từ dữ liệu thật</span>
+          <div class="bcg-wrap">
+            <div class="bcg-axis-y" data-en="High performance / growth ↑">Hiệu suất / tăng trưởng cao ↑</div>
+            <div class="bcg-grid">
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Question Mark → becoming Star">DẤU HỎI → sắp thành NGÔI SAO</div>
+                <div class="bcg-chips"><span class="bcg-chip">Pinterest</span></div>
+                <div class="bcg-note" data-en="Highest Weighted Score (0.800) but only 17% of current spend — still below its optimal spend point (£267/day vs £103/day). This is the &amp;ldquo;invest more&amp;rdquo; quadrant.">Weighted Score cao nhất (0,800) nhưng chỉ chiếm 17% ngân sách — vẫn chưa đạt điểm chi tối ưu (£267/ngày so với £103/ngày hiện tại). Đây là góc "nên đầu tư thêm".</div>
+              </div>
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Star">NGÔI SAO</div>
+                <div class="bcg-chips"><span class="bcg-chip empty" data-en="none yet">chưa có kênh nào</span></div>
+                <div class="bcg-note" data-en="Where Pinterest is headed once the +237% reallocation lands and its spend share catches up with its performance.">Vị trí mà Pinterest sẽ đạt tới sau khi tăng +237% ngân sách và tỷ trọng chi tiêu bắt kịp hiệu suất.</div>
+              </div>
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Dog">CHÓ</div>
+                <div class="bcg-chips"><span class="bcg-chip empty" data-en="none">không có</span></div>
+                <div class="bcg-note" data-en="No channel sits here — even the weakest performer (Facebook) still holds a large, valuable spend share.">Không có kênh nào rơi vào đây — ngay cả kênh yếu nhất (Facebook) vẫn giữ tỷ trọng ngân sách lớn, có giá trị.</div>
+              </div>
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Cash Cow">BÒ SỮA</div>
+                <div class="bcg-chips"><span class="bcg-chip">Facebook</span><span class="bcg-chip">Instagram</span></div>
+                <div class="bcg-note" data-en="Facebook: largest spend share (44%) but lowest score (0.139) — classic &amp;ldquo;harvest, don&amp;rsquo;t over-invest&amp;rdquo; case, matching the −77% cut. Instagram: stable mid-share, mid-score (0.434) — hold steady, no change needed.">Facebook: tỷ trọng ngân sách lớn nhất (44%) nhưng điểm số thấp nhất (0,139) — đúng kiểu "thu hoạch, đừng đầu tư thêm", khớp với đề xuất cắt 77%. Instagram: tỷ trọng &amp; điểm số ở mức trung bình (0,434) — giữ nguyên, không cần thay đổi.</div>
+              </div>
+            </div>
+            <div></div>
+            <div class="bcg-axis-x" data-en="← Low spend share&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High spend share →">← Tỷ trọng ngân sách thấp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tỷ trọng ngân sách cao →</div>
+          </div>
+          <p data-en="The BCG framing and the regression-based reallocation plan point to the exact same action independently — which is a useful cross-check, not a coincidence: both are reading the same underlying performance gap from two different angles.">Cách nhìn theo BCG và kế hoạch tái phân bổ dựa trên hồi quy đi đến cùng một hành động một cách độc lập — đây là một phép kiểm tra chéo hữu ích, không phải trùng hợp: cả hai đều đang đọc ra cùng một khoảng cách hiệu suất, chỉ từ hai góc nhìn khác nhau.</p>
+        </div>
+
         <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
         <p class="case-img-caption" data-en="Quadratic regression model — finding Pinterest&amp;rsquo;s optimal spend point">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
 
@@ -1093,6 +1145,28 @@
               <div class="dept-row">
                 <span class="dept-name" data-en="Data &amp;amp; Analytics">Phòng Phân tích dữ liệu</span>
                 <span class="dept-task" data-en="Re-run the Spend–Revenue regression monthly to catch diminishing returns before scaling further.">Chạy lại mô hình hồi quy Spend–Revenue hàng tháng để phát hiện điểm giảm hiệu quả trước khi mở rộng thêm.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" data-en="EISENHOWER MATRIX · EXECUTION PRIORITY">MA TRẬN EISENHOWER · ƯU TIÊN THỰC THI</div>
+            <div class="eis-wrap">
+              <div class="eis-cell do">
+                <div class="eis-name" data-en="Do first (urgent + important)">LÀM NGAY (khẩn cấp + quan trọng)</div>
+                <p data-en="Cut Facebook −77%, grow Pinterest +237% — both the Weighted Scoring model and the BCG view independently point to this same move.">Cắt 77% ngân sách Facebook, tăng 237% cho Pinterest — cả Weighted Scoring lẫn BCG đều độc lập chỉ về cùng một hành động.</p>
+              </div>
+              <div class="eis-cell schedule">
+                <div class="eis-name" data-en="Schedule (important, not urgent)">LÊN KẾ HOẠCH (quan trọng, chưa khẩn cấp)</div>
+                <p data-en="Re-run the Spend–Revenue regression monthly — needed for the long run, not something to do this week.">Chạy lại mô hình hồi quy Spend–Revenue hàng tháng — cần cho lâu dài, không phải việc phải làm ngay trong tuần này.</p>
+              </div>
+              <div class="eis-cell delegate">
+                <div class="eis-name" data-en="Delegate (urgent, less critical)">ỦY QUYỀN (khẩn cấp, ít quan trọng hơn)</div>
+                <p data-en="Approving budget wave by wave — Finance's job, not something the analyst needs to drive directly.">Phê duyệt ngân sách theo từng làn sóng — việc của Phòng Tài chính, không cần người phân tích trực tiếp làm.</p>
+              </div>
+              <div class="eis-cell eliminate">
+                <div class="eis-name" data-en="Later / drop (neither urgent nor important right now)">SAU / LOẠI BỎ (chưa khẩn cấp, chưa quan trọng)</div>
+                <p data-en="Investing more in Instagram — it's a stable Cash Cow already; no change needed.">Đầu tư thêm vào Instagram — đang là Bò sữa ổn định, không cần thay đổi.</p>
               </div>
             </div>
           </div>
