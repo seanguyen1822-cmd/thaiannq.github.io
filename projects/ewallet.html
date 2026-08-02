@@ -431,9 +431,8 @@
   .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
   .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
   .case-body{padding:32px 34px;}
-  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
-  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--teal); flex:0 0 auto; }
-  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
+  .tldr-line{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:12px; line-height:1.55; letter-spacing:.01em; }
+  .tldr-line b{ color:var(--muted); font-weight:700; letter-spacing:.06em; margin-right:6px; }
   .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
   .case-body h3::after{
     content:"";
@@ -1000,10 +999,7 @@
         </div>
       </div>
       <div class="case-body">
-        <div class="tldr-bar">
-          <span class="tldr-label">TL;DR</span>
-          <span class="tldr-text" data-en="SR dropped 4.8pp from an OTP/3DS bug in Billing (41.9% of revenue) → fixed the one step that mattered using the Bowtie model → recovered most of SR without auditing the whole funnel.">SR giảm 4,8pp do lỗi OTP/3DS ở Billing (41,9% doanh thu) → sửa đúng 1 bước bằng mô hình Bowtie → khôi phục phần lớn SR mà không cần rà soát cả phễu.</span>
-        </div>
+        <p class="tldr-line"><b>TL;DR —</b><span data-en="SR dropped 4.8pp from an OTP/3DS bug in Billing (41.9% of revenue) → fixed the one step that mattered using the Bowtie model → recovered most of SR without auditing the whole funnel.">SR giảm 4,8pp do lỗi OTP/3DS ở Billing (41,9% doanh thu) → sửa đúng 1 bước bằng mô hình Bowtie → khôi phục phần lớn SR mà không cần rà soát cả phễu.</span></p>
         <h3>E-wallet Payment Success Rate Analysis</h3>
         <div class="role" data-en="Capstone project · payment Success Rate (SR) analysis">Capstone project · phân tích tỷ lệ giao dịch thành công (SR)</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;4.8-point drop&lt;/span&gt; &amp;mdash; traced to exactly one step out of seven in the funnel."><span class="stat">Giảm 4,8 điểm phần trăm</span> — truy ra đúng 1 bước trong 7 bước phễu gây ra nó.</p>
@@ -1134,16 +1130,24 @@
             <span class="dept-title" data-en="TASK ASSIGNMENT BY DEPARTMENT">PHÂN CÔNG THỰC HIỆN</span>
             <div class="dept-table">
               <div class="dept-row">
-                <span class="dept-name" data-en="Engineering / Product">Phòng Kỹ thuật / Product</span>
-                <span class="dept-task" data-en="Rebuild the OTP/3DS flow — longer timeout, automatic resend, clearer error messaging.">Cải tiến luồng OTP/3DS — tăng timeout, tự động gửi lại OTP, thông báo lỗi rõ ràng hơn.</span>
+                <span class="dept-name" data-en="Product / UX">Phòng Product / UX</span>
+                <span class="dept-task" data-en="Redesign the flow around the exact funnel drop-off point, especially the OTP/3DS step.">Thiết kế lại trải nghiệm quanh đúng điểm rớt trong phễu, đặc biệt là bước OTP/3DS.</span>
               </div>
               <div class="dept-row">
-                <span class="dept-name" data-en="Payments Ops / Risk">Phòng Vận hành thanh toán / Rủi ro</span>
-                <span class="dept-task" data-en="Set up a dedicated real-time alert for the Billing category.">Thiết lập cảnh báo real-time riêng cho category Billing.</span>
+                <span class="dept-name" data-en="Engineering">Phòng Engineering</span>
+                <span class="dept-task" data-en="Fix the OTP/3DS flow, prioritized P0→P2 based on the error breakdown — longer timeout, automatic resend, clearer error messaging.">Sửa luồng OTP/3DS theo mức ưu tiên P0→P2 dựa trên phân loại lỗi — tăng timeout, tự động gửi lại OTP, thông báo lỗi rõ ràng hơn.</span>
               </div>
               <div class="dept-row">
-                <span class="dept-name" data-en="Data &amp;amp; Analytics">Phòng Phân tích dữ liệu</span>
-                <span class="dept-task" data-en="Re-measure SR weekly against the 91.70% baseline and report to stakeholders.">Đo lại SR theo tuần so với baseline 91,70% và báo cáo cho các bên liên quan.</span>
+                <span class="dept-name" data-en="BI / Data">Phòng BI / Data</span>
+                <span class="dept-task" data-en="Set up real-time monitoring and alert thresholds for Billing; re-measure SR weekly against the 91.70% baseline.">Thiết lập giám sát real-time và ngưỡng cảnh báo cho Billing; đo lại SR theo tuần so với baseline 91,70%.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Support">Phòng Support</span>
+                <span class="dept-task" data-en="Prepare response scripts and proactively reach out to customers affected by the Billing failures.">Chuẩn bị kịch bản phản hồi và chủ động liên hệ khách hàng bị ảnh hưởng bởi lỗi ở Billing.</span>
+              </div>
+              <div class="dept-row">
+                <span class="dept-name" data-en="Management">Phòng Management</span>
+                <span class="dept-task" data-en="Approve the fix's resourcing and sponsor it, tracking the combined revenue + retention risk the SR drop represents.">Phê duyệt nguồn lực khắc phục và bảo trợ dự án, theo dõi rủi ro kép doanh thu + retention mà việc SR giảm gây ra.</span>
               </div>
             </div>
           </div>
@@ -1161,7 +1165,7 @@
               </div>
               <div class="eis-cell delegate">
                 <div class="eis-name" data-en="Delegate (urgent, less critical)">ỦY QUYỀN (khẩn cấp, ít quan trọng hơn)</div>
-                <p data-en="Set up the Billing alert — time-sensitive but can run in parallel via Payments Ops, doesn't need the analyst directly.">Thiết lập cảnh báo cho Billing — cần sớm nhưng có thể giao Payments Ops làm song song, không cần chính người phân tích.</p>
+                <p data-en="Set up the Billing alert — time-sensitive but can run in parallel via BI/Data, doesn't need the analyst directly.">Thiết lập cảnh báo cho Billing — cần sớm nhưng có thể giao BI/Data làm song song, không cần chính người phân tích.</p>
               </div>
               <div class="eis-cell eliminate">
                 <div class="eis-name" data-en="Later / drop (neither urgent nor important right now)">SAU / LOẠI BỎ (chưa khẩn cấp, chưa quan trọng)</div>
