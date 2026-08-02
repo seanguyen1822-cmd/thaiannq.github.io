@@ -502,6 +502,25 @@
   .fin-cell .fin-value{ font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:600; color:var(--teal); }
   .fin-cell .fin-note{ font-size:11px; color:var(--muted); margin-top:4px; }
   .assump-tag{ font-family:'JetBrains Mono',monospace; font-size:10.5px; padding:3px 8px; border:1px dashed var(--muted); border-radius:20px; color:var(--muted); display:inline-block; margin-bottom:10px; }
+  .bcg-wrap{ display:grid; grid-template-columns:24px 1fr; grid-template-rows:1fr 24px; gap:8px; margin:14px 0; }
+  .bcg-axis-y{ writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.04em; }
+  .bcg-axis-x{ grid-column:2; text-align:center; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.04em; }
+  .bcg-grid{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; min-height:280px; }
+  .bcg-cell{ background:var(--card); padding:16px; display:flex; flex-direction:column; }
+  .bcg-cell .bcg-name{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
+  .bcg-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .bcg-chip{ padding:4px 11px; border-radius:20px; font-size:12px; font-weight:600; background:var(--teal-dim); color:var(--teal); }
+  .bcg-chip.warn{ background:var(--coral-bg); color:var(--coral); }
+  .bcg-cell .bcg-note{ font-size:11.5px; color:var(--muted); margin-top:auto; line-height:1.4; }
+  .eis-wrap{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .eis-cell{ background:var(--card); padding:16px; }
+  .eis-cell .eis-name{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+  .eis-cell.do .eis-name{ color:var(--coral); }
+  .eis-cell.schedule .eis-name{ color:var(--teal); }
+  .eis-cell.delegate .eis-name{ color:var(--gold); }
+  .eis-cell.eliminate .eis-name{ color:var(--muted); }
+  .eis-cell p{ font-size:12.5px; color:var(--ink); margin:0; line-height:1.5; }
+  .eis-axes{ display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-top:4px; }
   .dept-block{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
   .dept-title{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:12px; }
   .dept-table{ border:1px solid var(--line); border-radius:10px; overflow:hidden; }
@@ -1002,6 +1021,39 @@
         <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/ewallet-rootcause.png" alt="E-wallet Power BI dashboard — trang Root Cause"></div>
         <p class="case-img-caption" data-en="Root Cause page — 3-tier error classification">Trang Root Cause — phân loại lỗi 3 cấp</p>
 
+        <div class="viz-block">
+          <div class="viz-title" data-en="BCG GROWTH-SHARE MATRIX · TRANSACTION CATEGORIES">MA TRẬN BCG (GROWTH-SHARE) · CÁC CATEGORY GIAO DỊCH</div>
+          <span class="assump-tag" data-en="Y-axis = SR change Jul→Aug (health proxy for growth) · X-axis = revenue share — both from measured Power BI data">Trục Y = biến động SR Tháng 7→8 (đại diện cho "tăng trưởng") · Trục X = tỷ trọng doanh thu — cả 2 đều từ dữ liệu Power BI thật</span>
+          <div class="bcg-wrap">
+            <div class="bcg-axis-y" data-en="SR more stable / healthier ↑">SR ổn định / khỏe mạnh hơn ↑</div>
+            <div class="bcg-grid">
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Question Mark">DẤU HỎI</div>
+                <div class="bcg-chips"><span class="bcg-chip">FnB</span></div>
+                <div class="bcg-note" data-en="Small share (7.6%) but SR held relatively steady (−4.0pp) — worth nurturing, not urgent.">Tỷ trọng nhỏ (7,6%) nhưng SR khá ổn định (−4,0pp) — đáng nuôi dưỡng, chưa cấp bách.</div>
+              </div>
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Star">NGÔI SAO</div>
+                <div class="bcg-chips"><span class="bcg-chip">Shopping</span><span class="bcg-chip">Marketplace</span></div>
+                <div class="bcg-note" data-en="2nd and 3rd largest revenue (25.1%, 15.0%) with the most stable SR (−1.4pp, −1.8pp) — the healthiest big earners, worth protecting as-is.">Doanh thu lớn thứ 2 và 3 (25,1%, 15,0%) với SR ổn định nhất (−1,4pp, −1,8pp) — nhóm doanh thu lớn khỏe mạnh nhất, nên giữ nguyên cách vận hành hiện tại.</div>
+              </div>
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Dog">CHÓ</div>
+                <div class="bcg-chips"><span class="bcg-chip">Telco</span><span class="bcg-chip">Traveling</span><span class="bcg-chip">Movies</span></div>
+                <div class="bcg-note" data-en="Small share (1.4–5.7%) and declining SR (−5.2 to −9.1pp) — worth monitoring, but not where engineering effort should go first.">Tỷ trọng nhỏ (1,4–5,7%) và SR đang giảm (−5,2 đến −9,1pp) — nên theo dõi, nhưng không phải nơi ưu tiên nguồn lực kỹ thuật trước tiên.</div>
+              </div>
+              <div class="bcg-cell">
+                <div class="bcg-name" data-en="Cash Cow — at risk">BÒ SỮA — ĐANG GẶP RỦI RO</div>
+                <div class="bcg-chips"><span class="bcg-chip warn">Billing</span></div>
+                <div class="bcg-note" data-en="By far the largest revenue share (41.9%) but by far the sharpest SR collapse (−14.5pp) — a cash cow that's bleeding out. This is the same category the Bowtie model flags as the top priority.">Tỷ trọng doanh thu lớn nhất (41,9%) nhưng SR sụt mạnh nhất (−14,5pp) — một "con bò sữa" đang chảy máu. Đúng là category mà mô hình Bowtie đã xác định là ưu tiên số 1.</div>
+              </div>
+            </div>
+            <div></div>
+            <div class="bcg-axis-x" data-en="← Low revenue share&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High revenue share →">← Tỷ trọng doanh thu thấp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tỷ trọng doanh thu cao →</div>
+          </div>
+          <p data-en="A new finding this view surfaces: Shopping and Marketplace — not just Billing — are worth watching. They're currently healthy, but if their SR ever starts sliding the way Billing's did, they'd be just as costly to lose.">Một phát hiện mới mà góc nhìn này mang lại: Shopping và Marketplace — không chỉ Billing — cũng đáng được theo dõi. Chúng hiện đang ổn định, nhưng nếu SR của chúng bắt đầu trượt dốc như Billing, thiệt hại sẽ tương đương.</p>
+        </div>
+
         <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
         <div class="pbi-embed-wrap">
           <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
@@ -1085,6 +1137,28 @@
               <div class="dept-row">
                 <span class="dept-name" data-en="Data &amp;amp; Analytics">Phòng Phân tích dữ liệu</span>
                 <span class="dept-task" data-en="Re-measure SR weekly against the 91.70% baseline and report to stakeholders.">Đo lại SR theo tuần so với baseline 91,70% và báo cáo cho các bên liên quan.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" data-en="EISENHOWER MATRIX · EXECUTION PRIORITY">MA TRẬN EISENHOWER · ƯU TIÊN THỰC THI</div>
+            <div class="eis-wrap">
+              <div class="eis-cell do">
+                <div class="eis-name" data-en="Do first (urgent + important)">LÀM NGAY (khẩn cấp + quan trọng)</div>
+                <p data-en="Fix the OTP/3DS flow at Billing — SR is actively collapsing (−14.5pp) in the largest revenue category.">Sửa luồng OTP/3DS ở Billing — SR đang sụt mạnh (−14,5pp) ở category doanh thu lớn nhất.</p>
+              </div>
+              <div class="eis-cell schedule">
+                <div class="eis-name" data-en="Schedule (important, not urgent)">LÊN KẾ HOẠCH (quan trọng, chưa khẩn cấp)</div>
+                <p data-en="Re-measure SR weekly against baseline — needed to confirm the fix works, but not an immediate action itself.">Đo lại SR hàng tuần so với baseline — cần thiết để xác nhận fix có hiệu quả, nhưng bản thân việc này chưa cần làm ngay.</p>
+              </div>
+              <div class="eis-cell delegate">
+                <div class="eis-name" data-en="Delegate (urgent, less critical)">ỦY QUYỀN (khẩn cấp, ít quan trọng hơn)</div>
+                <p data-en="Set up the Billing alert — time-sensitive but can run in parallel via Payments Ops, doesn't need the analyst directly.">Thiết lập cảnh báo cho Billing — cần sớm nhưng có thể giao Payments Ops làm song song, không cần chính người phân tích.</p>
+              </div>
+              <div class="eis-cell eliminate">
+                <div class="eis-name" data-en="Later / drop (neither urgent nor important right now)">SAU / LOẠI BỎ (chưa khẩn cấp, chưa quan trọng)</div>
+                <p data-en="Auditing all remaining 6 funnel steps — the scarcity principle already ruled this out as the wrong first move.">Rà soát toàn bộ 6 bước phễu còn lại — nguyên lý khan hiếm đã xác định đây không phải bước đi đầu tiên đúng.</p>
               </div>
             </div>
           </div>
