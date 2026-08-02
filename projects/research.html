@@ -503,6 +503,14 @@
   .dept-row+.dept-row{ border-top:1px solid var(--line); }
   .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--violet); }
   .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  .eis-wrap{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .eis-cell{ background:var(--card); padding:16px; }
+  .eis-cell .eis-name{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+  .eis-cell.do .eis-name{ color:var(--coral); }
+  .eis-cell.schedule .eis-name{ color:var(--violet); }
+  .eis-cell.delegate .eis-name{ color:var(--gold); }
+  .eis-cell.eliminate .eis-name{ color:var(--muted); }
+  .eis-cell p{ font-size:12.5px; color:var(--ink); margin:0; line-height:1.5; }
   @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--paper-dim); padding:14px 12px; }
@@ -1105,6 +1113,28 @@
               <div class="dept-row">
                 <span class="dept-name" data-en="Market Research">Phòng Nghiên cứu thị trường</span>
                 <span class="dept-task" data-en="Re-test the 2-factor model on future campaigns to confirm the effect holds before scaling budget.">Kiểm định lại mô hình 2 nhân tố với các chiến dịch tương lai trước khi mở rộng ngân sách.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" data-en="EISENHOWER MATRIX · EXECUTION PRIORITY">MA TRẬN EISENHOWER · ƯU TIÊN THỰC THI</div>
+            <div class="eis-wrap">
+              <div class="eis-cell do">
+                <div class="eis-name" data-en="Do first (urgent + important)">LÀM NGAY (khẩn cấp + quan trọng)</div>
+                <p data-en="Redirect messaging budget to tangible benefit (β=0.454) — the single strongest lever the model found.">Dồn ngân sách truyền thông vào lợi ích thiết thực (β=0,454) — đòn bẩy mạnh nhất mà mô hình tìm ra.</p>
+              </div>
+              <div class="eis-cell schedule">
+                <div class="eis-name" data-en="Schedule (important, not urgent)">LÊN KẾ HOẠCH (quan trọng, chưa khẩn cấp)</div>
+                <p data-en="Build out certification/trust content (β=0.140) — matters, but a smaller lever that can follow the benefit push.">Xây nội dung chứng nhận/niềm tin (β=0,140) — quan trọng nhưng là đòn bẩy nhỏ hơn, có thể làm sau đợt tập trung vào lợi ích.</p>
+              </div>
+              <div class="eis-cell delegate">
+                <div class="eis-name" data-en="Delegate (urgent, less critical)">ỦY QUYỀN (khẩn cấp, ít quan trọng hơn)</div>
+                <p data-en="Re-testing the model on future campaigns — Market Research's ongoing job, not a one-time urgent task for the analyst.">Kiểm định lại mô hình ở các chiến dịch tương lai — việc thường xuyên của Phòng Nghiên cứu thị trường, không phải việc gấp một lần của người phân tích.</p>
+              </div>
+              <div class="eis-cell eliminate">
+                <div class="eis-name" data-en="Eliminate (neither urgent nor important)">LOẠI BỎ (không khẩn cấp, không quan trọng)</div>
+                <p data-en="Funding generic environmental/health awareness messaging alone — not statistically significant; stop spending here.">Chỉ đầu tư vào thông điệp nhận thức môi trường/sức khỏe đơn thuần — không có ý nghĩa thống kê, nên ngừng chi cho hướng này.</p>
               </div>
             </div>
           </div>
