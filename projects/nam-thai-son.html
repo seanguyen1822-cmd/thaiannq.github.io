@@ -90,6 +90,9 @@
   .tag{ font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 8px; background:var(--teal-dim); color:var(--teal); border-radius:2px; }
   .tag.tag-pink{ background:var(--pink-bg); color:var(--pink); }
   .case-body{ padding:32px 34px; }
+  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--pink); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
+  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--pink); flex:0 0 auto; }
+  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
   .case-body h3{ font-size:21px; margin-bottom:14px; position:relative; padding-bottom:14px; }
   .case-body h3::after{ content:""; position:absolute; left:0; bottom:0; width:40px; height:3px; background:var(--pink); border-radius:2px; }
   .case-body .role{ font-size:13px; color:var(--muted); margin-bottom:18px; }
@@ -239,6 +242,10 @@
         </div>
       </div>
       <div class="case-body">
+        <div class="tldr-bar">
+          <span class="tldr-label">TL;DR</span>
+          <span class="tldr-text" data-en="87% of customers say they care about the environment, but NPS is only 7% → mapped the customer journey to find the gap → recommended in-store signage + a Gen-Z awareness campaign.">87% khách hàng nói quan tâm môi trường nhưng NPS chỉ 7% → lập bản đồ hành trình khách hàng để tìm khoảng cách → đề xuất bảng thông tin tại điểm bán + chiến dịch Gen Z.</span>
+        </div>
         <h3 data-en="Customer Behavior Analysis &amp;mdash; Nam Thái Sơn Biodegradable Trash Bags">Phân tích hành vi khách hàng — Túi rác tự hủy sinh học Nam Thái Sơn</h3>
         <div class="role" data-en="Group project · Customer Analytics · Nam Thái Sơn Group">Group project · Phân tích khách hàng · Nam Thái Sơn Group</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;87% of respondents care about the environment&lt;/span&gt; &amp;mdash; yet the product&amp;rsquo;s NPS sits at just 7%. Where&amp;rsquo;s the gap?"><span class="stat">87% người khảo sát quan tâm đến bảo vệ môi trường</span> — nhưng NPS sản phẩm chỉ đạt 7%. Khoảng cách đó nằm ở đâu?</p>
