@@ -431,9 +431,8 @@
   .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
   .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
   .case-body{padding:32px 34px;}
-  .tldr-bar{ display:flex; align-items:baseline; gap:10px; background:var(--paper-dim); border:1px solid var(--line); border-left:3px solid var(--violet); border-radius:8px; padding:11px 15px; margin-bottom:20px; }
-  .tldr-label{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--violet); flex:0 0 auto; }
-  .tldr-text{ font-size:13px; color:var(--ink); line-height:1.5; }
+  .tldr-line{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:12px; line-height:1.55; letter-spacing:.01em; }
+  .tldr-line b{ color:var(--muted); font-weight:700; letter-spacing:.06em; margin-right:6px; }
   .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
   .case-body h3::after{
     content:"";
@@ -984,10 +983,7 @@
         </div>
       </div>
       <div class="case-body">
-        <div class="tldr-bar">
-          <span class="tldr-label">TL;DR</span>
-          <span class="tldr-text" data-en="Only 2 of 8 factors actually drive green-product purchase intention → redirect budget to tangible benefit over generic environmental messaging → avoid wasting spend on what doesn't convert.">Chỉ 2/8 yếu tố thực sự thúc đẩy ý định mua sản phẩm xanh → dồn ngân sách vào lợi ích thiết thực thay vì thông điệp môi trường chung chung → tránh lãng phí ngân sách truyền thông.</span>
-        </div>
+        <p class="tldr-line"><b>TL;DR —</b><span data-en="Only 2 of 8 factors actually drive green-product purchase intention → redirect budget to tangible benefit over generic environmental messaging → avoid wasting spend on what doesn't convert.">Chỉ 2/8 yếu tố thực sự thúc đẩy ý định mua sản phẩm xanh → dồn ngân sách vào lợi ích thiết thực thay vì thông điệp môi trường chung chung → tránh lãng phí ngân sách truyền thông.</span></p>
         <h3 data-en="Research on Factors Affecting Green Consumption Intention">Nghiên cứu các nhân tố ảnh hưởng đến Ý định tiêu dùng xanh</h3>
         <div class="role" data-en="Business Analytics specialization project · Văn Lang University">Đề án chuyên ngành Phân tích Kinh doanh · Đại học Văn Lang</div>
         <p class="case-hook" data-en="&lt;span class=&quot;stat&quot;&gt;44.4% of buying behavior&lt;/span&gt; explained by just 2 of the 8 original factors."><span class="stat">44,4% hành vi mua</span> được giải thích chỉ bằng 2 trong 8 yếu tố ban đầu.</p>
