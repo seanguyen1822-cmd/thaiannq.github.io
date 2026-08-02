@@ -179,6 +179,14 @@
   .dept-row+.dept-row{ border-top:1px solid var(--line); }
   .dept-name{ flex:0 0 175px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--gold); }
   .dept-task{ flex:1; font-size:12.5px; color:var(--ink); line-height:1.45; }
+  .eis-wrap{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
+  .eis-cell{ background:var(--card); padding:16px; }
+  .eis-cell .eis-name{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+  .eis-cell.do .eis-name{ color:var(--coral); }
+  .eis-cell.schedule .eis-name{ color:var(--gold); }
+  .eis-cell.delegate .eis-name{ color:var(--teal); }
+  .eis-cell.eliminate .eis-name{ color:var(--muted); }
+  .eis-cell p{ font-size:12.5px; color:var(--ink); margin:0; line-height:1.5; }
   @media(max-width:600px){ .dept-row{ flex-direction:column; gap:4px; } .dept-name{ flex:none; } }
   .bowtie{ display:grid; grid-template-columns:1.1fr .9fr 1fr .9fr 1.1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0 18px; }
   .bowtie-col{ background:var(--card); padding:14px 12px; }
@@ -492,6 +500,28 @@
               <div class="dept-row">
                 <span class="dept-name" data-en="Finance / Investment">Phòng Tài chính / Đầu tư</span>
                 <span class="dept-task" data-en="Re-track IRR/NPV/payback every season before deciding to expand the rollout.">Theo dõi lại IRR/NPV/payback mỗi mùa vụ trước khi quyết định mở rộng.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" data-en="EISENHOWER MATRIX · EXECUTION PRIORITY">MA TRẬN EISENHOWER · ƯU TIÊN THỰC THI</div>
+            <div class="eis-wrap">
+              <div class="eis-cell do">
+                <div class="eis-name" data-en="Do first (urgent + important)">LÀM NGAY (khẩn cấp + quan trọng)</div>
+                <p data-en="Lock in the province subsidy connection — the recalculated numbers show the deal isn't fundable without it.">Kết nối gói hỗ trợ của tỉnh — số liệu tính lại cho thấy dự án không còn khả thi nếu thiếu nó.</p>
+              </div>
+              <div class="eis-cell schedule">
+                <div class="eis-name" data-en="Schedule (important, not urgent)">LÊN KẾ HOẠCH (quan trọng, chưa khẩn cấp)</div>
+                <p data-en="The 15-day co-pilot with pilot farmers — important, but runs on its own fixed schedule once a farmer signs up.">Đồng hành 15 ngày với nông hộ thí điểm — quan trọng, nhưng chạy theo lịch cố định riêng khi nông hộ đăng ký.</p>
+              </div>
+              <div class="eis-cell delegate">
+                <div class="eis-name" data-en="Delegate (urgent, less critical)">ỦY QUYỀN (khẩn cấp, ít quan trọng hơn)</div>
+                <p data-en="Re-pricing equipment each season — a recurring check Finance can own without the analyst redoing it each time.">Định giá lại thiết bị mỗi mùa vụ — việc kiểm tra lặp lại, Phòng Tài chính có thể tự đảm nhận mà không cần người phân tích làm lại mỗi lần.</p>
+              </div>
+              <div class="eis-cell eliminate">
+                <div class="eis-name" data-en="Later / drop (neither urgent nor important right now)">SAU / LOẠI BỎ (chưa khẩn cấp, chưa quan trọng)</div>
+                <p data-en="Scaling to many farmers at once — the identified oversupply risk means this should wait for stronger proof first.">Mở rộng ra nhiều nông hộ cùng lúc — rủi ro cung vượt cầu đã xác định nghĩa là nên chờ có bằng chứng vững hơn trước.</p>
               </div>
             </div>
           </div>
