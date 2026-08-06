@@ -76,6 +76,12 @@
   .nav-actions{ display:flex; align-items:center; gap:10px; }
   .lang-toggle{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; padding:8px 14px; background:none; color:var(--ink); border:1px solid var(--line); border-radius:var(--radius-pill); cursor:pointer; transition:border-color .15s, color .15s; }
   .lang-toggle:hover{ border-color:var(--blue); color:var(--blue); }
+  .mobile-menu-btn{ display:none; background:none; border:1px solid var(--line); border-radius:8px; width:36px; height:36px; align-items:center; justify-content:center; color:var(--ink); cursor:pointer; padding:0; }
+  .mobile-menu-btn svg{ width:18px; height:18px; }
+  .mobile-menu-panel{ display:none; flex-direction:column; background:var(--paper); border-bottom:1px solid var(--line); }
+  .mobile-menu-panel.open{ display:flex; }
+  .mobile-menu-panel a{ display:block; padding:14px 32px; color:var(--ink); text-decoration:none; font-size:15px; font-weight:500; border-top:1px solid var(--line); }
+  .mobile-menu-panel a:active{ color:var(--blue); }
 
   section{ padding:88px 0; }
 
@@ -195,6 +201,10 @@
     .case{ grid-template-columns:1fr; }
     .case-meta{ border-right:none; border-bottom:1px solid var(--line); }
     .navlinks{ display:none; }
+    .mobile-menu-btn{ display:flex; }
+    .bcg-grid,.eis-wrap{ grid-template-columns:1fr; }
+    .bcg-wrap{ grid-template-columns:1fr; }
+    .bcg-axis-y{ writing-mode:horizontal-tb; transform:none; }
     .persona-grid{ grid-template-columns:1fr; }
     .cta-band-inner{ flex-direction:column; align-items:flex-start; }
   }
@@ -219,8 +229,17 @@
     <div class="nav-actions">
       <a class="cv-btn" href="../assets/An_Nguyen_CV.docx" download data-en="Download CV">Tải CV</a>
       <button type="button" class="lang-toggle" id="langToggle">EN</button>
+    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
     </div>
   </nav>
+  <div class="mobile-menu-panel" id="mobileMenuPanel">
+    <a href="../index.html#about" data-en="About">Về tôi</a>
+    <a href="../index.html#projects" data-en="Projects">Dự án</a>
+    <a href="../index.html#skills" data-en="Skills">Kỹ năng</a>
+    <a href="../index.html#contact" data-en="Contact">Liên hệ</a>
+  </div>
 </header>
 
 <section>
@@ -469,6 +488,23 @@
 </footer>
 
 <script>
+(function(){
+  var mbtn = document.getElementById('mobileMenuBtn');
+  var mpanel = document.getElementById('mobileMenuPanel');
+  if(mbtn && mpanel){
+    mbtn.addEventListener('click', function(){
+      var isOpen = mpanel.classList.toggle('open');
+      mbtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mpanel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mpanel.classList.remove('open');
+        mbtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+
 (function(){
   var toggle = document.getElementById('langToggle');
   var current = 'vi';
