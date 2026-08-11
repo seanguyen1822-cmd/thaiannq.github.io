@@ -168,12 +168,18 @@
   .persona-card.p2 .persona-tag{ background:var(--pink-bg); color:var(--pink); }
   .persona-card h4{ font-family:'Space Grotesk',sans-serif; font-size:15px; margin:0 0 8px; }
   .persona-card p{ font-size:13px; color:var(--muted); margin:0; }
-  .journey-track{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:14px 0; }
-  .journey-step{ background:var(--card); padding:14px 12px; display:flex; flex-direction:column; gap:8px; }
-  .journey-step .js-num{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--pink); letter-spacing:.06em; text-transform:uppercase; }
-  .journey-step .js-quote{ font-size:12px; color:var(--ink); font-style:italic; line-height:1.4; }
-  .journey-step .js-pain{ font-size:11px; color:var(--coral); line-height:1.4; padding-top:6px; border-top:1px dashed var(--line); }
-  .journey-step .js-pain b{ font-family:'JetBrains Mono',monospace; font-weight:600; text-transform:uppercase; font-size:9.5px; display:block; margin-bottom:3px; }
+  .cj-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:14px 0; border:1px solid var(--line); border-radius:10px; }
+  .cj-table{ width:100%; min-width:1000px; border-collapse:collapse; }
+  .cj-table th, .cj-table td{ border:1px solid var(--line); padding:10px 11px; vertical-align:top; text-align:left; }
+  .cj-table thead tr.cj-group th{ background:var(--pink-bg); color:var(--pink); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.07em; text-transform:uppercase; text-align:center; }
+  .cj-table thead tr.cj-sub th{ background:var(--card); color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:600; text-align:center; line-height:1.3; }
+  .cj-table td.cj-label{ background:var(--paper-dim); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:9.5px; text-transform:uppercase; font-weight:700; white-space:nowrap; }
+  .cj-table td.cj-touch{ font-size:11px; color:var(--ink); line-height:1.5; min-width:120px; }
+  .cj-table td.cj-touch ul{ margin:0; padding-left:13px; }
+  .cj-table td.cj-touch li{ margin-bottom:3px; }
+  .cj-table td.cj-quote{ font-size:11px; color:var(--ink); font-style:italic; line-height:1.4; min-width:120px; }
+  .cj-table td.cj-pain{ font-size:10.5px; color:var(--coral); line-height:1.4; min-width:120px; }
+  .journey-source{ font-size:10.5px; color:var(--muted); margin:10px 0 0; line-height:1.5; }
   @media(max-width:760px){ .journey-track{ grid-template-columns:1fr; } }
 
   .findings{ margin:18px 0 0; padding:0; list-style:none; }
@@ -336,34 +342,102 @@
 
         <div class="viz-block">
           <div class="viz-title" data-en="CUSTOMER JOURNEY · TARGET CUSTOMER PERSONA">HÀNH TRÌNH KHÁCH HÀNG · CHÂN DUNG KHÁCH HÀNG MỤC TIÊU</div>
-          <div class="journey-track">
-            <div class="journey-step">
-              <span class="js-num">01 · Nhận thức</span>
-              <span class="js-quote" data-en="&amp;ldquo;I cook a lot, so I need trash bags for household waste.&amp;rdquo;">"Do nấu ăn nhiều nên cần túi rác để chứa rác thải sinh hoạt."</span>
-              <span class="js-pain"><b data-en="Touchpoint">Điểm chạm</b><span data-en="Household-goods shelf in the supermarket">Trên kệ để vật dụng gia đình trong siêu thị</span></span>
-            </div>
-            <div class="journey-step">
-              <span class="js-num">02 · Cân nhắc</span>
-              <span class="js-quote" data-en="&amp;ldquo;Which trash bag is eco-friendly and still reasonably priced?&amp;rdquo;">"Túi rác nào bảo vệ môi trường mà giá cả hợp lý?"</span>
-              <span class="js-pain"><b data-en="Pain point">Điểm đau</b><span data-en="Hard to find where the product is displayed; little brand info available">Khó tìm thấy chỗ để sản phẩm; ít thông tin về thương hiệu</span></span>
-            </div>
-            <div class="journey-step">
-              <span class="js-num">03 · Ưa thích</span>
-              <span class="js-quote" data-en="&amp;ldquo;Which brand actually makes eco-friendly trash bags?&amp;rdquo;">"Thương hiệu nào mới là thương hiệu sản xuất túi rác bảo vệ môi trường?"</span>
-              <span class="js-pain"><b data-en="Pain point">Điểm đau</b><span data-en="Price feels high relative to ordinary bags">Giá cảm thấy cao hơn so với túi rác thông thường</span></span>
-            </div>
-            <div class="journey-step">
-              <span class="js-num">04 · Hành động</span>
-              <span class="js-quote" data-en="&amp;ldquo;I need trash bags for the days I cook.&amp;rdquo;">"Cần túi rác dùng những ngày nào cũng nấu ăn."</span>
-              <span class="js-pain"><b data-en="Touchpoint">Điểm chạm</b><span data-en="Checkout">Thanh toán</span></span>
-            </div>
-            <div class="journey-step">
-              <span class="js-num">05 · Trung thành</span>
-              <span class="js-quote" data-en="&amp;ldquo;I'll wait for a supermarket sale to stock up on household goods.&amp;rdquo;">"Chờ các dịp siêu thị giảm giá để đi mua đồ sinh hoạt."</span>
-              <span class="js-pain"><b data-en="Pain point">Điểm đau</b><span data-en="Doesn't fit the household bin — may need a new bin, or bags have no lid to seal odor">Không vừa thùng rác gia dụng — phải đổi thùng, hoặc túi không có nắp giữ mùi</span></span>
-            </div>
+          <div class="cj-scroll">
+          <table class="cj-table">
+            <thead>
+              <tr class="cj-group">
+                <th></th>
+                <th colspan="2" data-en="AWARENESS">NHẬN THỨC</th>
+                <th colspan="2" data-en="CONSIDERATION">CÂN NHẮC</th>
+                <th colspan="1" data-en="PREFERENCE">ƯA THÍCH</th>
+                <th colspan="2" data-en="ACTION">HÀNH ĐỘNG</th>
+                <th colspan="2" data-en="LOYALTY">TRUNG THÀNH</th>
+              </tr>
+              <tr class="cj-sub">
+                <th></th>
+                <th data-en="Identify need">Xác định nhu cầu</th>
+                <th data-en="Assess need">Đánh giá nhu cầu</th>
+                <th data-en="Identify options/reactions">Xác định phản ứng</th>
+                <th data-en="Decide product category">Quyết định về hạng mục sản phẩm</th>
+                <th data-en="Decide on brand">Quyết định về thương hiệu</th>
+                <th data-en="Purchase">Mua sản phẩm</th>
+                <th data-en="Unpack / first use">Mở gói / sử dụng lần đầu</th>
+                <th data-en="Early usage period">Thời gian sử dụng ban đầu</th>
+                <th data-en="Later usage period">Thời gian sử dụng về sau</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cj-label" data-en="Touchpoints">Điểm chạm</td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Runs out of trash bags while cooking at home">Hết túi rác lúc nấu ăn ở nhà</li>
+                  <li data-en="Facebook community group &amp;quot;Sống xanh - Giảm nhựa&amp;quot;">Group Facebook "Sống xanh - Giảm nhựa"</li>
+                  <li data-en="Supermarket fanpage posts about reducing plastic">Fanpage siêu thị đăng bài giảm nhựa</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Household-goods shelf at supermarkets (Bách Hóa Xanh, Vinmart, Go/Big C)">Kệ đồ gia dụng tại Bách Hóa Xanh, Vinmart, Go/Big C</li>
+                  <li data-en="Short TikTok videos on household trash-bag consumption">Video TikTok ngắn về mức tiêu thụ túi rác hộ gia đình</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Product review/unboxing videos on TikTok">Video review/unbox trên TikTok</li>
+                  <li data-en="Star ratings &amp;amp; comments on Shopee / TikTok Shop">Đánh giá (sao + bình luận) trên Shopee/TikTok Shop</li>
+                  <li data-en="Facebook groups for parents and savvy shoppers">Hội nhóm Facebook mẹ bỉm sữa, tiêu dùng thông minh</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Comparison videos: regular vs. biodegradable trash bags on TikTok">Video so sánh túi rác thường vs túi phân hủy sinh học trên TikTok</li>
+                  <li data-en="Articles on green-consumption news sites">Bài viết trên trang tin tiêu dùng xanh</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Nam Thái Sơn brand fanpage">Fanpage thương hiệu Nam Thái Sơn</li>
+                  <li data-en="Brand-comparison content on TikTok/Facebook">Nội dung so sánh thương hiệu túi rác sinh học trên TikTok/Facebook</li>
+                  <li data-en="Feedback from eco-lifestyle KOCs">Feedback từ KOC tiêu dùng xanh</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Supermarket checkout counter">Quầy thanh toán tại siêu thị</li>
+                  <li data-en="Official store on Shopee / TikTok Shop">Gian hàng chính hãng trên Shopee/TikTok Shop</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Unpacking and checking bag thickness/strength at home">Trải nghiệm mở gói, kiểm tra độ dày/độ chắc túi tại nhà</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Trying the product for the first few uses">Trải nghiệm dùng thử vài lần đầu</li>
+                  <li data-en="Asking in community groups if issues arise">Hỏi ý kiến trong group cộng đồng nếu gặp vấn đề</li>
+                </ul></td>
+                <td class="cj-touch"><ul>
+                  <li data-en="Post-purchase care via Zalo OA/Fanpage">Zalo OA/Fanpage chăm sóc sau mua</li>
+                  <li data-en="Repeat-purchase offers on supermarket apps">Ưu đãi lặp lại trên app siêu thị</li>
+                  <li data-en="Community groups sharing eco-bag tips">Group chia sẻ mẹo dùng túi rác sinh học</li>
+                </ul></td>
+              </tr>
+              <tr>
+                <td class="cj-label" data-en="Quote">Câu nói</td>
+                <td class="cj-quote" data-en="&amp;ldquo;I cook a lot, so I need trash bags for household waste.&amp;rdquo;">"Do nấu ăn nhiều nên cần túi rác để chứa rác thải sinh hoạt."</td>
+                <td class="cj-quote" data-en="&amp;ldquo;We use about 3 bags a week, need a size that fits well and is sturdy.&amp;rdquo;">"Nhà mình dùng khoảng 3 túi/tuần, cần loại vừa vặn và chắc chắn."</td>
+                <td class="cj-quote" data-en="&amp;ldquo;Which trash bag is eco-friendly and still reasonably priced?&amp;rdquo;">"Túi rác nào bảo vệ môi trường mà giá cả hợp lý?"</td>
+                <td class="cj-quote" data-en="&amp;ldquo;Guess I should switch to the biodegradable kind, feels less guilty.&amp;rdquo;">"Chắc nên chuyển qua loại phân hủy sinh học, đỡ áy náy hơn."</td>
+                <td class="cj-quote" data-en="&amp;ldquo;Which brand actually makes eco-friendly trash bags?&amp;rdquo;">"Thương hiệu nào mới là thương hiệu sản xuất túi rác bảo vệ môi trường?"</td>
+                <td class="cj-quote" data-en="&amp;ldquo;I need trash bags for the days I cook.&amp;rdquo;">"Cần túi rác dùng những ngày nào cũng nấu ăn."</td>
+                <td class="cj-quote" data-en="&amp;ldquo;It looks thinner than I expected, not sure if it&amp;rsquo;s sturdy.&amp;rdquo;">"Túi có vẻ mỏng hơn mình tưởng, không biết có chắc không."</td>
+                <td class="cj-quote" data-en="&amp;ldquo;Tried it a few times, seems fine — didn&amp;rsquo;t tear with wet trash.&amp;rdquo;">"Dùng thử vài lần thấy cũng ổn, không bị rách khi đựng rác ướt."</td>
+                <td class="cj-quote" data-en="&amp;ldquo;I&amp;rsquo;ll wait for a supermarket sale to stock up on household goods.&amp;rdquo;">"Chờ các dịp siêu thị giảm giá để đi mua đồ sinh hoạt."</td>
+              </tr>
+              <tr>
+                <td class="cj-label" data-en="Pain point">Điểm đau</td>
+                <td class="cj-pain">—</td>
+                <td class="cj-pain">—</td>
+                <td class="cj-pain" data-en="Hard to find where the product is displayed; little brand info available">Khó tìm thấy chỗ để sản phẩm; ít thông tin về thương hiệu</td>
+                <td class="cj-pain">—</td>
+                <td class="cj-pain" data-en="Price feels high relative to ordinary bags">Giá cảm thấy cao hơn so với túi rác thông thường</td>
+                <td class="cj-pain">—</td>
+                <td class="cj-pain" data-en="Worried about durability relative to the price paid">Lo lắng về độ bền so với kỳ vọng giá</td>
+                <td class="cj-pain">—</td>
+                <td class="cj-pain" data-en="Doesn't fit the household bin — may need a new bin, or bags have no lid to seal odor">Không vừa thùng rác gia dụng — phải đổi thùng, hoặc túi không có nắp giữ mùi</td>
+              </tr>
+            </tbody>
+          </table>
           </div>
-          <p data-en="This is exactly where the recommended solution lands: the biggest pain points sit at Consideration and Loyalty — precisely the two stages the in-store signage and Gen-Z campaign are designed to fix.">Đây chính xác là nơi giải pháp đề xuất nhắm tới: điểm đau lớn nhất nằm ở giai đoạn Cân nhắc và Trung thành — đúng 2 giai đoạn mà bảng thông tin tại điểm bán và chiến dịch Gen Z được thiết kế để xử lý.</p>
+          <p data-en="This is exactly where the recommended solution lands: the biggest pain points sit at Consideration and Preference — precisely the two stages the in-store signage and Gen-Z campaign are designed to fix.">Đây chính xác là nơi giải pháp đề xuất nhắm tới: điểm đau lớn nhất nằm ở giai đoạn Cân nhắc và Ưa thích — đúng những giai đoạn mà bảng thông tin tại điểm bán và chiến dịch Gen Z được thiết kế để xử lý.</p>
+          <p class="journey-source" data-en="Touchpoints informed by Vietnam consumer behavior data: 48% of Vietnamese consumers read online reviews before buying, 42% use social media to verify product info, 39% regularly watch review videos on YouTube/TikTok/Facebook (DoubleVerify Global Insights, 2025); 86% are willing to pay more for environmentally responsible brands, and 62% of purchase decisions are influenced by a brand's environmental commitment (Nielsen, 2021).">Điểm chạm được xây dựng dựa trên dữ liệu hành vi tiêu dùng Việt Nam: 48% người Việt đọc đánh giá trực tuyến trước khi mua, 42% dùng mạng xã hội để xác thực thông tin sản phẩm, 39% thường xem video review trên YouTube/TikTok/Facebook (DoubleVerify Global Insights, 2025); 86% sẵn sàng trả giá cao hơn cho thương hiệu có trách nhiệm với môi trường, 62% quyết định mua bị ảnh hưởng bởi cam kết môi trường của thương hiệu (Nielsen, 2021).</p>
         </div>
 
 
