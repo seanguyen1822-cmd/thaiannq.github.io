@@ -436,7 +436,7 @@
   }
   .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
   .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
-  .case-body{padding:32px 34px;}
+  .case-body{padding:32px 34px;min-width:0;}
   .tldr-line{ font-size:12.5px; color:var(--ink); margin-bottom:16px; padding-bottom:10px; border-bottom:1px dashed var(--line); line-height:1.55; }
   .tldr-line b{ font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.08em; margin-right:8px; color:var(--teal); }
   .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
@@ -964,6 +964,12 @@
     transition:color .15s;
   }
   .back-link:hover{ color:var(--blue); }
+  .rc-table{ width:100%; border-collapse:collapse; margin:14px 0; }
+  .rc-table th, .rc-table td{ border:1px solid var(--line); padding:10px 12px; vertical-align:top; text-align:left; font-size:12.5px; color:var(--ink); line-height:1.55; }
+  .rc-table thead th{ background:var(--teal-dim); color:var(--teal); font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; }
+  .rc-table td.rc-cadence{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:11px; color:var(--teal); white-space:nowrap; }
+  .rc-table td.rc-audience{ font-size:11.5px; color:var(--muted); white-space:nowrap; }
+  .cj-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 </style>
 </head>
 <body>
@@ -1190,6 +1196,38 @@
                 <div class="eis-name" data-en="Later / drop (neither urgent nor important right now)">SAU / LOẠI BỎ (chưa khẩn cấp, chưa quan trọng)</div>
                 <p data-en="Auditing all remaining 6 funnel steps — the scarcity principle already ruled this out as the wrong first move.">Rà soát toàn bộ 6 bước phễu còn lại — nguyên lý khan hiếm đã xác định đây không phải bước đi đầu tiên đúng.</p>
               </div>
+            </div>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" data-en="REPORTING CADENCE · DAILY / WEEKLY / MONTHLY">NHỊP BÁO CÁO · DAILY / WEEKLY / MONTHLY</div>
+            <div class="cj-scroll">
+            <table class="rc-table">
+              <thead>
+                <tr>
+                  <th data-en="Cadence">Tần suất</th>
+                  <th data-en="Audience">Đối tượng</th>
+                  <th data-en="Content">Nội dung</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="rc-cadence" data-en="DAILY">DAILY</td>
+                  <td class="rc-audience" data-en="BI/Data, Support">BI/Data, Support</td>
+                  <td data-en="Overall SR and by category (Billing, Shopping, Marketplace, FnB, Telco, Traveling, Movies) vs. previous day · alert flags when SR drops past threshold · 3DS/OTP authentication failure rate · transactions affected by the funnel step 1→2 system issue · today's action items.">SR tổng &amp; theo category (Billing, Shopping, Marketplace, FnB, Telco, Traveling, Movies) so với hôm trước · cờ cảnh báo khi SR giảm vượt ngưỡng · tỷ lệ lỗi xác thực 3DS/OTP · số giao dịch bị ảnh hưởng bởi lỗi hệ thống ở bước 1→2 funnel · action item trong ngày</td>
+                </tr>
+                <tr>
+                  <td class="rc-cadence" data-en="WEEKLY">WEEKLY</td>
+                  <td class="rc-audience" data-en="Product/UX, Engineering, Management">Product/UX, Engineering, Management</td>
+                  <td data-en="Weekly SR trend vs. SLA target · root-cause breakdown (USER_FACTORS / EXTERNAL_PARTNERS / SYSTEM_ISSUES via the Bowtie model) · revenue at risk (especially Billing — a Cash Cow under threat) · Engineering fix progress · items to escalate.">Xu hướng SR theo tuần so với target SLA · phân tích root cause (USER_FACTORS/EXTERNAL_PARTNERS/SYSTEM_ISSUES qua mô hình Bowtie) · doanh thu rủi ro (đặc biệt Billing – Cash Cow đang bị đe dọa) · tiến độ fix từ Engineering · điểm cần escalate</td>
+                </tr>
+                <tr>
+                  <td class="rc-cadence" data-en="MONTHLY">MONTHLY</td>
+                  <td class="rc-audience" data-en="Management">Management</td>
+                  <td data-en="Month-over-month SR trend · updated BCG Matrix position per category (still Star/Cash Cow/Question Mark/Dog, or shifted) · monthly retention &amp; cohort · cost-of-fix vs. value-at-risk assessment · next month's priorities.">Xu hướng SR theo tháng (MoM) · cập nhật vị trí BCG Matrix từng category (còn Star/Cash Cow/Question Mark/Dog hay đã dịch chuyển) · retention &amp; cohort theo tháng · đánh giá cost-of-fix vs value-at-risk · đề xuất ưu tiên tháng tới</td>
+                </tr>
+              </tbody>
+            </table>
             </div>
           </div>
         </div>
