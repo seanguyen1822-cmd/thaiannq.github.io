@@ -436,7 +436,7 @@
   }
   .tag.tag-coral{ background:var(--coral-bg); color:var(--coral); }
   .tag.tag-violet{ background:var(--violet-bg); color:var(--violet); }
-  .case-body{padding:32px 34px;}
+  .case-body{padding:32px 34px;min-width:0;}
   .tldr-line{ font-size:12.5px; color:var(--ink); margin-bottom:16px; padding-bottom:10px; border-bottom:1px dashed var(--line); line-height:1.55; }
   .tldr-line b{ font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.08em; margin-right:8px; color:var(--coral); }
   .case-body h3{font-size:21px;margin-bottom:14px;position:relative;padding-bottom:14px;}
@@ -963,6 +963,12 @@
     transition:color .15s;
   }
   .back-link:hover{ color:var(--blue); }
+  .rc-table{ width:100%; border-collapse:collapse; margin:14px 0; }
+  .rc-table th, .rc-table td{ border:1px solid var(--line); padding:10px 12px; vertical-align:top; text-align:left; font-size:12.5px; color:var(--ink); line-height:1.55; }
+  .rc-table thead th{ background:var(--coral-bg); color:var(--coral); font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; }
+  .rc-table td.rc-cadence{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:11px; color:var(--coral); white-space:nowrap; }
+  .rc-table td.rc-audience{ font-size:11.5px; color:var(--muted); white-space:nowrap; }
+  .cj-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 </style>
 </head>
 <body>
@@ -1190,6 +1196,38 @@
                 <div class="eis-name" data-en="Later / drop (neither urgent nor important right now)">SAU / LOẠI BỎ (chưa khẩn cấp, chưa quan trọng)</div>
                 <p data-en="Investing more in Instagram — it's a stable Cash Cow already; no change needed.">Đầu tư thêm vào Instagram — đang là Bò sữa ổn định, không cần thay đổi.</p>
               </div>
+            </div>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" data-en="REPORTING CADENCE · DAILY / WEEKLY / MONTHLY">NHỊP BÁO CÁO · DAILY / WEEKLY / MONTHLY</div>
+            <div class="cj-scroll">
+            <table class="rc-table">
+              <thead>
+                <tr>
+                  <th data-en="Cadence">Tần suất</th>
+                  <th data-en="Audience">Đối tượng</th>
+                  <th data-en="Content">Nội dung</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="rc-cadence" data-en="DAILY">DAILY</td>
+                  <td class="rc-audience" data-en="Marketing / media buying">Marketing/Media buying</td>
+                  <td data-en="Spend by channel (Facebook, Instagram, Pinterest...) vs. planned budget · Impressions/Clicks/CTR/Conversions by channel · CPA by channel · alert flags for pacing drift or CPA exceeding threshold.">Spend theo kênh (Facebook, Instagram, Pinterest...) so với ngân sách kế hoạch · Impression/Click/CTR/Conversion theo kênh · CPA theo kênh · cờ cảnh báo lệch pacing hoặc CPA vượt ngưỡng</td>
+                </tr>
+                <tr>
+                  <td class="rc-cadence" data-en="WEEKLY">WEEKLY</td>
+                  <td class="rc-audience" data-en="Marketing Manager">Marketing Manager</td>
+                  <td data-en="Weighted Score by channel (Reach/Engagement/Conversion/Cost-efficiency) · this week vs. last week comparison · proposed budget reallocation · standout channels vs. channels to watch.">Weighted Score theo kênh (Reach/Engagement/Conversion/Cost-efficiency) · so sánh tuần này vs tuần trước · đề xuất điều chỉnh phân bổ ngân sách · kênh nổi bật/kênh cần theo dõi</td>
+                </tr>
+                <tr>
+                  <td class="rc-cadence" data-en="MONTHLY">MONTHLY</td>
+                  <td class="rc-audience" data-en="Marketing Director">Marketing Director</td>
+                  <td data-en="Updated BCG Matrix position per channel · total measured gain vs. cost-of-analysis (analysis ROI review) · harvest/invest decision by channel · next month's budget plan.">Cập nhật vị trí BCG Matrix từng kênh · tổng gain đo được vs cost-of-analysis (đánh giá ROI phân tích) · quyết định harvest/invest theo kênh · kế hoạch ngân sách tháng tới</td>
+                </tr>
+              </tbody>
+            </table>
             </div>
           </div>
         </div>
