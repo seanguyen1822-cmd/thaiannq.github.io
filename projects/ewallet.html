@@ -1082,6 +1082,43 @@
           <p data-en="A new finding this view surfaces: Shopping and Marketplace — not just Billing — are worth watching. They're currently healthy, but if their SR ever starts sliding the way Billing's did, they'd be just as costly to lose.">Một phát hiện mới mà góc nhìn này mang lại: Shopping và Marketplace — không chỉ Billing — cũng đáng được theo dõi. Chúng hiện đang ổn định, nhưng nếu SR của chúng bắt đầu trượt dốc như Billing, thiệt hại sẽ tương đương.</p>
         </div>
 
+        <div class="viz-block">
+          <div class="viz-title" data-en="STATISTICAL SIGNIFICANCE TEST · CHI-SQUARE">KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ · CHI-SQUARE TEST</div>
+          <span class="assump-tag" data-en="H&amp;#8320;: failure rate is equal across categories · Chi-square test of independence on 15,551 Payment transactions">H₀: tỷ lệ thất bại bằng nhau giữa các category · Chi-square test of independence trên 15.551 giao dịch Payment</span>
+          <table class="rc-table">
+            <thead><tr><th data-en="Category">Category</th><th data-en="Failed / Total">Thất bại / Tổng</th><th data-en="Failure rate">Tỷ lệ thất bại</th></tr></thead>
+            <tbody>
+              <tr><td>Billing</td><td>1,276 / 5,700</td><td>22.39%</td></tr>
+              <tr><td>Telco</td><td>202 / 1,043</td><td>19.37%</td></tr>
+              <tr><td>Movies</td><td>67 / 384</td><td>17.45%</td></tr>
+              <tr><td>Traveling</td><td>66 / 407</td><td>16.22%</td></tr>
+              <tr><td>FnB</td><td>269 / 1,673</td><td>16.08%</td></tr>
+              <tr><td>Transportation</td><td>52 / 344</td><td>15.12%</td></tr>
+              <tr><td>Marketplace</td><td>324 / 2,250</td><td>14.40%</td></tr>
+              <tr><td>Shopping</td><td>511 / 3,750</td><td>13.63%</td></tr>
+            </tbody>
+          </table>
+          <p data-en="&amp;chi;&amp;sup2; = 151.95, df = 7, p = 1.58 &amp;times; 10&amp;#8315;&amp;sup2;&amp;#8313;. With p &amp;#8810; 0.05, H&amp;#8320; is rejected with very strong evidence — the difference in failure rate across categories is not random noise, and Billing's elevated failure rate is statistically confirmed, not a sampling artifact.">χ² = 151,95, df = 7, p = 1,58 × 10⁻²⁹. Với p ≪ 0,05, bác bỏ H₀ với bằng chứng rất mạnh — sự khác biệt tỷ lệ thất bại giữa các category không phải nhiễu ngẫu nhiên, và mức thất bại cao của Billing được xác nhận bằng thống kê, không phải do lấy mẫu ngẫu nhiên.</p>
+          <div class="fin-grid">
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Billing SR, Jul &amp;rarr; Aug">SR Billing, T7 → T8</div>
+              <div class="fin-value">86.32% → 71.81%</div>
+              <div class="fin-note" data-en="&amp;chi;&amp;sup2;=164.77, p=1.03&amp;times;10&amp;#8315;&amp;sup3;&amp;sup7;">χ²=164,77, p=1,03×10⁻³⁷</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="System-wide SR, Jul &amp;rarr; Aug">SR toàn hệ thống, T7 → T8</div>
+              <div class="fin-value">86.44% → 79.29%</div>
+              <div class="fin-note" data-en="&amp;chi;&amp;sup2;=130.88, p=2.63&amp;times;10&amp;#8315;&amp;sup3;&amp;#8304;">χ²=130,88, p=2,63×10⁻³⁰</div>
+            </div>
+            <div class="fin-cell">
+              <div class="fin-label" data-en="Estimated revenue lost">Doanh thu ước tính đã mất</div>
+              <div class="fin-value">~$113,110</div>
+              <div class="fin-note" data-en="Aug, if Jul's Billing SR had held — ~496 fewer successful transactions">tháng 8, nếu SR Billing giữ mức T7 — thiếu ~496 giao dịch thành công</div>
+            </div>
+          </div>
+          <p data-en="This is the difference between a chart that looks concerning and a claim that holds up in a stakeholder review: the p-value confirms the SR drop is a real signal, not sampling noise — which is what justifies prioritizing engineering effort on Billing specifically.">Đây là khác biệt giữa một biểu đồ trông có vẻ đáng lo và một luận điểm đứng vững khi trình bày với stakeholder: p-value xác nhận mức sụt SR là tín hiệu thật, không phải nhiễu do lấy mẫu — đây chính là cơ sở để ưu tiên nguồn lực kỹ thuật vào Billing.</p>
+        </div>
+
         <div class="field-label" style="margin:20px 0 6px" data-en="Live Power BI report">Report Power BI trực tiếp</div>
         <div class="pbi-embed-wrap">
           <iframe title="Project 2 v2" src="https://app.powerbi.com/view?r=eyJrIjoiODdmOTNiZjctYmQ3Ny00YjljLWEyZGYtODFjYWE5ZTI4Njc3IiwidCI6ImJlODMyOWE3LTcyMTgtNDlhMy05YWMxLWQ3Yjk1NDU2M2YzOSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
