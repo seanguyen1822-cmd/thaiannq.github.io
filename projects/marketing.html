@@ -1087,6 +1087,21 @@
           <p data-en="The BCG framing and the regression-based reallocation plan point to the exact same action independently — which is a useful cross-check, not a coincidence: both are reading the same underlying performance gap from two different angles.">Cách nhìn theo BCG và kế hoạch tái phân bổ dựa trên hồi quy đi đến cùng một hành động một cách độc lập — đây là một phép kiểm tra chéo hữu ích, không phải trùng hợp: cả hai đều đang đọc ra cùng một khoảng cách hiệu suất, chỉ từ hai góc nhìn khác nhau.</p>
         </div>
 
+        <div class="viz-block">
+          <div class="viz-title" data-en="STATISTICAL SIGNIFICANCE TEST · SPEND–REVENUE REGRESSION">KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ · HỒI QUY SPEND–REVENUE</div>
+          <span class="assump-tag" data-en="H&amp;#8320;: daily spend has no effect on daily revenue (&amp;beta;=0) · OLS regression per channel, n=275 days each">H₀: chi tiêu hàng ngày không ảnh hưởng đến doanh thu (β=0) · Hồi quy OLS riêng từng kênh, n=275 ngày/kênh</span>
+          <table class="rc-table">
+            <thead><tr><th data-en="Channel">Kênh</th><th data-en="&amp;beta; (marginal ROAS)">β (ROAS biên)</th><th>p-value</th><th>R²</th></tr></thead>
+            <tbody>
+              <tr><td>Pinterest</td><td>13.71</td><td>1.66 × 10⁻⁴³</td><td>0.504</td></tr>
+              <tr><td>Instagram</td><td>4.21</td><td>7.26 × 10⁻²⁵</td><td>0.322</td></tr>
+              <tr><td>Facebook</td><td>0.97</td><td>5.28 × 10⁻⁵</td><td>0.058</td></tr>
+            </tbody>
+          </table>
+          <p data-en="All three channels reject H&amp;#8320; (p&amp;lt;0.05) — spend has a statistically significant effect on revenue everywhere. But &amp;beta; is what actually matters for the budget decision: every extra £1 spent on Pinterest returns £13.71 in revenue on average, about 3.3&amp;times; Instagram and 14&amp;times; Facebook, whose &amp;beta; near 1.0 signals a channel near break-even at the margin. Pinterest's R&amp;sup2; (0.504) is also the highest — spend explains revenue there far better than at Facebook (R&amp;sup2;=0.058), reinforcing that Facebook has saturated.">Cả 3 kênh đều bác bỏ H₀ (p&lt;0,05) — chi tiêu có ảnh hưởng có ý nghĩa thống kê đến doanh thu ở mọi kênh. Nhưng β mới là yếu tố quyết định cho bài toán ngân sách: mỗi £1 chi thêm cho Pinterest mang lại trung bình £13,71 doanh thu, gấp ~3,3 lần Instagram và ~14 lần Facebook — kênh có β gần 1,0, dấu hiệu đã gần hòa vốn biên. R² của Pinterest (0,504) cũng cao nhất — chi tiêu giải thích doanh thu tốt hơn hẳn so với ở Facebook (R²=0,058), củng cố nhận định Facebook đã bão hòa.</p>
+          <p data-en="This is a separate check from the quadratic curve below: the curve finds where Pinterest's optimal spend point sits, while this test confirms the underlying Spend&amp;rarr;Revenue relationship itself is statistically real for all three channels — with Pinterest's effect being the strongest and most reliable of the three.">Đây là một kiểm định riêng so với đường cong bậc hai bên dưới: đường cong tìm điểm chi tiêu tối ưu của Pinterest, còn kiểm định này xác nhận mối quan hệ Spend→Revenue bản thân nó có thật về mặt thống kê ở cả 3 kênh — với Pinterest có mức ảnh hưởng mạnh và đáng tin cậy nhất trong ba kênh.</p>
+        </div>
+
         <div class="frame browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><img class="case-img" src="../assets/marketing-pinterest-curve.png" alt="Mô hình hồi quy Spend–Revenue cho Pinterest"></div>
         <p class="case-img-caption" data-en="Quadratic regression model — finding Pinterest&amp;rsquo;s optimal spend point">Mô hình hồi quy bậc hai — tìm điểm chi tiêu tối ưu cho Pinterest</p>
 
