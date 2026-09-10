@@ -1246,6 +1246,42 @@
             </table>
             </div>
           </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" style="color:var(--coral);" data-en="SQL · CHANNEL PERFORMANCE — CTR / CPA / ROAS">SQL · HIỆU SUẤT THEO KÊNH — CTR / CPA / ROAS</div>
+            <pre style="margin:0; overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:16px;"><code style="font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.6; color:var(--ink); white-space:pre;">SELECT
+    channel,
+    SUM(spend) AS total_spend,
+    SUM(conversions) AS total_conversions,
+    SUM(revenue) AS total_revenue,
+    FORMAT(CAST(SUM(clicks) AS FLOAT) / NULLIF(SUM(impressions), 0), 'p') AS ctr,
+    CAST(SUM(spend) / NULLIF(SUM(conversions), 0) AS DECIMAL(18,2)) AS cpa,
+    CAST(SUM(revenue) / NULLIF(SUM(spend), 0) AS DECIMAL(18,2)) AS roas
+FROM campaign_performance
+GROUP BY channel
+ORDER BY roas DESC;</code></pre>
+          </div>
+
+          <div class="viz-block" style="margin-top:20px;">
+            <div class="viz-title" style="color:var(--coral);" data-en="SQL · BCG MATRIX INPUT — SPEND SHARE VS ROAS">SQL · DỮ LIỆU ĐẦU VÀO CHO MA TRẬN BCG</div>
+            <pre style="margin:0; overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:16px;"><code style="font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.6; color:var(--ink); white-space:pre;">WITH channel_totals AS (
+    SELECT channel, SUM(spend) AS channel_spend, SUM(revenue) AS channel_revenue
+    FROM campaign_performance
+    GROUP BY channel
+),
+grand_total AS (SELECT SUM(channel_spend) AS total_spend FROM channel_totals)
+SELECT
+    c.channel,
+    FORMAT(c.channel_spend / g.total_spend, 'p') AS spend_share,
+    CAST(c.channel_revenue / NULLIF(c.channel_spend, 0) AS DECIMAL(18,2)) AS roas
+FROM channel_totals c
+CROSS JOIN grand_total g
+ORDER BY roas DESC;</code></pre>
+          </div>
+
+          <p style="margin-top:16px;">
+            <a class="tag tag-coral" href="https://github.com/seanguyen1822-cmd/thaiannq.github.io/blob/main/sql/marketing_sql_queries.sql" target="_blank" rel="noopener" style="text-decoration:none;" data-en="View all 4 queries on GitHub &amp;rarr;">Xem toàn bộ 4 truy vấn trên GitHub →</a>
+          </p>
         </div>
       </div>
     </article>
