@@ -1268,49 +1268,6 @@
             </table>
             </div>
           </div>
-
-          <div class="viz-block" style="margin-top:20px;">
-            <div class="viz-title" data-en="SQL · MONTHLY SUCCESS RATE BY PRODUCT GROUP">SQL · SUCCESS RATE THEO THÁNG THEO PRODUCT GROUP</div>
-            <pre style="margin:0; overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:16px;"><code style="font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.6; color:var(--ink); white-space:pre;">WITH monthly_sr AS (
-    SELECT
-        product_group,
-        DATEPART(MONTH, transaction_date) AS txn_month,
-        COUNT(*) AS total_orders,
-        SUM(CASE WHEN status = 'Success' THEN 1 ELSE 0 END) AS success_orders,
-        CAST(SUM(CASE WHEN status = 'Success' THEN 1 ELSE 0 END) AS FLOAT)
-            / COUNT(*) AS success_rate
-    FROM transactions
-    GROUP BY product_group, DATEPART(MONTH, transaction_date)
-)
-SELECT
-    product_group, txn_month, total_orders,
-    FORMAT(success_rate, 'p') AS success_rate,
-    FORMAT(success_rate - LAG(success_rate) OVER (
-        PARTITION BY product_group ORDER BY txn_month), 'p') AS mom_change
-FROM monthly_sr
-ORDER BY product_group, txn_month;</code></pre>
-          </div>
-
-          <div class="viz-block" style="margin-top:20px;">
-            <div class="viz-title" data-en="SQL · ROOT CAUSE — FAILURE REASON BREAKDOWN">SQL · ROOT CAUSE — % LỖI THEO LÝ DO</div>
-            <pre style="margin:0; overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:16px;"><code style="font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.6; color:var(--ink); white-space:pre;">WITH failed_txns AS (
-    SELECT status AS failure_reason, COUNT(*) AS failure_count
-    FROM transactions
-    WHERE status &lt;&gt; 'Success'
-    GROUP BY status
-),
-total_failed AS (SELECT SUM(failure_count) AS total FROM failed_txns)
-SELECT
-    f.failure_reason, f.failure_count,
-    FORMAT(CAST(f.failure_count AS FLOAT) / t.total, 'p') AS pct_of_failures
-FROM failed_txns f
-CROSS JOIN total_failed t
-ORDER BY f.failure_count DESC;</code></pre>
-          </div>
-
-          <p style="margin-top:16px;">
-            <a class="tag" href="https://github.com/seanguyen1822-cmd/thaiannq.github.io/blob/main/ewallet_sql_queries.sql" target="_blank" rel="noopener" style="text-decoration:none;" data-en="View all 5 queries on GitHub &amp;rarr;">Xem toàn bộ 5 truy vấn trên GitHub →</a>
-          </p>
         </div>
       </div>
     </article>
