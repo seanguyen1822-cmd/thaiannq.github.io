@@ -1215,6 +1215,44 @@
   </div>
 </section>
 
+<section id="sql">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="field-label" data-en="SQL">SQL</span>
+        <h2 data-en="Querying the data directly">Truy vấn dữ liệu trực tiếp bằng SQL</h2>
+      </div>
+    </div>
+    <p style="color:var(--muted); font-size:14.5px; max-width:640px; margin:0 0 24px; line-height:1.6;" data-en="Beyond Power BI/DAX, the two anchor projects are also reproduced in plain SQL &amp;mdash; CTEs, window functions, JOINs and CASE WHEN &amp;mdash; querying Success Rate and channel performance directly against the transaction data.">Bên cạnh Power BI/DAX, 2 dự án chính (E-wallet, Marketing) còn được tái hiện bằng SQL thuần — CTE, window function, JOIN, CASE WHEN — để phân tích Success Rate và hiệu suất kênh trực tiếp trên dữ liệu giao dịch.</p>
+
+    <div class="project-grid">
+      <div class="project-card reveal">
+        <div class="tool-line">SQL Server · T-SQL</div>
+        <h3 data-en="E-wallet — Success Rate &amp; Root Cause">E-wallet — Success Rate &amp; Root Cause</h3>
+        <pre style="margin:0 0 16px; overflow-x:auto; background:var(--paper-dim); border:1px solid var(--line); border-radius:8px; padding:14px;"><code style="font-family:'JetBrains Mono',monospace; font-size:11.5px; line-height:1.55; color:var(--ink); white-space:pre;">SELECT product_group,
+    FORMAT(success_rate
+      - LAG(success_rate) OVER (
+        PARTITION BY product_group
+        ORDER BY txn_month), 'p') AS mom_change
+FROM monthly_sr ...</code></pre>
+        <a class="project-card-link" href="https://github.com/seanguyen1822-cmd/thaiannq.github.io/blob/main/sql/ewallet_sql_queries.sql" target="_blank" rel="noopener" data-en="View 5 queries on GitHub &amp;rarr;">Xem 5 truy vấn trên GitHub →</a>
+      </div>
+
+      <div class="project-card reveal accent-coral">
+        <div class="tool-line">SQL Server · T-SQL</div>
+        <h3 data-en="Marketing — Channel Performance &amp; BCG">Marketing — Hiệu suất kênh &amp; BCG</h3>
+        <pre style="margin:0 0 16px; overflow-x:auto; background:var(--paper-dim); border:1px solid var(--line); border-radius:8px; padding:14px;"><code style="font-family:'JetBrains Mono',monospace; font-size:11.5px; line-height:1.55; color:var(--ink); white-space:pre;">SELECT channel,
+    CAST(SUM(revenue) / NULLIF(SUM(spend), 0)
+      AS DECIMAL(18,2)) AS roas
+FROM campaign_performance
+GROUP BY channel
+ORDER BY roas DESC;</code></pre>
+        <a class="project-card-link" href="https://github.com/seanguyen1822-cmd/thaiannq.github.io/blob/main/sql/marketing_sql_queries.sql" target="_blank" rel="noopener" data-en="View 4 queries on GitHub &amp;rarr;">Xem 4 truy vấn trên GitHub →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="alt" id="skills">
   <div class="wrap">
     <div class="section-head">
@@ -1242,7 +1280,7 @@
       <div class="skill-cell c-gold">
         <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 11v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/></svg></div>
         <div class="field-label" data-en="Data">Dữ liệu</div>
-        <div class="items" data-en="Excel&lt;br&gt;Data Cleaning&lt;br&gt;Bilingual reporting">Excel<br>Data Cleaning<br>Reporting song ngữ</div>
+        <div class="items" data-en="Excel&lt;br&gt;SQL (CTE, Window Functions, JOIN)&lt;br&gt;Data Cleaning&lt;br&gt;Bilingual reporting">Excel<br>SQL (CTE, Window Functions, JOIN)<br>Data Cleaning<br>Reporting song ngữ</div>
       </div>
       <div class="skill-cell c-orange">
         <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
