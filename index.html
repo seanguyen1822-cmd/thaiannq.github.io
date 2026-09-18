@@ -1339,11 +1339,11 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="field-label" data-en="SQL">SQL</span>
-        <h2 data-en="Querying the data directly">Truy vấn dữ liệu trực tiếp bằng SQL</h2>
+        <span class="field-label" data-en="SQL &amp;amp; Python">SQL &amp; Python</span>
+        <h2 data-en="Querying and modeling the data directly">Truy vấn &amp; mô hình hóa dữ liệu trực tiếp</h2>
       </div>
     </div>
-    <p style="color:var(--muted); font-size:14.5px; max-width:640px; margin:0 0 24px; line-height:1.6;" data-en="Beyond Power BI/DAX, the two anchor projects are also reproduced in plain SQL &amp;mdash; CTEs, window functions, JOINs and CASE WHEN &amp;mdash; querying Success Rate and channel performance directly against the transaction data.">Bên cạnh Power BI/DAX, 2 dự án chính (E-wallet, Marketing) còn được tái hiện bằng SQL thuần — CTE, window function, JOIN, CASE WHEN — để phân tích Success Rate và hiệu suất kênh trực tiếp trên dữ liệu giao dịch.</p>
+    <p style="color:var(--muted); font-size:14.5px; max-width:640px; margin:0 0 24px; line-height:1.6;" data-en="Beyond Power BI/DAX, the two anchor projects are also reproduced in plain SQL &amp;mdash; CTEs, window functions, JOINs and CASE WHEN &amp;mdash; querying Success Rate and channel performance directly against the transaction data. Alongside that, a Python system computes a macroeconomic stress index from rolling z-scores and triggers automated alerts.">Bên cạnh Power BI/DAX, 2 dự án chính (E-wallet, Marketing) còn được tái hiện bằng SQL thuần — CTE, window function, JOIN, CASE WHEN — để phân tích Success Rate và hiệu suất kênh trực tiếp trên dữ liệu giao dịch. Song song đó là một hệ thống Python tính chỉ số căng thẳng vĩ mô từ rolling z-score và tự động cảnh báo.</p>
 
     <div class="project-grid">
       <div class="project-card reveal">
@@ -1368,6 +1368,24 @@ FROM campaign_performance
 GROUP BY channel
 ORDER BY roas DESC;</code></pre>
         <a class="project-card-link" href="https://github.com/seanguyen1822-cmd/thaiannq.github.io/blob/main/marketing_sql_queries.sql" target="_blank" rel="noopener" data-en="View 4 queries on GitHub &amp;rarr;">Xem 4 truy vấn trên GitHub →</a>
+      </div>
+
+      <div class="project-card reveal accent-gold">
+        <div class="tool-line">Python · pandas · NumPy</div>
+        <h3 data-en="Macro Early Warning System — Rolling Z-score">Macro Early Warning System — Rolling Z-score</h3>
+        <pre style="margin:0 0 16px; overflow-x:auto; background:var(--paper-dim); border:1px solid var(--line); border-radius:8px; padding:14px;"><code style="font-family:'JetBrains Mono',monospace; font-size:11.5px; line-height:1.55; color:var(--ink); white-space:pre;">def compute_rolling_msi(df, window=36, weights=WEIGHTS):
+    """MSI = w_cpi*Z_CPI + w_rate*Z_Rate + w_fx*Z_FX - w_pmi*Z_PMI"""
+    df["Z_CPI"]  = _rolling_z(df["CPI_YOY"], window)
+    df["Z_Rate"] = _rolling_z(df["Interbank_Rate"], window)
+    df["Z_FX"]   = _rolling_z(df["USDVND_Change"], window)
+    df["Z_PMI"]  = _rolling_z(df["PMI"], window)
+
+    df["MSI"] = (weights["cpi"] * df["Z_CPI"]
+        + weights["interbank_rate"] * df["Z_Rate"]
+        + weights["usdvnd_change"] * df["Z_FX"]
+        - weights["pmi"] * df["Z_PMI"])
+    return df</code></pre>
+        <a class="project-card-link" href="https://github.com/seanguyen1822-cmd/thaiannq.github.io/blob/main/macro_early_warning.py" target="_blank" rel="noopener" data-en="View full script on GitHub &amp;rarr;">Xem script đầy đủ trên GitHub →</a>
       </div>
     </div>
   </div>
